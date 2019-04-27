@@ -1,8 +1,8 @@
 <?php
 /**
- * Yatra frontend setup
+ * Simple_Google_Adsense frontend setup
  *
- * @package Yatra
+ * @package Simple_Google_Adsense
  * @since   1.0.0
  */
 
@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
 /**
  * Main Simple_Google_Adsense_Frontend Class.
  *
- * @class Yatra
+ * @class Simple_Google_Adsense
  */
 final class Simple_Google_Adsense_Frontend
 {
@@ -43,7 +43,7 @@ final class Simple_Google_Adsense_Frontend
     }
 
     /**
-     * Yatra Constructor.
+     * Simple_Google_Adsense Constructor.
      */
     public function __construct()
     {

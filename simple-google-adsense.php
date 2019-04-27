@@ -37,7 +37,7 @@ if (!defined('SIMPLE_GOOGLE_ADSENSE_PLUGIN_DIR')) {
 }
 
 
-// Include the main Yatra class.
+// Include the main Simple_Google_Adsense class.
 if (!class_exists('Simple_Google_Adsense')) {
     include_once dirname(__FILE__) . '/includes/class-simple-google-adsense.php';
 }

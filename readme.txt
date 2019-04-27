@@ -27,9 +27,9 @@ Add google adsense code to your WordPress site. No need to configure too much, j
 
 = Using FTP =
 
-1. Download yatra.zip
-2. Extract the yatra directory to your computer
-3. Upload the yatra directory to the /wp-content/plugins/ directory
+1. Download simple-google-adsense.zip
+2. Extract the simple-google-adsense directory to your computer
+3. Upload the simple-google-adsense directory to the /wp-content/plugins/ directory
 4. Activate the plugin in the Plugin dashboard
 
 == Changelog ==
