@@ -2,7 +2,7 @@
 Contributors: mantrabrain
 Tags: google, google adsense, adsense
 Requires at least: 4.9
-Tested up to: 5.1.1
+Tested up to: 5.1.2
 Requires PHP: 5.2.4
 Stable tag: 1.0.0
 License: GPLv2 or later
