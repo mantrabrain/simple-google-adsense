@@ -1,10 +1,10 @@
-=== Simple Google AdSense ===
+=== Simple Google AdSense - Simple & Best Google AdSense Plugin for WordPress ===
 Contributors: mantrabrain
-Tags: google, google adsense, adsense
+Tags: google,adsense, google ad,
 Requires at least: 4.9
-Tested up to: 5.1.2
+Tested up to: 5.2.0
 Requires PHP: 5.2.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,24 @@ Add google adsense code to your WordPress site. No need to configure too much, j
 == Description ==
 
 Add google adsense code to your WordPress site. No need to configure too much, just put publisher ID from Settings->Google AdSense.
+
+=== What is Google AdSense Auto Ads? ===
+
+Auto Ads is an improved monetization method in Google AdSense. It uses machine learning to make smart ad placement for your website. When this is enabled, Google will analyze your site and show ads only when it thinks they will perform well and provide a good user experience.
+
+=== How to Use Simple Google AdSense ===
+
+1. Install and Activate the *Simple Google AdSense* plugin
+1. Login to Google AdSense account
+1. Go to **Settings > Account > Account information** and copy your **AdSense Publisher ID**
+1. Login to your WordPress admin dashboard and go to **Settings > Simple Google AdSense**.
+1. Paste your AdSense Publisher ID into the **Publisher ID** field
+1. Click **Save Changes**
+1. Go back to your Google AdSense account dashboard and navigate to **My ads > Content > Auto ads**.
+1. Select ad types that you wish to automatically show on your website
+1. Click **SAVE**
+
+
 
 
 == Installation ==
@@ -31,6 +49,16 @@ Add google adsense code to your WordPress site. No need to configure too much, j
 2. Extract the simple-google-adsense directory to your computer
 3. Upload the simple-google-adsense directory to the /wp-content/plugins/ directory
 4. Activate the plugin in the Plugin dashboard
+
+= Can I use this plugin if I have already configure google adsence on my WordPress site? =
+
+Yes.
+
+== Screenshots ==
+
+1. Setting Page
+
+
 
 == Changelog ==
 = 1.0.0 | 2019/04/27

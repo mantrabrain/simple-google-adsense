@@ -115,7 +115,7 @@ final class Simple_Google_Adsense_Admin
         ?>
         <input type='text' name='simple_google_adsense_settings[publisher_id]'
                value='<?php echo esc_attr($publisher_id) ?>'>
-        <p class="description"><?php printf(__('Enter your Google AdSense Publisher ID (e.g %s).', 'simple-google-adsense'), 'pub-1234567890111213'); ?></p>
+        <p class="description"><?php printf(__('Enter your Google AdSense Publisher ID (e.g %s).', 'simple-google-adsense'), 'pub-1234567890123456'); ?></p>
         <?php
     }
 
