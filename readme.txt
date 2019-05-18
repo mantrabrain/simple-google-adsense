@@ -31,8 +31,6 @@ Auto Ads is an improved monetization method in Google AdSense. It uses machine l
 1. Click **SAVE**
 
 
-
-
 == Installation ==
 
 = Uploading in WordPress Dashboard =
@@ -61,5 +59,8 @@ Yes.
 
 
 == Changelog ==
+= 1.0.1 | 2019/05/18
+ - Minor fixing
+
 = 1.0.0 | 2019/04/27
  - Initial Release
