@@ -155,7 +155,7 @@ final class Simple_Google_Adsense_Admin
     public function includes()
     {
 
-
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/admin/dashboard/class-mantrabrain-admin-dashboard.php';
     }
 
 
