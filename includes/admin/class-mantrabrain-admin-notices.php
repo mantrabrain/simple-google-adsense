@@ -16,7 +16,6 @@ if (!class_exists('Mantrabrain_Product_Admin_Notices')) {
 
             add_action('admin_notices', array($this, 'notice'), 11);
 
-
         }
 
         public function notice()
@@ -201,3 +200,4 @@ if (!class_exists('Mantrabrain_Product_Admin_Notices')) {
 
     new Mantrabrain_Product_Admin_Notices();
 }
+
