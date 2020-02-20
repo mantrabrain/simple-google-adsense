@@ -1,5 +1,5 @@
 <?php
-
+defined('ABSPATH') || exit;
 if (!class_exists('Mantrabrain_Product_Admin_Notices')) {
 
     class Mantrabrain_Product_Admin_Notices
