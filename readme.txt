@@ -57,7 +57,6 @@ Yes.
 1. Setting Page
 
 
-
 == Changelog ==
 
 = 1.0.6 | 2021/07/24
