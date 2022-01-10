@@ -159,7 +159,7 @@ final class Simple_Google_Adsense
         /**
          * Class autoloader.
          */
-        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/admin/class-mantrabrain-admin-notices.php';
+        //include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/admin/class-mantrabrain-admin-notices.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-admin.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-frontend.php';
 
