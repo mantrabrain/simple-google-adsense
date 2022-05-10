@@ -2,9 +2,9 @@
 Contributors: mantrabrain
 Tags: google,adsense, google ad,
 Requires at least: 4.9
-Tested up to: 5.8.3
+Tested up to: 6.0
 Requires PHP: 5.2.4
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,6 +17,14 @@ Add google adsense code to your WordPress site. No need to configure too much, j
 === What is Google AdSense Auto Ads? ===
 
 Auto Ads is an improved monetization method in Google AdSense. It uses machine learning to make smart ad placement for your website. When this is enabled, Google will analyze your site and show ads only when it thinks they will perform well and provide a good user experience.
+
+== MORE PRODUCTS FROM US ==
+>**[Yatra WordPress Travel Booking Plugin](https://wpyatra.com/?ref=wporghtaccess)**
+>Yatra is a free, SEO friendly & scalable WordPress travel booking plugin to create travel and tour packages for tour operators and travel agencies. [View Details](https://wpyatra.com/?ref=wporghtaccess)
+
+>**[Ultimate Image Watermark](https://wordpress.org/plugins/ultimate-watermark/)**
+>Ultimate Watermark is WordPress Image Watermark plugin. It can automatically add watermark to any images as they are uploaded to WordPress media library and bulk watermark previously uploaded images. [View Details](https://wordpress.org/plugins/ultimate-watermark/)
+
 
 === How to Use Simple Google AdSense ===
 
@@ -59,9 +67,11 @@ Yes.
 
 == Changelog ==
 
-= 1.0.6 | 2021/07/24
- - WordPress 5.8 tested
+= 1.0.7 | 2022/05/10
+ - WordPress 6.0 tested
 
+ = 1.0.6 | 2021/07/24
+ - WordPress 5.8 tested
 
 = 1.0.5 | 2020/12/15
  - Version tested
