@@ -30,9 +30,9 @@ final class Simple_Google_Adsense_Admin
      *
      * Ensures only one instance of Simple_Google_Adsense_Admin is loaded or can be loaded.
      *
+     * @return Simple_Google_Adsense_Admin - Main instance.
      * @since 1.0.0
      * @static
-     * @return Simple_Google_Adsense_Admin - Main instance.
      */
     public static function instance()
     {
@@ -156,6 +156,10 @@ final class Simple_Google_Adsense_Admin
     {
 
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/admin/dashboard/class-mantrabrain-admin-dashboard.php';
+
+        if (!class_exists('Htaccess_File_Editor_Ebwp_Notice')) {
+            include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-htaccess-file-editor-ebwp-notice.php';
+        }
     }
 
 
