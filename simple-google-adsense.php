@@ -3,7 +3,7 @@
  * Plugin Name:       Simple Google AdSense
  * Plugin URI:        https://wordpress.org/plugins/simple-google-adsense/
  * Description:       Add google adsense code to your WordPress site. No need to configure too much, just put publisher ID from Settings->Google AdSense.
- * Version:           1.0.8
+ * Version:           1.0.9
  * Author:            Mantrabrain
  * Author URI:        https://mantrabrain.com/
  * License:           GPL-2.0+
@@ -23,7 +23,7 @@ if (!defined('SIMPLE_GOOGLE_ADSENSE_FILE')) {
 
 // Define SIMPLE_GOOGLE_ADSENSE_VERSION.
 if (!defined('SIMPLE_GOOGLE_ADSENSE_VERSION')) {
-    define('SIMPLE_GOOGLE_ADSENSE_VERSION', '1.0.8');
+    define('SIMPLE_GOOGLE_ADSENSE_VERSION', '1.0.9');
 }
 
 // Define SIMPLE_GOOGLE_ADSENSE_PLUGIN_URI.
@@ -48,8 +48,8 @@ if (!class_exists('Simple_Google_Adsense')) {
  *
  * Returns the main instance of WC to prevent the need to use globals.
  *
- * @since  1.0.0
  * @return Simple_Google_Adsense
+ * @since  1.0.0
  */
 function simple_google_adsense_instance()
 {
