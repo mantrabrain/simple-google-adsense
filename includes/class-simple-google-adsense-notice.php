@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
 /**
  * Everest Backup plugin notice class.
  */
-class Htaccess_File_Editor_Ebwp_Notice
+class Simple_Google_Adsense_Notice
 {
 
     const EBWP_SLUG = 'yatra/yatra.php';
@@ -403,4 +403,4 @@ class Htaccess_File_Editor_Ebwp_Notice
 
 }
 
-new Htaccess_File_Editor_Ebwp_Notice();
+new Simple_Google_Adsense_Notice();
