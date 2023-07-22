@@ -1,5 +1,5 @@
 === Simple Google AdSense - Simple & Best Google AdSense Plugin for WordPress ===
-Contributors: mantrabrain
+Contributors: MantraBrain
 Tags: google,adsense, google ad
 Requires at least: 4.9
 Tested up to: 6.3
