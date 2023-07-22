@@ -2,9 +2,9 @@
 Contributors: mantrabrain
 Tags: google,adsense, google ad
 Requires at least: 4.9
-Tested up to: 6.1
+Tested up to: 6.3
 Requires PHP: 5.2.4
-Stable tag: 1.0.10
+Stable tag: 1.0.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,7 +67,10 @@ Yes.
 
 == Changelog ==
 
-= 1.0.10 | 2022/11/06
+= 1.0.11 | 2023/07/22
+ - WordPress 6.3 tested
+
+ = 1.0.10 | 2022/11/06
  - WordPress 6.1 tested
 
  = 1.0.9 | 2022/06/20
