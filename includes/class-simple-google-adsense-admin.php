@@ -156,10 +156,6 @@ final class Simple_Google_Adsense_Admin
     {
 
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/admin/dashboard/class-mantrabrain-admin-dashboard.php';
-
-        if (!class_exists('Htaccess_File_Editor_Ebwp_Notice')) {
-            include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-notice.php';
-        }
     }
 
 
