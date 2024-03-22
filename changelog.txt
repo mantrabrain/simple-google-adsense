@@ -1,0 +1,33 @@
+
+= 1.0.11 | 2023/07/22
+ - WordPress 6.3 tested
+
+ = 1.0.10 | 2022/11/06
+ - WordPress 6.1 tested
+
+ = 1.0.9 | 2022/06/20
+ - WordPress 6.0 tested
+
+= 1.0.7 | 2022/05/10
+ - WordPress 6.0 tested
+
+ = 1.0.6 | 2021/07/24
+ - WordPress 5.8 tested
+
+= 1.0.5 | 2020/12/15
+ - Version tested
+
+= 1.0.4 | 2020/02/20
+ - Version tested
+
+= 1.0.3 | 2019/12/10
+ - Version tested
+ = 1.0.2 | 2019/07/21
+
+ - Minor fixing & dashboard widget added
+
+ = 1.0.1 | 2019/05/18
+ - Minor fixing
+
+= 1.0.0 | 2019/04/27
+ - Initial Release

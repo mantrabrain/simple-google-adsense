@@ -1,10 +1,10 @@
-=== Simple Google AdSense - Simple & Best Google AdSense Plugin for WordPress ===
+=== Simple Google AdSense for WordPress, Google Ads - Simple Google AdSense ===
 Contributors: MantraBrain, gangadharkashyap
-Tags: google,adsense, google ad
-Requires at least: 4.9
-Tested up to: 6.3
-Requires PHP: 5.2.4
-Stable tag: 1.0.11
+Tags: google,adsense, google ad, google adsense, ads
+Requires at least: 5.6
+Tested up to: 6.5
+Requires PHP: 7.2
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,9 +56,30 @@ Auto Ads is an improved monetization method in Google AdSense. It uses machine l
 3. Upload the simple-google-adsense directory to the /wp-content/plugins/ directory
 4. Activate the plugin in the Plugin dashboard
 
-= Can I use this plugin if I have already configure google adsence on my WordPress site? =
 
-Yes.
+== Frequently Asked Questions ==
+
+=  Can this plugin help me sign up for Google AdSense? =
+
+Unfortunately, no. While it simplifies ad integration, this plugin does not assist in the Google AdSense sign-up process.
+
+= Can this plugin automatically add Google AdSense code to my WordPress site? =
+
+Yes, this plugin seamlessly integrates Google AdSense code into your WordPress website, making monetization effortless.
+
+= Will this plugin work if I already have Google ads configured on my website? =
+
+Absolutely! Whether you have existing Google ads set up or not, this plugin operates smoothly without any conflicts.
+
+= Can I check my Google AdSense payment status with this plugin? =
+
+No, this plugin focuses solely on ad integration and does not provide access to Google AdSense payment information.
+
+= Can I monitor my Google AdSense earnings with this plugin? =
+
+No, this plugin does not provide functionality to monitor your Google AdSense earnings. It focuses solely on integrating ads into your WordPress site.
+
+
 
 == Screenshots ==
 
@@ -67,35 +88,6 @@ Yes.
 
 == Changelog ==
 
-= 1.0.11 | 2023/07/22
- - WordPress 6.3 tested
+= 1.1 | 2024/03/22
+ - WordPress 6.5 tested
 
- = 1.0.10 | 2022/11/06
- - WordPress 6.1 tested
-
- = 1.0.9 | 2022/06/20
- - WordPress 6.0 tested
-
-= 1.0.7 | 2022/05/10
- - WordPress 6.0 tested
-
- = 1.0.6 | 2021/07/24
- - WordPress 5.8 tested
-
-= 1.0.5 | 2020/12/15
- - Version tested
-
-= 1.0.4 | 2020/02/20
- - Version tested
-
-= 1.0.3 | 2019/12/10
- - Version tested
- = 1.0.2 | 2019/07/21
-
- - Minor fixing & dashboard widget added
-
- = 1.0.1 | 2019/05/18
- - Minor fixing
-
-= 1.0.0 | 2019/04/27
- - Initial Release
