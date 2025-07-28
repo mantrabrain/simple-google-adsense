@@ -59,19 +59,20 @@ final class Simple_Google_Adsense_Frontend
     private function init_hooks()
     {
         add_action('wp_head', array($this, 'inject_script'));
+        add_action('wp_enqueue_scripts', array($this, 'enqueue_styles'));
 
     }
 
     public function inject_script()
     {
-
         $options = get_option('simple_google_adsense_settings');
         $publisher_id = isset($options['publisher_id']) ? $options['publisher_id']: '';
+        $enable_auto_ads = isset($options['enable_auto_ads']) ? $options['enable_auto_ads'] : true;
 
-        if (isset($publisher_id) && !empty($publisher_id)) {
+        if (isset($publisher_id) && !empty($publisher_id) && $enable_auto_ads) {
             $plugin_version = SIMPLE_GOOGLE_ADSENSE_VERSION;
             $ouput = <<<EOT
-                <!-- auto ad code generated with Simple Google Adsense plugin v{$plugin_version} -->
+                <!-- auto ad code generated with AdFlow plugin v{$plugin_version} -->
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <script>
                 (adsbygoogle = window.adsbygoogle || []).push({
@@ -79,12 +80,25 @@ final class Simple_Google_Adsense_Frontend
                      enable_page_level_ads: true
                 });
                 </script>      
-                <!-- / Simple Google Adsense plugin -->
+                <!-- / AdFlow plugin -->
 EOT;
 
             echo $ouput;
         }
 
+    }
+
+    /**
+     * Enqueue frontend styles
+     */
+    public function enqueue_styles()
+    {
+        wp_enqueue_style(
+            'simple-google-adsense-styles',
+            SIMPLE_GOOGLE_ADSENSE_PLUGIN_URI . '/assets/css/adsense.css',
+            array(),
+            SIMPLE_GOOGLE_ADSENSE_VERSION
+        );
     }
 
     /**

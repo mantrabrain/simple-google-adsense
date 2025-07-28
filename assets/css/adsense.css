@@ -1,0 +1,196 @@
+/**
+ * Simple Google AdSense Styles
+ *
+ * @package Simple_Google_Adsense
+ * @since   1.2.0
+ */
+
+/* AdSense Ad Container */
+.adsense-ad {
+    margin: 20px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* AdSense Ad Alignment */
+.adsense-ad.alignleft {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.adsense-ad.alignright {
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.adsense-ad.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive AdSense Ads */
+.adsense-ad.responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+/* AdSense Error Messages */
+.adsense-error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 6px;
+    color: #721c24;
+    padding: 15px 20px;
+    margin: 15px 0;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.adsense-error p {
+    margin: 0 0 8px 0;
+}
+
+.adsense-error p:last-child {
+    margin-bottom: 0;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+/* AdSense Loading State */
+.adsense-ad.loading {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 40px 20px;
+    text-align: center;
+    color: #6c757d;
+}
+
+.adsense-ad.loading::before {
+    content: "Loading Ad...";
+    display: block;
+    font-size: 14px;
+}
+
+/* AdSense Block Preview (Admin) */
+.adsense-block-preview {
+    background-color: #f9f9f9;
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.adsense-block-preview:hover {
+    border-color: #007cba;
+    background-color: #f0f8ff;
+}
+
+/* AdSense Widget Styles */
+.widget_simple_google_adsense_widget .adsense-ad {
+    margin: 10px 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .adsense-ad.alignleft,
+    .adsense-ad.alignright {
+        float: none;
+        margin-left: 0;
+        margin-right: 0;
+        display: block;
+    }
+    
+    .adsense-ad {
+        margin: 15px 0;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .adsense-ad {
+        display: none !important;
+    }
+}
+
+/* AdSense Ad Types */
+.adsense-ad.banner-ad {
+    /* Banner specific styles */
+}
+
+.adsense-ad.inarticle-ad {
+    /* In-article specific styles */
+    margin: 20px 0;
+}
+
+.adsense-ad.infeed-ad {
+    /* In-feed specific styles */
+    margin: 15px 0;
+}
+
+.adsense-ad.matched-content-ad {
+    /* Matched content specific styles */
+    margin: 25px 0;
+}
+
+/* AdSense Ad Formats */
+.adsense-ad[data-ad-format="auto"] {
+    /* Auto format styles */
+}
+
+.adsense-ad[data-ad-format="fluid"] {
+    /* Fluid format styles */
+}
+
+.adsense-ad[data-ad-format="autorelaxed"] {
+    /* Auto relaxed format styles */
+}
+
+/* AdSense Ad Loading Animation */
+@keyframes adsense-loading {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.3; }
+}
+
+.adsense-ad.loading ins {
+    animation: adsense-loading 1.5s ease-in-out infinite;
+}
+
+/* AdSense Ad Success State */
+.adsense-ad.loaded {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* AdSense Ad Error State */
+.adsense-ad.error {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 4px;
+    padding: 15px;
+    text-align: center;
+    color: #856404;
+}
+
+/* AdSense Ad Debug Info (Development) */
+.adsense-ad.debug {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+    font-family: monospace;
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+.adsense-ad.debug::before {
+    content: "AdSense Debug Info:";
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+} 

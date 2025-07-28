@@ -1,0 +1,1021 @@
+/**
+ * Simple Google AdSense Admin Settings Styles
+ *
+ * @package Simple_Google_Adsense
+ * @since   1.2.0
+ */
+
+/* Settings Page Layout */
+.adsense-settings-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.adsense-settings-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.adsense-settings-sidebar {
+    width: 450px;
+    flex-shrink: 0;
+}
+
+/* Documentation Sidebar */
+.adsense-documentation-sidebar {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    position: sticky;
+    top: 32px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.adsense-doc-section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.adsense-doc-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.adsense-doc-section h3 {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d2327;
+    line-height: 1.4;
+}
+
+.adsense-doc-section h4 {
+    margin: 15px 0 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.adsense-doc-section p {
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+    color: #50575e;
+}
+
+.adsense-doc-section ul,
+.adsense-doc-section ol {
+    margin: 0 0 12px 0;
+    padding-left: 20px;
+}
+
+.adsense-doc-section li {
+    margin-bottom: 6px;
+    line-height: 1.4;
+    color: #50575e;
+}
+
+.adsense-doc-section code {
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 12px;
+    color: #1d2327;
+    display: inline-block;
+    margin: 2px 0;
+}
+
+.adsense-doc-section a {
+    color: #0073aa;
+    text-decoration: none;
+}
+
+.adsense-doc-section a:hover {
+    color: #005a87;
+    text-decoration: underline;
+}
+
+/* Section Icons */
+.adsense-doc-section h3::before {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+/* Quick Start Guide */
+.adsense-doc-section:first-child h3::before {
+    content: "📚";
+}
+
+/* Auto Ads Section */
+.adsense-doc-section:nth-child(2) h3::before {
+    content: "🎯";
+}
+
+/* Manual Ads Section */
+.adsense-doc-section:nth-child(3) h3::before {
+    content: "⚙️";
+}
+
+/* Ad Types Section */
+.adsense-doc-section:nth-child(4) h3::before {
+    content: "📊";
+}
+
+/* Ad Formats Section */
+.adsense-doc-section:nth-child(5) h3::before {
+    content: "🎨";
+}
+
+/* Troubleshooting Section */
+.adsense-doc-section:nth-child(6) h3::before {
+    content: "🔧";
+}
+
+/* Resources Section */
+.adsense-doc-section:nth-child(7) h3::before {
+    content: "📖";
+}
+
+/* Pro Tips Section */
+.adsense-doc-section:nth-child(8) h3::before {
+    content: "💡";
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .adsense-settings-container {
+        flex-direction: column;
+    }
+    
+    .adsense-settings-sidebar {
+        width: 100%;
+        order: -1;
+    }
+    
+    .adsense-documentation-sidebar {
+        position: static;
+        max-height: none;
+    }
+}
+
+@media (max-width: 782px) {
+    .adsense-settings-container {
+        gap: 20px;
+    }
+    
+    .adsense-documentation-sidebar {
+        padding: 15px;
+    }
+    
+    .adsense-doc-section {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
+    
+    .adsense-doc-section h3 {
+        font-size: 15px;
+    }
+}
+
+/* Settings Form Enhancements */
+.adsense-settings-main {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.adsense-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f1;
+}
+
+.adsense-header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.adsense-title {
+    color: #0073aa;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.02em;
+    word-spacing: normal;
+    text-transform: none;
+    line-height: 1.2;
+}
+
+.adsense-version {
+    background: linear-gradient(135deg, #0073aa 0%, #005a87 100%);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0, 115, 170, 0.2);
+}
+
+/* Configure settings heading */
+.adsense-settings-main h2 {
+    color: #1d2327;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 20px 0 30px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    line-height: 1.4;
+}
+
+/* Help link styling */
+.adsense-help-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #0073aa;
+    text-decoration: none;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.adsense-help-link:hover {
+    color: #005a87;
+    text-decoration: underline;
+}
+
+.adsense-help-link .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+}
+
+/* ID Guide styling */
+.id-guide {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 20px;
+    margin: 15px 0;
+}
+
+.id-guide h4 {
+    color: #1d2327;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #0073aa;
+}
+
+.id-guide ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.id-guide li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    color: #646970;
+}
+
+.id-guide a {
+    color: #0073aa;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.id-guide a:hover {
+    text-decoration: underline;
+}
+
+/* ID Usage styling */
+.id-usage {
+    background: #e8f4fd;
+    border: 1px solid #bee5eb;
+    border-radius: 6px;
+    padding: 20px;
+    margin: 15px 0;
+}
+
+.id-usage h4 {
+    color: #0c5460;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #17a2b8;
+}
+
+.id-usage ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.id-usage li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #0c5460;
+}
+
+.id-usage code {
+    background: #fff;
+    border: 1px solid #17a2b8;
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-family: monospace;
+    font-size: 12px;
+    color: #0c5460;
+}
+
+/* Shortcode Examples styling */
+.shortcode-examples {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.shortcode-examples h5 {
+    color: #1d2327;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.shortcode-examples ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.shortcode-examples li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+    color: #646970;
+    font-size: 13px;
+}
+
+.shortcode-examples code {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 3px;
+    padding: 2px 4px;
+    font-family: monospace;
+    font-size: 11px;
+    color: #495057;
+}
+
+.shortcode-examples p {
+    margin: 10px 0 0 0;
+    font-size: 12px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.adsense-settings-main .form-table {
+    margin: 0;
+    border-collapse: collapse;
+}
+
+.adsense-settings-main .form-table th {
+    width: 250px;
+    padding: 25px 20px 25px 0;
+    vertical-align: top;
+    font-weight: 600;
+    color: #1d2327;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.adsense-settings-main .form-table td {
+    padding: 25px 0;
+    vertical-align: top;
+}
+
+.adsense-settings-main .form-table tr {
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.adsense-settings-main .form-table tr:last-child {
+    border-bottom: none;
+}
+
+.adsense-settings-main .description {
+    margin-top: 10px;
+    color: #646970;
+    font-size: 13px;
+    line-height: 1.5;
+    font-style: normal;
+}
+
+/* Enhanced Input Styles */
+.adsense-settings-main input[type="text"] {
+    width: 100%;
+    max-width: 450px;
+    padding: 12px 16px;
+    border: 2px solid #e1e5e9;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: all 0.2s ease;
+    background: #fff;
+}
+
+.adsense-settings-main input[type="text"]:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.1);
+    outline: none;
+    background: #fff;
+}
+
+.adsense-settings-main input[type="text"]:hover {
+    border-color: #0073aa;
+}
+
+/* Enhanced Checkbox Styles */
+.adsense-settings-main input[type="checkbox"] {
+    margin-right: 12px;
+    transform: scale(1.2);
+    accent-color: #0073aa;
+    cursor: pointer;
+}
+
+.adsense-settings-main label {
+    font-weight: 500;
+    color: #1d2327;
+    font-size: 14px;
+    line-height: 1.5;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
+    padding: 8px 0;
+}
+
+.adsense-settings-main label:hover {
+    color: #0073aa;
+}
+
+/* Field Container Styling */
+.adsense-settings-main .form-table td {
+    position: relative;
+}
+
+.adsense-settings-main .form-table td::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #0073aa 0%, #005a87 100%);
+    transition: width 0.3s ease;
+}
+
+.adsense-settings-main .form-table td:focus-within::after {
+    width: 100%;
+}
+
+/* Enhanced Submit Button */
+.adsense-settings-main .submit {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 2px solid #f0f0f1;
+    text-align: left;
+}
+
+.adsense-settings-main .submit input[type="submit"] {
+    background: linear-gradient(135deg, #0073aa 0%, #005a87 100%);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 115, 170, 0.2);
+}
+
+.adsense-settings-main .submit input[type="submit"]:hover {
+    background: linear-gradient(135deg, #005a87 0%, #004a73 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 115, 170, 0.3);
+}
+
+.adsense-settings-main .submit input[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 115, 170, 0.2);
+}
+
+/* Enhanced Notice Styles */
+.adsense-settings-main .notice {
+    margin: 20px 0;
+    border-radius: 6px;
+    border-left: 4px solid;
+    padding: 15px 20px;
+}
+
+.adsense-settings-main .notice-success {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.adsense-settings-main .notice-error {
+    background: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.adsense-settings-main .notice-warning {
+    background: #fff3cd;
+    border-color: #ffc107;
+    color: #856404;
+}
+
+.adsense-settings-main .notice-info {
+    background: #d1ecf1;
+    border-color: #17a2b8;
+    color: #0c5460;
+}
+
+/* Loading State */
+.adsense-settings-main.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.adsense-settings-main.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #0073aa;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Settings Section Headers */
+.adsense-settings-main .form-table th:first-child {
+    position: relative;
+}
+
+/* Field Group Styling */
+.adsense-settings-main .field-group {
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid #e9ecef;
+}
+
+.adsense-settings-main .field-group h3 {
+    margin: 0 0 15px 0;
+    color: #1d2327;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Review Section Styling */
+.adsense-review-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.adsense-review-content {
+    text-align: center;
+}
+
+.adsense-review-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.adsense-review-header .dashicons {
+    color: #ffc107;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+.adsense-review-header h3 {
+    margin: 0;
+    color: #1d2327;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.adsense-review-content p {
+    color: #646970;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.adsense-review-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.adsense-review-actions .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.adsense-review-actions .button-primary {
+    background: linear-gradient(135deg, #0073aa 0%, #005a87 100%);
+    border: none;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 115, 170, 0.2);
+}
+
+.adsense-review-actions .button-primary:hover {
+    background: linear-gradient(135deg, #005a87 0%, #004a73 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 115, 170, 0.3);
+}
+
+.adsense-review-actions .button-secondary {
+    background: #fff;
+    border: 2px solid #0073aa;
+    color: #0073aa;
+}
+
+.adsense-review-actions .button-secondary:hover {
+    background: #0073aa;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.adsense-review-actions .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.adsense-review-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.adsense-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.adsense-stat .dashicons {
+    color: #0073aa;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+.adsense-stat .stat-number {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1d2327;
+}
+
+.adsense-stat .stat-label {
+    font-size: 12px;
+    color: #646970;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive Design for Settings */
+@media (max-width: 768px) {
+    .adsense-settings-main {
+        padding: 20px;
+    }
+    
+    .adsense-settings-main .form-table th,
+    .adsense-settings-main .form-table td {
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+    }
+    
+    .adsense-settings-main .form-table th {
+        border-bottom: 1px solid #f0f0f1;
+        padding-bottom: 10px;
+    }
+    
+    .adsense-settings-main input[type="text"] {
+        max-width: 100%;
+    }
+    
+    .adsense-review-section {
+        padding: 20px;
+        margin-top: 20px;
+    }
+    
+    .adsense-review-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .adsense-review-actions .button {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+    
+    .adsense-review-stats {
+        gap: 20px;
+    }
+}
+
+/* JavaScript Enhancements */
+.adsense-doc-section code.copied {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.adsense-doc-search {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.adsense-doc-search:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+    outline: none;
+}
+
+.adsense-sidebar-toggle {
+    width: 100%;
+    padding: 10px;
+    background: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.adsense-sidebar-toggle:hover {
+    background: #005a87;
+}
+
+.adsense-doc-section.active {
+    background-color: #f0f8ff;
+    border-left: 3px solid #0073aa;
+    padding-left: 17px;
+}
+
+.auto-save-indicator {
+    margin-left: 10px;
+    color: #0073aa;
+    font-style: italic;
+    font-size: 12px;
+}
+
+.dashicons-editor-help {
+    margin-left: 5px;
+    color: #0073aa;
+    cursor: help;
+}
+
+/* Custom Tooltip Styles */
+.custom-tooltip {
+    position: absolute;
+    background: #1d2327;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.4;
+    max-width: 300px;
+    z-index: 999999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.custom-tooltip::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid #1d2327;
+}
+
+.custom-tooltip.right::before {
+    left: auto;
+    right: -5px;
+    border-right: none;
+    border-left: 5px solid #1d2327;
+}
+
+.help-icon {
+    cursor: help;
+    transition: color 0.2s ease;
+}
+
+.help-icon:hover {
+    color: #005a87;
+}
+
+/* Enhanced Documentation Styles */
+.shortcode-examples {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.shortcode-examples p {
+    margin: 8px 0 4px 0;
+    font-weight: 600;
+    color: #495057;
+}
+
+.shortcode-examples code {
+    display: block;
+    margin: 4px 0 12px 0;
+    padding: 8px 12px;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.ad-type-explanations,
+.ad-format-explanations {
+    margin: 10px 0;
+}
+
+.ad-type,
+.ad-format {
+    background: #f8f9fa;
+    border-left: 3px solid #0073aa;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.ad-type strong,
+.ad-format strong {
+    color: #0073aa;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.ad-type p,
+.ad-format p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.problem-solution {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 12px 0;
+}
+
+.problem-solution h4 {
+    margin: 0 0 10px 0;
+    color: #856404;
+    font-size: 14px;
+}
+
+.problem-solution ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.problem-solution li {
+    margin-bottom: 4px;
+    font-size: 13px;
+}
+
+.best-practices {
+    margin: 10px 0;
+}
+
+.practice {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    padding: 12px;
+    margin: 8px 0;
+}
+
+.practice strong {
+    color: #155724;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.practice p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #155724;
+}
+
+.help-resources {
+    margin: 10px 0;
+}
+
+.resource {
+    background: #e7f3ff;
+    border: 1px solid #b3d9ff;
+    border-radius: 4px;
+    padding: 12px;
+    margin: 8px 0;
+}
+
+.resource strong {
+    color: #0056b3;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.resource p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.resource a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.resource a:hover {
+    text-decoration: underline;
+}
+
+/* Print Styles */
+@media print {
+    .adsense-settings-sidebar {
+        display: none;
+    }
+    
+    .adsense-settings-main {
+        width: 100%;
+    }
+} 

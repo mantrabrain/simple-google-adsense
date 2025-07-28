@@ -162,6 +162,7 @@ final class Simple_Google_Adsense
         //include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/admin/class-mantrabrain-admin-notices.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-admin.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-frontend.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-manual-ads.php';
 
 
         if ($this->is_request('admin')) {
@@ -171,6 +172,9 @@ final class Simple_Google_Adsense
         if ($this->is_request('frontend')) {
             Simple_Google_Adsense_Frontend::instance();
         }
+
+        // Initialize manual ads functionality
+        Simple_Google_Adsense_Manual_Ads::instance();
 
     }
 

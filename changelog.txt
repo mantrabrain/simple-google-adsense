@@ -1,4 +1,15 @@
 
+= 1.2.0 | 2025/07/28
+ - Rebranded to AdFlow - Easy Google AdSense Integration
+ - Added manual ad placement functionality
+ - Added shortcode support for manual ad placement
+ - Added Gutenberg block for block editor integration
+ - Added CSS styling for better ad presentation
+ - Added configuration options for auto/manual ads
+ - Improved admin interface with new settings
+ - Added support for multiple ad types and formats
+ - Enhanced user experience with better documentation
+
 = 1.0.11 | 2023/07/22
  - WordPress 6.3 tested
 

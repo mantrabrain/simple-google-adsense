@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Simple Google AdSense
+ * Plugin Name:       AdFlow - Easy Google AdSense Integration
  * Plugin URI:        https://wordpress.org/plugins/simple-google-adsense/
- * Description:       Add google adsense code to your WordPress site. No need to configure too much, just put publisher ID from Settings->Google AdSense.
- * Version:           1.1
+ * Description:       The easiest way to integrate Google AdSense into your website. Supports both Auto Ads and Manual Ads with shortcodes and Gutenberg blocks.
+ * Version:           1.2.0
  * Author:            MantraBrain
  * Author URI:        https://mantrabrain.com/
  * License:           GPL-2.0+
@@ -23,7 +23,7 @@ if (!defined('SIMPLE_GOOGLE_ADSENSE_FILE')) {
 
 // Define SIMPLE_GOOGLE_ADSENSE_VERSION.
 if (!defined('SIMPLE_GOOGLE_ADSENSE_VERSION')) {
-    define('SIMPLE_GOOGLE_ADSENSE_VERSION', '1.1');
+    define('SIMPLE_GOOGLE_ADSENSE_VERSION', '1.2.0');
 }
 
 // Define SIMPLE_GOOGLE_ADSENSE_PLUGIN_URI.
