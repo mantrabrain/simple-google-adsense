@@ -129,14 +129,43 @@ Use these shortcodes in your posts, pages, or widgets:
 ```
 
 #### Gutenberg Blocks
-1. Edit any post or page
-2. Click the **+** button to add a block
-3. Search for "AdSense Ad"
-4. Add the block and configure:
-   - **Ad Slot ID** - Your AdSense ad unit ID
-   - **Ad Type** - Banner, In-article, etc.
-   - **Ad Format** - Auto, Fluid, Rectangle, etc.
-   - **Full Width Responsive** - Enable for responsive ads
+The AdFlow plugin includes a powerful Gutenberg block for easy visual ad placement.
+
+**Step-by-Step Block Setup:**
+
+1. **Edit any post or page** in the WordPress block editor
+2. **Click the "+" button** to add a new block
+3. **Search for "AdFlow Ad"** in the block search
+4. **Add the block** to your content
+5. **Configure the block settings** in the right sidebar:
+
+**Block Configuration Options:**
+- **Ad Slot ID** - Enter your Google AdSense ad unit ID (e.g., 1234567890)
+- **Ad Type** - Choose from:
+  - Banner Ad (standard display ads)
+  - In-Article Ad (fluid ads within content)
+  - In-Feed Ad (native-looking ads)
+  - Matched Content (content recommendation ads)
+- **Ad Format** - Select from:
+  - Auto (responsive, recommended)
+  - Fluid (adaptive sizing)
+  - Auto Relaxed (flexible sizing)
+  - Rectangle (300x250, 336x280)
+  - Horizontal (728x90, 970x90)
+  - Vertical (160x600, 300x600)
+- **Full Width Responsive** - Enable for responsive ad sizing
+
+**Block Preview:**
+The block shows a live preview in the editor with your configuration, making it easy to see how your ad will appear.
+
+**Getting Your Ad Slot ID:**
+1. Go to your [Google AdSense account](https://www.google.com/adsense)
+2. Navigate to **Ads → By ad unit**
+3. Click **Create new ad unit**
+4. Choose your ad type and format
+5. Click **Create** and copy the Ad Slot ID
+
+**📖 Official Guide:** [How to create ad units](https://support.google.com/adsense/answer/9183566?hl=en)
 
 ### Getting Your Ad Slot ID
 1. Go to your AdSense account
@@ -181,6 +210,19 @@ In AdSense, go to Ads → By ad unit → Create new ad unit. Choose your ad type
 
 **📖 Official Guide:** [How to create ad units](https://support.google.com/adsense/answer/9183566?hl=en)
 
+= How do I use the Gutenberg block for ads? =
+
+1. Edit any post or page in the block editor
+2. Click the "+" button and search for "AdFlow Ad"
+3. Add the block to your content
+4. In the block settings (right sidebar), enter your Ad Slot ID
+5. Choose your ad type and format
+6. The block will show a preview of your configuration
+
+= What ad types are available in the Gutenberg block? =
+
+The block supports Banner Ads, In-Article Ads, In-Feed Ads, and Matched Content ads. Each type is optimized for different placements and user experiences.
+
 = Can I monitor earnings with this plugin? =
 
 No, this plugin focuses on ad integration. Check your earnings in your AdSense account dashboard.
@@ -210,7 +252,6 @@ Use Auto Ads for automatic optimization, combine with Manual Ads for strategic p
 1. **Settings Page** - Clean, modern interface with comprehensive documentation
 2. **Gutenberg Block** - Visual block editor integration
 3. **Shortcode Examples** - Easy-to-use shortcodes for manual placement
-4. **Documentation Sidebar** - Built-in help and guidance
 
 == Changelog ==
 
