@@ -1,4 +1,17 @@
 
+= 1.3.0 | 2026/08/21
+ - Fixed: Manual Ads produced no ad unless Auto Ads was also enabled - the AdSense library now loads whenever an ad renders
+ - Fixed: "Enable Auto Ads" could not be switched off; unticked checkboxes were not saved
+ - Fixed: A Publisher ID entered as "ca-pub-XXXX" produced an invalid "ca-ca-pub-XXXX" ad client
+ - Fixed: Configuration errors were shown to public visitors instead of only to administrators
+ - Fixed: Translations loaded from a non-existent /i18n/languages folder
+ - Security: Escaped the Publisher ID in the Auto Ads snippet and all admin screen output
+ - Changed: Auto Ads uses Google's current HTTPS snippet instead of the deprecated enable_page_level_ads call
+ - Changed: Block registered from block.json using Block API v3
+ - Changed: Ad styles and the AdSense library load only on pages containing an ad
+ - Changed: Requires WordPress 6.3+ and PHP 7.4+; tested up to WordPress 7.1
+ - Removed: Misleading "Auto-saving..." indicator and hardcoded download/rating figures on the settings screen
+
 = 1.2.0 | 2025/07/28
  - Rebranded to AdFlow - Easy Google AdSense Integration
  - Added manual ad placement functionality

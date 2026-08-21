@@ -1,10 +1,10 @@
 === AdFlow - Easy Google AdSense Integration ===
 Contributors: MantraBrain, gangadharkashyap
 Tags: google, adsense, ads, google adsense, monetization
-Requires at least: 5.6
-Tested up to: 6.8
-Requires PHP: 7.2
-Stable tag: 1.2.0
+Requires at least: 6.3
+Tested up to: 7.1
+Requires PHP: 7.4
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -255,6 +255,19 @@ Use Auto Ads for automatic optimization, combine with Manual Ads for strategic p
 
 == Changelog ==
 
+= 1.3.0 | 2026/08/21 =
+* **FIXED**: Manual Ads never displayed unless Auto Ads was also switched on - the AdSense library is now loaded whenever a shortcode or block renders an ad
+* **FIXED**: Turning off "Enable Auto Ads" had no effect; the setting was not saved when the box was unticked
+* **FIXED**: A Publisher ID pasted as "ca-pub-XXXX" produced an invalid "ca-ca-pub-XXXX" ad client. Both forms, and a bare ID, are now accepted
+* **FIXED**: Configuration errors were printed into the page for logged-out visitors; they are now shown only to users who can change the settings
+* **SECURITY**: The Publisher ID is escaped before it is written into the page, and all admin screen output is escaped
+* **NEW**: Auto Ads now uses Google's current snippet over HTTPS, replacing the deprecated `enable_page_level_ads` call
+* **NEW**: The block is registered from `block.json` using Block API v3
+* **IMPROVED**: Tested up to WordPress 7.1; now requires WordPress 6.3+ and PHP 7.4+
+* **IMPROVED**: The ad stylesheet and AdSense library load only on pages that actually contain an ad
+* **IMPROVED**: Translation files load from the plugin's `/languages` folder, which previously pointed at a folder that did not exist
+* **IMPROVED**: The settings page no longer hijacks other admin forms, and its misleading "Auto-saving..." indicator has been removed
+
 = 1.2.0 | 2025/07/28 =
 * **NEW**: Added Manual Ads support with shortcodes and Gutenberg blocks
 * **NEW**: Implemented comprehensive documentation sidebar
@@ -272,6 +285,9 @@ Use Auto Ads for automatic optimization, combine with Manual Ads for strategic p
 * Basic Auto Ads functionality
 
 == Upgrade Notice ==
+
+### Version 1.3.0
+Recommended for every user. Manual Ads (shortcodes and blocks) previously produced no ad at all unless Auto Ads was also enabled, and Auto Ads could not be switched off once turned on. Both are fixed, the Publisher ID is now escaped before output, and the plugin is tested against WordPress 7.1.
 
 ### Version 1.2.0
 This major update introduces Manual Ads support, making the plugin suitable for both beginners and advanced users. New features include:

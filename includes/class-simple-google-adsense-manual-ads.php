@@ -85,24 +85,34 @@ final class Simple_Google_Adsense_Manual_Ads
             'class' => ''
         ), $atts, 'adsense');
 
-        $options = get_option('simple_google_adsense_settings');
-        $publisher_id = isset($options['publisher_id']) ? $options['publisher_id'] : '';
+        if (!Simple_Google_Adsense_Settings::is_manual_ads_enabled()) {
+            return $this->config_notice(
+                __('Manual Ads are turned off.', 'simple-google-adsense'),
+                __('Enable "Manual Ad Placement" under Settings → AdFlow to render this ad.', 'simple-google-adsense')
+            );
+        }
 
-        if (empty($publisher_id)) {
-            return '<div class="adsense-error">
-                <p><strong>' . __('AdSense Publisher ID not configured.', 'simple-google-adsense') . '</strong></p>
-                <p>' . __('Please go to Settings → AdFlow and enter your Publisher ID.', 'simple-google-adsense') . '</p>
-            </div>';
+        $publisher_ad_client = Simple_Google_Adsense_Settings::get_ad_client();
+
+        if ('' === $publisher_ad_client && empty($atts['ad_client'])) {
+            return $this->config_notice(
+                __('AdSense Publisher ID not configured.', 'simple-google-adsense'),
+                __('Please go to Settings → AdFlow and enter your Publisher ID.', 'simple-google-adsense')
+            );
         }
 
         if (empty($atts['ad_slot'])) {
-            return '<div class="adsense-error">
-                <p><strong>' . __('Ad Slot ID is required.', 'simple-google-adsense') . '</strong></p>
-                <p>' . __('Please configure the Ad Slot ID in the block settings or shortcode parameters.', 'simple-google-adsense') . '</p>
-            </div>';
+            return $this->config_notice(
+                __('Ad Slot ID is required.', 'simple-google-adsense'),
+                __('Please configure the Ad Slot ID in the block settings or shortcode parameters.', 'simple-google-adsense')
+            );
         }
 
-        $ad_client = !empty($atts['ad_client']) ? $atts['ad_client'] : "ca-{$publisher_id}";
+        $ad_client = !empty($atts['ad_client']) ? $atts['ad_client'] : $publisher_ad_client;
+
+        // Load the AdSense library and styles for this page.
+        Simple_Google_Adsense_Frontend::enqueue_ad_assets();
+
         $style = !empty($atts['style']) ? ' style="' . esc_attr($atts['style']) . '"' : '';
         $class = !empty($atts['class']) ? ' ' . esc_attr($atts['class']) : '';
 
@@ -111,19 +121,42 @@ final class Simple_Google_Adsense_Manual_Ads
         $output .= ' style="display:block"';
         $output .= ' data-ad-client="' . esc_attr($ad_client) . '"';
         $output .= ' data-ad-slot="' . esc_attr($atts['ad_slot']) . '"';
-        
+
         if ($atts['ad_format'] === 'auto') {
             $output .= ' data-ad-format="auto"';
             $output .= ' data-full-width-responsive="' . esc_attr($atts['full_width_responsive']) . '"';
         } else {
             $output .= ' data-ad-format="' . esc_attr($atts['ad_format']) . '"';
         }
-        
+
         $output .= '></ins>';
         $output .= '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
         $output .= '</div>';
 
         return $output;
+    }
+
+    /**
+     * Build a configuration notice.
+     *
+     * Only users who can actually fix the problem see it; visitors get nothing
+     * rather than a broken-looking error block in the middle of the content.
+     *
+     * @param string $title Short description of the problem.
+     * @param string $message How to resolve it.
+     * @return string
+     * @since 1.3.0
+     */
+    private function config_notice($title, $message)
+    {
+        if (!current_user_can('manage_options')) {
+            return '';
+        }
+
+        return '<div class="adsense-error">
+                <p><strong>' . esc_html($title) . '</strong></p>
+                <p>' . esc_html($message) . '</p>
+            </div>';
     }
 
     /**
@@ -134,6 +167,7 @@ final class Simple_Google_Adsense_Manual_Ads
      */
     public function banner_ad_shortcode($atts)
     {
+        $atts = is_array($atts) ? $atts : array();
         $atts['type'] = 'banner';
         return $this->adsense_shortcode($atts);
     }
@@ -146,6 +180,7 @@ final class Simple_Google_Adsense_Manual_Ads
      */
     public function inarticle_ad_shortcode($atts)
     {
+        $atts = is_array($atts) ? $atts : array();
         $atts['type'] = 'inarticle';
         $atts['ad_format'] = 'fluid';
         return $this->adsense_shortcode($atts);
@@ -159,6 +194,7 @@ final class Simple_Google_Adsense_Manual_Ads
      */
     public function infeed_ad_shortcode($atts)
     {
+        $atts = is_array($atts) ? $atts : array();
         $atts['type'] = 'infeed';
         $atts['ad_format'] = 'fluid';
         return $this->adsense_shortcode($atts);
@@ -172,6 +208,7 @@ final class Simple_Google_Adsense_Manual_Ads
      */
     public function matched_content_shortcode($atts)
     {
+        $atts = is_array($atts) ? $atts : array();
         $atts['type'] = 'matched_content';
         $atts['ad_format'] = 'autorelaxed';
         return $this->adsense_shortcode($atts);
@@ -188,35 +225,12 @@ final class Simple_Google_Adsense_Manual_Ads
             return;
         }
 
-        wp_register_script(
-            'simple-google-adsense-blocks',
-            SIMPLE_GOOGLE_ADSENSE_PLUGIN_URI . '/assets/js/blocks.js',
-            array('wp-blocks', 'wp-element', 'wp-editor'),
-            SIMPLE_GOOGLE_ADSENSE_VERSION
-        );
-
-        register_block_type('simple-google-adsense/adsense-ad', array(
-            'editor_script' => 'simple-google-adsense-blocks',
-            'render_callback' => array($this, 'render_block'),
-            'attributes' => array(
-                'adSlot' => array(
-                    'type' => 'string',
-                    'default' => ''
-                ),
-                'adType' => array(
-                    'type' => 'string',
-                    'default' => 'banner'
-                ),
-                'adFormat' => array(
-                    'type' => 'string',
-                    'default' => 'auto'
-                ),
-                'fullWidthResponsive' => array(
-                    'type' => 'boolean',
-                    'default' => true
-                )
+        register_block_type(
+            SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'blocks/adsense-ad',
+            array(
+                'render_callback' => array($this, 'render_block'),
             )
-        ));
+        );
     }
 
     /**
@@ -273,4 +287,4 @@ final class Simple_Google_Adsense_Manual_Ads
             'vertical' => __('Vertical', 'simple-google-adsense')
         );
     }
-} 
+}

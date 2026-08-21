@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "simple-google-adsense/adsense-ad",
+	"version": "1.3.0",
+	"title": "AdFlow Ad",
+	"category": "widgets",
+	"icon": "money-alt",
+	"description": "Add Google AdSense ads to your content with AdFlow.",
+	"keywords": [ "adsense", "ad", "google", "monetization" ],
+	"textdomain": "simple-google-adsense",
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"adSlot": {
+			"type": "string",
+			"default": ""
+		},
+		"adType": {
+			"type": "string",
+			"default": "banner"
+		},
+		"adFormat": {
+			"type": "string",
+			"default": "auto"
+		},
+		"fullWidthResponsive": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"editorScript": "file:./index.js"
+}

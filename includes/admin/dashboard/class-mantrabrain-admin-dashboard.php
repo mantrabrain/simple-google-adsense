@@ -47,9 +47,13 @@ if (!class_exists('Mantrabrain_Admin_Dashboard')) {
         public static function dashboard_widget_setup()
         {
             $widget_key = 'mantrabrain_dashboard_blog_news';
-            wp_add_dashboard_widget('mantrabrain_dashboard_blog_news', __('Latest News From MantraBrain Blog', 'mantrabrain-starter-sites'), 'Mantrabrain_Admin_Dashboard::dashboard_blog_news');
+            wp_add_dashboard_widget('mantrabrain_dashboard_blog_news', __('Latest News From MantraBrain Blog', 'simple-google-adsense'), 'Mantrabrain_Admin_Dashboard::dashboard_blog_news');
 
             global $wp_meta_boxes;
+
+            if (!isset($wp_meta_boxes['dashboard']['normal']['core'][$widget_key])) {
+                return;
+            }
 
             // Make to top
             $normal_dashboard = $wp_meta_boxes['dashboard']['normal']['core'];
@@ -74,20 +78,20 @@ if (!class_exists('Mantrabrain_Admin_Dashboard')) {
             wp_widget_rss_output($feed, $args);
             $urls = array(
                 'theme_url' => array(
-                    'text' => __('New Themes', 'mantrabrain-starter-sites'),
+                    'text' => __('New Themes', 'simple-google-adsense'),
                     'url' => static::$_themes_url,
-                    'screen_reader_text' => __('opens in a new tab', 'mantrabrain-starter-sites'),
+                    'screen_reader_text' => __('opens in a new tab', 'simple-google-adsense'),
                     'icon' => 'dashicons dashicons-external'
                 ),
                 'blog_url' => array(
-                    'text' => __('Blog Posts', 'mantrabrain-starter-sites'),
+                    'text' => __('Blog Posts', 'simple-google-adsense'),
                     'url' => static::$_blog_url,
-                    'screen_reader_text' => __('opens in a new tab', 'mantrabrain-starter-sites'),
+                    'screen_reader_text' => __('opens in a new tab', 'simple-google-adsense'),
                     'icon' => 'dashicons dashicons-external'
                 ), 'main_site_url' => array(
-                    'text' => __('Main Site', 'mantrabrain-starter-sites'),
+                    'text' => __('Main Site', 'simple-google-adsense'),
                     'url' => static::$_main_site,
-                    'screen_reader_text' => __('opens in a new tab', 'mantrabrain-starter-sites'),
+                    'screen_reader_text' => __('opens in a new tab', 'simple-google-adsense'),
                     'icon' => 'dashicons dashicons-external'
                 )
             );
@@ -102,7 +106,7 @@ if (!class_exists('Mantrabrain_Admin_Dashboard')) {
 
                 $url_index++;
 
-                echo '<a href="' . $url_content['url'] . '" target="_blank">';
+                echo '<a href="' . esc_url($url_content['url']) . '" target="_blank" rel="noopener">';
 
                 echo esc_html($url_content['text']);
 

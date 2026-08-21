@@ -71,19 +71,6 @@ final class Simple_Google_Adsense
     }
 
     /**
-     * Auto-load in-accessible properties on demand.
-     *
-     * @param mixed $key Key name.
-     * @return mixed
-     */
-    public function __get($key)
-    {
-        if (in_array($key, array(''), true)) {
-            return $this->$key();
-        }
-    }
-
-    /**
      * Simple_Google_Adsense Constructor.
      */
     public function __construct()
@@ -142,11 +129,11 @@ final class Simple_Google_Adsense
             case 'admin':
                 return is_admin();
             case 'ajax':
-                return defined('DOING_AJAX');
+                return wp_doing_ajax();
             case 'cron':
-                return defined('DOING_CRON');
+                return wp_doing_cron();
             case 'frontend':
-                return (!is_admin() || defined('DOING_AJAX')) && !defined('DOING_CRON') && !defined('REST_REQUEST');
+                return (!is_admin() || wp_doing_ajax()) && !wp_doing_cron() && !defined('REST_REQUEST');
         }
     }
 
@@ -160,6 +147,7 @@ final class Simple_Google_Adsense
          * Class autoloader.
          */
         //include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/admin/class-mantrabrain-admin-notices.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-settings.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-admin.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-frontend.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-manual-ads.php';
@@ -172,6 +160,7 @@ final class Simple_Google_Adsense
         if ($this->is_request('frontend')) {
             Simple_Google_Adsense_Frontend::instance();
         }
+
 
         // Initialize manual ads functionality
         Simple_Google_Adsense_Manual_Ads::instance();
@@ -201,16 +190,16 @@ final class Simple_Google_Adsense
      * Note: the first-loaded translation file overrides any following ones if the same translation is present.
      *
      * Locales found in:
-     *      - WP_LANG_DIR/simple-google-adsense/simple-google-adsense-LOCALE.mo
      *      - WP_LANG_DIR/plugins/simple-google-adsense-LOCALE.mo
+     *      - {plugin}/languages/simple-google-adsense-LOCALE.mo
      */
     public function load_plugin_textdomain()
     {
-        $locale = is_admin() && function_exists('get_user_locale') ? get_user_locale() : get_locale();
-        $locale = apply_filters('plugin_locale', $locale, 'simple-google-adsense');
-        unload_textdomain('simple-google-adsense');
-        load_textdomain('simple-google-adsense', WP_LANG_DIR . '/simple-google-adsense/simple-google-adsense-' . $locale . '.mo');
-        load_plugin_textdomain('simple-google-adsense', false, plugin_basename(dirname(SIMPLE_GOOGLE_ADSENSE_FILE)) . '/i18n/languages');
+        load_plugin_textdomain(
+            'simple-google-adsense',
+            false,
+            dirname(plugin_basename(SIMPLE_GOOGLE_ADSENSE_FILE)) . '/languages'
+        );
     }
 
 

@@ -1,0 +1,768 @@
+# Copyright (C) 2026 MantraBrain
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: AdFlow - Easy Google AdSense Integration 1.3.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/simple-google-adsense\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-08-21T14:04:59+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: simple-google-adsense\n"
+
+#. Plugin Name of the plugin
+#: simple-google-adsense.php
+msgid "AdFlow - Easy Google AdSense Integration"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: simple-google-adsense.php
+msgid "https://wordpress.org/plugins/simple-google-adsense/"
+msgstr ""
+
+#. Description of the plugin
+#: simple-google-adsense.php
+msgid "The easiest way to integrate Google AdSense into your website. Supports both Auto Ads and Manual Ads with shortcodes and Gutenberg blocks."
+msgstr ""
+
+#. Author of the plugin
+#: simple-google-adsense.php
+msgid "MantraBrain"
+msgstr ""
+
+#. Author URI of the plugin
+#: simple-google-adsense.php
+msgid "https://mantrabrain.com/"
+msgstr ""
+
+#: includes/admin/dashboard/class-mantrabrain-admin-dashboard.php:50
+msgid "Latest News From MantraBrain Blog"
+msgstr ""
+
+#: includes/admin/dashboard/class-mantrabrain-admin-dashboard.php:81
+msgid "New Themes"
+msgstr ""
+
+#: includes/admin/dashboard/class-mantrabrain-admin-dashboard.php:83
+#: includes/admin/dashboard/class-mantrabrain-admin-dashboard.php:89
+#: includes/admin/dashboard/class-mantrabrain-admin-dashboard.php:94
+msgid "opens in a new tab"
+msgstr ""
+
+#: includes/admin/dashboard/class-mantrabrain-admin-dashboard.php:87
+msgid "Blog Posts"
+msgstr ""
+
+#: includes/admin/dashboard/class-mantrabrain-admin-dashboard.php:92
+msgid "Main Site"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:73
+msgid "Settings"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:119
+msgid "Publisher ID"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:127
+msgid "Enable Auto Ads"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:135
+msgid "Enable Manual Ads"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:149
+#, php-format
+msgid "Enter your Google AdSense Publisher ID (e.g %s)."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:153
+msgid "How to find your Publisher ID"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:166
+msgid "Enable Google AdSense Auto Ads (recommended for beginners)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:168
+msgid "Auto Ads uses machine learning to automatically place ads on your website."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:179
+msgid "Enable Manual Ad Placement (for advanced users)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:181
+msgid "Allows you to place ads manually using shortcodes and Gutenberg blocks."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:188
+#: includes/class-simple-google-adsense-admin.php:189
+msgid "AdFlow"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:202
+msgid "AdFlow Settings"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:207
+msgid "Configure the settings"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:213
+msgid "Save Settings"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:259
+msgid "🔑 How to Get Your IDs"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:262
+msgid "📋 Publisher ID (Required)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:264
+msgid "Go to"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:265
+msgid "Sign in with your Google account"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:266
+msgid "Click \"Account\" → \"Settings\" → \"Account information\""
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:267
+msgid "Find your Publisher ID (starts with \"pub-\")"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:268
+msgid "Copy the full ID (e.g., pub-1234567890123456)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:270
+msgid "Based on"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:270
+msgid "official Google AdSense documentation"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:272
+msgid "🎯 Ad Slot ID (For Manual Ads)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:274
+msgid "In AdSense, go to \"Ads\" → \"By ad unit\""
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:275
+msgid "Click \"Create new ad unit\""
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:276
+msgid "Choose ad type (Banner, In-article, etc.)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:277
+msgid "Set size and format options"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:278
+msgid "Click \"Create\" and copy the Ad Slot ID"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:283
+msgid "💡 How to Use These IDs"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:285
+msgid "Publisher ID:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:285
+msgid "Enter in the settings above for Auto Ads"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:286
+msgid "Ad Slot ID:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:286
+msgid "Use in shortcodes and Gutenberg blocks for Manual Ads"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:287
+msgid "Example Shortcode:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:288
+msgid "Example Block:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:288
+msgid "Add \"AdFlow Ad\" block and enter Ad Slot ID"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:292
+msgid "📝 Shortcode Examples:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:294
+msgid "Basic banner ad"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:295
+msgid "Banner ad specifically"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:296
+msgid "In-article ad"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:297
+msgid "In-feed ad"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:299
+msgid "Replace \"YOUR_AD_SLOT_ID\" with the actual Ad Slot ID from your AdSense account"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:305
+msgid "🚀 Getting Started (Step-by-Step)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:307
+msgid "Step 1:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:307
+msgid "Get your Google AdSense Publisher ID from your AdSense account"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:308
+msgid "Step 2:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:308
+msgid "Enter the Publisher ID in the field above"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:309
+msgid "Step 3:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:309
+msgid "Choose Auto Ads (recommended) or Manual Ads"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:310
+msgid "Step 4:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:310
+msgid "Click \"Save Changes\""
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:311
+msgid "Step 5:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:311
+msgid "Wait 24-48 hours for ads to appear"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:316
+msgid "🎯 Auto Ads (Easiest Option)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:317
+msgid "Perfect for beginners! Google's artificial intelligence automatically places ads where they work best."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:319
+msgid "No technical knowledge required"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:320
+msgid "Google handles everything automatically"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:321
+msgid "Optimized for maximum earnings"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:322
+msgid "Works on all devices (mobile, tablet, desktop)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:324
+msgid "Just enable Auto Ads and Google will do the rest!"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:328
+msgid "⚙️ Manual Ads (For Advanced Users)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:329
+msgid "Want more control? Place ads exactly where you want them using these methods:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:331
+msgid "Method 1: Copy & Paste Shortcodes"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:332
+msgid "Copy these codes and paste them in your posts or pages:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:334
+msgid "Basic Ad:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:337
+msgid "Banner Ad:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:340
+msgid "In-Article Ad:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:343
+msgid "In-Feed Ad:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:347
+msgid "Method 2: Block Editor (Gutenberg)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:349
+msgid "Edit any post or page"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:350
+msgid "Click the \"+\" button to add a block"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:351
+msgid "Search for \"AdFlow Ad\""
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:352
+msgid "Add the block to your content"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:353
+msgid "Enter your ad slot ID in the block settings"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:358
+msgid "📊 Understanding Ad Types"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:361
+msgid "Banner Ads:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:362
+msgid "Traditional rectangular ads that appear at the top, bottom, or sides of your website."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:366
+msgid "In-Article Ads:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:367
+msgid "Ads that appear naturally within your article content, between paragraphs."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:371
+msgid "In-Feed Ads:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:372
+msgid "Ads that appear in lists of content, like blog post lists or category pages."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:376
+msgid "Matched Content:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:377
+msgid "Content recommendation ads that show related articles to your visitors."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:383
+msgid "🎨 Ad Sizes & Formats"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:386
+msgid "Auto Format:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:387
+msgid "Google automatically chooses the best size for each device and screen."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:391
+msgid "Fluid Format:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:392
+msgid "Responsive ads that adapt to different screen sizes automatically."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:396
+msgid "Rectangle (300x250):"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:397
+msgid "Medium-sized ads that fit well in content areas."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:401
+msgid "Horizontal (728x90):"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:402
+msgid "Wide ads perfect for header or footer placement."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:408
+msgid "🔧 Common Problems & Solutions"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:411
+msgid "❌ Problem: Ads not showing up"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:413
+msgid "Check that your Publisher ID is correct"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:414
+msgid "Make sure you've waited 24-48 hours after setup"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:415
+msgid "Disable ad blockers in your browser"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:416
+msgid "Check if your AdSense account is approved"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:421
+msgid "❌ Problem: Ads look broken on mobile"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:423
+msgid "Use \"Auto\" or \"Fluid\" ad formats"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:424
+msgid "Enable \"Full Width Responsive\" option"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:425
+msgid "Test on different devices"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:430
+msgid "❌ Problem: Too many ads showing"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:432
+msgid "Reduce the number of ads per page"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:433
+msgid "Space ads further apart"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:434
+msgid "Consider user experience"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:440
+msgid "💡 Best Practices for Success"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:443
+msgid "Start Simple:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:444
+msgid "Begin with Auto Ads - they're optimized for maximum earnings."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:448
+msgid "Quality Content:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:449
+msgid "Focus on creating valuable content - ads perform better on quality sites."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:453
+msgid "Mobile First:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:454
+msgid "Most visitors use mobile devices, so ensure ads work well on phones."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:458
+msgid "Patience:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:459
+msgid "It takes time to build traffic and earnings. Don't expect instant results."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:463
+msgid "Monitor Performance:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:464
+msgid "Check your AdSense dashboard regularly to track earnings and performance."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:470
+msgid "📖 Where to Get Help"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:473
+msgid "Google AdSense Help Center:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:474
+msgid "Official Google AdSense documentation"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:478
+msgid "Plugin Support:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:479
+msgid "Visit the plugin page for support"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:483
+msgid "Developer Website:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:484
+msgid "MantraBrain - Plugin developers"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:490
+msgid "🎯 Quick Tips for Beginners"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:492
+msgid "Start with Auto Ads - they're the easiest to set up"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:493
+msgid "Test your website on mobile devices"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:494
+msgid "Be patient - ads can take 24-48 hours to appear"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:495
+msgid "Check your AdSense dashboard regularly"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:496
+msgid "Focus on creating quality content first"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:497
+msgid "Use Google Analytics to understand your audience"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:514
+msgid "Love this plugin?"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:516
+msgid "If AdFlow has helped you monetize your website, please consider leaving a review. Your feedback helps us improve and motivates us to add more features!"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:520
+msgid "Leave a 5-Star Review"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:524
+msgid "Get Support"
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:90
+msgid "Manual Ads are turned off."
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:91
+msgid "Enable \"Manual Ad Placement\" under Settings → AdFlow to render this ad."
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:99
+msgid "AdSense Publisher ID not configured."
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:100
+msgid "Please go to Settings → AdFlow and enter your Publisher ID."
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:106
+msgid "Ad Slot ID is required."
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:107
+msgid "Please configure the Ad Slot ID in the block settings or shortcode parameters."
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:267
+#: blocks/adsense-ad/index.js:22
+msgid "Banner Ad"
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:268
+#: blocks/adsense-ad/index.js:23
+msgid "In-Article Ad"
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:269
+#: blocks/adsense-ad/index.js:24
+msgid "In-Feed Ad"
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:270
+#: blocks/adsense-ad/index.js:25
+msgid "Matched Content"
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:282
+#: blocks/adsense-ad/index.js:29
+msgid "Auto"
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:283
+#: blocks/adsense-ad/index.js:30
+msgid "Fluid"
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:284
+#: blocks/adsense-ad/index.js:31
+msgid "Auto Relaxed"
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:285
+#: blocks/adsense-ad/index.js:32
+msgid "Rectangle"
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:286
+#: blocks/adsense-ad/index.js:33
+msgid "Horizontal"
+msgstr ""
+
+#: includes/class-simple-google-adsense-manual-ads.php:287
+#: blocks/adsense-ad/index.js:34
+msgid "Vertical"
+msgstr ""
+
+#: includes/class-simple-google-adsense.php:60
+msgid "Cloning is forbidden."
+msgstr ""
+
+#: includes/class-simple-google-adsense.php:70
+msgid "Unserializing instances of this class is forbidden."
+msgstr ""
+
+#: blocks/adsense-ad/index.js:46
+msgid "AdSense Settings"
+msgstr ""
+
+#: blocks/adsense-ad/index.js:51
+msgid "Ad Slot ID"
+msgstr ""
+
+#: blocks/adsense-ad/index.js:54
+msgid "Enter your Google AdSense ad slot ID (e.g., 1234567890). Get this from your AdSense account under \"Ads\" → \"By ad unit\". Replace the example with your actual Ad Slot ID."
+msgstr ""
+
+#: blocks/adsense-ad/index.js:59
+msgid "Ad Type"
+msgstr ""
+
+#: blocks/adsense-ad/index.js:66
+msgid "Ad Format"
+msgstr ""
+
+#: blocks/adsense-ad/index.js:73
+msgid "Full Width Responsive"
+msgstr ""
+
+#: blocks/adsense-ad/index.js:76
+msgid "Enable responsive ad sizing."
+msgstr ""
+
+#: blocks/adsense-ad/index.js:99
+msgid "AdSense Ad"
+msgstr ""
+
+#: blocks/adsense-ad/index.js:107
+msgid "Ad Slot: "
+msgstr ""
+
+#: blocks/adsense-ad/index.js:108
+msgid "⚠️ Configure Ad Slot ID in block settings"
+msgstr ""
+
+#: blocks/adsense-ad/index.js:117
+msgid "Type: "
+msgstr ""
+
+#: blocks/adsense-ad/index.js:117
+msgid "Format: "
+msgstr ""
+
+#: blocks/adsense-ad/block.json
+msgctxt "block title"
+msgid "AdFlow Ad"
+msgstr ""
+
+#: blocks/adsense-ad/block.json
+msgctxt "block description"
+msgid "Add Google AdSense ads to your content with AdFlow."
+msgstr ""
+
+#: blocks/adsense-ad/block.json
+msgctxt "block keyword"
+msgid "adsense"
+msgstr ""
+
+#: blocks/adsense-ad/block.json
+msgctxt "block keyword"
+msgid "ad"
+msgstr ""
+
+#: blocks/adsense-ad/block.json
+msgctxt "block keyword"
+msgid "google"
+msgstr ""
+
+#: blocks/adsense-ad/block.json
+msgctxt "block keyword"
+msgid "monetization"
+msgstr ""

@@ -1,0 +1,28 @@
+# Directories and files that must not ship in the WordPress.org package
+# or the release ZIP.
+
+/.git
+/.github
+/.wordpress-org
+/.idea
+/.vscode
+/node_modules
+/vendor
+/tests
+/svn-repository
+
+.gitignore
+.gitattributes
+.distignore
+.editorconfig
+.DS_Store
+Thumbs.db
+
+composer.json
+composer.lock
+package.json
+package-lock.json
+phpcs.xml
+phpcs.xml.dist
+phpunit.xml
+phpunit.xml.dist
