@@ -1,5 +1,5 @@
 === AdFlow – Ad Inserter & Ad Manager: AdSense, Banner Ads & ads.txt ===
-Contributors: MantraBrain, gangadharkashyap
+Contributors: MantraBrain, MatrixAddons
 Tags: adsense, ads, ad manager, ads.txt, ad inserter
 Requires at least: 6.4
 Tested up to: 7.1
@@ -15,6 +15,8 @@ Place Google AdSense, any ad network and your own banner ads anywhere: Auto Ads,
 **AdFlow is the ad inserter and ad manager for Google AdSense, every other ad network and your own banner ads - and it just works.** Add your Publisher ID and Auto Ads are live. Place AdSense, Google Ad Manager or any network's ads before, inside and after your content without touching code, fix "Earnings at risk" with the built-in ads.txt manager, stay GDPR-compliant with Google Consent Mode v2, and run your own sponsor banners next to Google - with honest statistics that work behind any page cache.
 
 Coming from another ad plugin? **Import from Advanced Ads, Ad Inserter, AdRotate or WP QUADS in one click** - your old shortcodes keep working.
+
+https://www.youtube.com/watch?v=552k4UhnjGo
 
 **[⭐ AdFlow Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro-pro)** · **[Free vs Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro-compare#compare)** · **[Pricing](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro-pricing#pricing)** · [Support forum](https://wordpress.org/support/plugin/simple-google-adsense/) · Documentation: **AdFlow → Docs** in your dashboard
 
@@ -108,6 +110,8 @@ Import ads, rotation groups, placements and (AdRotate and WP QUADS) statistics f
 * **Agency** (25 sites) - $149 a year, or $399 once
 
 14-day money-back guarantee. If your licence ever expires, Pro keeps working. [Compare plans →](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro-plans#pricing)
+
+https://www.youtube.com/watch?v=SZ9boZflISo
 
 **📊 See your money** - [see it in action](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro-money#pro)
 
