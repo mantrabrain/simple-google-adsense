@@ -36,6 +36,27 @@
 		syncDates();
 	}
 
+	// Upgrade screen: yearly / lifetime prices.
+	document.querySelectorAll( '[data-adflow-billing]' ).forEach( function ( wrap ) {
+		var buttons = wrap.querySelectorAll( '.adflow-billing__btn' );
+
+		buttons.forEach( function ( button ) {
+			button.addEventListener( 'click', function () {
+				var period = button.getAttribute( 'data-period' );
+
+				wrap.setAttribute( 'data-adflow-billing', period );
+				buttons.forEach( function ( other ) {
+					var on = other === button;
+					other.classList.toggle( 'is-active', on );
+					other.setAttribute( 'aria-pressed', on ? 'true' : 'false' );
+				} );
+				wrap.querySelectorAll( '[data-show]' ).forEach( function ( el ) {
+					el.hidden = el.getAttribute( 'data-show' ) !== period;
+				} );
+			} );
+		} );
+	} );
+
 	// Click to copy (shortcodes, ads.txt lines).
 	document.addEventListener( 'click', function ( event ) {
 		var el = event.target.closest && event.target.closest( '[data-adflow-copy]' );

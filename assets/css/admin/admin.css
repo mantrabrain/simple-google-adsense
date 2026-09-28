@@ -1761,3 +1761,158 @@
         max-height: none;
     }
 }
+
+/* ── Upgrade to Pro: proof, screenshots, billing toggle ─────────────────── */
+.adflow-pro-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 0 0 18px !important;
+}
+
+.adflow-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--af-muted);
+    font-size: 13px;
+}
+
+.adflow-trust li::before {
+    content: "\2713";
+    margin-right: 6px;
+    color: var(--af-green);
+    font-weight: 700;
+}
+
+.adflow-trust--center {
+    margin-top: 14px;
+}
+
+.adflow-pro-shots {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.adflow-pro-shot {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.adflow-pro-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid var(--af-divider);
+}
+
+.adflow-pro-shot figcaption {
+    padding: 14px 16px 16px;
+    color: var(--af-muted);
+    font-size: 13px;
+}
+
+.adflow-pro-shot figcaption strong {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--af-text);
+    font-size: 14px;
+}
+
+.adflow-pricing-wrap {
+    margin: 32px 0 20px;
+    text-align: center;
+    scroll-margin-top: 48px;
+}
+
+.adflow-pricing-wrap > h2 {
+    margin: 0 0 4px;
+    font-size: 22px;
+}
+
+.adflow-billing {
+    display: inline-flex;
+    gap: 4px;
+    margin: 16px 0 24px;
+    padding: 4px;
+    border: 1px solid var(--af-border, #dcdcde);
+    border-radius: 999px;
+    background: #fff;
+}
+
+.adflow-billing__btn {
+    padding: 7px 16px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--af-muted);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.adflow-billing__btn.is-active {
+    background: var(--af-blue);
+    color: #fff;
+}
+
+.adflow-billing__btn:focus-visible {
+    outline: 2px solid var(--af-blue);
+    outline-offset: 2px;
+}
+
+.adflow-pricing-wrap .adflow-pricing {
+    text-align: center;
+}
+
+.adflow-upgrade-price {
+    margin: 0 0 12px !important;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.adflow-compare-wrap {
+    padding: 0;
+}
+
+.adflow-compare-wrap > summary {
+    padding: 16px 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.adflow-compare-wrap .adflow-compare {
+    margin: 0;
+    border: 0;
+    border-top: 1px solid var(--af-divider);
+    border-radius: 0;
+}
+
+@media (max-width: 960px) {
+    .adflow-pro-shots {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Hidden prices and buttons stay hidden (WordPress button styles set display). */
+.adflow-pricing-wrap [hidden] {
+    display: none !important;
+}
+
+.adflow-pillars--pro {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 782px) {
+    .adflow-pillars--pro {
+        grid-template-columns: 1fr;
+    }
+}

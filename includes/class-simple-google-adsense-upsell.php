@@ -87,7 +87,9 @@ final class Simple_Google_Adsense_Upsell
     /**
      * Plans shown in the plugin. Keep in sync with the store (or filter).
      *
-     * @return array[] key => name, price, period, sites, highlight, note
+     * Prices and price ids mirror the store (store.mantrabrain.com, download 39041).
+     *
+     * @return array[] key => name, price, period, sites, highlight, note, lifetime, yearly_id, lifetime_id
      * @since 1.4.0
      */
     public static function plans()
@@ -100,6 +102,9 @@ final class Simple_Google_Adsense_Upsell
                 'sites' => __('1 website', 'simple-google-adsense'),
                 'highlight' => false,
                 'note' => __('For bloggers with one site', 'simple-google-adsense'),
+                'lifetime' => '$129',
+                'yearly_id' => 1,
+                'lifetime_id' => 4,
             ),
             'plus' => array(
                 'name' => __('Plus', 'simple-google-adsense'),
@@ -108,6 +113,9 @@ final class Simple_Google_Adsense_Upsell
                 'sites' => __('5 websites', 'simple-google-adsense'),
                 'highlight' => true,
                 'note' => __('Most popular with publishers', 'simple-google-adsense'),
+                'lifetime' => '$249',
+                'yearly_id' => 2,
+                'lifetime_id' => 5,
             ),
             'agency' => array(
                 'name' => __('Agency', 'simple-google-adsense'),
@@ -116,6 +124,9 @@ final class Simple_Google_Adsense_Upsell
                 'sites' => __('25 websites', 'simple-google-adsense'),
                 'highlight' => false,
                 'note' => __('For freelancers and networks of sites', 'simple-google-adsense'),
+                'lifetime' => '$399',
+                'yearly_id' => 3,
+                'lifetime_id' => 6,
             ),
         ));
     }
@@ -165,6 +176,18 @@ final class Simple_Google_Adsense_Upsell
                 'title' => __('Targeting & scheduling', 'simple-google-adsense'),
                 'benefit' => __('Show ads by device, category, search traffic, visitor type, post age or date range. Cache-friendly.', 'simple-google-adsense'),
             ),
+            'formats' => array(
+                'pillar' => 'earn',
+                'icon' => 'welcome-widgets-menus',
+                'title' => __('Popup & sticky sidebar formats', 'simple-google-adsense'),
+                'benefit' => __('An accessible popup for sponsor ads and a sidebar ad that stays in view on long articles.', 'simple-google-adsense'),
+            ),
+            'gam' => array(
+                'pillar' => 'earn',
+                'icon' => 'networking',
+                'title' => __('Google Ad Manager units', 'simple-google-adsense'),
+                'benefit' => __('GPT units with desktop and mobile sizes and key-value targeting, loaded only where needed.', 'simple-google-adsense'),
+            ),
             'speed' => array(
                 'pillar' => 'earn',
                 'icon' => 'performance',
@@ -172,13 +195,25 @@ final class Simple_Google_Adsense_Upsell
                 'benefit' => __('Lazy-load ads and reserve their space for better Core Web Vitals and viewability.', 'simple-google-adsense'),
             ),
             'sponsors' => array(
-                'pillar' => 'earn',
+                'pillar' => 'sell',
                 'icon' => 'megaphone',
                 'title' => __('Sell ads directly', 'simple-google-adsense'),
-                'benefit' => __('An "Advertise with us" page where sponsors order and pay, country targeting, automatic weekly reports and sponsor eCPM compared with AdSense.', 'simple-google-adsense'),
+                'benefit' => __('An "Advertise with us" page where sponsors choose a package, upload a banner and pay with your own payment link. You approve; it runs for the paid days.', 'simple-google-adsense'),
+            ),
+            'advertiser_reports' => array(
+                'pillar' => 'sell',
+                'icon' => 'media-spreadsheet',
+                'title' => __('Reports advertisers trust', 'simple-google-adsense'),
+                'benefit' => __('Shareable report links, weekly or monthly emails, CSV export and sponsor eCPM next to your AdSense RPM.', 'simple-google-adsense'),
+            ),
+            'country' => array(
+                'pillar' => 'sell',
+                'icon' => 'admin-site-alt3',
+                'title' => __('Country targeting', 'simple-google-adsense'),
+                'benefit' => __('Show a sponsor only in the markets they pay for. Works on cached pages; no IP addresses stored.', 'simple-google-adsense'),
             ),
             'adblock' => array(
-                'pillar' => 'earn',
+                'pillar' => 'protect',
                 'icon' => 'visibility',
                 'title' => __('Ad-blocker message', 'simple-google-adsense'),
                 'benefit' => __('Politely ask ad-block users to support your site.', 'simple-google-adsense'),
@@ -199,6 +234,37 @@ final class Simple_Google_Adsense_Upsell
         $url = Simple_Google_Adsense_Admin::pro_url($campaign);
 
         return '' === $plan ? $url : add_query_arg('plan', sanitize_key($plan), $url) . '#pricing';
+    }
+
+    /**
+     * Checkout link for one plan on the store, so a chosen plan is one click
+     * from payment. Filter: adflow_pro_checkout_url.
+     *
+     * @param string $plan Plan key.
+     * @param string $period yearly|lifetime.
+     * @param string $campaign Tracking campaign.
+     * @return string
+     * @since 1.4.0
+     */
+    public static function checkout_url($plan, $period = 'yearly', $campaign = 'pro-page-pricing')
+    {
+        $plans = self::plans();
+        $id_key = 'lifetime' === $period ? 'lifetime_id' : 'yearly_id';
+
+        if (empty($plans[$plan][$id_key])) {
+            return self::url($campaign, $plan);
+        }
+
+        $url = add_query_arg(array(
+            'edd_action' => 'add_to_cart',
+            'download_id' => 39041,
+            'edd_options[price_id]' => (int) $plans[$plan][$id_key],
+            'utm_source' => 'adflow-free',
+            'utm_medium' => 'plugin',
+            'utm_campaign' => sanitize_key($campaign),
+        ), 'https://store.mantrabrain.com/checkout/');
+
+        return apply_filters('adflow_pro_checkout_url', $url, $plan, $period, $campaign);
     }
 
     /**
@@ -394,6 +460,7 @@ final class Simple_Google_Adsense_Upsell
                 <li><?php esc_html_e('Mid-article, sticky & WooCommerce ads', 'simple-google-adsense'); ?></li>
                 <li><?php esc_html_e('A/B tests judged by real earnings', 'simple-google-adsense'); ?></li>
             </ul>
+            <p class="adflow-upgrade-price"><?php esc_html_e('From $49 a year, or $129 once. 14-day money-back guarantee.', 'simple-google-adsense'); ?></p>
             <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=' . Simple_Google_Adsense_Admin::PRO_SLUG)); ?>"><?php esc_html_e('See what\'s in Pro', 'simple-google-adsense'); ?></a>
         </div>
         <?php
@@ -493,12 +560,15 @@ final class Simple_Google_Adsense_Upsell
             'see' => array('icon' => 'chart-area', 'title' => __('See your money', 'simple-google-adsense'), 'text' => __('Know which ads, units and pages earn - inside WordPress.', 'simple-google-adsense')),
             'protect' => array('icon' => 'shield', 'title' => __('Protect your account', 'simple-google-adsense'), 'text' => __('Reduce the risk of invalid-click limits and policy trouble.', 'simple-google-adsense')),
             'earn' => array('icon' => 'money-alt', 'title' => __('Earn more per visit', 'simple-google-adsense'), 'text' => __('Better placements, smarter targeting, faster pages.', 'simple-google-adsense')),
+            'sell' => array('icon' => 'megaphone', 'title' => __('Sell ads directly', 'simple-google-adsense'), 'text' => __('Keep 100% of what sponsors pay, with reports they trust.', 'simple-google-adsense')),
         );
         $faq = array(
             __('Will my free setup keep working?', 'simple-google-adsense') => __('Yes. Pro is an add-on: your ad units, placements and settings stay exactly as they are, and everything in the free plugin stays free.', 'simple-google-adsense'),
             __('Is it safe for my AdSense account?', 'simple-google-adsense') => __('Pro only uses Google\'s official ad code and read-only reporting access. Click protection stops ads from loading for abusive visitors instead of hiding ads, which AdSense does not allow. No tool can guarantee Google\'s decisions, but Pro removes the most common risks.', 'simple-google-adsense'),
             __('Does it work with page caching and Auto Ads?', 'simple-google-adsense') => __('Yes. Device and traffic-source targeting runs in the browser, so it works behind page caches, and Auto Ads keep running alongside your placements.', 'simple-google-adsense'),
             __('What if my license expires?', 'simple-google-adsense') => __('Pro keeps working. A license gives you updates and priority support.', 'simple-google-adsense'),
+            __('Yearly or lifetime?', 'simple-google-adsense') => __('Yearly plans renew each year and can be cancelled any time. Lifetime plans are paid once and include updates and support for life. Every plan includes every Pro feature.', 'simple-google-adsense'),
+            __('How do I install it?', 'simple-google-adsense') => __('After checkout, download AdFlow Pro from your account, upload it under Plugins → Add New → Upload Plugin and activate your licence key under AdFlow → Settings → License.', 'simple-google-adsense'),
             __('Can I get a refund?', 'simple-google-adsense') => __('Yes - 14 days, no questions asked.', 'simple-google-adsense'),
         );
         ?>
@@ -506,14 +576,37 @@ final class Simple_Google_Adsense_Upsell
             <?php Simple_Google_Adsense_Admin::render_header(__('Upgrade to AdFlow Pro', 'simple-google-adsense')); ?>
 
             <section class="adflow-pro-hero adflow-card">
-                <p class="adflow-eyebrow"><?php esc_html_e('Built only for Google AdSense', 'simple-google-adsense'); ?></p>
-                <h2><?php esc_html_e('Earn more from AdSense - and keep your account safe.', 'simple-google-adsense'); ?></h2>
-                <p><?php esc_html_e('AdFlow Pro shows you what every ad earns, protects you from click abuse and puts ads where they pay the most. Set up in minutes, no code.', 'simple-google-adsense'); ?></p>
-                <a class="button button-primary button-hero" href="<?php echo esc_url(self::url('pro-page-hero', 'plus')); ?>" target="_blank" rel="noopener"><?php esc_html_e('Get AdFlow Pro', 'simple-google-adsense'); ?></a>
-                <p class="description"><?php esc_html_e('14-day money-back guarantee · Works with your current setup', 'simple-google-adsense'); ?></p>
+                <p class="adflow-eyebrow"><?php esc_html_e('AdFlow Pro · for publishers who want more from every page', 'simple-google-adsense'); ?></p>
+                <h2><?php esc_html_e('Earn more from your ads - and keep your AdSense account safe.', 'simple-google-adsense'); ?></h2>
+                <p><?php esc_html_e('See what every ad and page earns, stop click abuse before it costs you, put ads where they pay the most and sell space to sponsors directly. Everything the leading ad plugins sell as separate add-ons, in one plugin.', 'simple-google-adsense'); ?></p>
+                <p class="adflow-pro-cta-row">
+                    <a class="button button-primary button-hero" href="#adflow-pricing"><?php esc_html_e('See plans and pricing', 'simple-google-adsense'); ?></a>
+                    <a class="button button-hero" href="<?php echo esc_url(self::url('pro-page-hero')); ?>" target="_blank" rel="noopener"><?php esc_html_e('Product tour', 'simple-google-adsense'); ?></a>
+                </p>
+                <ul class="adflow-trust" aria-label="<?php esc_attr_e('Why it is a safe choice', 'simple-google-adsense'); ?>">
+                    <li><?php esc_html_e('Used on 3,000+ sites (free plugin)', 'simple-google-adsense'); ?></li>
+                    <li><?php esc_html_e('14-day money-back guarantee', 'simple-google-adsense'); ?></li>
+                    <li><?php esc_html_e('Your current setup keeps working', 'simple-google-adsense'); ?></li>
+                    <li><?php esc_html_e('Pro keeps working if a licence expires', 'simple-google-adsense'); ?></li>
+                </ul>
             </section>
 
-            <section class="adflow-pillars">
+            <section class="adflow-pro-shots" aria-label="<?php esc_attr_e('AdFlow Pro screens', 'simple-google-adsense'); ?>">
+                <?php
+                $shots = array(
+                    'm01-earnings' => array(__('Your AdSense earnings in WordPress', 'simple-google-adsense'), __('Earnings, page RPM, top pages and the winning ad unit - without opening AdSense.', 'simple-google-adsense')),
+                    'm06-protection' => array(__('Invalid-click protection', 'simple-google-adsense'), __('Visitors who click too often stop receiving ads, before Google limits your account.', 'simple-google-adsense')),
+                    'm03-sell-ads' => array(__('Sell ads directly', 'simple-google-adsense'), __('Sponsors order, upload and pay on your "Advertise with us" page. You approve.', 'simple-google-adsense')),
+                );
+                foreach ($shots as $file => $shot) : ?>
+                    <figure class="adflow-card adflow-pro-shot">
+                        <img src="<?php echo esc_url(SIMPLE_GOOGLE_ADSENSE_PLUGIN_URI . '/assets/images/pro/' . $file . '.jpg'); ?>" alt="<?php echo esc_attr($shot[0]); ?>" width="960" height="600" loading="lazy">
+                        <figcaption><strong><?php echo esc_html($shot[0]); ?></strong><?php echo esc_html($shot[1]); ?></figcaption>
+                    </figure>
+                <?php endforeach; ?>
+            </section>
+
+            <section class="adflow-pillars adflow-pillars--pro">
                 <?php foreach ($pillars as $pillar_key => $pillar) : ?>
                     <div class="adflow-card adflow-pillar">
                         <span class="dashicons dashicons-<?php echo esc_attr($pillar['icon']); ?>" aria-hidden="true"></span>
@@ -524,35 +617,64 @@ final class Simple_Google_Adsense_Upsell
                                 if ($pillar_key !== $feature['pillar']) {
                                     continue;
                                 } ?>
-                                <li><strong><?php echo esc_html($feature['title']); ?></strong><br><?php echo esc_html($feature['benefit']); ?></li>
+                                <li><strong><?php echo esc_html($feature['title']); ?></strong><?php echo esc_html($feature['benefit']); ?></li>
                             <?php endforeach; ?>
                         </ul>
                     </div>
                 <?php endforeach; ?>
             </section>
 
-            <section class="adflow-pricing" aria-label="<?php esc_attr_e('Pricing', 'simple-google-adsense'); ?>">
-                <?php foreach (self::plans() as $plan_key => $plan) : ?>
-                    <div class="adflow-card adflow-plan <?php echo !empty($plan['highlight']) ? 'is-highlight' : ''; ?>">
-                        <?php if (!empty($plan['highlight'])) : ?>
-                            <span class="adflow-plan-flag"><?php esc_html_e('Most popular', 'simple-google-adsense'); ?></span>
-                        <?php endif; ?>
-                        <h3><?php echo esc_html($plan['name']); ?></h3>
-                        <p class="adflow-plan-price"><strong><?php echo esc_html($plan['price']); ?></strong> <span><?php echo esc_html($plan['period']); ?></span></p>
-                        <p class="adflow-plan-sites"><?php echo esc_html($plan['sites']); ?></p>
-                        <p class="description"><?php echo esc_html($plan['note']); ?></p>
-                        <a class="button <?php echo !empty($plan['highlight']) ? 'button-primary' : ''; ?>" href="<?php echo esc_url(self::url('pro-page-pricing', $plan_key)); ?>" target="_blank" rel="noopener">
-                            <?php
-                            /* translators: %s: plan name */
-                            printf(esc_html__('Choose %s', 'simple-google-adsense'), esc_html($plan['name']));
-                            ?>
-                        </a>
-                    </div>
-                <?php endforeach; ?>
+            <section id="adflow-pricing" class="adflow-pricing-wrap" data-adflow-billing="yearly" aria-labelledby="adflow-pricing-title">
+                <h2 id="adflow-pricing-title"><?php esc_html_e('Every plan includes every Pro feature', 'simple-google-adsense'); ?></h2>
+                <p class="description"><?php esc_html_e('Plans differ only in the number of sites. Pay yearly, or once for life.', 'simple-google-adsense'); ?></p>
+                <div class="adflow-billing" role="group" aria-label="<?php esc_attr_e('Billing period', 'simple-google-adsense'); ?>">
+                    <button type="button" class="adflow-billing__btn is-active" data-period="yearly" aria-pressed="true"><?php esc_html_e('Yearly', 'simple-google-adsense'); ?></button>
+                    <button type="button" class="adflow-billing__btn" data-period="lifetime" aria-pressed="false"><?php esc_html_e('Lifetime · pay once', 'simple-google-adsense'); ?></button>
+                </div>
+                <div class="adflow-pricing">
+                    <?php foreach (self::plans() as $plan_key => $plan) :
+                        $has_lifetime = !empty($plan['lifetime']); ?>
+                        <div class="adflow-card adflow-plan <?php echo !empty($plan['highlight']) ? 'is-highlight' : ''; ?>">
+                            <?php if (!empty($plan['highlight'])) : ?>
+                                <span class="adflow-plan-flag"><?php esc_html_e('Most popular', 'simple-google-adsense'); ?></span>
+                            <?php endif; ?>
+                            <h3><?php echo esc_html($plan['name']); ?></h3>
+                            <p class="adflow-plan-price" data-show="yearly"><strong><?php echo esc_html($plan['price']); ?></strong> <span><?php echo esc_html($plan['period']); ?></span></p>
+                            <?php if ($has_lifetime) : ?>
+                                <p class="adflow-plan-price" data-show="lifetime" hidden><strong><?php echo esc_html($plan['lifetime']); ?></strong> <span><?php esc_html_e('once', 'simple-google-adsense'); ?></span></p>
+                            <?php endif; ?>
+                            <p class="adflow-plan-sites"><?php echo esc_html($plan['sites']); ?></p>
+                            <p class="description"><?php echo esc_html($plan['note']); ?></p>
+                            <a class="button <?php echo !empty($plan['highlight']) ? 'button-primary' : ''; ?>" data-show="yearly" href="<?php echo esc_url(self::checkout_url($plan_key, 'yearly')); ?>" target="_blank" rel="noopener">
+                                <?php
+                                /* translators: %s: plan name */
+                                printf(esc_html__('Buy %s', 'simple-google-adsense'), esc_html($plan['name']));
+                                ?>
+                            </a>
+                            <?php if ($has_lifetime) : ?>
+                                <a class="button <?php echo !empty($plan['highlight']) ? 'button-primary' : ''; ?>" data-show="lifetime" hidden href="<?php echo esc_url(self::checkout_url($plan_key, 'lifetime')); ?>" target="_blank" rel="noopener">
+                                    <?php
+                                    /* translators: %s: plan name */
+                                    printf(esc_html__('Buy %s lifetime', 'simple-google-adsense'), esc_html($plan['name']));
+                                    ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <p class="adflow-pricing-note description" data-show="yearly"><?php esc_html_e('Yearly plans include updates and priority support for a year and renew automatically; cancel any time.', 'simple-google-adsense'); ?></p>
+                <p class="adflow-pricing-note description" data-show="lifetime" hidden><?php esc_html_e('Lifetime plans are paid once and include updates and priority support for life.', 'simple-google-adsense'); ?></p>
+                <ul class="adflow-trust adflow-trust--center">
+                    <li><?php esc_html_e('14-day money-back guarantee', 'simple-google-adsense'); ?></li>
+                    <li><?php esc_html_e('Secure checkout by MantraBrain', 'simple-google-adsense'); ?></li>
+                    <li><?php esc_html_e('Upgrade any time - pay only the difference', 'simple-google-adsense'); ?></li>
+                </ul>
             </section>
-            <p class="adflow-pricing-note description"><?php esc_html_e('All plans include every Pro feature, one year of updates and priority support.', 'simple-google-adsense'); ?></p>
 
-            <?php self::render_comparison(); ?>
+            <details class="adflow-card adflow-compare-wrap">
+                <summary><?php esc_html_e('Compare every Free and Pro feature', 'simple-google-adsense'); ?></summary>
+                <?php self::render_comparison(); ?>
+            </details>
 
             <section class="adflow-card adflow-faq">
                 <h3><?php esc_html_e('Questions', 'simple-google-adsense'); ?></h3>
@@ -566,7 +688,8 @@ final class Simple_Google_Adsense_Upsell
 
             <section class="adflow-pro-hero adflow-card adflow-pro-final">
                 <h2><?php esc_html_e('Ready to see what your ads really earn?', 'simple-google-adsense'); ?></h2>
-                <a class="button button-primary button-hero" href="<?php echo esc_url(self::url('pro-page-footer', 'plus')); ?>" target="_blank" rel="noopener"><?php esc_html_e('Get AdFlow Pro', 'simple-google-adsense'); ?></a>
+                <p><?php esc_html_e('From $49 a year, or $129 once. Install Pro next to the free plugin - your ads keep running while you set it up.', 'simple-google-adsense'); ?></p>
+                <a class="button button-primary button-hero" href="#adflow-pricing"><?php esc_html_e('Choose your plan', 'simple-google-adsense'); ?></a>
             </section>
         </div>
         <?php
