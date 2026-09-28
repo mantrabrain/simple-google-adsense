@@ -93,6 +93,7 @@ final class Simple_Google_Adsense_Admin
     private function init_hooks()
     {
         add_filter('plugin_action_links_' . SIMPLE_GOOGLE_ADSENSE_BASENAME, array($this, 'action_links'));
+        add_filter('plugin_row_meta', array($this, 'row_meta'), 10, 2);
         add_action('admin_init', array($this, 'settings'));
         add_action('admin_init', array($this, 'maybe_redirect'));
         // Before WordPress checks page access (which would refuse the old URL).
@@ -171,6 +172,29 @@ final class Simple_Google_Adsense_Admin
             $links[] = '<a href="' . esc_url(self::pro_url('plugins')) . '" target="_blank" rel="noopener" style="font-weight:600">'
                 . esc_html__('Get AdFlow Pro', 'simple-google-adsense') . '</a>';
         }
+
+        return $links;
+    }
+
+    /**
+     * Links under the plugin description on the Plugins screen.
+     *
+     * @param array $links Row meta links.
+     * @param string $file Plugin file.
+     * @return array
+     * @since 1.4.0
+     */
+    public function row_meta($links, $file)
+    {
+        if (SIMPLE_GOOGLE_ADSENSE_BASENAME !== $file) {
+            return $links;
+        }
+
+        $links[] = '<a href="' . esc_url(admin_url('admin.php?page=adflow-docs')) . '">' . esc_html__('Docs', 'simple-google-adsense') . '</a>';
+        if (!Simple_Google_Adsense_Settings::is_pro_active()) {
+            $links[] = '<a href="' . esc_url(self::pro_url('plugins-meta') . '#compare') . '" target="_blank" rel="noopener">' . esc_html__('Pro features', 'simple-google-adsense') . '</a>';
+        }
+        $links[] = '<a href="https://wordpress.org/support/plugin/simple-google-adsense/" target="_blank" rel="noopener">' . esc_html__('Support', 'simple-google-adsense') . '</a>';
 
         return $links;
     }

@@ -16,7 +16,31 @@ Insert Google AdSense and any ads anywhere: Auto Ads, placements, ads.txt, Conse
 
 Coming from another ad plugin? **Import from Advanced Ads, Ad Inserter, AdRotate or WP QUADS in one click** - your old shortcodes keep working.
 
-👉 [AdFlow website](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro) · [Docs inside the plugin (AdFlow → Docs)](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=docs) · [Support forum](https://wordpress.org/support/plugin/simple-google-adsense/)
+**[⭐ AdFlow Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro-pro)** · **[Free vs Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro-compare#compare)** · **[Pricing](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro-pricing#pricing)** · [Support forum](https://wordpress.org/support/plugin/simple-google-adsense/) · Documentation: **AdFlow → Docs** in your dashboard
+
+= Free vs Pro at a glance =
+
+**Free, forever - no limits on ads, placements or sites:**
+
+* ✅ AdSense Auto Ads, ad units, block, widget and shortcodes
+* ✅ Placements before, inside (after paragraph N) and after content
+* ✅ ads.txt manager with live check
+* ✅ Google Consent Mode v2 and load-after-consent (GDPR)
+* ✅ Your own sponsor ads, rotation groups and cookieless statistics
+* ✅ Ad Inspector, site health, roles and approval workflow
+* ✅ One-click import from Advanced Ads, Ad Inserter, AdRotate and WP QUADS
+
+**⭐ [AdFlow Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=glance) adds:**
+
+* ⭐ **AdSense earnings dashboard** in WordPress, per ad unit and per page
+* ⭐ **Invalid-click protection** for your AdSense account
+* ⭐ Mid-article, between posts, sticky, popup and WooCommerce placements
+* ⭐ Targeting by device, visitor, category, post age and **country**
+* ⭐ **Sell ads directly** with advertiser reports and emails
+* ⭐ Google Ad Manager (GPT) units, A/B rotation and lazy loading
+* ⭐ Priority email support
+
+[See every Pro feature and pricing →](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=table-cta#compare) · from **$49 a year** or **$129 once** · 14-day money-back guarantee
 
 = Why publishers choose AdFlow =
 
@@ -26,7 +50,9 @@ Coming from another ad plugin? **Import from Advanced Ads, Ad Inserter, AdRotate
 * **Safe for your AdSense account** - Google's exact ad markup, the only two ad labels Google allows, ads hidden from logged-in admins, and a failsafe that never lets a broken ad break your page.
 * **Fast** - the ad script and styles load only on pages that show an ad.
 
-= Google AdSense: Auto Ads and ad units =
+= Free features =
+
+**Google AdSense: Auto Ads and ad units**
 
 * **Auto Ads in one step** - Google's machine learning places the ads; exclude post types or single pages (contact, checkout...).
 * **All AdSense ad types** - display, in-article, in-feed and multiplex, with Google's exact markup and responsive formats.
@@ -34,23 +60,22 @@ Coming from another ad plugin? **Import from Advanced Ads, Ad Inserter, AdRotate
 * **Hide ads from logged-in administrators** - protect your account from accidental self-clicks.
 * **Optional ad label** - "Advertisements" or "Sponsored Links", the two labels Google permits.
 
-= Automatic ad placements - no shortcodes =
+**Automatic ad placements - no shortcodes**
 
 * **Before content, after paragraph N, after content** on posts, pages or any public post type.
 * **Shortcodes, a Gutenberg block and a classic widget** when you want an ad in one exact spot.
 
-= Fix "Earnings at risk": ads.txt manager =
+**Fix "Earnings at risk": ads.txt manager**
 
 * AdFlow serves the correct AdSense line from your Publisher ID - no file to upload.
-* Add lines for other ad networks, with validation.
-* A live checker confirms Google can read your ads.txt.
+* Add lines for other ad networks, with validation, and a live checker confirms Google can read the file.
 
-= GDPR-ready: Google Consent Mode v2 =
+**GDPR-ready: Google Consent Mode v2**
 
 * **Consent Mode v2** - "denied" by default for visitors from the EEA, UK and Switzerland, updated automatically by Complianz, CookieYes, Cookiebot or any WP Consent API plugin.
 * **Load ads after consent** - AdSense, other networks' code and Ad Manager slots wait for your Google-certified (IAB TCF v2.2) message or consent plugin. Works with page caching.
 
-= Any ad network, and your own sponsors =
+**Any ad network, and your own sponsors**
 
 * **Custom code units** for Google Ad Manager, Media.net, Ezoic or any other network, managed next to AdSense.
 * **Image banners and text ads** for sponsors, affiliates or your own offers, with `rel="sponsored"` links and a disclosure label.
@@ -59,61 +84,66 @@ Coming from another ad plugin? **Import from Advanced Ads, Ad Inserter, AdRotate
 * **Cookieless statistics** - impressions (counted when the ad renders), viewable impressions (IAB/MRC: 50% on screen for 1 second) and real clicks. Bots, prefetches and admins are filtered; only daily totals are stored, never IP addresses.
 * **Optional redirect-link click tracking** with `{ad_id}`, `{placement}`, `{site}` and `{cachebuster}` macros.
 
-= Find out why an ad is not showing =
+**Find out why an ad is not showing**
 
 * **Ad Inspector** - one click in the toolbar outlines every ad on the page as filled, unfilled or blocked.
 * **"Will this ad show?"** - every ad lists what could stop it (schedule, targeting, consent, frequency).
 * **Site health** - Publisher ID, ads.txt, caching and consent checks on one dashboard.
 
-= Teams and agencies =
+**Teams and agencies**
 
 * **Roles and permissions** - let editors or a sales team manage ads or view reports without admin rights.
 * **Approval workflow** - ads from users without the "Publish ads" permission wait for review, and reviewers are emailed.
 
-= Switch from another ad plugin in one click =
+**Switch from another ad plugin in one click**
 
 Import ads, rotation groups, placements and (AdRotate and WP QUADS) statistics from **Advanced Ads, Ad Inserter, AdRotate and WP QUADS**. The other plugin does not need to be active, nothing in it is changed, importing twice never creates duplicates - and `[the_ad]`, `[adinserter]`, `[adrotate]` and `[quads]` shortcodes are answered by AdFlow, so no post needs editing.
 
-= AdFlow Pro: earn more, protect your account, sell ads =
+= ⭐ AdFlow Pro: earn more, protect your account, sell ads =
 
-[AdFlow Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro) adds everything the leading ad plugins sell as separate add-ons, in one plugin **from $49 a year** (or pay once with a lifetime licence). Every plan includes every Pro feature.
+[AdFlow Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro) is a separate add-on for this plugin. It adds everything the leading ad plugins sell as separate add-ons, in one plugin. **Every plan includes every Pro feature:**
 
-**See your money**
+* **Personal** (1 site) - $49 a year, or $129 once
+* **Plus** (5 sites) - $99 a year, or $249 once
+* **Agency** (25 sites) - $149 a year, or $399 once
+
+14-day money-back guarantee. If your licence ever expires, Pro keeps working. [Compare plans →](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro-plans#pricing)
+
+**📊 See your money** - [see it in action](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro-money#pro)
 
 * **AdSense earnings dashboard** inside WordPress - earnings, page RPM, clicks and CTR, plus a dashboard widget.
 * **Earnings per ad unit and per page**, with the winner of each A/B test.
 
-**Protect your AdSense account**
+**🛡️ Protect your AdSense account** - [how it works](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro-protect#pro)
 
 * **Invalid-click protection** - stops serving ads to a visitor who clicks too often. Flagged visitors never load the AdSense script, so no ad is hidden against Google's policy.
 * **Max ads per page** and **per-post ad controls**.
+* A polite, dismissible **ad-blocker message**.
 
-**Earn more from every page**
+**📈 Earn more from every page** - [see the placements](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro-earn#pro)
 
 * **More placements** - after X% of content, between posts, before comments, a closable sticky anchor, WooCommerce shop and product pages.
 * **Popup** (sponsor ads) and **sticky sidebar** formats.
 * **Targeting** - device, logged-in visitors, search traffic, categories, post age, start and end dates.
 * **Country targeting** that works on cached pages, with your CDN's country header or a free local database - no IP addresses stored.
 * **Google Ad Manager (GPT) units** with desktop/mobile sizes and key-value targeting.
-* **A/B rotation**, **lazy loading with reserved height** (Core Web Vitals) and a polite **ad-blocker message**.
+* **A/B rotation** and **lazy loading with reserved height** for Core Web Vitals.
 
-**Sell ads directly**
+**💰 Sell ads directly** - [see the order page](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro-sell#pro)
 
 * A self-serve **"Advertise with us" page** - advertisers choose a package, upload a banner and pay with your own Stripe Payment Link, PayPal or any checkout. You approve; it runs for the paid days.
 * **Advertiser reports** - custom date ranges, placements, devices, CSV export, **shareable report links**, weekly or monthly emails and expiry reminders.
 * **Sponsor eCPM next to your AdSense RPM**, **frequency capping** and **dayparting**.
 
-**For agencies and developers**
+**🧰 For agencies and developers**
 
-* **Export/import** your setup between sites, an **activity log**, a **REST API** and **WP-CLI** commands.
+* **Export/import** your setup between sites, an **activity log**, a **REST API** and **WP-CLI** commands, and **priority email support**.
 
-👉 [Compare Free and Pro, and see pricing](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pricing#pricing) · 14-day money-back guarantee
-
-Everything in the free plugin stays free.
+👉 **[Get AdFlow Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro-cta#pricing)** · everything in the free plugin stays free.
 
 = Documentation =
 
-The complete AdFlow and AdFlow Pro documentation is built in: **AdFlow → Docs** in your dashboard, searchable, with a guide for every feature.
+The complete AdFlow and AdFlow Pro documentation is built in: open **AdFlow → Docs** in your dashboard - searchable, with a guide for every feature.
 
 = External services =
 
@@ -148,6 +178,14 @@ Ads usually start showing within minutes; on a new AdSense site Auto Ads can tak
 = Is AdFlow free? =
 
 Yes. The free plugin on WordPress.org has no limit on ads, placements or sites and adds no branding to your ads. [AdFlow Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=faq) is a separate plugin for earnings reports, click protection, advanced targeting and selling ads.
+
+= What does AdFlow Pro add? =
+
+An AdSense earnings dashboard inside WordPress, invalid-click protection, more placements (mid-article, between posts, sticky, popup, WooCommerce), targeting by device, visitor, category, post age and country, Google Ad Manager units, A/B rotation, and a self-serve "Advertise with us" page with advertiser reports. [See all Pro features](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=faq-pro#pro).
+
+= How much is AdFlow Pro? =
+
+Personal (1 site) $49 a year or $129 once, Plus (5 sites) $99 a year or $249 once, Agency (25 sites) $149 a year or $399 once. Every plan includes every Pro feature, with a 14-day money-back guarantee, and Pro keeps working if a licence expires. [See pricing](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=faq-price#pricing).
 
 = Does AdFlow help me get approved for AdSense? =
 
@@ -223,47 +261,57 @@ Read **AdFlow → Docs** in your dashboard, or ask in the [support forum](https:
 == Changelog ==
 
 = 1.4.0 | 2026/09/28 =
-* **NEW**: ads.txt manager - serve the AdSense line automatically, add custom lines and check the live file
-* **NEW**: Ad Units library - configure an ad once and reuse it in shortcodes (`[adflow id="…"]`), the block, the widget and placements
-* **NEW**: Automatic placements - before content, after paragraph N and after content, per post type
-* **NEW**: Auto Ads exclusions by post type and by post/page ID
-* **NEW**: Option to hide ads from logged-in administrators
-* **NEW**: AdFlow widget for classic sidebars
-* **NEW**: Redesigned admin - a Dashboard (status, setup checklist, site health), a clean menu (Dashboard, Ad Units, Placements, Earnings, Settings) and one tabbed Settings screen
-* **NEW**: Health checks and a setup checklist on the Dashboard
-* **NEW**: Your own ads - image banners and text ads with sponsored links, disclosure label, scheduling and AdSense fallback
-* **NEW**: Cookieless impression, viewable-impression and click statistics for your own ads (IAB/MRC definitions, bot and prefetch filtering, automatic fallback when the REST API is blocked) and a Reports screen
-* **NEW**: Rotation groups, roles & permissions, "Will this ad show?" diagnostics, failsafe rendering, database footprint check
-* **NEW**: Privacy & consent - Google Consent Mode v2 defaults and updates (WP Consent API), and "load ads after consent" for IAB TCF v2.2 messages and consent plugins
-* **FIXED**: Tracking macros such as {ad_id} in a destination URL were removed when the ad was saved
-* **NEW**: Docs - the complete AdFlow and AdFlow Pro documentation under AdFlow → Docs, searchable
-* **FIXED**: Custom code with a schedule, country or frequency rule could load before the rule hid it; it now only loads when it may show
-* **FIXED**: Frequency caps now work with statistics turned off
-* **FIXED**: Keyboard users tabbing into an ad frame were counted as clicks
-* **FIXED**: Pages excluded from Auto Ads could still get Auto Ads when they contained a manual ad
-* **FIXED**: Importing a Publisher ID on a new site could switch ads off
-* **SECURITY**: Users who may create but not publish ads can no longer change or remove live ads without review
-* **IMPROVED**: Multisite uninstall respects each site's "delete data" choice; Dashboard checks no longer slow the screen down
-* **NEW**: Switch to AdFlow - import ads, groups, placements and statistics from Advanced Ads, Ad Inserter, AdRotate and WP QUADS; their shortcodes keep working after you deactivate them
-* **NEW**: Approval workflow - ads from users without the "Publish ads" permission wait for review, and reviewers are emailed
-* **NEW**: Optional click counting through a redirect link, with tracking macros in the destination URL
-* **IMPROVED**: Rotation groups only pick among ads that may show right now (schedule, days/hours, frequency cap)
-* **DEVELOPERS**: `adflow_ad_types` and `adflow_render_ad_type` let add-ons register new ad unit types; `adflow_fx_config` filters the front-end script config; `adflow_imported` fires after an import
-* **CHANGED**: Uninstalling keeps your data unless you opt in to deleting it (Settings → General → Your data)
-* **NEW**: Ad Inspector in the toolbar (administrators only) shows which ads are filled, unfilled or blocked
-* **NEW**: Optional "Advertisements" / "Sponsored Links" ad label
-* **NEW**: Custom code ad units for other networks (requires the unfiltered_html capability)
-* **NEW**: ads.txt line validation
-* **NEW**: Developer hooks: `adflow_should_display_ad`, `adflow_ad_markup`, `adflow_placement_types`, `adflow_ads_allowed` and more
-* **FIXED**: In-article ads were missing Google's `data-ad-layout="in-article"` markup
-* **FIXED**: In-feed ads can now carry the required `data-ad-layout-key` (`layout_key` shortcode attribute and block field)
-* **IMPROVED**: "Matched Content" renamed to Multiplex to match AdSense; old shortcodes still work
-* **IMPROVED**: AdFlow now has its own admin menu; the old Settings → AdFlow URL redirects
-* **IMPROVED**: The MantraBrain news dashboard widget no longer forces itself to the top of the dashboard
-* **IMPROVED**: Data is removed cleanly when the plugin is deleted (every site on multisite)
-* **IMPROVED**: The MantraBrain news dashboard widget is now opt-in (`mantrabrain_show_dashboard_widgets` filter) and admin-only
-* **SECURITY**: The shortcode `ad_client` override is only honoured in content from users who can post unfiltered HTML; shortcode `style`/`class` are sanitized; ad units are no longer listed over the public REST API
-* **DEVELOPERS**: AdFlow now has its own top-level menu. The settings screen keeps its `simple-google-adsense-settings` slug (hook suffix `adflow_page_simple-google-adsense-settings`); the old Settings → AdFlow URL redirects
+
+**New**
+
+* Ad Units library - configure an ad once and reuse it in shortcodes (`[adflow id="…"]`), the block, the widget and placements
+* Automatic placements - before content, after paragraph N and after content, per post type
+* ads.txt manager - serves the AdSense line automatically, custom lines with validation, and a live check
+* Privacy & consent - Google Consent Mode v2 defaults and updates (WP Consent API) and "load ads after consent" for IAB TCF v2.2 messages and consent plugins
+* Your own ads - image banners and text ads with sponsored links, disclosure label, scheduling and AdSense fallback
+* Cookieless impression, viewable-impression (IAB/MRC) and click statistics for your own ads, with bot and prefetch filtering, and a Reports screen
+* Rotation groups, and optional click counting through a redirect link with tracking macros
+* Switch to AdFlow - import ads, groups, placements and statistics from Advanced Ads, Ad Inserter, AdRotate and WP QUADS; their shortcodes keep working after you deactivate them
+* Roles and permissions, and an approval workflow: ads from users without "Publish ads" wait for review and reviewers are emailed
+* Ad Inspector in the toolbar, "Will this ad show?" diagnostics, failsafe rendering and Dashboard health checks with a setup checklist
+* Auto Ads exclusions by post type and by post/page ID, and an option to hide ads from logged-in administrators
+* Optional "Advertisements" / "Sponsored Links" ad label
+* Custom code ad units for other networks (requires the unfiltered_html capability)
+* AdFlow widget for classic sidebars
+* Docs - the complete AdFlow and AdFlow Pro documentation under AdFlow → Docs, searchable
+* Redesigned admin with its own menu (Dashboard, Ad Units, Placements, Reports, Settings, Docs); the old Settings → AdFlow URL redirects
+
+**Improved**
+
+* "Matched Content" is now called Multiplex, as in AdSense; old shortcodes still work
+* Rotation groups only pick among ads that may show right now (schedule, days/hours, frequency cap)
+* Multisite uninstall respects each site's "delete data" choice; Dashboard checks no longer slow the screen down
+* The MantraBrain news dashboard widget is opt-in (`mantrabrain_show_dashboard_widgets` filter), admin-only, and no longer forces itself to the top
+
+**Fixed**
+
+* In-article ads were missing Google's `data-ad-layout="in-article"` markup
+* In-feed ads can now carry the required `data-ad-layout-key` (`layout_key` shortcode attribute and block field)
+* Pages excluded from Auto Ads could still get Auto Ads when they contained a manual ad
+* Custom code with a schedule, country or frequency rule could load before the rule hid it
+* Tracking macros such as {ad_id} in a destination URL were removed when the ad was saved
+* Frequency caps now work with statistics turned off
+* Keyboard users tabbing into an ad frame were counted as clicks
+* Importing a Publisher ID on a new site could switch ads off
+
+**Security**
+
+* Users who may create but not publish ads can no longer change or remove live ads without review
+* The shortcode `ad_client` override is only honoured in content from users who can post unfiltered HTML; shortcode `style`/`class` are sanitized; ad units are no longer listed over the public REST API
+
+**Changed**
+
+* Uninstalling keeps your data unless you opt in to deleting it (Settings → General → Your data)
+
+**Developers**
+
+* New hooks: `adflow_should_display_ad`, `adflow_ad_markup`, `adflow_placement_types`, `adflow_ads_allowed`, `adflow_ad_types`, `adflow_render_ad_type`, `adflow_fx_config`, `adflow_imported` and more
+* The settings screen keeps its `simple-google-adsense-settings` slug (hook suffix `adflow_page_simple-google-adsense-settings`)
 
 = 1.3.0 | 2026/08/21 =
 * **FIXED**: Manual Ads never displayed unless Auto Ads was also switched on - the AdSense library is now loaded whenever a shortcode or block renders an ad
