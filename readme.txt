@@ -302,6 +302,7 @@ Read **AdFlow → Docs** in your dashboard, or ask in the [support forum](https:
 * Frequency caps now work with statistics turned off
 * Keyboard users tabbing into an ad frame were counted as clicks
 * Importing a Publisher ID on a new site could switch ads off
+* A malformed Publisher ID no longer outputs ad code that Google would reject; the settings screen says what is wrong with it
 
 **Security**
 

@@ -113,9 +113,8 @@ final class Simple_Google_Adsense_Settings
      */
     public static function get_ad_client()
     {
-        $publisher_id = self::get_publisher_id();
-
-        return '' === $publisher_id ? '' : 'ca-' . $publisher_id;
+        // No ad code is ever sent with a malformed ID: Google would reject every request.
+        return self::is_publisher_id_valid() ? 'ca-' . self::get_publisher_id() : '';
     }
 
     /**

@@ -829,7 +829,9 @@ final class Simple_Google_Adsense_Admin
         global $wpdb;
         $autoload = (int) $wpdb->get_var("SELECT SUM(LENGTH(option_value)) FROM {$wpdb->options} WHERE autoload IN ('yes','on','auto','auto-on') AND (option_name LIKE 'simple\\_google\\_adsense%' OR option_name LIKE 'adflow%')"); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
         $stats_table = Simple_Google_Adsense_Stats::table();
-        $stats = $wpdb->get_row($wpdb->prepare('SELECT table_rows AS r, (data_length + index_length) AS b FROM information_schema.tables WHERE table_schema = %s AND table_name = %s', DB_NAME, $stats_table), ARRAY_A); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+        $stats = $wpdb->get_row($wpdb->prepare('SELECT (data_length + index_length) AS b FROM information_schema.tables WHERE table_schema = %s AND table_name = %s', DB_NAME, $stats_table), ARRAY_A); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+        // Exact count: information_schema only estimates InnoDB rows (and MySQL 8 caches it for a day). One row per day, ad, placement and device keeps this cheap.
+        $stats_rows = (int) $wpdb->get_var($wpdb->prepare('SELECT COUNT(*) FROM %i', $stats_table)); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
         $checks['footprint'] = array(
             'status' => $autoload < 20 * KB_IN_BYTES ? 'ok' : 'warning',
             'label' => __('Database footprint', 'simple-google-adsense'),
@@ -837,7 +839,7 @@ final class Simple_Google_Adsense_Admin
                 /* translators: 1: autoloaded size, 2: statistics rows, 3: statistics size */
                 __('%1$s loaded on every page; statistics: %2$s daily rows (%3$s). No per-visit rows are ever stored.', 'simple-google-adsense'),
                 size_format($autoload, 1),
-                number_format_i18n($stats ? (int) $stats['r'] : 0),
+                number_format_i18n($stats_rows),
                 size_format($stats ? (int) $stats['b'] : 0, 1)
             ),
         );

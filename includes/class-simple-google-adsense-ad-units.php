@@ -59,6 +59,7 @@ final class Simple_Google_Adsense_Ad_Units
     public function __construct()
     {
         add_filter('wp_insert_post_data', array($this, 'enforce_review'), 10, 2);
+        add_filter('map_meta_cap', array($this, 'guard_live_ads'), 10, 4);
         add_filter('pre_trash_post', array($this, 'protect_live_ads'), 10, 2);
         add_filter('pre_delete_post', array($this, 'protect_live_ads'), 10, 2);
         add_action('init', array($this, 'register_post_type'));
@@ -1038,6 +1039,36 @@ final class Simple_Google_Adsense_Ad_Units
         }
 
         return $data;
+    }
+
+    /**
+     * Live (published or scheduled) ads can only be edited or deleted by users
+     * who may publish ads. Everyone else sees them read-only, so saving can
+     * never pull a running ad off the site while it waits for review.
+     *
+     * @param array $caps Primitive caps.
+     * @param string $cap Meta cap being checked.
+     * @param int $user_id User.
+     * @param array $args Arguments (post ID first).
+     * @return array
+     * @since 1.4.0
+     */
+    public function guard_live_ads($caps, $cap, $user_id, $args)
+    {
+        // Core checks both the meta caps and, in places such as the REST API, the
+        // post type's mapped cap with a post ID.
+        if (!in_array($cap, array('edit_post', 'delete_post', Simple_Google_Adsense_Caps::MANAGE_ADS), true) || empty($args[0])) {
+            return $caps;
+        }
+
+        $post = is_numeric($args[0]) || $args[0] instanceof WP_Post ? get_post($args[0]) : null;
+
+        if ($post && self::POST_TYPE === $post->post_type && in_array($post->post_status, array('publish', 'future'), true)
+            && !user_can($user_id, Simple_Google_Adsense_Caps::PUBLISH_ADS)) {
+            return array('do_not_allow');
+        }
+
+        return $caps;
     }
 
     /**

@@ -317,9 +317,10 @@ final class Simple_Google_Adsense_Manual_Ads
         $publisher_ad_client = Simple_Google_Adsense_Settings::get_ad_client();
 
         if ('' === $publisher_ad_client && empty($unit['ad_client'])) {
+            $stored = Simple_Google_Adsense_Settings::get_publisher_id();
             return self::config_notice(
-                __('AdSense Publisher ID not configured.', 'simple-google-adsense'),
-                __('Please go to AdFlow → Settings and enter your Publisher ID.', 'simple-google-adsense')
+                '' === $stored ? __('AdSense Publisher ID not configured.', 'simple-google-adsense') : __('AdSense Publisher ID is not valid.', 'simple-google-adsense'),
+                '' === $stored ? __('Please go to AdFlow → Settings and enter your Publisher ID.', 'simple-google-adsense') : __('It should be "pub-" followed by 16 digits. Please correct it under AdFlow → Settings.', 'simple-google-adsense')
             );
         }
 

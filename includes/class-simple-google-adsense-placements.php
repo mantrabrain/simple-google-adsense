@@ -26,6 +26,13 @@ final class Simple_Google_Adsense_Placements
     const OPTION_NAME = 'simple_google_adsense_placements';
 
     /**
+     * Temporary markers around ads inserted into the content, so paragraph
+     * counting ignores paragraphs inside ads. Removed before output.
+     */
+    const AD_START = '<!--adflow-ad-->';
+    const AD_END = '<!--/adflow-ad-->';
+
+    /**
      * Admin page slug.
      */
     const PAGE_SLUG = 'adflow-placements';
@@ -318,14 +325,15 @@ final class Simple_Google_Adsense_Placements
                     continue;
                 }
 
-                $content = call_user_func($type['inserter'], $content, $html, self::get($key));
+                // Mark the ad so later placements count only the article's own paragraphs.
+                $content = call_user_func($type['inserter'], $content, self::AD_START . $html . self::AD_END, self::get($key));
             } catch (\Throwable $e) {
                 // Never lose the post content because of an ad.
                 Simple_Google_Adsense_Manual_Ads::log_failure($e, array('id' => 0));
             }
         }
 
-        return $content;
+        return str_replace(array(self::AD_START, self::AD_END), '', $content);
     }
 
     /**
@@ -407,8 +415,16 @@ final class Simple_Google_Adsense_Placements
         $pattern = '#<(/?)(p|' . implode('|', array_map('preg_quote', $containers)) . ')(?=[\s>/])[^>]*>#i';
         $depth = 0;
         $ends = array();
+        $content = (string) $content;
 
-        if (!preg_match_all($pattern, (string) $content, $matches, PREG_SET_ORDER | PREG_OFFSET_CAPTURE)) {
+        // Paragraphs inside ads AdFlow already inserted are not article paragraphs.
+        if (false !== strpos($content, self::AD_START)) {
+            $content = preg_replace_callback('#' . preg_quote(self::AD_START, '#') . '.*?' . preg_quote(self::AD_END, '#') . '#s', function ($m) {
+                return str_repeat(' ', strlen($m[0]));
+            }, $content);
+        }
+
+        if (!preg_match_all($pattern, $content, $matches, PREG_SET_ORDER | PREG_OFFSET_CAPTURE)) {
             return $ends;
         }
 
