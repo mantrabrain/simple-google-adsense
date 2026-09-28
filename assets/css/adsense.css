@@ -194,3 +194,13 @@
     font-weight: bold;
     margin-bottom: 5px;
 } 
+/* Ad label (1.4.0) - "Advertisements" / "Sponsored Links" */
+.adflow-ad-label {
+    display: block;
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #757575;
+    margin-bottom: 4px;
+}

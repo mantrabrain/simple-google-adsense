@@ -1,0 +1,1763 @@
+/**
+ * AdFlow admin design system
+ *
+ * One visual language for every AdFlow screen (free and Pro): top bar, page
+ * header, panels, form rows, toggles, tabs, stat cards and status pills.
+ * Built on WordPress admin colours so it feels native.
+ *
+ * @package Simple_Google_Adsense
+ * @since   1.4.0
+ */
+
+:root {
+    /* Follows the user's admin colour scheme where WordPress exposes it. */
+    --af-blue: var(--wp-admin-theme-color, #2271b1);
+    --af-blue-dark: var(--wp-admin-theme-color-darker-10, #135e96);
+    --af-blue-soft: #f0f6fc;
+    --af-green: #008a20;
+    --af-green-soft: #edfaef;
+    --af-amber: #996800;
+    --af-amber-soft: #fcf9e8;
+    --af-red: #d63638;
+    --af-red-soft: #fcf0f1;
+    --af-text: #1d2327;
+    --af-muted: #646970;
+    --af-border: #dcdcde;
+    --af-divider: #f0f0f1;
+    --af-bg: #f6f7f7;
+    --af-radius: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   Top bar (all AdFlow screens)
+   -------------------------------------------------------------------------- */
+
+.adflow-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 0 0 -20px;
+    padding: 12px 24px;
+    background: #fff;
+    border-bottom: 1px solid var(--af-border);
+}
+
+.adflow-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--af-text);
+    text-decoration: none;
+}
+
+.adflow-brand:hover,
+.adflow-brand:focus {
+    color: var(--af-text);
+}
+
+.adflow-brand__mark {
+    display: block;
+    width: 28px;
+    height: 28px;
+}
+
+.adflow-brand__name {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.adflow-brand__version {
+    color: var(--af-muted);
+    font-size: 12px;
+}
+
+.adflow-topbar__links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.adflow-topbar__links a:not(.button) {
+    color: var(--af-muted);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.adflow-topbar__links a:not(.button):hover {
+    color: var(--af-blue);
+}
+
+/* --------------------------------------------------------------------------
+   Page layout & header
+   -------------------------------------------------------------------------- */
+
+.adflow-page {
+    /* Full width, like the rest of wp-admin. */
+    max-width: none;
+    margin: 24px 20px 40px 0;
+    color: var(--af-text);
+}
+
+.adflow-page-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.adflow-page-head h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--af-text);
+}
+
+.adflow-page-head p {
+    margin: 4px 0 0;
+    max-width: 720px;
+    color: var(--af-muted);
+    font-size: 14px;
+}
+
+.adflow-page-head__actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.adflow-page .notice {
+    margin: 0 0 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Tabs
+   -------------------------------------------------------------------------- */
+
+.adflow-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0 0 20px;
+    border-bottom: 1px solid var(--af-border);
+}
+
+.adflow-tabs a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: -1px;
+    padding: 10px 14px;
+    border-bottom: 2px solid transparent;
+    color: var(--af-muted);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.adflow-tabs a:hover {
+    color: var(--af-text);
+}
+
+.adflow-tabs a:focus {
+    box-shadow: none;
+    outline: 2px solid var(--af-blue);
+    outline-offset: -2px;
+}
+
+.adflow-tabs a.is-active {
+    color: var(--af-blue);
+    border-bottom-color: var(--af-blue);
+}
+
+/* --------------------------------------------------------------------------
+   Panels
+   -------------------------------------------------------------------------- */
+
+.adflow-panel {
+    background: #fff;
+    border: 1px solid var(--af-border);
+    border-radius: var(--af-radius);
+    margin-bottom: 20px;
+}
+
+.adflow-panel__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--af-divider);
+}
+
+.adflow-panel__head h2 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--af-text);
+}
+
+.adflow-panel__head p {
+    margin: 2px 0 0;
+    color: var(--af-muted);
+    font-size: 13px;
+}
+
+.adflow-panel__body {
+    padding: 8px 24px;
+}
+
+.adflow-panel__body--padded {
+    padding: 20px 24px;
+}
+
+.adflow-panel__foot {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 14px 24px;
+    background: #fbfbfc;
+    border-top: 1px solid var(--af-divider);
+    border-radius: 0 0 var(--af-radius) var(--af-radius);
+}
+
+.adflow-panel__foot .button {
+    margin: 0;
+}
+
+/* Sticky save bar for long forms */
+.adflow-savebar {
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 12px 0;
+    background: linear-gradient(to top, #f0f0f1 70%, rgba(240, 240, 241, 0));
+}
+
+.adflow-savebar .button {
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Form rows
+   -------------------------------------------------------------------------- */
+
+.adflow-field {
+    display: grid;
+    grid-template-columns: minmax(220px, 26%) minmax(0, 1fr);
+    gap: 24px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--af-divider);
+}
+
+.adflow-field:last-child {
+    border-bottom: 0;
+}
+
+.adflow-field__label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--af-text);
+}
+
+.adflow-field__label label {
+    font-weight: 600;
+}
+
+.adflow-field__help {
+    margin: 4px 0 0;
+    color: var(--af-muted);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.adflow-field__control {
+    min-width: 0;
+}
+
+.adflow-field__control > p:first-child {
+    margin-top: 0;
+}
+
+.adflow-field__control .description {
+    margin-top: 6px;
+    color: var(--af-muted);
+}
+
+.adflow-field__control input[type="text"],
+.adflow-field__control input[type="url"],
+.adflow-field__control select,
+.adflow-field__control textarea {
+    max-width: 100%;
+}
+
+.adflow-field__control input.regular-text {
+    width: 100%;
+    max-width: 480px;
+}
+
+.adflow-field__control textarea.large-text {
+    max-width: 880px;
+}
+
+.adflow-field__error {
+    margin: 6px 0 0;
+    color: var(--af-red);
+    font-size: 13px;
+}
+
+.adflow-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.adflow-checks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.adflow-checks label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.adflow-sublabel {
+    display: block;
+    margin: 14px 0 6px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.adflow-sublabel:first-child {
+    margin-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Toggle switch
+   -------------------------------------------------------------------------- */
+
+.adflow-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.adflow-toggle input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    margin: 0;
+}
+
+.adflow-toggle__track {
+    position: relative;
+    flex-shrink: 0;
+    width: 36px;
+    height: 20px;
+    border-radius: 10px;
+    background: #c3c4c7;
+    transition: background 0.15s ease;
+}
+
+.adflow-toggle__track::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s ease;
+}
+
+.adflow-toggle input:checked + .adflow-toggle__track {
+    background: var(--af-blue);
+}
+
+.adflow-toggle input:checked + .adflow-toggle__track::after {
+    transform: translateX(16px);
+}
+
+.adflow-toggle input:focus-visible + .adflow-toggle__track {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--af-blue);
+}
+
+.adflow-toggle input:disabled + .adflow-toggle__track {
+    opacity: 0.5;
+}
+
+.adflow-toggle__label {
+    font-size: 14px;
+    color: var(--af-text);
+}
+
+/* --------------------------------------------------------------------------
+   Pills, badges, status
+   -------------------------------------------------------------------------- */
+
+.adflow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.6;
+    white-space: nowrap;
+    background: var(--af-divider);
+    color: var(--af-muted);
+}
+
+.adflow-pill--ok { background: var(--af-green-soft); color: var(--af-green); }
+.adflow-pill--warning { background: var(--af-amber-soft); color: var(--af-amber); }
+.adflow-pill--error { background: var(--af-red-soft); color: var(--af-red); }
+.adflow-pill--info { background: var(--af-blue-soft); color: var(--af-blue); }
+
+.adflow-pro-tag {
+    display: inline-block;
+    padding: 0 6px;
+    border-radius: 4px;
+    background: var(--af-text);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+/* Kept for compatibility with earlier markup. */
+.adflow-badge {
+    display: inline-block;
+    padding: 0 6px;
+    border-radius: 4px;
+    background: var(--af-text);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+#adminmenu .adflow-menu-badge {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 0 5px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.16);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 15px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    vertical-align: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   Dashboard
+   -------------------------------------------------------------------------- */
+
+.adflow-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.adflow-stat {
+    display: flex;
+    flex-direction: column;
+    padding: 18px 20px;
+    background: #fff;
+    border: 1px solid var(--af-border);
+    border-radius: var(--af-radius);
+}
+
+.adflow-stat__label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    color: var(--af-muted);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.adflow-stat__value {
+    margin: 10px 0 2px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--af-text);
+}
+
+.adflow-stat__meta {
+    margin: 0;
+    color: var(--af-muted);
+    font-size: 13px;
+}
+
+.adflow-stat__link {
+    margin-top: auto;
+    padding-top: 12px;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.adflow-stat--muted .adflow-stat__value {
+    color: var(--af-muted);
+}
+
+.adflow-grid-2 {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+/* Setup checklist */
+.adflow-setup__progress {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--af-muted);
+    font-size: 13px;
+}
+
+.adflow-setup__bar {
+    display: block;
+    width: 120px;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--af-divider);
+    overflow: hidden;
+}
+
+.adflow-setup__bar span {
+    display: block;
+    height: 100%;
+    background: var(--af-blue);
+    border-radius: 3px;
+}
+
+.adflow-steps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.adflow-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--af-divider);
+}
+
+.adflow-step:last-child {
+    border-bottom: 0;
+}
+
+.adflow-step__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #c3c4c7;
+    border-radius: 50%;
+}
+
+.adflow-step.is-done .adflow-step__icon {
+    border-color: var(--af-green);
+    background: var(--af-green);
+    color: #fff;
+}
+
+.adflow-step.is-done .adflow-step__icon .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.adflow-step__text {
+    flex: 1;
+}
+
+.adflow-step__text strong {
+    display: block;
+    font-weight: 600;
+}
+
+.adflow-step__text span {
+    color: var(--af-muted);
+    font-size: 13px;
+}
+
+.adflow-step.is-done .adflow-step__text strong {
+    color: var(--af-muted);
+    font-weight: 500;
+}
+
+/* Health / status list */
+.adflow-checklist-rows {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.adflow-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--af-divider);
+}
+
+.adflow-row:last-child {
+    border-bottom: 0;
+}
+
+.adflow-row__main {
+    flex: 1;
+    min-width: 0;
+}
+
+.adflow-row__main strong {
+    display: block;
+    font-weight: 600;
+}
+
+.adflow-row__main span {
+    display: block;
+    color: var(--af-muted);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.adflow-dot {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #c3c4c7;
+}
+
+.adflow-dot--ok { background: #00a32a; }
+.adflow-dot--warning { background: #dba617; }
+.adflow-dot--error { background: var(--af-red); }
+.adflow-dot--info { background: #72aee6; }
+
+/* Link list (help, quick actions) */
+.adflow-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.adflow-links li {
+    margin: 0;
+    border-bottom: 1px solid var(--af-divider);
+}
+
+.adflow-links li:last-child {
+    border-bottom: 0;
+}
+
+.adflow-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    text-decoration: none;
+    color: var(--af-text);
+}
+
+.adflow-links a:hover {
+    color: var(--af-blue);
+}
+
+.adflow-links .dashicons {
+    color: var(--af-muted);
+}
+
+/* Upgrade card (free only) */
+.adflow-upgrade-card {
+    padding: 20px 24px;
+    border-radius: var(--af-radius);
+    background: var(--af-text);
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.adflow-upgrade-card h2 {
+    margin: 0 0 6px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.adflow-upgrade-card p {
+    margin: 0 0 14px;
+    color: #c3c4c7;
+}
+
+.adflow-upgrade-card ul {
+    margin: 0 0 16px;
+    padding: 0;
+    list-style: none;
+}
+
+.adflow-upgrade-card li {
+    margin: 6px 0;
+    padding-left: 22px;
+    position: relative;
+    color: #f0f0f1;
+}
+
+.adflow-upgrade-card li::before {
+    content: "\f147";
+    position: absolute;
+    left: 0;
+    top: -1px;
+    font-family: dashicons;
+    color: #68de7c;
+}
+
+/* --------------------------------------------------------------------------
+   Placements
+   -------------------------------------------------------------------------- */
+
+.adflow-placement {
+    border-bottom: 1px solid var(--af-divider);
+}
+
+.adflow-placement:last-child {
+    border-bottom: 0;
+}
+
+.adflow-placement__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 30%);
+    align-items: center;
+    gap: 24px;
+    padding: 16px 24px;
+}
+
+.adflow-placement__title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.adflow-placement__title strong {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.adflow-placement__desc {
+    margin: 4px 0 0 46px;
+    color: var(--af-muted);
+    font-size: 13px;
+}
+
+.adflow-placement__unit select {
+    width: 100%;
+    max-width: 440px;
+}
+
+.adflow-placement__unit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.adflow-placement__details {
+    display: none;
+    padding: 4px 24px 20px 70px;
+}
+
+.adflow-placement.is-enabled .adflow-placement__details {
+    display: block;
+}
+
+.adflow-placement__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+    align-items: flex-start;
+}
+
+.adflow-placement__options .adflow-sublabel {
+    margin-top: 0;
+}
+
+.adflow-placement__options input.small-text {
+    width: 72px;
+}
+
+.adflow-placement--locked .adflow-placement__row {
+    opacity: 0.75;
+}
+
+.adflow-group-label {
+    margin: 0;
+    padding: 12px 24px;
+    background: #fbfbfc;
+    border-bottom: 1px solid var(--af-divider);
+    color: var(--af-muted);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.adflow-panel > .adflow-group-label:first-child {
+    border-radius: var(--af-radius) var(--af-radius) 0 0;
+}
+
+/* Targeting (Pro) inside a placement */
+.adflow-targeting {
+    margin-top: 16px;
+    border: 1px solid var(--af-divider);
+    border-radius: 6px;
+}
+
+.adflow-targeting > summary {
+    padding: 10px 14px;
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+}
+
+.adflow-targeting > summary::-webkit-details-marker {
+    display: none;
+}
+
+.adflow-targeting > summary::before {
+    content: "\f345";
+    font-family: dashicons;
+    margin-right: 6px;
+    color: var(--af-muted);
+    vertical-align: -2px;
+}
+
+.adflow-targeting[open] > summary::before {
+    content: "\f347";
+}
+
+.adflow-targeting__body {
+    padding: 4px 14px 14px;
+}
+
+.adflow-targeting__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 12px 16px;
+}
+
+.adflow-targeting__grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.adflow-targeting__grid select,
+.adflow-targeting__grid input {
+    width: 100%;
+    font-weight: 400;
+}
+
+.adflow-scroll {
+    max-height: 132px;
+    overflow-y: auto;
+    padding: 8px 10px;
+    border: 1px solid var(--af-divider);
+    border-radius: 4px;
+}
+
+.adflow-upsell-line {
+    margin: 12px 0 0;
+    color: var(--af-muted);
+    font-size: 13px;
+}
+
+.adflow-upsell-line .dashicons {
+    font-size: 15px;
+    width: 15px;
+    height: 15px;
+    vertical-align: -3px;
+}
+
+/* --------------------------------------------------------------------------
+   Misc
+   -------------------------------------------------------------------------- */
+
+.adflow-code {
+    display: block;
+    padding: 12px 14px;
+    background: var(--af-bg);
+    border: 1px solid var(--af-border);
+    border-radius: 6px;
+    font-family: Menlo, Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.adflow-copy {
+    cursor: copy;
+}
+
+.adflow-empty {
+    padding: 40px 24px;
+    text-align: center;
+    color: var(--af-muted);
+}
+
+.adflow-empty .dashicons {
+    font-size: 36px;
+    width: 36px;
+    height: 36px;
+    color: #c3c4c7;
+}
+
+.adflow-empty h3 {
+    margin: 10px 0 6px;
+    color: var(--af-text);
+}
+
+.adflow-status-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.adflow-inline-form {
+    display: inline;
+}
+
+/* Ad unit edit screen */
+.post-type-adflow_ad #adflow-ad-unit .inside {
+    margin: 0;
+    padding: 0 12px;
+}
+
+.post-type-adflow_ad #adflow-ad-unit .adflow-field {
+    grid-template-columns: 200px minmax(0, 1fr);
+    padding: 16px 0;
+}
+
+.post-type-adflow_ad #adflow-ad-unit-usage code {
+    display: inline-block;
+    padding: 4px 8px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+    .adflow-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .adflow-grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 782px) {
+    /* WordPress pads #wpbody for the mobile admin bar, but the top bar is
+       printed above #wpbody - take that space into the top bar instead. */
+    .adflow-admin #wpbody {
+        padding-top: 0;
+    }
+
+    .adflow-topbar {
+        margin-left: -10px;
+        padding: 56px 12px 10px;
+    }
+
+    .adflow-topbar__links a:not(.button) {
+        display: none;
+    }
+
+    .adflow-page {
+        margin-right: 10px;
+    }
+
+    .adflow-page-head {
+        flex-direction: column;
+    }
+
+    .adflow-field,
+    .post-type-adflow_ad #adflow-ad-unit .adflow-field {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .adflow-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .adflow-placement__row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .adflow-placement__details {
+        padding-left: 24px;
+    }
+
+    .adflow-panel__head,
+    .adflow-panel__body,
+    .adflow-panel__foot {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Upgrade page & Earnings preview (free version only)
+   -------------------------------------------------------------------------- */
+
+.adflow-card {
+    background: #fff;
+    border: 1px solid var(--af-border);
+    border-radius: var(--af-radius);
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.adflow-ticks {
+    margin: 0 0 16px;
+    padding: 0;
+    list-style: none;
+}
+
+.adflow-ticks li {
+    position: relative;
+    margin: 8px 0;
+    padding-left: 24px;
+}
+
+.adflow-ticks li::before {
+    content: "\f147";
+    position: absolute;
+    left: 0;
+    top: -1px;
+    font-family: dashicons;
+    font-size: 18px;
+    color: var(--af-green);
+}
+
+.adflow-pro-hero {
+    padding: 40px 32px;
+    text-align: center;
+}
+
+.adflow-pro-hero h2 {
+    max-width: 680px;
+    margin: 0 auto 12px;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.adflow-pro-hero > p {
+    max-width: 620px;
+    margin: 0 auto 20px;
+    color: var(--af-muted);
+    font-size: 15px;
+}
+
+.adflow-pro-hero .description {
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.adflow-eyebrow {
+    margin: 0 auto 8px !important;
+    color: var(--af-blue) !important;
+    font-size: 12px !important;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.adflow-pillars,
+.adflow-pricing {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.adflow-pillar {
+    margin: 0;
+}
+
+.adflow-pillar > .dashicons {
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: var(--af-blue-soft);
+    color: var(--af-blue);
+    font-size: 20px;
+}
+
+.adflow-pillar h3 {
+    margin: 14px 0 4px;
+    font-size: 16px;
+}
+
+.adflow-pillar > p {
+    margin: 0 0 12px;
+    color: var(--af-muted);
+}
+
+.adflow-pillar ul {
+    margin: 0;
+    padding: 12px 0 0;
+    border-top: 1px solid var(--af-divider);
+    list-style: none;
+}
+
+.adflow-pillar li {
+    margin: 0 0 12px;
+    color: var(--af-muted);
+    font-size: 13px;
+}
+
+.adflow-pillar li strong {
+    display: block;
+    color: var(--af-text);
+    font-size: 14px;
+}
+
+.adflow-plan {
+    position: relative;
+    margin: 0;
+    text-align: center;
+}
+
+.adflow-plan.is-highlight {
+    border: 2px solid var(--af-blue);
+}
+
+.adflow-plan-flag {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: var(--af-blue);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.adflow-plan h3 {
+    margin: 4px 0 8px;
+    font-size: 15px;
+}
+
+.adflow-plan-price {
+    margin: 0;
+}
+
+.adflow-plan-price strong {
+    font-size: 32px;
+    line-height: 1.1;
+}
+
+.adflow-plan-price span {
+    color: var(--af-muted);
+}
+
+.adflow-plan-sites {
+    margin: 6px 0 2px;
+    font-weight: 600;
+}
+
+.adflow-plan .button {
+    margin-top: 12px;
+}
+
+.adflow-pricing-note {
+    margin: -8px 0 24px;
+    text-align: center;
+}
+
+.adflow-compare {
+    margin-bottom: 20px;
+    border-radius: var(--af-radius);
+    overflow: hidden;
+}
+
+.adflow-compare th,
+.adflow-compare td {
+    padding: 12px 16px;
+}
+
+.adflow-compare td:nth-child(2),
+.adflow-compare td:nth-child(3),
+.adflow-compare th:nth-child(2),
+.adflow-compare th:nth-child(3) {
+    width: 80px;
+    text-align: center;
+}
+
+.adflow-compare .dashicons-yes {
+    color: var(--af-green);
+}
+
+.adflow-faq h3 {
+    margin-top: 0;
+}
+
+.adflow-faq details {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--af-divider);
+}
+
+.adflow-faq details:last-child {
+    border-bottom: 0;
+}
+
+.adflow-faq summary {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.adflow-faq details p {
+    margin: 8px 0 0;
+    color: var(--af-muted);
+}
+
+.adflow-preview {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.adflow-preview-sample {
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid var(--af-border);
+    border-radius: var(--af-radius);
+}
+
+.adflow-preview-ribbon {
+    position: absolute;
+    top: 16px;
+    right: -36px;
+    padding: 3px 44px;
+    transform: rotate(35deg);
+    background: var(--af-amber-soft);
+    color: var(--af-amber);
+    border: 1px solid #f0c33c;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.adflow-preview-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.adflow-preview-kpis div {
+    padding: 12px;
+    border: 1px solid var(--af-divider);
+    border-radius: 6px;
+}
+
+.adflow-preview-kpis small {
+    display: block;
+    color: var(--af-muted);
+    font-size: 12px;
+}
+
+.adflow-preview-kpis strong {
+    font-size: 18px;
+}
+
+.adflow-preview-chart {
+    width: 100%;
+    height: 110px;
+    margin-bottom: 16px;
+}
+
+.adflow-preview-chart rect {
+    fill: #72aee6;
+}
+
+.adflow-preview-cta {
+    padding: 24px;
+    background: #fff;
+    border: 1px solid var(--af-border);
+    border-radius: var(--af-radius);
+}
+
+.adflow-preview-cta h2 {
+    margin: 0 0 12px;
+    font-size: 18px;
+}
+
+@media (max-width: 960px) {
+    .adflow-pillars,
+    .adflow-pricing,
+    .adflow-preview {
+        grid-template-columns: 1fr;
+    }
+
+    .adflow-preview-kpis {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Ad units are private: hide WordPress's visibility and date controls. */
+.post-type-adflow_ad #visibility,
+.post-type-adflow_ad .misc-pub-curtime,
+.post-type-adflow_ad #minor-publishing-actions {
+    display: none;
+}
+
+.adflow-targeting summary .adflow-pill {
+    margin-left: 6px;
+    font-weight: 500;
+}
+
+.adflow-setup__progress {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* Ad Units list */
+.post-type-adflow_ad .column-adflow_type { width: 110px; }
+.post-type-adflow_ad .column-adflow_slot { width: 140px; }
+.post-type-adflow_ad .column-adflow_shortcode { width: 170px; }
+.post-type-adflow_ad .column-adflow_shortcode code { cursor: copy; }
+
+/* --------------------------------------------------------------------------
+   Reports (your own ads)
+   -------------------------------------------------------------------------- */
+
+.adflow-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.adflow-toolbar__spacer {
+    flex: 1;
+}
+
+.adflow-stats--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.adflow-chart {
+    display: flex;
+    gap: 12px;
+    padding-bottom: 28px;
+}
+
+.adflow-chart__axis {
+    position: relative;
+    flex-shrink: 0;
+    width: 48px;
+    height: 220px;
+}
+
+.adflow-chart__axis span {
+    position: absolute;
+    right: 0;
+    transform: translateY(50%);
+    color: var(--af-muted);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+}
+
+.adflow-chart__plot {
+    position: relative;
+    flex: 1;
+    display: flex;
+    min-width: 0;
+    height: 220px;
+}
+
+.adflow-chart__grid {
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-top: 1px solid var(--af-divider);
+}
+
+.adflow-chart__col {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-width: 0;
+}
+
+.adflow-chart__bar {
+    display: block;
+    width: 64%;
+    max-width: 40px;
+    min-height: 1px;
+    border-radius: 3px 3px 0 0;
+    background: var(--af-blue);
+}
+
+.adflow-chart__col:hover .adflow-chart__bar {
+    background: var(--af-blue-dark);
+}
+
+.adflow-chart__x {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--af-muted);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.adflow-table {
+    border: 0;
+    border-radius: 0 0 var(--af-radius) var(--af-radius);
+}
+
+.adflow-table th,
+.adflow-table td {
+    padding: 12px 24px;
+    vertical-align: middle;
+}
+
+.adflow-table .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.adflow-table__sub {
+    display: block;
+    color: var(--af-muted);
+    font-size: 12px;
+}
+
+/* Ad unit screen: media picker & stats */
+.adflow-media img {
+    display: block;
+    max-width: 320px;
+    max-height: 200px;
+    margin-bottom: 10px;
+    border: 1px solid var(--af-border);
+    border-radius: 4px;
+}
+
+.adflow-mini-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.adflow-mini-stats div {
+    padding: 8px;
+    border: 1px solid var(--af-divider);
+    border-radius: 6px;
+    text-align: center;
+}
+
+.adflow-mini-stats strong {
+    display: block;
+    font-size: 16px;
+}
+
+.adflow-mini-stats span {
+    color: var(--af-muted);
+    font-size: 11px;
+}
+
+.adflow-list-stats strong {
+    font-weight: 600;
+}
+
+.post-type-adflow_ad .column-adflow_status { width: 100px; }
+.post-type-adflow_ad .column-adflow_stats { width: 230px; }
+
+@media (max-width: 782px) {
+    .adflow-stats--3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.adflow-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+.adflow-grid-3 > * {
+    min-width: 0;
+    overflow-x: auto;
+}
+
+.adflow-grid-3 .adflow-table th,
+.adflow-grid-3 .adflow-table td {
+    padding: 10px 12px;
+}
+
+.adflow-grid-3 .adflow-table th:first-child,
+.adflow-grid-3 .adflow-table td:first-child {
+    word-break: normal;
+}
+
+@media (max-width: 1100px) {
+    .adflow-grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.adflow-members {
+    border-collapse: collapse;
+}
+
+.adflow-members th {
+    padding: 0 12px 6px 0;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.adflow-members td {
+    padding: 0 12px 8px 0;
+}
+
+.adflow-members select {
+    min-width: 260px;
+}
+
+/* "Will this ad show?" */
+.adflow-diagnose summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    list-style: none;
+}
+
+.adflow-diagnose summary::-webkit-details-marker {
+    display: none;
+}
+
+.adflow-diagnose ul {
+    margin: 10px 0 0;
+}
+
+.adflow-diagnose li {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    margin: 6px 0;
+}
+
+.adflow-diagnose .adflow-dot {
+    flex-shrink: 0;
+    transform: translateY(1px);
+}
+
+/* --------------------------------------------------------------------------
+   Docs
+   -------------------------------------------------------------------------- */
+
+.adflow-docs__layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.adflow-docs__nav {
+    position: sticky;
+    top: 48px;
+    max-height: calc(100vh - 64px);
+    overflow: auto;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid var(--af-border);
+    border-radius: 8px;
+}
+
+.adflow-docs__search {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.adflow-docs__group h2 {
+    margin: 14px 0 6px;
+    color: var(--af-muted, #646970);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.adflow-docs__group ul {
+    margin: 0;
+}
+
+.adflow-docs__group li {
+    margin: 0;
+}
+
+.adflow-docs__group a {
+    display: block;
+    padding: 5px 8px;
+    border-radius: 4px;
+    color: var(--af-text);
+    text-decoration: none;
+}
+
+.adflow-docs__group a:hover,
+.adflow-docs__group a:focus,
+.adflow-docs__group a.is-active {
+    background: var(--af-blue-soft, #f0f6fc);
+    color: var(--wp-admin-theme-color, #2271b1);
+}
+
+.adflow-docs__article {
+    scroll-margin-top: 48px;
+}
+
+.adflow-docs__section {
+    margin: 0 0 2px;
+    color: var(--af-muted, #646970);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.adflow-docs__body {
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.adflow-docs__body ol,
+.adflow-docs__body ul {
+    margin: 0 0 1em 1.4em;
+}
+
+.adflow-docs__body ul {
+    list-style: disc;
+}
+
+.adflow-docs__body li {
+    margin-bottom: 6px;
+}
+
+.adflow-docs__code {
+    margin: 0 0 1em;
+    padding: 12px 14px;
+    overflow: auto;
+    border-radius: 6px;
+    background: #f6f7f7;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.adflow-docs__code code {
+    padding: 0;
+    background: none;
+}
+
+.adflow-docs__note {
+    padding: 10px 14px;
+    border-left: 4px solid var(--wp-admin-theme-color, #2271b1);
+    background: var(--af-blue-soft, #f0f6fc);
+}
+
+.adflow-docs__pro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 0 16px;
+    padding: 12px 14px;
+    border: 1px solid var(--af-border);
+    border-radius: 6px;
+    background: #fbfbfc;
+}
+
+.adflow-docs__pro p {
+    margin: 0;
+}
+
+.adflow-docs__links .button {
+    margin: 0 6px 6px 0;
+}
+
+@media (max-width: 960px) {
+    .adflow-docs__layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .adflow-docs__nav {
+        position: static;
+        max-height: none;
+    }
+}

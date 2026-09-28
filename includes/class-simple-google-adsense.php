@@ -57,7 +57,7 @@ final class Simple_Google_Adsense
      */
     public function __clone()
     {
-        _doing_it_wrong(__FUNCTION__, __('Cloning is forbidden.', 'simple-google-adsense'), '1.0.0');
+        _doing_it_wrong(__FUNCTION__, esc_html__('Cloning is forbidden.', 'simple-google-adsense'), '1.0.0');
     }
 
     /**
@@ -67,7 +67,7 @@ final class Simple_Google_Adsense
      */
     public function __wakeup()
     {
-        _doing_it_wrong(__FUNCTION__, __('Unserializing instances of this class is forbidden.', 'simple-google-adsense'), '1.0.0');
+        _doing_it_wrong(__FUNCTION__, esc_html__('Unserializing instances of this class is forbidden.', 'simple-google-adsense'), '1.0.0');
     }
 
     /**
@@ -151,6 +151,18 @@ final class Simple_Google_Adsense
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-admin.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-frontend.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-manual-ads.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-ad-units.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-placements.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-ads-txt.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-inspector.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-upsell.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-dashboard.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-caps.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-stats.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-reports.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-migrate.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-consent.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-docs.php';
 
 
         if ($this->is_request('admin')) {
@@ -164,9 +176,51 @@ final class Simple_Google_Adsense
 
         // Initialize manual ads functionality
         Simple_Google_Adsense_Manual_Ads::instance();
+        Simple_Google_Adsense_Ad_Units::instance();
+        Simple_Google_Adsense_Placements::instance();
+        Simple_Google_Adsense_Ads_Txt::instance();
+        Simple_Google_Adsense_Inspector::instance();
+        Simple_Google_Adsense_Caps::instance();
+        Simple_Google_Adsense_Stats::instance();
+        Simple_Google_Adsense_Reports::instance();
+        Simple_Google_Adsense_Migrate::instance();
+        Simple_Google_Adsense_Consent::instance();
+
+        if (is_admin()) {
+            Simple_Google_Adsense_Docs::instance();
+            Simple_Google_Adsense_Upsell::instance();
+        }
+
+        add_action('widgets_init', array($this, 'register_widgets'));
 
     }
 
+
+    /**
+     * Register the AdFlow widget.
+     *
+     * @since 1.4.0
+     */
+    public function register_widgets()
+    {
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-widget.php';
+
+        register_widget('Simple_Google_Adsense_Widget');
+    }
+
+    /**
+     * Plugin activation.
+     *
+     * @since 1.4.0
+     */
+    public static function activate()
+    {
+        if (!get_option('simple_google_adsense_installed')) {
+            add_option('simple_google_adsense_installed', time(), '', false);
+        }
+
+        set_transient('simple_google_adsense_activation_redirect', 1, 30);
+    }
 
     /**
      * Init Simple_Google_Adsense when WordPress Initialises.

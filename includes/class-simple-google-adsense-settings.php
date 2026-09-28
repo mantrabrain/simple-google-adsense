@@ -37,6 +37,12 @@ final class Simple_Google_Adsense_Settings
             'publisher_id' => '',
             'enable_auto_ads' => true,
             'enable_manual_ads' => true,
+            // 1.4.0 - all off by default so upgraded sites render exactly as before.
+            'hide_for_admins' => false,
+            'auto_ads_exclude_post_types' => array(),
+            'auto_ads_exclude_ids' => '',
+            'ad_label' => '',
+            'delete_data' => false,
         );
     }
 
@@ -132,5 +138,116 @@ final class Simple_Google_Adsense_Settings
     public static function is_manual_ads_enabled()
     {
         return (bool) self::get('enable_manual_ads');
+    }
+
+    /**
+     * Whether ads may be shown on the current request at all.
+     *
+     * Applies to Auto Ads, Manual Ads and automatic placements alike. Pro
+     * modules (per-post controls, click protection) hook the filter.
+     *
+     * @return bool
+     * @since 1.4.0
+     */
+    public static function ads_allowed()
+    {
+        $allowed = true;
+
+        if (self::get('hide_for_admins') && is_user_logged_in() && current_user_can('manage_options')) {
+            $allowed = false;
+        }
+
+        /**
+         * Filters whether any AdFlow ad may be output on the current request.
+         *
+         * @param bool $allowed
+         * @since 1.4.0
+         */
+        return (bool) apply_filters('adflow_ads_allowed', $allowed);
+    }
+
+    /**
+     * Whether the Auto Ads snippet may be printed on the current request.
+     *
+     * @return bool
+     * @since 1.4.0
+     */
+    public static function auto_ads_allowed()
+    {
+        $allowed = self::is_auto_ads_enabled() && self::ads_allowed();
+
+        if ($allowed && is_singular()) {
+            $excluded_types = (array) self::get('auto_ads_exclude_post_types');
+
+            if (in_array(get_post_type(), $excluded_types, true)) {
+                $allowed = false;
+            }
+
+            if ($allowed && in_array((int) get_queried_object_id(), self::get_excluded_ids(), true)) {
+                $allowed = false;
+            }
+        }
+
+        /**
+         * Filters whether the Auto Ads snippet is printed on the current request.
+         *
+         * @param bool $allowed
+         * @since 1.4.0
+         */
+        return (bool) apply_filters('adflow_auto_ads_allowed', $allowed);
+    }
+
+    /**
+     * Post IDs on which Auto Ads are switched off.
+     *
+     * @return int[]
+     * @since 1.4.0
+     */
+    public static function get_excluded_ids()
+    {
+        $ids = wp_parse_id_list((string) self::get('auto_ads_exclude_ids'));
+
+        return array_values(array_filter($ids));
+    }
+
+    /**
+     * Whether the Publisher ID looks like a valid AdSense ID.
+     *
+     * @return bool
+     * @since 1.4.0
+     */
+    public static function is_publisher_id_valid()
+    {
+        return (bool) preg_match('/^pub-\d{10,20}$/', self::get_publisher_id());
+    }
+
+    /**
+     * Label text shown above manual ads, or '' for none.
+     *
+     * Google only allows "Advertisements" or "Sponsored Links" as labels.
+     *
+     * @return string
+     * @since 1.4.0
+     */
+    public static function get_ad_label()
+    {
+        $labels = array(
+            'advertisements' => __('Advertisements', 'simple-google-adsense'),
+            'sponsored' => __('Sponsored Links', 'simple-google-adsense'),
+        );
+        $key = (string) self::get('ad_label');
+
+        return (string) apply_filters('adflow_ad_label', isset($labels[$key]) ? $labels[$key] : '', $key);
+    }
+
+    /**
+     * Whether AdFlow Pro is active.
+     *
+     * @return bool
+     * @since 1.4.0
+     */
+    public static function is_pro_active()
+    {
+        return defined('ADFLOW_PRO_VERSION');
     }
 }

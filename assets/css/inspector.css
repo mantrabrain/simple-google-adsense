@@ -1,0 +1,42 @@
+/**
+ * AdFlow Ad Inspector (administrators only)
+ *
+ * @package Simple_Google_Adsense
+ * @since   1.4.0
+ */
+
+html.adflow-inspecting .adflow-ad,
+html.adflow-inspecting ins.adsbygoogle {
+    outline: 2px dashed #2271b1;
+    outline-offset: 2px;
+}
+
+.adflow-inspect-badge {
+    display: block;
+    margin: 8px 0 4px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font: 12px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f0f6fc;
+    color: #1d2327;
+    border-left: 4px solid #2271b1;
+    text-align: left;
+}
+
+.adflow-inspect-badge.is-filled { border-left-color: #00a32a; }
+.adflow-inspect-badge.is-unfilled { border-left-color: #dba617; background: #fcf9e8; }
+.adflow-inspect-badge.is-notLoaded { border-left-color: #d63638; background: #fcf0f1; }
+
+.adflow-inspect-summary {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 100000;
+    max-width: 360px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    background: #1d2327;
+    color: #fff;
+    font: 13px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}

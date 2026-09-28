@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') || exit;
 /**
  * MantraBrain
  *
@@ -46,22 +47,13 @@ if (!class_exists('Mantrabrain_Admin_Dashboard')) {
          */
         public static function dashboard_widget_setup()
         {
-            $widget_key = 'mantrabrain_dashboard_blog_news';
-            wp_add_dashboard_widget('mantrabrain_dashboard_blog_news', __('Latest News From MantraBrain Blog', 'simple-google-adsense'), 'Mantrabrain_Admin_Dashboard::dashboard_blog_news');
-
-            global $wp_meta_boxes;
-
-            if (!isset($wp_meta_boxes['dashboard']['normal']['core'][$widget_key])) {
+            if (!current_user_can('manage_options')) {
                 return;
             }
 
-            // Make to top
-            $normal_dashboard = $wp_meta_boxes['dashboard']['normal']['core'];
-            $widget_instance = array($widget_key => $normal_dashboard[$widget_key]);
-            unset($normal_dashboard[$widget_key]);
-            $sorted_dashboard = \array_merge($widget_instance, $normal_dashboard);
-
-            $wp_meta_boxes['dashboard']['normal']['core'] = $sorted_dashboard;
+            $widget_key = 'mantrabrain_dashboard_blog_news';
+            // Added in the normal order - no longer forced above the user's own widgets.
+            wp_add_dashboard_widget($widget_key, __('Latest News From MantraBrain Blog', 'simple-google-adsense'), 'Mantrabrain_Admin_Dashboard::dashboard_blog_news');
         }
 
         /**
@@ -123,7 +115,12 @@ if (!class_exists('Mantrabrain_Admin_Dashboard')) {
 
     }
 
-    if (apply_filters('mantrabrain_show_dashboard_widgets', true)) {
+    /*
+     * Opt-in since AdFlow 1.4.0 (it loads an external feed), and only for
+     * administrators. Enable it with:
+     * add_filter('mantrabrain_show_dashboard_widgets', '__return_true');
+     */
+    if (apply_filters('mantrabrain_show_dashboard_widgets', false)) {
 
         add_action('wp_dashboard_setup', 'Mantrabrain_Admin_Dashboard::dashboard_widget_setup');
     }

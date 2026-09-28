@@ -1,0 +1,66 @@
+/**
+ * AdFlow: your own ads.
+ *
+ * @package Simple_Google_Adsense
+ * @since   1.4.0
+ */
+
+.afx-unit {
+    margin: 20px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.afx-note {
+    display: block;
+    margin-bottom: 4px;
+    color: #757575;
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.afx-unit img.afx-img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+.afx-t-text {
+    text-align: left;
+}
+
+.afx-text {
+    padding: 16px 18px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+}
+
+.afx-text .afx-headline {
+    display: block;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.afx-text .afx-body {
+    margin: 6px 0 0;
+}
+
+.afx-text .afx-cta {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+@media print {
+    .afx-unit {
+        display: none !important;
+    }
+}
+
+/* Country-targeted ads stay hidden until the visitor's country is known. */
+.afx-unit[data-afx-geo]:not(.afx-geo-ok) {
+    display: none;
+}

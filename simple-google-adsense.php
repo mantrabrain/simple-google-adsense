@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name:       AdFlow - Easy Google AdSense Integration
+ * Plugin Name:       AdFlow – Ads Manager for Google AdSense & ads.txt
  * Plugin URI:        https://wordpress.org/plugins/simple-google-adsense/
- * Description:       The easiest way to integrate Google AdSense into your website. Supports both Auto Ads and Manual Ads with shortcodes and Gutenberg blocks.
- * Version:           1.3.0
+ * Description:       Ads manager for Google AdSense: Auto Ads, reusable ad units, automatic placements, ads.txt, Consent Mode v2, sponsor ads with statistics, block, widget and shortcodes.
+ * Version:           1.4.0
  * Author:            MantraBrain
  * Author URI:        https://mantrabrain.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       simple-google-adsense
  * Domain Path:       /languages
- * Requires at least: 6.3
+ * Requires at least: 6.4
  * Tested up to:      7.1
  * Requires PHP:      7.4
  */
@@ -26,7 +26,7 @@ if (!defined('SIMPLE_GOOGLE_ADSENSE_FILE')) {
 
 // Define SIMPLE_GOOGLE_ADSENSE_VERSION.
 if (!defined('SIMPLE_GOOGLE_ADSENSE_VERSION')) {
-    define('SIMPLE_GOOGLE_ADSENSE_VERSION', '1.3.0');
+    define('SIMPLE_GOOGLE_ADSENSE_VERSION', '1.4.0');
 }
 
 // Define SIMPLE_GOOGLE_ADSENSE_PLUGIN_URI.
@@ -61,3 +61,16 @@ function simple_google_adsense_instance()
 
 // Global for backwards compatibility.
 $GLOBALS['simple-google-adsense-instance'] = simple_google_adsense_instance();
+
+register_activation_hook(__FILE__, array('Simple_Google_Adsense', 'activate'));
+register_deactivation_hook(__FILE__, 'simple_google_adsense_deactivate');
+
+/**
+ * Stop AdFlow's daily task while the plugin is inactive.
+ *
+ * @since 1.4.0
+ */
+function simple_google_adsense_deactivate()
+{
+    wp_clear_scheduled_hook('adflow_daily_maintenance');
+}

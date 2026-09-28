@@ -14,8 +14,10 @@ return array(
 		'wp-blocks',
 		'wp-block-editor',
 		'wp-components',
+		'wp-core-data',
+		'wp-data',
 		'wp-element',
 		'wp-i18n',
 	),
-	'version'      => '1.3.0',
+	'version'      => '1.4.0',
 );

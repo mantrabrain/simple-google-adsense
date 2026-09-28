@@ -85,7 +85,7 @@ final class Simple_Google_Adsense_Frontend
     {
         self::register_assets_once();
 
-        if (Simple_Google_Adsense_Settings::is_auto_ads_enabled()) {
+        if (Simple_Google_Adsense_Settings::auto_ads_allowed()) {
             wp_enqueue_script(self::LIBRARY_HANDLE);
         }
     }
@@ -118,21 +118,30 @@ final class Simple_Google_Adsense_Frontend
      *
      * @since 1.3.0
      */
-    public static function register_library()
+    public static function register_library($fallback_client = '')
     {
         if (wp_script_is(self::LIBRARY_HANDLE, 'registered')) {
             return;
         }
 
         $ad_client = Simple_Google_Adsense_Settings::get_ad_client();
+        $ad_client = '' !== $ad_client ? $ad_client : (string) $fallback_client;
 
         if ('' === $ad_client) {
             return;
         }
 
+        $src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' . rawurlencode($ad_client);
+
+        // The ?client= tag also runs Auto Ads. On pages excluded from Auto Ads,
+        // load the library without it so only the manual ads show.
+        if (Simple_Google_Adsense_Settings::is_auto_ads_enabled() && did_action('wp') && !Simple_Google_Adsense_Settings::auto_ads_allowed()) {
+            $src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+        }
+
         wp_register_script(
             self::LIBRARY_HANDLE,
-            'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' . rawurlencode($ad_client),
+            $src,
             array(),
             null, // Google serves its own versioned library; a `ver` query arg would break caching.
             array(
@@ -152,15 +161,34 @@ final class Simple_Google_Adsense_Frontend
      *
      * @since 1.3.0
      */
-    public static function enqueue_ad_assets()
+    public static function enqueue_ad_assets($ad_client = '')
     {
         self::register_assets_once();
+        self::register_library($ad_client);
 
         wp_enqueue_style(self::STYLE_HANDLE);
 
         if (wp_script_is(self::LIBRARY_HANDLE, 'registered')) {
             wp_enqueue_script(self::LIBRARY_HANDLE);
         }
+    }
+
+    /**
+     * Assets for your own ads: tiny stylesheet and the stats/schedule script.
+     *
+     * File names avoid words ad blockers look for.
+     *
+     * @since 1.4.0
+     */
+    public static function enqueue_own_ad_assets()
+    {
+        if (wp_script_is('sga-fx', 'enqueued')) {
+            return;
+        }
+
+        wp_enqueue_style('sga-fx', SIMPLE_GOOGLE_ADSENSE_PLUGIN_URI . '/assets/css/fx.css', array(), SIMPLE_GOOGLE_ADSENSE_VERSION);
+        wp_enqueue_script('sga-fx', SIMPLE_GOOGLE_ADSENSE_PLUGIN_URI . '/assets/js/fx.js', array(), SIMPLE_GOOGLE_ADSENSE_VERSION, true);
+        wp_add_inline_script('sga-fx', 'window.afxCfg = ' . wp_json_encode(Simple_Google_Adsense_Stats::script_config()) . ';', 'before');
     }
 
     /**

@@ -1,259 +1,269 @@
-=== AdFlow - Easy Google AdSense Integration ===
+=== AdFlow – Ads Manager for Google AdSense & ads.txt ===
 Contributors: MantraBrain, gangadharkashyap
-Tags: google, adsense, ads, google adsense, monetization
-Requires at least: 6.3
+Tags: adsense, ads, ad manager, ads.txt, ad inserter
+Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-The easiest way to integrate Google AdSense into your website. Supports Auto Ads and Manual Ads with shortcodes and Gutenberg blocks.
+Google AdSense made easy: Auto Ads, ad placements, ads.txt, Consent Mode v2 and your own sponsor ads. Switch from any ad plugin in one click.
 
 == Description ==
 
-**AdFlow** is the most user-friendly plugin for integrating Google AdSense into your website. Whether you're a beginner or an advanced user, this plugin provides everything you need to monetize your content effectively and increase your website revenue.
+**AdFlow is the ad manager for Google AdSense that just works.** Add your Publisher ID and Auto Ads are live. Place AdSense, Google Ad Manager or any network's ads before, inside and after your content without touching code, fix "Earnings at risk" with the built-in ads.txt manager, stay GDPR-compliant with Google Consent Mode v2, and run your own sponsor banners next to Google - with honest statistics that work behind any page cache.
 
-### 🚀 Key Features
+Coming from another ad plugin? **Import from Advanced Ads, Ad Inserter, AdRotate or WP QUADS in one click** - your old shortcodes keep working.
 
-**Auto Ads (Recommended for Beginners)**
-- ✅ **One-click setup** - Just enter your Publisher ID
-- ✅ **AI-powered placement** - Google's machine learning optimizes ad positions
-- ✅ **Automatic optimization** - Maximizes earnings while maintaining user experience
-- ✅ **Mobile responsive** - Works perfectly on all devices
+👉 [AdFlow website](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro) · [Docs inside the plugin (AdFlow → Docs)](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=docs) · [Support forum](https://wordpress.org/support/plugin/simple-google-adsense/)
 
-**Manual Ads (For Advanced Users)**
-- ✅ **Shortcodes** - Easy-to-use shortcodes for precise ad placement
-- ✅ **Gutenberg blocks** - Visual block editor integration
-- ✅ **Multiple ad types** - Banner, In-article, In-feed, and Matched Content
-- ✅ **Flexible formatting** - Auto, Fluid, Rectangle, and more
+= Why publishers choose AdFlow =
 
-**Professional Features**
-- ✅ **Clean admin interface** - Modern, intuitive settings page
-- ✅ **Comprehensive documentation** - Built-in help and guidance
-- ✅ **Error handling** - Clear messages when configuration is needed
-- ✅ **Responsive design** - Works on all screen sizes
+* **Set up in one minute** - enter your Publisher ID, done. A setup checklist and site health tell you exactly what is missing.
+* **Everything in one free plugin** - AdSense, other networks, your own sponsors, placements, ads.txt, consent and statistics. No add-on needed for the basics.
+* **Built for page caching** - rotation, statistics and targeting rules run in the browser, so they keep working with WP Rocket, LiteSpeed, Cloudflare and every other cache.
+* **Safe for your AdSense account** - Google's exact ad markup, the only two ad labels Google allows, ads hidden from logged-in admins, and a failsafe that never lets a broken ad break your page.
+* **Fast** - the ad script and styles load only on pages that show an ad.
 
-### 🎯 Perfect For
-- **Bloggers** wanting to monetize their content
-- **Website owners** looking for easy AdSense integration
-- **Content creators** seeking to maximize ad revenue
-- **Developers** who need flexible ad placement options
-- **Beginners** who want a simple setup process
+= Google AdSense: Auto Ads and ad units =
 
-### 💰 Monetization Benefits
-- **Increase Revenue** - Easy AdSense integration for better earnings
-- **Optimize Performance** - AI-powered ad placement for maximum CTR
-- **Mobile Optimization** - Responsive ads that work on all devices
-- **User Experience** - Smart ad placement that doesn't hurt engagement
+* **Auto Ads in one step** - Google's machine learning places the ads; exclude post types or single pages (contact, checkout...).
+* **All AdSense ad types** - display, in-article, in-feed and multiplex, with Google's exact markup and responsive formats.
+* **Reusable ad units** - set an ad up once and use it everywhere: placements, the **AdFlow Ad block**, a widget or the `[adflow id="123"]` shortcode.
+* **Hide ads from logged-in administrators** - protect your account from accidental self-clicks.
+* **Optional ad label** - "Advertisements" or "Sponsored Links", the two labels Google permits.
+
+= Automatic ad placements - no shortcodes =
+
+* **Before content, after paragraph N, after content** on posts, pages or any public post type.
+* **Shortcodes, a Gutenberg block and a classic widget** when you want an ad in one exact spot.
+
+= Fix "Earnings at risk": ads.txt manager =
+
+* AdFlow serves the correct AdSense line from your Publisher ID - no file to upload.
+* Add lines for other ad networks, with validation.
+* A live checker confirms Google can read your ads.txt.
+
+= GDPR-ready: Google Consent Mode v2 =
+
+* **Consent Mode v2** - "denied" by default for visitors from the EEA, UK and Switzerland, updated automatically by Complianz, CookieYes, Cookiebot or any WP Consent API plugin.
+* **Load ads after consent** - AdSense, other networks' code and Ad Manager slots wait for your Google-certified (IAB TCF v2.2) message or consent plugin. Works with page caching.
+
+= Any ad network, and your own sponsors =
+
+* **Custom code units** for Google Ad Manager, Media.net, Ezoic or any other network, managed next to AdSense.
+* **Image banners and text ads** for sponsors, affiliates or your own offers, with `rel="sponsored"` links and a disclosure label.
+* **Scheduling** - start and end dates, with an AdSense unit shown when no campaign is running.
+* **Rotation groups** - several ads take turns, by weight or in order.
+* **Cookieless statistics** - impressions (counted when the ad renders), viewable impressions (IAB/MRC: 50% on screen for 1 second) and real clicks. Bots, prefetches and admins are filtered; only daily totals are stored, never IP addresses.
+* **Optional redirect-link click tracking** with `{ad_id}`, `{placement}`, `{site}` and `{cachebuster}` macros.
+
+= Find out why an ad is not showing =
+
+* **Ad Inspector** - one click in the toolbar outlines every ad on the page as filled, unfilled or blocked.
+* **"Will this ad show?"** - every ad lists what could stop it (schedule, targeting, consent, frequency).
+* **Site health** - Publisher ID, ads.txt, caching and consent checks on one dashboard.
+
+= Teams and agencies =
+
+* **Roles and permissions** - let editors or a sales team manage ads or view reports without admin rights.
+* **Approval workflow** - ads from users without the "Publish ads" permission wait for review, and reviewers are emailed.
+
+= Switch from another ad plugin in one click =
+
+Import ads, rotation groups, placements and (AdRotate and WP QUADS) statistics from **Advanced Ads, Ad Inserter, AdRotate and WP QUADS**. The other plugin does not need to be active, nothing in it is changed, importing twice never creates duplicates - and `[the_ad]`, `[adinserter]`, `[adrotate]` and `[quads]` shortcodes are answered by AdFlow, so no post needs editing.
+
+= AdFlow Pro: earn more, protect your account, sell ads =
+
+[AdFlow Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro) adds everything the leading ad plugins sell as separate add-ons, in one plugin **from $49 a year** (or pay once with a lifetime licence). Every plan includes every Pro feature.
+
+**See your money**
+
+* **AdSense earnings dashboard** inside WordPress - earnings, page RPM, clicks and CTR, plus a dashboard widget.
+* **Earnings per ad unit and per page**, with the winner of each A/B test.
+
+**Protect your AdSense account**
+
+* **Invalid-click protection** - stops serving ads to a visitor who clicks too often. Flagged visitors never load the AdSense script, so no ad is hidden against Google's policy.
+* **Max ads per page** and **per-post ad controls**.
+
+**Earn more from every page**
+
+* **More placements** - after X% of content, between posts, before comments, a closable sticky anchor, WooCommerce shop and product pages.
+* **Popup** (sponsor ads) and **sticky sidebar** formats.
+* **Targeting** - device, logged-in visitors, search traffic, categories, post age, start and end dates.
+* **Country targeting** that works on cached pages, with your CDN's country header or a free local database - no IP addresses stored.
+* **Google Ad Manager (GPT) units** with desktop/mobile sizes and key-value targeting.
+* **A/B rotation**, **lazy loading with reserved height** (Core Web Vitals) and a polite **ad-blocker message**.
+
+**Sell ads directly**
+
+* A self-serve **"Advertise with us" page** - advertisers choose a package, upload a banner and pay with your own Stripe Payment Link, PayPal or any checkout. You approve; it runs for the paid days.
+* **Advertiser reports** - custom date ranges, placements, devices, CSV export, **shareable report links**, weekly or monthly emails and expiry reminders.
+* **Sponsor eCPM next to your AdSense RPM**, **frequency capping** and **dayparting**.
+
+**For agencies and developers**
+
+* **Export/import** your setup between sites, an **activity log**, a **REST API** and **WP-CLI** commands.
+
+👉 [Compare Free and Pro, and see pricing](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pricing#pricing) · 14-day money-back guarantee
+
+Everything in the free plugin stays free.
+
+= Documentation =
+
+The complete AdFlow and AdFlow Pro documentation is built in: **AdFlow → Docs** in your dashboard, searchable, with a guide for every feature.
+
+= External services =
+
+AdFlow connects to these services only when you use the related feature:
+
+* **Google AdSense** - when ads are enabled, visitors' browsers load `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js`, which requests and shows ads. Google processes visitor data under its own terms: [Google AdSense terms](https://www.google.com/adsense/new/localized-terms), [Google privacy policy](https://policies.google.com/privacy), [How Google uses information from sites that use its services](https://policies.google.com/technologies/partner-sites).
+* **Google Funding Choices / consent messages** - only if you use Google's own consent message in AdSense; AdFlow waits for it and does not load it itself.
+* **Your own site** - the ads.txt checker requests your site's public `/ads.txt` URL to confirm it is reachable. No data is sent anywhere else.
+* **Custom code units** load whatever third-party code you paste into them; that network's terms apply.
+
+AdFlow's own statistics are stored in your WordPress database as daily totals. They use no cookies and store no IP addresses or visitor identifiers.
+
+= More from MantraBrain =
+
+* [Easy Invoice](https://wordpress.org/plugins/easy-invoice/) - invoices, quotes and payments in WordPress.
+* [Ultimate Watermark](https://wordpress.org/plugins/ultimate-watermark/) - protect your images with watermarks.
+* [Yatra](https://wordpress.org/plugins/yatra/) - tour and travel booking.
+* [Sikshya LMS](https://wordpress.org/plugins/sikshya/) - create and sell online courses.
 
 == Installation ==
 
-### Method 1: Dashboard Installation
-1. Go to **Plugins → Add New** in your admin dashboard
-2. Search for "AdFlow"
-3. Click **Install Now** and then **Activate**
+1. In your dashboard go to **Plugins → Add New**, search for **AdFlow** and click **Install Now**, then **Activate**. (Or upload the ZIP under **Plugins → Add New → Upload Plugin**.)
+2. Open **AdFlow → Settings** and paste your AdSense **Publisher ID** (it starts with `pub-`; [where to find it](https://support.google.com/adsense/answer/105516)).
+3. Turn on **Auto Ads**, or create an ad unit under **AdFlow → Ad Units** and switch on a placement under **AdFlow → Placements**.
+4. Turn on **AdFlow → Settings → ads.txt** so AdSense stops warning "Earnings at risk".
+5. Check the **Dashboard**: the setup checklist and site health show anything left to do.
 
-### Method 2: Manual Upload
-1. Download the plugin ZIP file
-2. Go to **Plugins → Add New → Upload Plugin**
-3. Choose the ZIP file and click **Install Now**
-4. Click **Activate Plugin**
-
-== Quick Start Guide ==
-
-### Step 1: Get Your Publisher ID
-1. Go to [adsense.google.com](https://www.google.com/adsense)
-2. Sign in with your Google account
-3. Click **Account → Settings → Account information**
-4. Copy your **Publisher ID** (starts with "pub-")
-
-**📖 Official Guide:** [How to find your Publisher ID](https://support.google.com/adsense/answer/105516?hl=en)
-
-### Step 2: Configure the Plugin
-1. Go to **Settings → AdFlow** in your admin dashboard
-2. Enter your Publisher ID in the **Publisher ID** field
-3. Choose **Auto Ads** (recommended) or **Manual Ads**
-4. Click **Save Settings**
-
-### Step 3: Set Up Auto Ads (Recommended)
-1. Go to your [Google AdSense account](https://www.google.com/adsense)
-2. Navigate to **Ads → Auto ads**
-3. Enable the ad types you want
-4. Click **Save**
-
-That's it! Your ads will start appearing within 24-48 hours.
-
-**📖 Official Guide:** [How to set up Auto ads](https://support.google.com/adsense/answer/7020288?hl=en)
-
-== Detailed Usage ==
-
-### Auto Ads Setup
-Auto Ads is the easiest way to monetize your website. Google's AI automatically places ads where they perform best, maximizing your revenue while maintaining excellent user experience.
-
-**To enable Auto Ads:**
-1. Enter your Publisher ID in the plugin settings
-2. Check "Enable Auto Ads"
-3. Save settings
-4. Configure Auto Ads in your AdSense account
-
-### Manual Ads Setup
-For precise control over ad placement, use Manual Ads with shortcodes or Gutenberg blocks.
-
-#### Shortcodes
-Use these shortcodes in your posts, pages, or widgets:
-
-**Basic Ad:**
-```
-[adsense ad_slot="YOUR_AD_SLOT_ID"]
-```
-
-**Banner Ad:**
-```
-[adsense_banner ad_slot="YOUR_AD_SLOT_ID"]
-```
-
-**In-Article Ad:**
-```
-[adsense_inarticle ad_slot="YOUR_AD_SLOT_ID"]
-```
-
-**In-Feed Ad:**
-```
-[adsense_infeed ad_slot="YOUR_AD_SLOT_ID"]
-```
-
-**Matched Content:**
-```
-[adsense_matched_content ad_slot="YOUR_AD_SLOT_ID"]
-```
-
-#### Gutenberg Blocks
-The AdFlow plugin includes a powerful Gutenberg block for easy visual ad placement.
-
-**Step-by-Step Block Setup:**
-
-1. **Edit any post or page** in the WordPress block editor
-2. **Click the "+" button** to add a new block
-3. **Search for "AdFlow Ad"** in the block search
-4. **Add the block** to your content
-5. **Configure the block settings** in the right sidebar:
-
-**Block Configuration Options:**
-- **Ad Slot ID** - Enter your Google AdSense ad unit ID (e.g., 1234567890)
-- **Ad Type** - Choose from:
-  - Banner Ad (standard display ads)
-  - In-Article Ad (fluid ads within content)
-  - In-Feed Ad (native-looking ads)
-  - Matched Content (content recommendation ads)
-- **Ad Format** - Select from:
-  - Auto (responsive, recommended)
-  - Fluid (adaptive sizing)
-  - Auto Relaxed (flexible sizing)
-  - Rectangle (300x250, 336x280)
-  - Horizontal (728x90, 970x90)
-  - Vertical (160x600, 300x600)
-- **Full Width Responsive** - Enable for responsive ad sizing
-
-**Block Preview:**
-The block shows a live preview in the editor with your configuration, making it easy to see how your ad will appear.
-
-**Getting Your Ad Slot ID:**
-1. Go to your [Google AdSense account](https://www.google.com/adsense)
-2. Navigate to **Ads → By ad unit**
-3. Click **Create new ad unit**
-4. Choose your ad type and format
-5. Click **Create** and copy the Ad Slot ID
-
-**📖 Official Guide:** [How to create ad units](https://support.google.com/adsense/answer/9183566?hl=en)
-
-### Getting Your Ad Slot ID
-1. Go to your AdSense account
-2. Navigate to **Ads → By ad unit**
-3. Click **Create new ad unit**
-4. Choose ad type and format
-5. Click **Create** and copy the Ad Slot ID
-
-**📖 Official Guide:** [How to create ad units](https://support.google.com/adsense/answer/9183566?hl=en)
+Ads usually start showing within minutes; on a new AdSense site Auto Ads can take up to 48 hours.
 
 == Frequently Asked Questions ==
 
-= Can this plugin help me sign up for Google AdSense? =
+= Is AdFlow free? =
 
-No, this plugin only helps integrate AdSense into your website. You need to apply for AdSense separately at adsense.google.com.
+Yes. The free plugin on WordPress.org has no limit on ads, placements or sites and adds no branding to your ads. [AdFlow Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=faq) is a separate plugin for earnings reports, click protection, advanced targeting and selling ads.
 
-= How long does it take for ads to appear? =
+= Does AdFlow help me get approved for AdSense? =
 
-Auto Ads typically appear within 24-48 hours. Manual ads appear immediately once configured.
+No plugin can. You apply at [adsense.google.com](https://adsense.google.com/). Once approved, AdFlow adds your code, ads.txt and ads in minutes.
 
-= Will this plugin work with my existing AdSense setup? =
+= Why are my ads not showing? =
 
-Yes, this plugin works alongside existing AdSense configurations without conflicts.
+While logged in, open a page and click **AdFlow → Inspect ads on this page** in the toolbar. Each ad is labelled Filled, Unfilled (Google had no ad - common on new or low-traffic sites) or Not requested (blocked by an ad blocker, a rule or missing consent). Then check **Site health** on the AdFlow Dashboard. Remember that ads are hidden from logged-in administrators if you turned that option on.
 
-= Can I use both Auto Ads and Manual Ads? =
+= What is ads.txt and how do I fix "Earnings at risk"? =
 
-Yes, you can enable both options simultaneously for maximum flexibility and revenue optimization.
+ads.txt is a public file that says who may sell ads on your site. Turn it on under **AdFlow → Settings → ads.txt** and AdFlow serves the correct AdSense line automatically; click **Check now** to confirm Google can read it. The warning in AdSense clears after Google recrawls the file, usually within a few days.
 
-= What's the difference between Auto Ads and Manual Ads? =
+= Can I insert ads automatically without shortcodes? =
 
-Auto Ads uses Google's AI to automatically place ads, while Manual Ads let you control exact placement using shortcodes or blocks.
+Yes. Create an ad unit under **AdFlow → Ad Units**, then enable a placement (before content, after paragraph N, after content) under **AdFlow → Placements**. Pro adds mid-article, between posts, before comments, sticky and WooCommerce placements.
 
-= How do I get my Publisher ID? =
+= Can I use Auto Ads and manual ads together? =
 
-Go to adsense.google.com → Account → Settings → Account information. Your Publisher ID starts with "pub-".
+Yes. Many publishers use Auto Ads plus a few fixed units in their best positions. You can also exclude Auto Ads from chosen post types or pages.
 
-**📖 Official Guide:** [How to find your Publisher ID](https://support.google.com/adsense/answer/105516?hl=en)
+= Does AdFlow work with other ad networks and Google Ad Manager? =
 
-= How do I create Ad Slot IDs for Manual Ads? =
+Yes. Paste any network's code into a **Custom code** ad unit (Google Ad Manager, Media.net, Ezoic and others) and place it like any other ad. AdFlow Pro adds native Google Ad Manager (GPT) units with sizes and key-value targeting.
 
-In AdSense, go to Ads → By ad unit → Create new ad unit. Choose your ad type and copy the generated Ad Slot ID.
+= Is AdFlow GDPR-compliant? =
 
-**📖 Official Guide:** [How to create ad units](https://support.google.com/adsense/answer/9183566?hl=en)
+AdFlow supports Google Consent Mode v2 ("denied" by default in the EEA, UK and Switzerland) and can load ads only after consent from a Google-certified IAB TCF v2.2 message or a consent plugin (Complianz, CookieYes, Cookiebot or any WP Consent API plugin). Its own statistics use no cookies and store no IP addresses.
 
-= How do I use the Gutenberg block for ads? =
+= Does it work with page caching and CDNs? =
 
-1. Edit any post or page in the block editor
-2. Click the "+" button and search for "AdFlow Ad"
-3. Add the block to your content
-4. In the block settings (right sidebar), enter your Ad Slot ID
-5. Choose your ad type and format
-6. The block will show a preview of your configuration
+Yes. Rotation, statistics, device and traffic rules (and Pro's country targeting and frequency caps) run in the browser or read a CDN header, so they keep working with any page cache.
 
-= What ad types are available in the Gutenberg block? =
+= Can I show my own banners or sell ad space? =
 
-The block supports Banner Ads, In-Article Ads, In-Feed Ads, and Matched Content ads. Each type is optimized for different placements and user experiences.
+Yes. Create an ad unit of type **Image banner** or **Text ad**, add the link and optional start and end dates. It gets a "Sponsored" label and a `rel="sponsored"` link by default, and impressions and clicks appear under **AdFlow → Reports**. [AdFlow Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=faq-sell) adds a self-serve "Advertise with us" page, advertiser report links and emails.
 
-= Can I monitor earnings with this plugin? =
+= Can I switch from Advanced Ads, Ad Inserter, AdRotate or WP QUADS? =
 
-No, this plugin focuses on ad integration. Check your earnings in your AdSense account dashboard.
+Yes, under **AdFlow → Settings → Switch to AdFlow**. Ads, groups, placements and (AdRotate and WP QUADS) statistics are imported; the old plugin can then be deactivated and its shortcodes keep working.
 
-= Are the ads mobile-responsive? =
+= Will AdFlow slow down my site? =
 
-Yes, all ads are automatically responsive and work perfectly on mobile devices.
+No. Its script and styles load only on pages that show an ad, the front-end script is small and deferred, and Pro adds lazy loading with reserved height so ads cause no layout shift.
 
-= I'm not seeing any ads. What should I check? =
+= I upgraded from an older version. Do I need to change anything? =
 
-1) Verify your Publisher ID is correct, 2) Check that Auto Ads are enabled in AdSense, 3) Wait 24-48 hours for ads to appear.
+No. All shortcodes (`[adsense]`, `[adsense_banner]`, `[adsense_inarticle]`, `[adsense_infeed]`, `[adsense_multiplex]` and the older `[adsense_matched_content]`), blocks and settings keep working with unchanged output. New features stay off until you turn them on.
 
-= My Manual Ads aren't showing. What's wrong? =
+= Which shortcodes are available? =
 
-1) Make sure you've entered the correct Ad Slot ID, 2) Check that Manual Ads are enabled in plugin settings, 3) Verify your Ad Slot ID is active in AdSense.
+`[adflow id="123"]` shows a saved ad unit (recommended). For a single AdSense unit: `[adsense ad_slot="1234567890"]`, `[adsense_banner]`, `[adsense_inarticle]`, `[adsense_infeed layout_key="..."]` and `[adsense_multiplex]`. The **AdFlow Ad** block does the same visually.
 
-= Can I use this plugin with other ad networks? =
+= Where can I get help? =
 
-This plugin is specifically designed for Google AdSense. For other networks, you'll need different plugins.
-
-= How can I maximize my AdSense revenue? =
-
-Use Auto Ads for automatic optimization, combine with Manual Ads for strategic placement, and ensure your content is high-quality and engaging.
+Read **AdFlow → Docs** in your dashboard, or ask in the [support forum](https://wordpress.org/support/plugin/simple-google-adsense/). AdFlow Pro customers get priority email support.
 
 == Screenshots ==
 
-1. **Settings Page** - Clean, modern interface with comprehensive documentation
-2. **Gutenberg Block** - Visual block editor integration
-3. **Shortcode Examples** - Easy-to-use shortcodes for manual placement
+1. Dashboard - status, setup checklist and site health at a glance.
+2. Ad Units - AdSense units, your own banners and text ads, rotation groups and custom code in one list, with 30-day stats.
+3. Ad unit editor - a sponsor banner with disclosure label, schedule, tracking and a "Will this ad show?" check.
+4. Placements - insert ads before, inside and after every post without shortcodes.
+5. Your own sponsor ads on the front end, with a "Sponsored" label.
+6. Reports - impressions, viewable impressions (IAB/MRC) and clicks for your own ads, cookieless and cache-proof.
+7. Ad Inspector - see every ad on a page and why it is or is not showing.
+8. The AdFlow Ad block in the editor.
+9. Switch to AdFlow - import ads, groups and placements from Advanced Ads, Ad Inserter, AdRotate or WP QUADS.
+10. Privacy & consent - Google Consent Mode v2 and "load ads after consent".
+11. ads.txt manager - fix "Earnings at risk" in one click.
+12. Built-in Docs for every AdFlow and AdFlow Pro feature.
 
 == Changelog ==
+
+= 1.4.0 | 2026/09/28 =
+* **NEW**: ads.txt manager - serve the AdSense line automatically, add custom lines and check the live file
+* **NEW**: Ad Units library - configure an ad once and reuse it in shortcodes (`[adflow id="…"]`), the block, the widget and placements
+* **NEW**: Automatic placements - before content, after paragraph N and after content, per post type
+* **NEW**: Auto Ads exclusions by post type and by post/page ID
+* **NEW**: Option to hide ads from logged-in administrators
+* **NEW**: AdFlow widget for classic sidebars
+* **NEW**: Redesigned admin - a Dashboard (status, setup checklist, site health), a clean menu (Dashboard, Ad Units, Placements, Earnings, Settings) and one tabbed Settings screen
+* **NEW**: Health checks and a setup checklist on the Dashboard
+* **NEW**: Your own ads - image banners and text ads with sponsored links, disclosure label, scheduling and AdSense fallback
+* **NEW**: Cookieless impression, viewable-impression and click statistics for your own ads (IAB/MRC definitions, bot and prefetch filtering, automatic fallback when the REST API is blocked) and a Reports screen
+* **NEW**: Rotation groups, roles & permissions, "Will this ad show?" diagnostics, failsafe rendering, database footprint check
+* **NEW**: Privacy & consent - Google Consent Mode v2 defaults and updates (WP Consent API), and "load ads after consent" for IAB TCF v2.2 messages and consent plugins
+* **FIXED**: Tracking macros such as {ad_id} in a destination URL were removed when the ad was saved
+* **NEW**: Docs - the complete AdFlow and AdFlow Pro documentation under AdFlow → Docs, searchable
+* **FIXED**: Custom code with a schedule, country or frequency rule could load before the rule hid it; it now only loads when it may show
+* **FIXED**: Frequency caps now work with statistics turned off
+* **FIXED**: Keyboard users tabbing into an ad frame were counted as clicks
+* **FIXED**: Pages excluded from Auto Ads could still get Auto Ads when they contained a manual ad
+* **FIXED**: Importing a Publisher ID on a new site could switch ads off
+* **SECURITY**: Users who may create but not publish ads can no longer change or remove live ads without review
+* **IMPROVED**: Multisite uninstall respects each site's "delete data" choice; Dashboard checks no longer slow the screen down
+* **NEW**: Switch to AdFlow - import ads, groups, placements and statistics from Advanced Ads, Ad Inserter, AdRotate and WP QUADS; their shortcodes keep working after you deactivate them
+* **NEW**: Approval workflow - ads from users without the "Publish ads" permission wait for review, and reviewers are emailed
+* **NEW**: Optional click counting through a redirect link, with tracking macros in the destination URL
+* **IMPROVED**: Rotation groups only pick among ads that may show right now (schedule, days/hours, frequency cap)
+* **DEVELOPERS**: `adflow_ad_types` and `adflow_render_ad_type` let add-ons register new ad unit types; `adflow_fx_config` filters the front-end script config; `adflow_imported` fires after an import
+* **CHANGED**: Uninstalling keeps your data unless you opt in to deleting it (Settings → General → Your data)
+* **NEW**: Ad Inspector in the toolbar (administrators only) shows which ads are filled, unfilled or blocked
+* **NEW**: Optional "Advertisements" / "Sponsored Links" ad label
+* **NEW**: Custom code ad units for other networks (requires the unfiltered_html capability)
+* **NEW**: ads.txt line validation
+* **NEW**: Developer hooks: `adflow_should_display_ad`, `adflow_ad_markup`, `adflow_placement_types`, `adflow_ads_allowed` and more
+* **FIXED**: In-article ads were missing Google's `data-ad-layout="in-article"` markup
+* **FIXED**: In-feed ads can now carry the required `data-ad-layout-key` (`layout_key` shortcode attribute and block field)
+* **IMPROVED**: "Matched Content" renamed to Multiplex to match AdSense; old shortcodes still work
+* **IMPROVED**: AdFlow now has its own admin menu; the old Settings → AdFlow URL redirects
+* **IMPROVED**: The MantraBrain news dashboard widget no longer forces itself to the top of the dashboard
+* **IMPROVED**: Data is removed cleanly when the plugin is deleted (every site on multisite)
+* **IMPROVED**: The MantraBrain news dashboard widget is now opt-in (`mantrabrain_show_dashboard_widgets` filter) and admin-only
+* **SECURITY**: The shortcode `ad_client` override is only honoured in content from users who can post unfiltered HTML; shortcode `style`/`class` are sanitized; ad units are no longer listed over the public REST API
+* **DEVELOPERS**: AdFlow now has its own top-level menu. The settings screen keeps its `simple-google-adsense-settings` slug (hook suffix `adflow_page_simple-google-adsense-settings`); the old Settings → AdFlow URL redirects
 
 = 1.3.0 | 2026/08/21 =
 * **FIXED**: Manual Ads never displayed unless Auto Ads was also switched on - the AdSense library is now loaded whenever a shortcode or block renders an ad
@@ -286,30 +296,8 @@ Use Auto Ads for automatic optimization, combine with Manual Ads for strategic p
 
 == Upgrade Notice ==
 
-### Version 1.3.0
-Recommended for every user. Manual Ads (shortcodes and blocks) previously produced no ad at all unless Auto Ads was also enabled, and Auto Ads could not be switched off once turned on. Both are fixed, the Publisher ID is now escaped before output, and the plugin is tested against WordPress 7.1.
+= 1.4.0 =
+Big free update: ads.txt manager, reusable ad units, automatic placements, sponsor ads with statistics, Consent Mode v2 and one-click import from other ad plugins. Fully backward compatible; new features start switched off.
 
-### Version 1.2.0
-This major update introduces Manual Ads support, making the plugin suitable for both beginners and advanced users. New features include:
-- Shortcodes for precise ad placement
-- Gutenberg blocks for visual editing
-- Comprehensive documentation
-- Enhanced user interface
-
-== Support ==
-
-**Need Help?**
-- Check the built-in documentation in the plugin settings
-- Visit our [support page](https://wordpress.org/support/plugin/simple-google-adsense/)
-- Review the [FAQ section](#frequently-asked-questions) above
-
-**Found a Bug?**
-Please report issues on our [GitHub repository](https://github.com/mantrabrain/simple-google-adsense) or the [support forum](https://wordpress.org/support/plugin/simple-google-adsense/).
-
-== More Products from MantraBrain ==
-
-**[Yatra Travel Booking Plugin](https://wpyatra.com/?ref=wporghtaccess)**
-Complete travel booking solution for tour operators and travel agencies.
-
-**[Ultimate Image Watermark](https://wordpress.org/plugins/ultimate-watermark/)**
-Automatically add watermarks to images as they're uploaded to your site.
+= 1.3.0 =
+Recommended: manual ads now show without Auto Ads, Auto Ads can be switched off, and the Publisher ID is escaped before output.
