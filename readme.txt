@@ -1,4 +1,4 @@
-=== AdFlow – Ads Manager for Google AdSense & ads.txt ===
+=== AdFlow – Ad Inserter, Ad Manager & ads.txt for Google AdSense ===
 Contributors: MantraBrain, gangadharkashyap
 Tags: adsense, ads, ad manager, ads.txt, ad inserter
 Requires at least: 6.4
@@ -8,11 +8,11 @@ Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Google AdSense made easy: Auto Ads, ad placements, ads.txt, Consent Mode v2 and your own sponsor ads. Switch from any ad plugin in one click.
+Insert Google AdSense and any ads anywhere: Auto Ads, placements, ads.txt, Consent Mode v2 and sponsor ads. Switch from any ad plugin in one click.
 
 == Description ==
 
-**AdFlow is the ad manager for Google AdSense that just works.** Add your Publisher ID and Auto Ads are live. Place AdSense, Google Ad Manager or any network's ads before, inside and after your content without touching code, fix "Earnings at risk" with the built-in ads.txt manager, stay GDPR-compliant with Google Consent Mode v2, and run your own sponsor banners next to Google - with honest statistics that work behind any page cache.
+**AdFlow is the ad inserter and ad manager for Google AdSense that just works.** Add your Publisher ID and Auto Ads are live. Place AdSense, Google Ad Manager or any network's ads before, inside and after your content without touching code, fix "Earnings at risk" with the built-in ads.txt manager, stay GDPR-compliant with Google Consent Mode v2, and run your own sponsor banners next to Google - with honest statistics that work behind any page cache.
 
 Coming from another ad plugin? **Import from Advanced Ads, Ad Inserter, AdRotate or WP QUADS in one click** - your old shortcodes keep working.
 
