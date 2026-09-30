@@ -357,7 +357,7 @@ final class Simple_Google_Adsense_Upsell
                     <ul class="adflow-ticks">
                         <li><?php esc_html_e('Earnings today, this month and by day', 'simple-google-adsense'); ?></li>
                         <li><?php esc_html_e('Which ad unit and which page earn the most', 'simple-google-adsense'); ?></li>
-                        <li><?php esc_html_e('A/B test winners from AdSense\'s own numbers', 'simple-google-adsense'); ?></li>
+                        <li><?php esc_html_e('Your best-performing ad unit, from AdSense\'s own numbers', 'simple-google-adsense'); ?></li>
                         <li><?php esc_html_e('An earnings widget on your WordPress dashboard', 'simple-google-adsense'); ?></li>
                     </ul>
                     <a class="button button-primary button-hero" href="<?php echo esc_url(self::url('earnings-preview')); ?>" target="_blank" rel="noopener"><?php esc_html_e('Unlock earnings with AdFlow Pro', 'simple-google-adsense'); ?></a>
@@ -726,7 +726,7 @@ final class Simple_Google_Adsense_Upsell
             array(__('Popup (sponsor ads) & sticky sidebar formats', 'simple-google-adsense'), false),
             array(__('Google Ad Manager (GPT) units with sizes & key-values', 'simple-google-adsense'), false),
             array(__('Lazy loading & reserved height (Core Web Vitals)', 'simple-google-adsense'), false),
-            array(__('Max ads per page & per-post ad controls', 'simple-google-adsense'), false),
+            array(__('Max manual ads per page & per-post ad controls', 'simple-google-adsense'), false),
             array(__('Ad-blocker message', 'simple-google-adsense'), false),
             array(__('Export / import between sites', 'simple-google-adsense'), false),
             array(__('Sponsor reports: custom dates, placements, devices, advertisers, CSV', 'simple-google-adsense'), false),

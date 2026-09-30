@@ -18,7 +18,7 @@ Coming from another ad plugin? **Import from Advanced Ads, Ad Inserter, AdRotate
 
 https://www.youtube.com/watch?v=552k4UhnjGo
 
-**[⭐ AdFlow Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro-pro)** · **[Free vs Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro-compare#compare)** · **[Pricing](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro-pricing#pricing)** · [Support forum](https://wordpress.org/support/plugin/simple-google-adsense/) · Documentation: **AdFlow → Docs** in your dashboard
+**[⭐ AdFlow Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro-pro)** · **[Free vs Pro](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro-compare#compare)** · **[Pricing](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=intro-pricing#pricing)** · [Support forum](https://wordpress.org/support/plugin/simple-google-adsense/) · **[Documentation](https://matrixaddons.com/plugins/adflow/docs/)** (also under **AdFlow → Docs** in your dashboard)
 
 = Free vs Pro at a glance =
 
@@ -88,7 +88,7 @@ https://www.youtube.com/watch?v=552k4UhnjGo
 
 **Find out why an ad is not showing**
 
-* **Ad Inspector** - one click in the toolbar outlines every ad on the page as filled, unfilled or blocked.
+* **Ad Inspector** - one click in the toolbar outlines every ad on the page as filled, unfilled, requested or not requested.
 * **"Will this ad show?"** - every ad lists what could stop it (schedule, targeting, consent, frequency).
 * **Site health** - Publisher ID, ads.txt, caching and consent checks on one dashboard.
 
@@ -116,12 +116,12 @@ https://www.youtube.com/watch?v=SZ9boZflISo
 **📊 See your money** - [see it in action](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro-money#pro)
 
 * **AdSense earnings dashboard** inside WordPress - earnings, page RPM, clicks and CTR, plus a dashboard widget.
-* **Earnings per ad unit and per page**, with the winner of each A/B test.
+* **Earnings per ad unit and per page**, with the best-performing unit (highest RPM) marked.
 
 **🛡️ Protect your AdSense account** - [how it works](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro-protect#pro)
 
 * **Invalid-click protection** - stops serving ads to a visitor who clicks too often. Flagged visitors never load the AdSense script, so no ad is hidden against Google's policy.
-* **Max ads per page** and **per-post ad controls**.
+* **Max manual ads per page** and **per-post ad controls**.
 * A polite, dismissible **ad-blocker message**.
 
 **📈 Earn more from every page** - [see the placements](https://matrixaddons.com/plugins/adflow/?utm_source=wporg&utm_medium=readme&utm_campaign=pro-earn#pro)
@@ -197,7 +197,7 @@ No plugin can. You apply at [adsense.google.com](https://adsense.google.com/). O
 
 = Why are my ads not showing? =
 
-While logged in, open a page and click **AdFlow → Inspect ads on this page** in the toolbar. Each ad is labelled Filled, Unfilled (Google had no ad - common on new or low-traffic sites) or Not requested (blocked by an ad blocker, a rule or missing consent). Then check **Site health** on the AdFlow Dashboard. Remember that ads are hidden from logged-in administrators if you turned that option on.
+While logged in, open a page and click **AdFlow → Inspect ads on this page** in the toolbar. Each ad is labelled Filled, Unfilled (Google had no ad - common on new or low-traffic sites), Requested (waiting for Google) or Not requested (AdSense script blocked by an ad blocker, lazy loading, or hidden by a targeting rule). Then check **Site health** on the AdFlow Dashboard. Remember that ads are hidden from logged-in administrators if you turned that option on.
 
 = What is ads.txt and how do I fix "Earnings at risk"? =
 
@@ -281,7 +281,7 @@ Read **AdFlow → Docs** in your dashboard, or ask in the [support forum](https:
 * Auto Ads exclusions by post type and by post/page ID, and an option to hide ads from logged-in administrators
 * Optional "Advertisements" / "Sponsored Links" ad label
 * Custom code ad units for other networks (requires the unfiltered_html capability)
-* AdFlow widget for classic sidebars
+* AdFlow Ad widget for classic sidebars
 * Docs - the complete AdFlow and AdFlow Pro documentation under AdFlow → Docs, searchable
 * Redesigned admin with its own menu (Dashboard, Ad Units, Placements, Reports, Settings, Docs); the old Settings → AdFlow URL redirects
 

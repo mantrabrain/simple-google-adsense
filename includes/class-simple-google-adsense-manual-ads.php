@@ -278,7 +278,7 @@ final class Simple_Google_Adsense_Manual_Ads
         if (!Simple_Google_Adsense_Settings::is_manual_ads_enabled()) {
             return self::config_notice(
                 __('Manual Ads are turned off.', 'simple-google-adsense'),
-                __('Enable "Manual Ad Placement" under AdFlow → Settings to render this ad.', 'simple-google-adsense')
+                __('Turn on "Show manual ads" under AdFlow → Settings → General to render this ad.', 'simple-google-adsense')
             );
         }
 

@@ -188,7 +188,7 @@ final class Simple_Google_Adsense_Docs
                 'shortcodes' => array(
                     'title' => __('Block, widget & shortcodes', 'simple-google-adsense'),
                     'blocks' => array(
-                        array('p', __('<strong>Block:</strong> add the "AdFlow Ad" block in the editor and pick an ad unit. <strong>Widget:</strong> Appearance → Widgets → "AdFlow".', 'simple-google-adsense')),
+                        array('p', __('<strong>Block:</strong> add the "AdFlow Ad" block in the editor and pick an ad unit. <strong>Widget:</strong> Appearance → Widgets → "AdFlow Ad".', 'simple-google-adsense')),
                         array('code', '[adflow id="123"]'),
                         array('p', __('Shortcodes from earlier versions keep working:', 'simple-google-adsense')),
                         array('code', "[adsense ad_slot=\"1234567890\"]\n[adsense_inarticle ad_slot=\"1234567890\"]\n[adsense_banner ad_slot=\"1234567890\"]\n[adsense_infeed ad_slot=\"1234567890\" layout_key=\"-fb+5w+4e-db+86\"]\n[adsense_multiplex ad_slot=\"1234567890\"]"),
@@ -319,7 +319,7 @@ final class Simple_Google_Adsense_Docs
                     'title' => __('AdSense earnings in WordPress', 'simple-google-adsense'),
                     'pro' => true,
                     'blocks' => array(
-                        array('p', __('Connect your Google account under <strong>AdFlow → Earnings</strong> to see today, yesterday, this month, page RPM, clicks, top pages and per-unit earnings - plus a dashboard widget. AdFlow only asks for read-only access to AdSense reports.', 'simple-google-adsense')),
+                        array('p', __('Connect your Google account under <strong>AdFlow → Earnings</strong> to see today, yesterday, this month, page RPM, clicks, top pages and per-unit earnings - plus a dashboard widget. AdFlow only asks for read-only access to AdSense reports. Unless the Earnings screen offers one-click connect, you first add your own Google Cloud OAuth client once (about five minutes; the steps are on that screen).', 'simple-google-adsense')),
                     ),
                 ),
             ),
@@ -341,7 +341,7 @@ final class Simple_Google_Adsense_Docs
                     'pro' => true,
                     'blocks' => array(
                         array('p', __('Stops showing ads to a visitor who clicks ads too often (e.g. 3 clicks in 24 hours → no ads for 7 days). Flagged visitors never load the AdSense script, so no ad is ever hidden - hiding ads breaks AdSense policy. It reduces risk; no tool can guarantee Google\'s decisions.', 'simple-google-adsense')),
-                        array('p', __('Also on Settings → Click protection: <strong>max ads per page</strong> and a polite <strong>ad-blocker message</strong>. Settings → Performance: <strong>lazy loading</strong>; each ad unit: <strong>reserved height</strong> against layout shift.', 'simple-google-adsense')),
+                        array('p', __('Also on Settings → Click protection: <strong>Max manual ads per page</strong> and a polite <strong>ad-blocker message</strong>. Settings → Performance: <strong>lazy loading</strong>; each ad unit: <strong>reserved height</strong> against layout shift.', 'simple-google-adsense')),
                     ),
                 ),
                 'roles' => array(
@@ -389,7 +389,7 @@ final class Simple_Google_Adsense_Docs
                     'blocks' => array(
                         array('steps', array(
                             __('Look at the <strong>Dashboard</strong> checks and the ad\'s <strong>Will this ad show?</strong> box.', 'simple-google-adsense'),
-                            __('Open a page while logged in and choose <strong>AdFlow → Inspect ads on this page</strong> in the toolbar: every ad is outlined as filled, unfilled or blocked.', 'simple-google-adsense'),
+                            __('Open a page while logged in and choose <strong>AdFlow → Inspect ads on this page</strong> in the toolbar: every ad is outlined as filled, unfilled, requested (waiting for Google) or not requested.', 'simple-google-adsense'),
                             __('"Hide ads for administrators" (Settings → General) hides ads from you - check in a private window.', 'simple-google-adsense'),
                             __('Purge your cache plugin, and exclude <code>adsbygoogle.js</code> from JavaScript "delay" or "combine" features.', 'simple-google-adsense'),
                             __('With "Load ads after consent" on, ads wait for the consent banner to be answered.', 'simple-google-adsense'),
@@ -514,7 +514,14 @@ final class Simple_Google_Adsense_Docs
             <?php
             Simple_Google_Adsense_Admin::render_header(
                 __('Docs', 'simple-google-adsense'),
-                __('Everything AdFlow and AdFlow Pro can do, and how to set it up.', 'simple-google-adsense')
+                __('Everything AdFlow and AdFlow Pro can do, and how to set it up.', 'simple-google-adsense'),
+                array(
+                    array(
+                        'label' => __('Full documentation online', 'simple-google-adsense'),
+                        'url' => 'https://matrixaddons.com/plugins/adflow/docs/',
+                        'target' => true,
+                    ),
+                )
             );
             ?>
             <div class="adflow-docs__layout">
