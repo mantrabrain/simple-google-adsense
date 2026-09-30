@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "simple-google-adsense/adsense-ad",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"title": "AdFlow Ad",
 	"category": "widgets",
 	"icon": "money-alt",

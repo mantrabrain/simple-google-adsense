@@ -4,7 +4,7 @@ Tags: adsense, ads, ad manager, ads.txt, ad inserter
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -263,6 +263,11 @@ Read **AdFlow → Docs** in your dashboard, or ask in the [support forum](https:
 12. Built-in Docs for every AdFlow and AdFlow Pro feature.
 
 == Changelog ==
+
+= 1.4.1 | 2026/09/30 =
+
+* Improved: the built-in help, readme and notices use the real names (the "AdFlow Ad" widget, "Max manual ads per page", "Show manual ads") and describe the Ad Inspector states and the earnings "best performer" exactly.
+* Improved: a link to the online documentation on the Docs screen.
 
 = 1.4.0 | 2026/09/28 =
 
