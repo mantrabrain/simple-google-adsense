@@ -41,6 +41,9 @@ final class Simple_Google_Adsense_Settings
             'hide_for_admins' => false,
             'auto_ads_exclude_post_types' => array(),
             'auto_ads_exclude_ids' => '',
+            // 1.5.0 - empty, so manual ads show everywhere as before.
+            'manual_ads_exclude_post_types' => array(),
+            'manual_ads_exclude_ids' => '',
             'ad_label' => '',
             'delete_data' => false,
         );
@@ -175,16 +178,8 @@ final class Simple_Google_Adsense_Settings
     {
         $allowed = self::is_auto_ads_enabled() && self::ads_allowed();
 
-        if ($allowed && is_singular()) {
-            $excluded_types = (array) self::get('auto_ads_exclude_post_types');
-
-            if (in_array(get_post_type(), $excluded_types, true)) {
-                $allowed = false;
-            }
-
-            if ($allowed && in_array((int) get_queried_object_id(), self::get_excluded_ids(), true)) {
-                $allowed = false;
-            }
+        if ($allowed && self::request_matches((array) self::get('auto_ads_exclude_post_types'), self::get_excluded_ids())) {
+            $allowed = false;
         }
 
         /**
@@ -194,6 +189,85 @@ final class Simple_Google_Adsense_Settings
          * @since 1.4.0
          */
         return (bool) apply_filters('adflow_auto_ads_allowed', $allowed);
+    }
+
+    /**
+     * Whether manual ads are switched off for the current request.
+     *
+     * Manual ads are every ad unit AdFlow outputs itself: automatic
+     * placements, the block, the widget and the shortcodes. Like the Auto Ads
+     * exclusions, this looks at the page being viewed, so an ad in a sidebar
+     * widget is hidden on an excluded page too.
+     *
+     * @return bool
+     * @since 1.5.0
+     */
+    public static function is_manual_ads_excluded()
+    {
+        $excluded = self::request_matches((array) self::get('manual_ads_exclude_post_types'), self::get_manual_excluded_ids());
+
+        /**
+         * Filters whether manual ads are switched off on the current request.
+         * AdFlow Pro uses it for the "No manual ads on this page" checkbox.
+         *
+         * @param bool $excluded
+         * @since 1.5.0
+         */
+        return (bool) apply_filters('adflow_manual_ads_excluded', $excluded);
+    }
+
+    /**
+     * Whether manual ads may be output on the current request.
+     *
+     * @return bool
+     * @since 1.5.0
+     */
+    public static function manual_ads_allowed()
+    {
+        return self::is_manual_ads_enabled() && self::ads_allowed() && !self::is_manual_ads_excluded();
+    }
+
+    /**
+     * Post IDs on which manual ads are switched off.
+     *
+     * @return int[]
+     * @since 1.5.0
+     */
+    public static function get_manual_excluded_ids()
+    {
+        return array_values(array_filter(wp_parse_id_list((string) self::get('manual_ads_exclude_ids'))));
+    }
+
+    /**
+     * Whether the page being viewed is one of the given post types or post IDs.
+     *
+     * Post types match single posts of that type. IDs match single posts and
+     * pages, and also the page set as the "Posts page" under Settings → Reading.
+     * Runs only once the main query is known (after the `wp` action); before
+     * that nothing matches.
+     *
+     * @param string[] $post_types Post type names.
+     * @param int[] $ids Post IDs.
+     * @return bool
+     * @since 1.5.0
+     */
+    public static function request_matches($post_types, $ids)
+    {
+        if ((!$post_types && !$ids) || !did_action('wp') || is_admin()) {
+            return false;
+        }
+
+        $object = get_queried_object();
+
+        if (!$object instanceof WP_Post) {
+            return false;
+        }
+
+        if (is_singular() && in_array($object->post_type, (array) $post_types, true)) {
+            return true;
+        }
+
+        return in_array((int) $object->ID, array_map('intval', (array) $ids), true);
     }
 
     /**

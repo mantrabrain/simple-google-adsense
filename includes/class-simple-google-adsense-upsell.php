@@ -704,6 +704,7 @@ final class Simple_Google_Adsense_Upsell
     {
         $rows = array(
             array(__('Auto Ads with page & post type exclusions', 'simple-google-adsense'), true),
+            array(__('Turn manual ads off on chosen pages & post types', 'simple-google-adsense'), true),
             array(__('Shortcodes, block, widget & reusable ad units', 'simple-google-adsense'), true),
             array(__('Automatic placements: before/after content, after paragraph', 'simple-google-adsense'), true),
             array(__('ads.txt manager & live checker', 'simple-google-adsense'), true),

@@ -609,6 +609,12 @@ final class Simple_Google_Adsense_Admin
             ? implode(', ', array_filter(wp_parse_id_list($input['auto_ads_exclude_ids'])))
             : '';
 
+        $post_types = isset($input['manual_ads_exclude_post_types']) ? array_map('sanitize_key', (array) $input['manual_ads_exclude_post_types']) : array();
+        $sanitized_input['manual_ads_exclude_post_types'] = array_values(array_intersect($post_types, array_keys(get_post_types(array('public' => true)))));
+        $sanitized_input['manual_ads_exclude_ids'] = isset($input['manual_ads_exclude_ids'])
+            ? implode(', ', array_filter(wp_parse_id_list($input['manual_ads_exclude_ids'])))
+            : '';
+
         /**
          * Filters the sanitized core settings.
          *
@@ -698,6 +704,48 @@ final class Simple_Google_Adsense_Admin
     }
 
     /**
+     * Show which posts the excluded IDs point to, so a typo is easy to spot.
+     *
+     * @param int[] $ids Post IDs.
+     * @param string $id Element ID.
+     * @since 1.5.0
+     */
+    private static function render_excluded_ids_hint($ids, $id)
+    {
+        if (!$ids) {
+            echo '<p class="description" id="' . esc_attr($id) . '">' . esc_html__('Find the ID in the address bar when you edit a post or page (post=123).', 'simple-google-adsense') . '</p>';
+            return;
+        }
+
+        $found = array();
+        $missing = array();
+
+        foreach (array_slice($ids, 0, 50) as $post_id) {
+            $post = get_post($post_id);
+
+            if ($post && 'trash' !== $post->post_status && !wp_is_post_revision($post)) {
+                $title = '' !== trim($post->post_title) ? $post->post_title : __('(no title)', 'simple-google-adsense');
+                /* translators: 1: post title, 2: post ID */
+                $found[] = sprintf(__('%1$s (%2$d)', 'simple-google-adsense'), $title, $post_id);
+            } else {
+                $missing[] = $post_id;
+            }
+        }
+
+        echo '<p class="description" id="' . esc_attr($id) . '">';
+        if ($found) {
+            /* translators: %s: comma-separated post titles */
+            echo esc_html(sprintf(__('Applies to: %s', 'simple-google-adsense'), implode(', ', $found)));
+        }
+        if ($missing) {
+            echo $found ? '<br>' : '';
+            /* translators: %s: comma-separated IDs */
+            echo '<span class="adflow-field__error">' . esc_html(sprintf(__('No post or page found with ID %s.', 'simple-google-adsense'), implode(', ', $missing))) . '</span>';
+        }
+        echo '</p>';
+    }
+
+    /**
      * General tab.
      *
      * @since 1.4.0
@@ -707,6 +755,7 @@ final class Simple_Google_Adsense_Admin
         $opt = 'simple_google_adsense_settings';
         $publisher_id = (string) Simple_Google_Adsense_Settings::get('publisher_id');
         $excluded = (array) Simple_Google_Adsense_Settings::get('auto_ads_exclude_post_types');
+        $manual_excluded = (array) Simple_Google_Adsense_Settings::get('manual_ads_exclude_post_types');
         $post_types = get_post_types(array('public' => true), 'objects');
         unset($post_types['attachment']);
         $label = (string) Simple_Google_Adsense_Settings::get('ad_label');
@@ -740,13 +789,29 @@ final class Simple_Google_Adsense_Admin
                         <?php endforeach; ?>
                     </fieldset>
                     <label class="adflow-sublabel" for="adflow-exclude-ids"><?php esc_html_e('Specific posts or pages (IDs, comma separated)', 'simple-google-adsense'); ?></label>
-                    <input type="text" id="adflow-exclude-ids" class="regular-text" name="<?php echo esc_attr($opt); ?>[auto_ads_exclude_ids]" value="<?php echo esc_attr(Simple_Google_Adsense_Settings::get('auto_ads_exclude_ids')); ?>" placeholder="12, 34">
+                    <input type="text" id="adflow-exclude-ids" class="regular-text" name="<?php echo esc_attr($opt); ?>[auto_ads_exclude_ids]" value="<?php echo esc_attr(Simple_Google_Adsense_Settings::get('auto_ads_exclude_ids')); ?>" placeholder="12, 34" aria-describedby="adflow-exclude-ids-hint">
+                    <?php self::render_excluded_ids_hint(Simple_Google_Adsense_Settings::get_excluded_ids(), 'adflow-exclude-ids-hint'); ?>
                 <?php self::field_end(); ?>
             <?php self::panel_end(); ?>
 
             <?php self::panel_start(__('Manual ads', 'simple-google-adsense'), __('Ad units you place with placements, the block, the widget or shortcodes.', 'simple-google-adsense')); ?>
                 <?php self::field_start(__('Manual ads', 'simple-google-adsense'), __('Turn off to hide every manual ad at once without deleting anything.', 'simple-google-adsense')); ?>
                     <?php self::toggle($opt . '[enable_manual_ads]', (bool) Simple_Google_Adsense_Settings::get('enable_manual_ads'), __('Show manual ads', 'simple-google-adsense')); ?>
+                <?php self::field_end(); ?>
+
+                <?php self::field_start(__('Turn off on', 'simple-google-adsense'), __('Hide manual ads on chosen content types or pages: placements, the block, widgets and shortcodes. Auto Ads have their own setting above.', 'simple-google-adsense')); ?>
+                    <fieldset class="adflow-checks">
+                        <legend class="screen-reader-text"><?php esc_html_e('Content types without manual ads', 'simple-google-adsense'); ?></legend>
+                        <?php foreach ($post_types as $post_type) : ?>
+                            <label>
+                                <input type="checkbox" name="<?php echo esc_attr($opt); ?>[manual_ads_exclude_post_types][]" value="<?php echo esc_attr($post_type->name); ?>" <?php checked(in_array($post_type->name, $manual_excluded, true)); ?>>
+                                <?php echo esc_html($post_type->labels->name); ?>
+                            </label>
+                        <?php endforeach; ?>
+                    </fieldset>
+                    <label class="adflow-sublabel" for="adflow-manual-exclude-ids"><?php esc_html_e('Specific posts or pages (IDs, comma separated)', 'simple-google-adsense'); ?></label>
+                    <input type="text" id="adflow-manual-exclude-ids" class="regular-text" name="<?php echo esc_attr($opt); ?>[manual_ads_exclude_ids]" value="<?php echo esc_attr(Simple_Google_Adsense_Settings::get('manual_ads_exclude_ids')); ?>" placeholder="12, 34" aria-describedby="adflow-manual-exclude-ids-hint">
+                    <?php self::render_excluded_ids_hint(Simple_Google_Adsense_Settings::get_manual_excluded_ids(), 'adflow-manual-exclude-ids-hint'); ?>
                 <?php self::field_end(); ?>
 
                 <?php self::field_start(__('Ad label', 'simple-google-adsense'), __('Shown above each manual ad. AdSense allows only these two labels.', 'simple-google-adsense'), 'adflow-ad-label'); ?>

@@ -158,6 +158,7 @@ final class Simple_Google_Adsense_Docs
                         array('p', __('Auto Ads let Google choose where ads go. Turn them on under Settings → General. You can exclude post types (e.g. products) and single pages by ID, and hide ads from logged-in administrators so you never click your own ads.', 'simple-google-adsense')),
                         array('p', __('Which formats Auto Ads use (anchor, vignette, in-page) is set in your AdSense account under Ads → By site.', 'simple-google-adsense')),
                         array('note', __('You can combine Auto Ads with your own placements. Google fills the rest of the page around them.', 'simple-google-adsense')),
+                        array('p', __('<strong>Manual ads</strong> (placements, the block, widgets and shortcodes) have their own <em>Turn off on</em> setting under Settings → General → Manual ads. Pick content types, or list posts and pages by ID, and no manual ad shows there, including ads in sidebar widgets. The two settings are independent, so a page can keep Auto Ads and drop manual ads, or the other way round.', 'simple-google-adsense')),
                     ),
                 ),
                 'ads-txt' => array(
@@ -224,7 +225,7 @@ final class Simple_Google_Adsense_Docs
                     'blocks' => array(
                         array('p', __('Each placement can be limited by <strong>device</strong> (mobile/desktop), <strong>visitor</strong> (logged in/out), <strong>traffic source</strong> (search engines or not), <strong>categories</strong>, <strong>post age</strong> and <strong>start/end dates</strong>. Device and traffic rules run in the browser, so they work with page caching - and an ad that should not show never requests an ad from Google.', 'simple-google-adsense')),
                         array('p', __('<strong>A/B rotation:</strong> add extra ad units to a placement; the Earnings screen shows which one earns more.', 'simple-google-adsense')),
-                        array('p', __('<strong>Per post:</strong> the "AdFlow Ads" box in the post editor turns off all ads, or only Auto Ads, on that post.', 'simple-google-adsense')),
+                        array('p', __('<strong>Per post:</strong> the "AdFlow Ads" box in the post editor turns off all ads, only Auto Ads or only manual ads on that post.', 'simple-google-adsense')),
                     ),
                 ),
                 'gam' => array(
@@ -421,6 +422,7 @@ final class Simple_Google_Adsense_Docs
                         array('list', array(
                             __('<code>adflow_should_display_ad</code> ($display, $unit, $context) - hide a particular ad.', 'simple-google-adsense'),
                             __('<code>adflow_ads_allowed</code> - turn all ads off on a request.', 'simple-google-adsense'),
+                            __('<code>adflow_manual_ads_excluded</code> - turn manual ads off on a request (return true).', 'simple-google-adsense'),
                             __('<code>adflow_ad_markup</code> ($html, $unit, $context) - change the output.', 'simple-google-adsense'),
                             __('<code>adflow_ad_wrapper_attributes</code> - add attributes to the ad wrapper.', 'simple-google-adsense'),
                             __('<code>adflow_placement_types</code> - register a placement.', 'simple-google-adsense'),

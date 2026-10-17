@@ -102,6 +102,11 @@
 			? ( t.summary || '' ).replace( '%1$d', counts.total ).replace( '%2$d', counts.unfilled ).replace( '%3$d', counts.notLoaded )
 			: ( cfg.hideForAdmins ? t.hidden : t.none );
 
+		// Say why manual ads are missing (Settings → Manual ads → Turn off on, or Pro's per-page box).
+		if ( cfg.manualExcluded && ! cfg.hideForAdmins && t.excluded ) {
+			summary += ' ' + t.excluded;
+		}
+
 		if ( node ) {
 			node.setAttribute( 'title', summary );
 		}

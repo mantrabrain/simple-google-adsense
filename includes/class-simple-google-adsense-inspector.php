@@ -123,6 +123,7 @@ final class Simple_Google_Adsense_Inspector
         wp_enqueue_script('adflow-inspector', SIMPLE_GOOGLE_ADSENSE_PLUGIN_URI . '/assets/js/inspector.js', array(), SIMPLE_GOOGLE_ADSENSE_VERSION, true);
         wp_localize_script('adflow-inspector', 'adflowInspector', array(
             'hideForAdmins' => (bool) Simple_Google_Adsense_Settings::get('hide_for_admins'),
+            'manualExcluded' => Simple_Google_Adsense_Settings::is_manual_ads_excluded(),
             'i18n' => array(
                 'filled' => __('Filled', 'simple-google-adsense'),
                 'unfilled' => __('Unfilled - Google had no ad for this slot right now (common on new or low-traffic sites).', 'simple-google-adsense'),
@@ -137,6 +138,7 @@ final class Simple_Google_Adsense_Inspector
                 'summary' => __('AdFlow: %1$d ad(s) on this page, %2$d unfilled, %3$d not requested.', 'simple-google-adsense'),
                 'none' => __('AdFlow: no ads on this page.', 'simple-google-adsense'),
                 'hidden' => __('Ads are hidden for administrators (AdFlow → Settings). Log out or use a private window to see them.', 'simple-google-adsense'),
+                'excluded' => __('Manual ads are turned off on this page (AdFlow → Settings → General, or the AdFlow Ads box in the editor).', 'simple-google-adsense'),
             ),
         ));
     }

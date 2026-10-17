@@ -282,6 +282,13 @@ final class Simple_Google_Adsense_Manual_Ads
             );
         }
 
+        // Switched off on this page (Settings → General → Manual ads → Turn off on,
+        // or Pro's per-page checkbox). Nothing is output, not even a notice:
+        // the owner chose this page to be ad-free.
+        if (Simple_Google_Adsense_Settings::is_manual_ads_excluded()) {
+            return '';
+        }
+
         if ('group' === $unit['type']) {
             return self::render_group($unit, $context);
         }

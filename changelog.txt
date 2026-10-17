@@ -1,3 +1,12 @@
+= 1.5.0 | 2026/10/17
+ - Added: Manual ads "Turn off on" setting - exclude content types or posts/pages by ID from placements, the block, widgets and shortcodes
+ - Added: titles shown under the excluded-ID fields, missing IDs flagged
+ - Added: Ad Inspector note on pages without manual ads; filter adflow_manual_ads_excluded
+ - Improved: Auto Ads ID exclusion also matches the Posts page
+
+= 1.4.1 | 2026/09/30
+ - Improved: built-in help, readme and notices use the real names; online docs link
+
 = 1.4.0 | 2026/09/28
  - Added: ads.txt manager with live checker
  - Added: Ad Units library ([adflow id="…"], block picker, widget)

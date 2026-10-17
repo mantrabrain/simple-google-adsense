@@ -4,7 +4,7 @@ Tags: adsense, ads, ad manager, ads.txt, ad inserter
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.4.1
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,6 +59,7 @@ https://www.youtube.com/watch?v=552k4UhnjGo
 * **Auto Ads in one step** - Google's machine learning places the ads; exclude post types or single pages (contact, checkout...).
 * **All AdSense ad types** - display, in-article, in-feed and multiplex, with Google's exact markup and responsive formats.
 * **Reusable ad units** - set an ad up once and use it everywhere: placements, the **AdFlow Ad block**, a widget or the `[adflow id="123"]` shortcode.
+* **Ad-free pages** - turn manual ads off on chosen post types or single pages, separately from Auto Ads.
 * **Hide ads from logged-in administrators** - protect your account from accidental self-clicks.
 * **Optional ad label** - "Advertisements" or "Sponsored Links", the two labels Google permits.
 
@@ -211,6 +212,10 @@ Yes. Create an ad unit under **AdFlow → Ad Units**, then enable a placement (b
 
 Yes. Many publishers use Auto Ads plus a few fixed units in their best positions. You can also exclude Auto Ads from chosen post types or pages.
 
+= Can I keep ads off certain pages? =
+
+Yes. Under **AdFlow → Settings → General**, both **Auto Ads** and **Manual ads** have a **Turn off on** setting: tick content types (for example Products) or list posts and pages by ID. The two are independent, so a page can keep Auto Ads and drop your manual ads, or the other way round. AdFlow Pro adds checkboxes on each post and page.
+
 = Does AdFlow work with other ad networks and Google Ad Manager? =
 
 Yes. Paste any network's code into a **Custom code** ad unit (Google Ad Manager, Media.net, Ezoic and others) and place it like any other ad. AdFlow Pro adds native Google Ad Manager (GPT) units with sizes and key-value targeting.
@@ -263,6 +268,14 @@ Read **AdFlow → Docs** in your dashboard, or ask in the [support forum](https:
 12. Built-in Docs for every AdFlow and AdFlow Pro feature.
 
 == Changelog ==
+
+= 1.5.0 | 2026/10/17 =
+
+* New: turn manual ads off on chosen content types or single posts and pages (Settings → General → Manual ads → Turn off on), just like the Auto Ads exclusions. It covers placements, the AdFlow Ad block, widgets and shortcodes. Nothing changes until you choose something.
+* New: under both "Turn off on" ID fields, the settings show which posts and pages the IDs belong to and flag IDs that do not exist.
+* New: the Ad Inspector says when manual ads are turned off on the page you are viewing.
+* New: developer filter `adflow_manual_ads_excluded`.
+* Improved: an ID excluded from Auto Ads now also works for the page set as the "Posts page".
 
 = 1.4.1 | 2026/09/30 =
 
@@ -353,6 +366,9 @@ Read **AdFlow → Docs** in your dashboard, or ask in the [support forum](https:
 * Basic Auto Ads functionality
 
 == Upgrade Notice ==
+
+= 1.5.0 =
+Turn manual ads off on chosen pages and content types, like the Auto Ads exclusions. Nothing changes until you choose something.
 
 = 1.4.0 =
 Big free update: ads.txt manager, reusable ad units, automatic placements, sponsor ads with statistics, Consent Mode v2 and one-click import from other ad plugins. Fully backward compatible; new features start switched off.
