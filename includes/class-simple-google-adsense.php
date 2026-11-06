@@ -153,6 +153,11 @@ final class Simple_Google_Adsense
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-manual-ads.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-ad-units.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-placements.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-content-slots.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-conditions.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-picker.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-post-controls.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/integrations/class-simple-google-adsense-integrations.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-ads-txt.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-inspector.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-upsell.php';
@@ -162,6 +167,7 @@ final class Simple_Google_Adsense
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-reports.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-migrate.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-consent.php';
+        include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-amp.php';
         include_once SIMPLE_GOOGLE_ADSENSE_ABSPATH . 'includes/class-simple-google-adsense-docs.php';
 
 
@@ -178,6 +184,11 @@ final class Simple_Google_Adsense
         Simple_Google_Adsense_Manual_Ads::instance();
         Simple_Google_Adsense_Ad_Units::instance();
         Simple_Google_Adsense_Placements::instance();
+        Simple_Google_Adsense_Content_Slots::instance();
+        Simple_Google_Adsense_Conditions::instance();
+        Simple_Google_Adsense_Picker::init();
+        Simple_Google_Adsense_Post_Controls::instance();
+        Simple_Google_Adsense_Integrations::init();
         Simple_Google_Adsense_Ads_Txt::instance();
         Simple_Google_Adsense_Inspector::instance();
         Simple_Google_Adsense_Caps::instance();
@@ -185,6 +196,7 @@ final class Simple_Google_Adsense
         Simple_Google_Adsense_Reports::instance();
         Simple_Google_Adsense_Migrate::instance();
         Simple_Google_Adsense_Consent::instance();
+        Simple_Google_Adsense_Amp::instance();
 
         if (is_admin()) {
             Simple_Google_Adsense_Docs::instance();

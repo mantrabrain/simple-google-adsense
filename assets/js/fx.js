@@ -1,7 +1,8 @@
 /**
  * AdFlow: your own ads in the browser.
  *
- * - Hides an ad when a cached page outlives its schedule.
+ * - Hides an ad when a cached page outlives its schedule, and shows an ad or
+ *   its fallback when a cached page reaches a start or end date.
  * - Measures, per ad element (IAB/MRC definitions):
  *     i  impression: the ad is displayed (not hidden, not prerendered);
  *     v  viewable:   >= 50% on screen for >= 1 continuous second, tab visible;
@@ -57,7 +58,18 @@
 		return 'afx_cap_' + capId( el ) + '_' + siteNow( el ).toISOString().slice( 0, 10 );
 	}
 
+	// Placement device rule: the same test as AdFlow Pro's.
+	function deviceOk( el ) {
+		var device = el.getAttribute( 'data-adflow-device' );
+
+		return ! device || ( 'mobile' === device ) === !! mobile;
+	}
+
 	function allowed( el ) {
+		if ( ! deviceOk( el ) ) {
+			return false;
+		}
+
 		var now = siteNow( el );
 		var days = el.getAttribute( 'data-afx-days' );
 		var hours = el.getAttribute( 'data-afx-hours' );
@@ -69,7 +81,10 @@
 		if ( hours ) {
 			var range = hours.split( '-' );
 			var hour = now.getUTCHours();
-			if ( hour < parseInt( range[ 0 ], 10 ) || hour >= parseInt( range[ 1 ], 10 ) ) {
+			var from = parseInt( range[ 0 ], 10 );
+			var to = parseInt( range[ 1 ], 10 );
+			// From later than to runs overnight: 22-2 is 22:00 to 02:00.
+			if ( from > to ? ( hour < from && hour >= to ) : ( hour < from || hour >= to ) ) {
 				return false;
 			}
 		}
@@ -90,6 +105,7 @@
 
 	var country = null;
 	var countryWaiters = [];
+	var area = { r: '', ct: '' };
 
 	function withCountry( cb ) {
 		if ( null !== country ) {
@@ -114,7 +130,9 @@
 		};
 		try {
 			var saved = window.sessionStorage.getItem( 'afx_cc' );
-			if ( saved ) {
+			var savedArea = cfg.geoArea ? window.sessionStorage.getItem( 'afx_area' ) : '';
+			if ( saved && ( ! cfg.geoArea || savedArea ) ) {
+				area = savedArea ? JSON.parse( savedArea ) : area;
 				return done( '--' === saved ? '' : saved, false );
 			}
 		} catch ( e ) {}
@@ -129,6 +147,12 @@
 				return r.json();
 			} )
 			.then( function ( d ) {
+				if ( cfg.geoArea ) {
+					area = { r: ( d && d.r ) || '', ct: ( d && d.ct ) || '' };
+					try {
+						window.sessionStorage.setItem( 'afx_area', JSON.stringify( area ) );
+					} catch ( e ) {}
+				}
 				done( d && d.c, true );
 			} )
 			.catch( function () {
@@ -142,6 +166,16 @@
 		var rule = el.getAttribute( 'data-afx-geo' );
 		if ( ! rule ) {
 			return true;
+		}
+		// "+US-CA|c:london" = only there, "-US-CA" = everywhere except there.
+		// An unknown place only sees ads that exclude places.
+		var places = el.getAttribute( 'data-afx-area' );
+		if ( places ) {
+			var list = places.slice( 1 ).split( '|' );
+			var inList = ( !! area.r && -1 !== list.indexOf( area.r ) ) || ( !! area.ct && -1 !== list.indexOf( 'c:' + area.ct ) );
+			if ( inList !== ( '+' === places.charAt( 0 ) ) ) {
+				return false;
+			}
 		}
 		var listed = rule.slice( 1 ).split( ',' ).indexOf( country ) !== -1;
 		if ( ! country ) {
@@ -407,6 +441,15 @@
 			Array.prototype.slice.call( el.querySelectorAll( 'template.afx-wait' ) ).forEach( function ( tpl ) {
 				tpl.parentNode.removeChild( tpl );
 			} );
+
+			// The campaign ended while this page sat in a cache.
+			var after = el.nextElementSibling;
+			if ( ! running( el ) && after && 'TEMPLATE' === after.tagName && after.classList.contains( 'afx-sch-fb' ) ) {
+				var box = after.parentNode;
+				place( after );
+				inserted( box );
+				scan( box );
+			}
 			return;
 		}
 
@@ -458,6 +501,41 @@
 		if ( observer ) {
 			observer.observe( el );
 		}
+	}
+
+	function inserted( root ) {
+		// Let other scripts (e.g. AdFlow Pro targeting) handle what was inserted.
+		try {
+			doc.dispatchEvent( new CustomEvent( 'afx:inserted', { detail: { root: root } } ) );
+		} catch ( e ) {}
+	}
+
+	/* ---------- Scheduled ads: the ad or its fallback, for this visitor's moment ---------- */
+
+	function scheduled( box ) {
+		var s = info( box );
+
+		if ( s.decided ) {
+			return;
+		}
+		s.decided = true;
+
+		var now = Date.now() / 1000;
+		var from = parseInt( box.getAttribute( 'data-afx-from' ), 10 ) || 0;
+		var to = parseInt( box.getAttribute( 'data-afx-to' ), 10 ) || 0;
+		var wanted = ( ! from || now >= from ) && ( ! to || now <= to ) ? 'afx-sch-ad' : 'afx-sch-fb';
+
+		Array.prototype.slice.call( box.children ).forEach( function ( tpl ) {
+			if ( 'TEMPLATE' !== tpl.tagName ) {
+				return;
+			}
+			if ( tpl.classList.contains( wanted ) ) {
+				place( tpl );
+				inserted( box );
+			} else {
+				box.removeChild( tpl );
+			}
+		} );
 	}
 
 	/* ---------- Rotation groups: pick one member per page view ---------- */
@@ -535,21 +613,130 @@
 			}
 		} );
 		place( chosenTpl );
+		initDeferred( group );
+		inserted( group );
+	}
 
-		// Let other scripts (e.g. AdFlow Pro targeting) handle what was inserted.
+	/* ---------- Device rule without AdFlow Pro (Pro activates these itself) ---------- */
+
+	function initDeferred( root ) {
+		if ( window.adflowPro ) {
+			return;
+		}
+
+		var list = Array.prototype.slice.call( root.querySelectorAll( '[data-adflow-defer]:not([data-adflow-seen])' ) );
+
+		if ( root.hasAttribute( 'data-adflow-defer' ) && ! root.hasAttribute( 'data-adflow-seen' ) ) {
+			list.unshift( root );
+		}
+
+		list.forEach( function ( wrapper ) {
+			wrapper.setAttribute( 'data-adflow-seen', '1' );
+
+			// The ad request is only made when the rule passes.
+			if ( ! deviceOk( wrapper ) ) {
+				if ( wrapper.parentNode ) {
+					wrapper.parentNode.removeChild( wrapper );
+				}
+				return;
+			}
+
+			// Google's code waits, unchanged, in a <template> until the rule passes.
+			var held = wrapper.querySelector( 'template.adflow-held' );
+
+			if ( held ) {
+				wrapper.setAttribute( 'data-adflow-active', '1' );
+				wrapper.classList.remove( 'adflow-only-mobile', 'adflow-only-desktop' );
+				held.parentNode.replaceChild( doc.importNode( held.content, true ), held );
+				try {
+					( window.adsbygoogle = window.adsbygoogle || [] ).push( {} );
+				} catch ( e ) {}
+			}
+		} );
+	}
+
+	/* ---------- Before or after an HTML element ---------- */
+
+	var AD_BOXES = '.afx-unit, .afx-group, .afx-sched, .afx-sel-box, .adflow-ad, .adsense-ad, ins.adsbygoogle';
+
+	function selectedTarget( tpl ) {
+		var list;
+
 		try {
-			doc.dispatchEvent( new CustomEvent( 'afx:inserted', { detail: { root: group } } ) );
-		} catch ( e ) {}
+			list = doc.querySelectorAll( tpl.getAttribute( 'data-afx-sel' ) );
+		} catch ( e ) {
+			return null;
+		}
+
+		var target = list[ ( parseInt( tpl.getAttribute( 'data-afx-nth' ), 10 ) || 1 ) - 1 ];
+
+		// Never inside another ad, whatever the selector matches.
+		if ( ! target || ! target.parentNode || /^(HTML|HEAD|BODY|SCRIPT|STYLE|TEMPLATE|NOSCRIPT)$/.test( target.tagName ) || target.closest( '#wpadminbar, ' + AD_BOXES ) ) {
+			return null;
+		}
+
+		// Never right next to one either.
+		var pos = 'before' === tpl.getAttribute( 'data-afx-pos' );
+		var near = pos ? target.previousElementSibling : target.nextElementSibling;
+
+		while ( near && /^(SCRIPT|STYLE|TEMPLATE|NOSCRIPT|LINK)$/.test( near.tagName ) ) {
+			near = pos ? near.previousElementSibling : near.nextElementSibling;
+		}
+
+		return near && near.matches( AD_BOXES ) ? null : target;
+	}
+
+	function placeSelected() {
+		Array.prototype.forEach.call( doc.querySelectorAll( 'template.afx-sel' ), function ( tpl ) {
+			var first = tpl.content.firstElementChild;
+			var target = selectedTarget( tpl );
+			var drop = function () {
+				if ( tpl.parentNode ) {
+					tpl.parentNode.removeChild( tpl );
+				}
+			};
+
+			// Rules decide first: no space is reserved for an ad that will not show.
+			if ( ! first || ! target || ! deviceOk( first ) || ( window.adflowProPasses && first.hasAttribute( 'data-adflow-defer' ) && ! window.adflowProPasses( first ) ) ) {
+				drop();
+				return;
+			}
+
+			window.afxCheck( first, function ( ok ) {
+				if ( ok ) {
+					var box = doc.createElement( 'div' );
+					var height = parseInt( tpl.getAttribute( 'data-afx-h' ), 10 ) || 0;
+
+					box.className = 'afx-sel-box';
+					if ( height ) {
+						box.style.minHeight = height + 'px';
+					}
+					target.parentNode.insertBefore( box, 'before' === tpl.getAttribute( 'data-afx-pos' ) ? target : target.nextSibling );
+					place( tpl, box );
+				}
+				drop();
+			} );
+		} );
 	}
 
 	function scan( root ) {
 		if ( root.nodeType !== 1 ) {
 			return;
 		}
+		initDeferred( root );
+		var decide = function () {
+			if ( root.classList && root.classList.contains( 'afx-sched' ) ) {
+				scheduled( root );
+			}
+			Array.prototype.forEach.call( root.querySelectorAll( '.afx-sched' ), scheduled );
+		};
+		decide();
 		if ( root.classList && root.classList.contains( 'afx-group' ) ) {
 			pick( root );
 		}
 		Array.prototype.forEach.call( root.querySelectorAll( '.afx-group' ), pick );
+		// A rotation group may have just inserted a scheduled ad.
+		decide();
 		if ( root.classList && root.classList.contains( 'afx-unit' ) ) {
 			setup( root );
 		}
@@ -609,6 +796,7 @@
 			}, { threshold: [ 0, 0.5, 1 ] } );
 		}
 
+		placeSelected();
 		scan( doc.body );
 
 		// Ads added later (infinite scroll, AJAX-loaded content).

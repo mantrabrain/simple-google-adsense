@@ -1,0 +1,22 @@
+<wpml-config>
+    <custom-fields>
+        <custom-field action="translate">_adflow_ad</custom-field>
+        <custom-field action="copy">_adflow_disable_ads</custom-field>
+        <custom-field action="copy">_adflow_disable_auto_ads</custom-field>
+        <custom-field action="copy">_adflow_disable_manual_ads</custom-field>
+    </custom-fields>
+    <custom-fields-texts>
+        <key name="_adflow_ad">
+            <key name="headline"/>
+            <key name="body"/>
+            <key name="cta"/>
+            <key name="alt"/>
+            <key name="url"/>
+        </key>
+    </custom-fields-texts>
+    <admin-texts>
+        <key name="adflow_pro_settings">
+            <key name="adblock_message"/>
+        </key>
+    </admin-texts>
+</wpml-config>

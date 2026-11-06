@@ -14,7 +14,7 @@
 .afx-note {
     display: block;
     margin-bottom: 4px;
-    color: #757575;
+    color: inherit;
     font-size: 11px;
     line-height: 1.4;
     letter-spacing: 0.03em;
@@ -54,6 +54,10 @@
     font-weight: 600;
 }
 
+.afx-sched {
+    display: contents;
+}
+
 @media print {
     .afx-unit {
         display: none !important;
@@ -63,4 +67,22 @@
 /* Country-targeted ads stay hidden until the visitor's country is known. */
 .afx-unit[data-afx-geo]:not(.afx-geo-ok) {
     display: none;
+}
+
+/* Device rule on a placement: hidden at once, on cached pages too (same as AdFlow Pro). */
+@media (max-width: 767px) {
+    .adflow-only-desktop {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .adflow-only-mobile {
+        display: none !important;
+    }
+}
+
+/* Before or after an HTML element: the reserved space goes when no ad fills it. */
+.afx-sel-box:has(ins[data-ad-status="unfilled"]) {
+    min-height: 0 !important;
 }

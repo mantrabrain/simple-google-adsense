@@ -158,7 +158,7 @@ final class Simple_Google_Adsense_Docs
                         array('p', __('Auto Ads let Google choose where ads go. Turn them on under Settings → General. You can exclude post types (e.g. products) and single pages by ID, and hide ads from logged-in administrators so you never click your own ads.', 'simple-google-adsense')),
                         array('p', __('Which formats Auto Ads use (anchor, vignette, in-page) is set in your AdSense account under Ads → By site.', 'simple-google-adsense')),
                         array('note', __('You can combine Auto Ads with your own placements. Google fills the rest of the page around them.', 'simple-google-adsense')),
-                        array('p', __('<strong>Manual ads</strong> (placements, the block, widgets and shortcodes) have their own <em>Turn off on</em> setting under Settings → General → Manual ads. Pick content types, or list posts and pages by ID, and no manual ad shows there, including ads in sidebar widgets. The two settings are independent, so a page can keep Auto Ads and drop manual ads, or the other way round.', 'simple-google-adsense')),
+                        array('p', __('<strong>Manual ads</strong> (placements, the block, widgets and shortcodes) have their own <em>Pages without manual ads</em> setting under Settings → General → Manual ads. Pick content types, or list posts and pages by ID, and no manual ad shows there, including ads in sidebar widgets. The two settings are independent, so a page can keep Auto Ads and drop manual ads, or the other way round.', 'simple-google-adsense')),
                     ),
                 ),
                 'ads-txt' => array(
@@ -177,12 +177,12 @@ final class Simple_Google_Adsense_Docs
                     'blocks' => array(
                         array('p', __('An ad unit is an ad you set up once and reuse everywhere: in placements, the block, the widget and shortcodes. Change it once and every place updates.', 'simple-google-adsense')),
                         array('list', array(
-                            __('<strong>Google AdSense:</strong> Display, In-article, In-feed and Multiplex, with Google\'s exact markup.', 'simple-google-adsense'),
+                            __('<strong>Google AdSense:</strong> Display, In-article, In-feed and Multiplex, using the same ad code attributes Google gives you. A block with no saved unit gets the code for its type too.', 'simple-google-adsense'),
                             __('<strong>Your own ads:</strong> Image banner, Text ad, Custom code (any network, HTML/JS - needs the "unfiltered HTML" permission).', 'simple-google-adsense'),
                             __('<strong>Rotation group:</strong> several ads take turns.', 'simple-google-adsense'),
                             __('<strong>Google Ad Manager (GPT)</strong> - with AdFlow Pro.', 'simple-google-adsense'),
                         )),
-                        array('p', __('The <strong>Will this ad show?</strong> box on each ad lists everything that could stop it: missing Publisher ID or slot, schedule, targeting, placement.', 'simple-google-adsense')),
+                        array('p', __('The <strong>Will this ad show?</strong> box on each ad lists everything that could stop it: missing Publisher ID or slot, schedule, a group with nothing left to show, waiting for consent, targeting, placement.', 'simple-google-adsense')),
                         array('links', array(__('Add an ad unit', 'simple-google-adsense') => $new_unit)),
                     ),
                 ),
@@ -204,6 +204,61 @@ final class Simple_Google_Adsense_Docs
                         array('links', array(__('Open Placements', 'simple-google-adsense') => $placements)),
                     ),
                 ),
+                'extra-ads' => array(
+                    'title' => __('More ads inside posts', 'simple-google-adsense'),
+                    'blocks' => array(
+                        array('p', __('Under <strong>AdFlow → Placements → More ads inside posts</strong>, choose <strong>Add an ad</strong> as often as you need. Each one has its own ad unit, post types and conditions, and starts working once you save.', 'simple-google-adsense')),
+                        array('list', array(
+                            __('<strong>Every few paragraphs</strong>: for example every 4 paragraphs, at most 3 per post. Never after the last paragraph.', 'simple-google-adsense'),
+                            __('<strong>After one paragraph</strong>: a second, third or fourth fixed spot.', 'simple-google-adsense'),
+                            __('<strong>Before or after an HTML element</strong>: see below.', 'simple-google-adsense'),
+                        )),
+                        array('p', __('Posts shorter than <em>Skip posts shorter than</em> are left alone. Two ads are never adjacent: an extra ad is skipped when any other ad, including one you added by hand, is closer than two paragraphs. Developers can change that distance with <code>adflow_content_slot_min_spacing</code>.', 'simple-google-adsense')),
+                        array('note', __('Statistics for your own ads record each extra ad separately, and each ad counts towards the AdFlow Pro limit on ads per page.', 'simple-google-adsense')),
+                        array('links', array(__('Open Placements', 'simple-google-adsense') => $placements)),
+                    ),
+                ),
+                'element-ads' => array(
+                    'title' => __('Before or after an HTML element', 'simple-google-adsense'),
+                    'blocks' => array(
+                        array('p', __('Use this when the spot is not about paragraphs, for example after the second heading. Add an ad, choose <strong>Before or after an HTML element</strong>, then enter a CSS selector such as <code>.entry-content h2</code> and which match to use (2 = the second one).', 'simple-google-adsense')),
+                        array('p', __('The page holds the ad in an inert template and the browser moves it into place, so it works on cached pages. If the element is not on a page, nothing shows and no ad is requested. AdSense units use Google\'s normal code. Your own custom code runs when it is inserted.', 'simple-google-adsense')),
+                        array('p', __('<strong>Reserve height</strong> keeps room for the ad so text does not jump when it loads (default 250 px; 0 for none). It goes away when AdSense reports no ad to show.', 'simple-google-adsense')),
+                        array('note', __('Selectors depend on your theme and may need changing if you switch themes. An ad placed outside your content area must still follow your ad network\'s rules.', 'simple-google-adsense')),
+                    ),
+                ),
+                'conditions' => array(
+                    'title' => __('Conditions: device, category, tag, posts, language', 'simple-google-adsense'),
+                    'blocks' => array(
+                        array('p', __('Every placement has a <strong>Conditions</strong> section. Leave it empty to show everywhere. An ad must match every condition you set.', 'simple-google-adsense')),
+                        array('list', array(
+                            __('<strong>Device</strong>: mobile only, or tablet and desktop only. Mobile means a screen up to 767 px wide. It is decided in the browser, so it works behind page caches, and no ad is requested on the other device. With AdFlow Pro active, this field is in its Targeting section.', 'simple-google-adsense'),
+                            __('<strong>Categories and tags</strong>: only posts with one of the chosen terms. With AdFlow Pro active, categories are in its Targeting section.', 'simple-google-adsense'),
+                            __('<strong>Only on / never on these posts or pages</strong>: search by title or ID.', 'simple-google-adsense'),
+                            __('<strong>Languages</strong>: shown when Polylang or WPML is active.', 'simple-google-adsense'),
+                        )),
+                    ),
+                ),
+                'per-post' => array(
+                    'title' => __('Turn ads off on one post or page', 'simple-google-adsense'),
+                    'blocks' => array(
+                        array('p', __('Users who can manage ads see an <strong>AdFlow Ads</strong> box in the editor sidebar of every public post type: <em>No ads</em>, <em>No Auto Ads</em> and <em>No manual ads</em> on that page.', 'simple-google-adsense')),
+                        array('p', __('To do it from one place, use <em>Pages without Auto Ads</em> and <em>Pages without manual ads</em> under Settings → General. Search for a post or page by title, or type its ID as before.', 'simple-google-adsense')),
+                    ),
+                ),
+                'builders' => array(
+                    'title' => __('Elementor and Bricks', 'simple-google-adsense'),
+                    'blocks' => array(
+                        array('p', __('Search for <strong>AdFlow Ad</strong> in the Elementor or Bricks elements panel, add it and choose a saved ad unit. The editor shows a stand-in box, so ads do not load or count while you design. The ad unit follows all your rules on the live page.', 'simple-google-adsense')),
+                    ),
+                ),
+                'languages' => array(
+                    'title' => __('Multilingual sites: Polylang and WPML', 'simple-google-adsense'),
+                    'blocks' => array(
+                        array('p', __('With Polylang or WPML active, each placement can be limited to chosen languages under <strong>Conditions</strong>. The simplest way to run per-language ads is one placement per language.', 'simple-google-adsense')),
+                        array('p', __('AdFlow also ships a <code>wpml-config.xml</code>: if you turn on translation for Ad Units in your language plugin, a placement shows the translation of its ad unit in each language. A headline, text, button, image text and link can then differ per language. Ad units are not made translatable automatically, because ads that already run have no language set.', 'simple-google-adsense')),
+                    ),
+                ),
                 'pro-placements' => array(
                     'title' => __('More placements: mid-article, between posts, sticky, popup, WooCommerce', 'simple-google-adsense'),
                     'pro' => true,
@@ -212,7 +267,7 @@ final class Simple_Google_Adsense_Docs
                             __('<strong>Middle of the article (after X%)</strong> - scales with post length.', 'simple-google-adsense'),
                             __('<strong>Between posts</strong> - every N posts on home, category, tag and search pages (classic and block themes).', 'simple-google-adsense'),
                             __('<strong>Before comments</strong>.', 'simple-google-adsense'),
-                            __('<strong>Sticky anchor</strong> - a closable bar at the bottom; page content is padded so the ad never covers it.', 'simple-google-adsense'),
+                            __('<strong>Sticky anchor</strong> - a small bar at the bottom that visitors can close. AdSense display units are requested at a fixed size (320x50 on phones, 728x90 on larger screens); other AdSense unit types do not show in it. The page keeps room for it while it shows, and it collapses when Google has no ad.', 'simple-google-adsense'),
                             __('<strong>Popup</strong> - for sponsor banners and other networks, after a delay or scroll depth, once per visitor per N days. Google does not allow AdSense in popups, so AdSense units are never shown there.', 'simple-google-adsense'),
                             __('<strong>WooCommerce</strong> - above the product grid, below the product summary, after add-to-cart.', 'simple-google-adsense'),
                         )),
@@ -224,8 +279,7 @@ final class Simple_Google_Adsense_Docs
                     'pro' => true,
                     'blocks' => array(
                         array('p', __('Each placement can be limited by <strong>device</strong> (mobile/desktop), <strong>visitor</strong> (logged in/out), <strong>traffic source</strong> (search engines or not), <strong>categories</strong>, <strong>post age</strong> and <strong>start/end dates</strong>. Device and traffic rules run in the browser, so they work with page caching - and an ad that should not show never requests an ad from Google.', 'simple-google-adsense')),
-                        array('p', __('<strong>A/B rotation:</strong> add extra ad units to a placement; the Earnings screen shows which one earns more.', 'simple-google-adsense')),
-                        array('p', __('<strong>Per post:</strong> the "AdFlow Ads" box in the post editor turns off all ads, only Auto Ads or only manual ads on that post.', 'simple-google-adsense')),
+                        array('p', __('<strong>A/B rotation:</strong> add extra ad units to a placement. The browser picks one per page view, so it also works on cached pages. The Earnings screen compares only the units in the same test, shows the sample size and names a winner only when each unit has at least 1,000 impressions and 10 clicks and the gap is larger than chance.', 'simple-google-adsense')),
                     ),
                 ),
                 'gam' => array(
@@ -247,7 +301,7 @@ final class Simple_Google_Adsense_Docs
                         array('p', __('Run sponsor, affiliate or house ads next to AdSense. Image banners come from the Media Library; text ads have a headline, text and button. Links get <code>rel="sponsored"</code> (add nofollow if you like) and can open in a new tab.', 'simple-google-adsense')),
                         array('list', array(
                             __('<strong>Disclosure label:</strong> "Sponsored" or "Advertisement" above the ad - laws in many countries require it for paid ads.', 'simple-google-adsense'),
-                            __('<strong>Schedule:</strong> start and end date and time (your site\'s time zone). Outside it the ad hides itself, even on cached pages.', 'simple-google-adsense'),
+                            __('<strong>Schedule:</strong> start and end date and time (your site\'s time zone). Cached pages follow it too: the ad appears at the start, and at the end it goes away and its AdSense fallback appears. This takes JavaScript and uses the visitor\'s clock.', 'simple-google-adsense'),
                             __('<strong>When not running:</strong> show an AdSense unit instead, so the space keeps earning.', 'simple-google-adsense'),
                             __('Own ads use neutral class names, so ad blockers are less likely to hide them.', 'simple-google-adsense'),
                         )),
@@ -302,7 +356,11 @@ final class Simple_Google_Adsense_Docs
                             __('<strong>Click</strong> - a link in the ad was opened; a scroll that starts on the ad is not a click.', 'simple-google-adsense'),
                             __('<strong>Not counted</strong> - bots, headless browsers, link previews and logged-in administrators.', 'simple-google-adsense'),
                         )),
-                        array('p', __('It is cookieless: only daily totals are stored - no IP addresses or visitor IDs - and it works with page caching. Under Settings → Tracking you can wait for statistics consent, count clicks through a redirect link instead, and choose how long data is kept.', 'simple-google-adsense')),
+                        array('p', __('Reports store daily totals only - no IP addresses or visitor IDs - it sets no cookies and it works with page caching. To stop abuse of the counter, a one-way number that many visitors share is kept for up to a day; it cannot be turned back into an address.'
+                            , 'simple-google-adsense')),
+                        array('p', __('These numbers are estimates, not audited figures. The counter has to be public, so someone determined can still add to it. AdFlow makes that harder: requests need a token from your pages and must not come from another site, each visitor address has a limit per minute, unknown placements are ignored, and a day\'s clicks on an ad cannot pass its impressions. Extra clicks are set aside and shown in Reports. If all your visitors reach WordPress through one proxy address, add its address with the adflow_trusted_proxies filter (Cloudflare and private addresses are already known) or raise adflow_stats_rate_limit.'
+                            , 'simple-google-adsense')),
+                        array('p', __('Under Settings → Tracking you can wait for statistics consent, count clicks through a redirect link instead, and choose how long data is kept.', 'simple-google-adsense')),
                         array('note', __('AdSense statistics come from Google; AdFlow does not count AdSense impressions itself.', 'simple-google-adsense')),
                         array('links', array(__('Open Reports', 'simple-google-adsense') => $reports, __('Tracking settings', 'simple-google-adsense') => $A::settings_url('tracking'))),
                     ),
@@ -320,7 +378,7 @@ final class Simple_Google_Adsense_Docs
                     'title' => __('AdSense earnings in WordPress', 'simple-google-adsense'),
                     'pro' => true,
                     'blocks' => array(
-                        array('p', __('Connect your Google account under <strong>AdFlow → Earnings</strong> to see today, yesterday, this month, page RPM, clicks, top pages and per-unit earnings - plus a dashboard widget. AdFlow only asks for read-only access to AdSense reports. Unless the Earnings screen offers one-click connect, you first add your own Google Cloud OAuth client once (about five minutes; the steps are on that screen).', 'simple-google-adsense')),
+                        array('p', __('Connect your Google account under <strong>AdFlow → Earnings</strong> to see today, yesterday, this month, page RPM, clicks, top pages and per-unit earnings - plus a dashboard widget. AdFlow only asks for read-only access to AdSense reports. Until one-click sign-in is available, you first set up your own free Google Cloud project once (about 10 to 15 minutes; the steps are on that screen). Your site needs HTTPS, and Google shows an "unverified app" warning for your own project: choose Advanced and continue.', 'simple-google-adsense')),
                     ),
                 ),
             ),
@@ -329,12 +387,27 @@ final class Simple_Google_Adsense_Docs
                 'consent' => array(
                     'title' => __('GDPR: Consent Mode v2 & loading ads after consent', 'simple-google-adsense'),
                     'blocks' => array(
-                        array('p', __('Google requires consent before personalised ads in the EEA, UK and Switzerland. Show the consent message with AdSense\'s own "Privacy & messaging" (a Google-certified TCF message) or a consent plugin such as Complianz, CookieYes or Cookiebot. Then, under <strong>Settings → Privacy & consent</strong>:', 'simple-google-adsense')),
+                        array('p', __('Google requires consent before personalised ads in the EEA, UK and Switzerland. Show the consent message with AdSense\'s own "Privacy & messaging" (a Google-certified TCF message) or a consent plugin such as Complianz, CookieYes or Cookiebot. A plugin cannot make a site compliant on its own: AdFlow makes your ads respect the answer.', 'simple-google-adsense')),
                         array('list', array(
-                            __('<strong>Load ads after consent</strong> - AdSense, other networks\' code and Ad Manager slots wait until the consent tool has answered. Your own banners and text ads use no cookies and show straight away.', 'simple-google-adsense'),
-                            __('<strong>Google Consent Mode v2</strong> - tells Google tags consent is "denied" until the visitor agrees and passes on their choice (read from the WP Consent API). Use it when your banner is not a Google-certified TCF message, and turn it on in only one place.', 'simple-google-adsense'),
+                            __('<strong>Load ads after consent</strong> - other networks\' code and Ad Manager slots load only after the visitor agrees to advertising. The AdSense library loads once a TCF message is answered, because Google reads the choice itself; with other tools, only after the visitor agrees. No timer ever releases ads. Your own banners and text ads use no cookies and show straight away.', 'simple-google-adsense'),
+                            __('<strong>Where the answer comes from</strong> - an IAB TCF message, the WP Consent API with a plugin that supports it, CookieYes, Complianz or Cookiebot. The Privacy tab warns if your tool is none of these; ads then stay held. Your tool can release them by calling <code>window.afxConsent.grant()</code> from its "accepted" callback.', 'simple-google-adsense'),
+                            __('<strong>AdSense\'s own consent message</strong> - it only reaches the page with the AdSense library, so turning this on loads the library at once. If the message is not set up in AdSense, nobody is asked. Other networks\' code still waits. With no consent plugin it starts on; with one it starts off.', 'simple-google-adsense'),
+                            __('<strong>Google Consent Mode v2</strong> - tells Google tags consent is "denied" until the visitor agrees and passes on their choice (from the WP Consent API, CookieYes, Complianz or Cookiebot). Use it when your banner is not a Google-certified TCF message.', 'simple-google-adsense'),
+                            __('<strong>Other countries</strong> - AdFlow cannot tell where a visitor is, so they wait too unless the consent tool says consent is not needed for them.', 'simple-google-adsense'),
                         )),
                         array('links', array(__('Open Privacy & consent', 'simple-google-adsense') => $A::settings_url('privacy'))),
+                    ),
+                ),
+                'amp' => array(
+                    'title' => __('AMP pages', 'simple-google-adsense'),
+                    'blocks' => array(
+                        array('p', __('With the official AMP plugin, AdSense units print Google\'s <code>amp-ad</code> code and Auto Ads print <code>amp-auto-ads</code>. The AMP plugin adds the scripts they need.', 'simple-google-adsense')),
+                        array('list', array(
+                            __('Your own banners and text ads show as plain markup, without statistics, because AMP allows no custom scripts.', 'simple-google-adsense'),
+                            __('Rotation groups show one ad, chosen on the server. A page cache keeps that choice until it is refreshed. The same goes for schedules.', 'simple-google-adsense'),
+                            __('Custom code shows only if it contains an AMP element such as <code>amp-ad</code>. Pro\'s Ad Manager units and popup and sticky formats do not show.', 'simple-google-adsense'),
+                            __('With "Load ads after consent" on, AdSense ads and Auto Ads are left out of AMP pages, because AMP pages cannot wait for AdFlow\'s consent check.', 'simple-google-adsense'),
+                        )),
                     ),
                 ),
                 'protection' => array(
@@ -342,6 +415,7 @@ final class Simple_Google_Adsense_Docs
                     'pro' => true,
                     'blocks' => array(
                         array('p', __('Stops showing ads to a visitor who clicks ads too often (e.g. 3 clicks in 24 hours → no ads for 7 days). Flagged visitors never load the AdSense script, so no ad is ever hidden - hiding ads breaks AdSense policy. It reduces risk; no tool can guarantee Google\'s decisions.', 'simple-google-adsense')),
+                        array('p', __('<strong>Check it works:</strong> never click your own live ads, because Google treats that as invalid activity. Open a page, choose AdFlow → Inspect ads on this page in the toolbar, and use <strong>Test with a dummy ad</strong>. The note shows the clicks seen on the dummy frame and the real clicks counted in this browser, and <strong>Reset this browser</strong> clears them. Flagged visitors stop getting Google ads; your sponsors\' banner and text ads still show to them.', 'simple-google-adsense')),
                         array('p', __('Also on Settings → Click protection: <strong>Max manual ads per page</strong> and a polite <strong>ad-blocker message</strong>. Settings → Performance: <strong>lazy loading</strong>; each ad unit: <strong>reserved height</strong> against layout shift.', 'simple-google-adsense')),
                     ),
                 ),
@@ -426,6 +500,8 @@ final class Simple_Google_Adsense_Docs
                             __('<code>adflow_ad_markup</code> ($html, $unit, $context) - change the output.', 'simple-google-adsense'),
                             __('<code>adflow_ad_wrapper_attributes</code> - add attributes to the ad wrapper.', 'simple-google-adsense'),
                             __('<code>adflow_placement_types</code> - register a placement.', 'simple-google-adsense'),
+                            __('<code>adflow_content_slot_min_spacing</code> - fewest paragraphs between an extra in-content ad and any other ad (default 2).', 'simple-google-adsense'),
+                            __('<code>adflow_languages</code> + <code>adflow_current_language</code> - language rules for other multilingual plugins.', 'simple-google-adsense'),
                             __('<code>adflow_ad_types</code> + <code>adflow_render_ad_type</code> - register an ad unit type.', 'simple-google-adsense'),
                             __('<code>adflow_review_recipients</code> - who is emailed about ads waiting for review.', 'simple-google-adsense'),
                             __('<code>adflow_imported</code> - runs after an import from another plugin.', 'simple-google-adsense'),
@@ -480,7 +556,7 @@ final class Simple_Google_Adsense_Docs
                 echo '<p class="adflow-docs__note">' . wp_kses($block[1], $tags) . '</p>';
                 break;
             case 'code':
-                echo '<pre class="adflow-docs__code"><code>' . esc_html($block[1]) . '</code></pre>';
+                echo '<pre class="adflow-docs__code" tabindex="0"><code>' . esc_html($block[1]) . '</code></pre>';
                 break;
             case 'steps':
             case 'list':
@@ -494,6 +570,10 @@ final class Simple_Google_Adsense_Docs
             case 'links':
                 echo '<p class="adflow-docs__links">';
                 foreach ((array) $block[1] as $label => $url) {
+                    if (!Simple_Google_Adsense_Admin::can_open($url)) {
+                        continue;
+                    }
+
                     $external = 0 !== strpos($url, admin_url());
                     echo '<a class="button" href="' . esc_url($url) . '"' . ($external ? ' target="_blank" rel="noopener"' : '') . '>' . esc_html($label) . ($external ? ' <span aria-hidden="true">↗</span>' : '') . '</a> ';
                 }

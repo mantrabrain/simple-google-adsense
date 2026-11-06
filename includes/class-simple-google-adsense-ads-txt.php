@@ -101,14 +101,14 @@ final class Simple_Google_Adsense_Ads_Txt
     /**
      * The AdSense line for this publisher.
      *
-     * @return string Empty when no Publisher ID is set.
+     * @return string Empty when no valid Publisher ID is set.
      * @since 1.4.0
      */
     public static function get_adsense_line()
     {
         $publisher_id = Simple_Google_Adsense_Settings::get_publisher_id();
 
-        if ('' === $publisher_id) {
+        if ('' === $publisher_id || !Simple_Google_Adsense_Settings::is_publisher_id_valid()) {
             return '';
         }
 
@@ -242,6 +242,11 @@ final class Simple_Google_Adsense_Ads_Txt
                 'status' => 'no_publisher',
                 'message' => __('Add your Publisher ID first.', 'simple-google-adsense'),
             );
+        } elseif (!Simple_Google_Adsense_Settings::is_publisher_id_valid()) {
+            $result = array(
+                'status' => 'no_publisher',
+                'message' => __('Your Publisher ID is not valid, so ads.txt does not list it. Correct it under General first.', 'simple-google-adsense'),
+            );
         } elseif (!self::is_root_install()) {
             $result = array(
                 'status' => 'not_root',
@@ -362,7 +367,7 @@ final class Simple_Google_Adsense_Ads_Txt
     }
 
     /**
-     * Handle the "Check now" button.
+     * Handle the "Check again" button.
      *
      * @since 1.4.0
      */
@@ -434,7 +439,7 @@ final class Simple_Google_Adsense_Ads_Txt
      * Render a check result line.
      *
      * @param array $result Result from check().
-     * @param string $redirect Where the "Check now" button returns to.
+     * @param string $redirect Where the "Check again" button returns to.
      * @since 1.4.0
      */
     public static function render_status($result, $redirect)
@@ -488,16 +493,20 @@ final class Simple_Google_Adsense_Ads_Txt
             <?php settings_fields('adflow_ads_txt'); ?>
 
             <?php Simple_Google_Adsense_Admin::panel_start(__('ads.txt file', 'simple-google-adsense')); ?>
-                <?php Simple_Google_Adsense_Admin::field_start(__('Serve ads.txt', 'simple-google-adsense'), __('AdFlow answers requests for /ads.txt - no FTP needed.', 'simple-google-adsense')); ?>
-                    <?php Simple_Google_Adsense_Admin::toggle($name . '[enabled]', !empty($settings['enabled']), __('Let AdFlow manage ads.txt', 'simple-google-adsense')); ?>
-                    <p class="description"><a href="<?php echo esc_url(self::get_url()); ?>" target="_blank" rel="noopener"><?php echo esc_html(self::get_url()); ?></a></p>
-                <?php Simple_Google_Adsense_Admin::field_end(); ?>
+                <?php if (self::is_root_install()) : ?>
+                    <?php Simple_Google_Adsense_Admin::field_start(__('Serve ads.txt', 'simple-google-adsense'), __('AdFlow answers requests for /ads.txt - no FTP needed.', 'simple-google-adsense')); ?>
+                        <?php Simple_Google_Adsense_Admin::toggle($name . '[enabled]', !empty($settings['enabled']), __('Let AdFlow manage ads.txt', 'simple-google-adsense')); ?>
+                        <p class="description"><a href="<?php echo esc_url(self::get_url()); ?>" target="_blank" rel="noopener"><?php echo esc_html(self::get_url()); ?></a></p>
+                    <?php Simple_Google_Adsense_Admin::field_end(); ?>
+                <?php elseif (!empty($settings['enabled'])) : ?>
+                    <input type="hidden" name="<?php echo esc_attr($name); ?>[enabled]" value="1">
+                <?php endif; ?>
 
                 <?php Simple_Google_Adsense_Admin::field_start(__('AdSense line', 'simple-google-adsense'), __('Added automatically from your Publisher ID.', 'simple-google-adsense')); ?>
                     <?php if ('' !== $adsense_line) : ?>
                         <code class="adflow-code"><?php echo esc_html($adsense_line); ?></code>
                     <?php else : ?>
-                        <a href="<?php echo esc_url(Simple_Google_Adsense_Admin::settings_url()); ?>"><?php esc_html_e('Add your Publisher ID first', 'simple-google-adsense'); ?></a>
+                        <a href="<?php echo esc_url(Simple_Google_Adsense_Admin::settings_url()); ?>"><?php esc_html_e('Add a valid Publisher ID first', 'simple-google-adsense'); ?></a>
                     <?php endif; ?>
                 <?php Simple_Google_Adsense_Admin::field_end(); ?>
 

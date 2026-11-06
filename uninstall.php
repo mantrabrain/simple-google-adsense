@@ -29,6 +29,8 @@ function simple_google_adsense_uninstall_site()
         'simple_google_adsense_tracking',
         'simple_google_adsense_stats_db',
         'simple_google_adsense_stats_transport',
+        'simple_google_adsense_stats_key',
+        'simple_google_adsense_stats_cache',
         'adflow_consent',
         'adflow_import_map',
         'adflow_import_report',
@@ -46,9 +48,17 @@ function simple_google_adsense_uninstall_site()
     }
 
     global $wpdb;
-    $wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}afx_stats"); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.DirectDatabaseQuery.SchemaChange
+    foreach (array('afx_stats', 'afx_limits', 'afx_held') as $simple_google_adsense_table) {
+        $wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}{$simple_google_adsense_table}"); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+    }
+
+    // Repeat-click flags from older versions and cached report sums.
+    foreach (array('afx\\_c\\_', 'afx\\_r\\_') as $simple_google_adsense_prefix) {
+        $wpdb->query("DELETE FROM {$wpdb->options} WHERE option_name LIKE '\\_transient\\_{$simple_google_adsense_prefix}%' OR option_name LIKE '\\_transient\\_timeout\\_{$simple_google_adsense_prefix}%'"); // phpcs:ignore WordPress.DB.DirectDatabaseQuery, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+    }
 
     wp_clear_scheduled_hook('adflow_daily_maintenance');
+    wp_clear_scheduled_hook('adflow_stats_self_test');
     delete_transient('adflow_ads_txt_check');
     delete_transient('simple_google_adsense_activation_redirect');
 
@@ -61,6 +71,10 @@ function simple_google_adsense_uninstall_site()
 
     foreach ($simple_google_adsense_ids as $simple_google_adsense_id) {
         wp_delete_post($simple_google_adsense_id, true);
+    }
+
+    foreach (array('_adflow_disable_ads', '_adflow_disable_auto_ads', '_adflow_disable_manual_ads') as $simple_google_adsense_meta) {
+        delete_post_meta_by_key($simple_google_adsense_meta);
     }
 }
 
@@ -94,6 +108,7 @@ if (is_multisite()) {
     foreach (get_sites(array('fields' => 'ids', 'number' => 0)) as $simple_google_adsense_site_id) {
         switch_to_blog($simple_google_adsense_site_id);
         wp_clear_scheduled_hook('adflow_daily_maintenance');
+        wp_clear_scheduled_hook('adflow_stats_self_test');
         if (simple_google_adsense_wants_delete()) {
             simple_google_adsense_uninstall_site();
         }
@@ -101,6 +116,7 @@ if (is_multisite()) {
     }
 } else {
     wp_clear_scheduled_hook('adflow_daily_maintenance');
+    wp_clear_scheduled_hook('adflow_stats_self_test');
     if (simple_google_adsense_wants_delete()) {
         simple_google_adsense_uninstall_site();
     }

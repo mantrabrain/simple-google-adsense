@@ -50,7 +50,7 @@ final class Simple_Google_Adsense_Dashboard
      */
     public static function get_setup_steps()
     {
-        $ads_txt = Simple_Google_Adsense_Ads_Txt::get_settings();
+        $ads_txt_check = Simple_Google_Adsense_Ads_Txt::check();
         $placements = Simple_Google_Adsense_Placements::get_all();
         $active_placements = count(array_filter(wp_list_pluck($placements, 'enabled')));
 
@@ -65,7 +65,8 @@ final class Simple_Google_Adsense_Dashboard
             ),
             array(
                 'key' => 'ads_txt',
-                'done' => !empty($ads_txt['enabled']) || Simple_Google_Adsense_Ads_Txt::physical_file_exists(),
+                // Only when the live file really lists this publisher.
+                'done' => 'ok' === $ads_txt_check['status'],
                 'title' => __('Authorize your site with ads.txt', 'simple-google-adsense'),
                 'description' => __('Prevents AdSense\'s "Earnings at risk" warning.', 'simple-google-adsense'),
                 'url' => Simple_Google_Adsense_Admin::settings_url('ads-txt'),
@@ -99,6 +100,8 @@ final class Simple_Google_Adsense_Dashboard
     public static function get_cards()
     {
         $auto = Simple_Google_Adsense_Settings::is_auto_ads_enabled();
+        // Switched on, but no ad code can print without a valid Publisher ID.
+        $auto_waiting = !$auto && Simple_Google_Adsense_Settings::get('enable_auto_ads');
         $units = Simple_Google_Adsense_Ad_Units::get_all();
         $placements = Simple_Google_Adsense_Placements::get_all();
         $active = count(array_filter(wp_list_pluck($placements, 'enabled')));
@@ -107,9 +110,9 @@ final class Simple_Google_Adsense_Dashboard
         $cards = array(
             'auto_ads' => array(
                 'label' => __('Auto Ads', 'simple-google-adsense'),
-                'value' => $auto ? __('On', 'simple-google-adsense') : __('Off', 'simple-google-adsense'),
-                'status' => $auto ? 'ok' : '',
-                'meta' => $auto ? __('Google places ads across your site.', 'simple-google-adsense') : __('Google\'s automatic ads are not running.', 'simple-google-adsense'),
+                'value' => $auto ? __('On', 'simple-google-adsense') : ($auto_waiting ? __('Not running', 'simple-google-adsense') : __('Off', 'simple-google-adsense')),
+                'status' => $auto ? 'ok' : ($auto_waiting ? 'warning' : ''),
+                'meta' => $auto ? __('Google places ads across your site.', 'simple-google-adsense') : ($auto_waiting ? __('Switched on, but waiting for a valid Publisher ID.', 'simple-google-adsense') : __('Google\'s automatic ads are not running.', 'simple-google-adsense')),
                 'link' => Simple_Google_Adsense_Admin::settings_url(),
                 'link_label' => __('Settings', 'simple-google-adsense'),
             ),
@@ -163,9 +166,9 @@ final class Simple_Google_Adsense_Dashboard
             Simple_Google_Adsense_Admin::render_header(
                 __('Dashboard', 'simple-google-adsense'),
                 __('Your AdSense setup at a glance.', 'simple-google-adsense'),
-                array(
+                current_user_can(Simple_Google_Adsense_Caps::MANAGE_ADS) ? array(
                     array('label' => __('Add ad unit', 'simple-google-adsense'), 'url' => admin_url('post-new.php?post_type=' . Simple_Google_Adsense_Ad_Units::POST_TYPE), 'primary' => true),
-                )
+                ) : array()
             );
             ?>
 
@@ -186,7 +189,7 @@ final class Simple_Google_Adsense_Dashboard
                         <?php if ('' !== $card['meta']) : ?>
                             <p class="adflow-stat__meta"><?php echo esc_html($card['meta']); ?></p>
                         <?php endif; ?>
-                        <?php if ('' !== $card['link']) : ?>
+                        <?php if ('' !== $card['link'] && Simple_Google_Adsense_Admin::can_open($card['link'])) : ?>
                             <a class="adflow-stat__link" href="<?php echo esc_url($card['link']); ?>"><?php echo esc_html($card['link_label']); ?> &rarr;</a>
                         <?php endif; ?>
                     </div>
@@ -223,7 +226,7 @@ final class Simple_Google_Adsense_Dashboard
                                             </span>
                                             <?php if ($step['done']) : ?>
                                                 <span class="screen-reader-text"><?php esc_html_e('Done', 'simple-google-adsense'); ?></span>
-                                            <?php else : ?>
+                                            <?php elseif (Simple_Google_Adsense_Admin::can_open($step['url'])) : ?>
                                                 <a class="button" href="<?php echo esc_url($step['url']); ?>"><?php echo esc_html($step['action']); ?></a>
                                             <?php endif; ?>
                                         </li>
@@ -257,7 +260,7 @@ final class Simple_Google_Adsense_Dashboard
                                             <strong><?php echo esc_html($check['label']); ?></strong>
                                             <span><?php echo esc_html($check['message']); ?></span>
                                         </span>
-                                        <?php if (!empty($check['action'])) : ?>
+                                        <?php if (!empty($check['action']) && Simple_Google_Adsense_Admin::can_open($check['action'])) : ?>
                                             <a class="button button-small" href="<?php echo esc_url($check['action']); ?>"<?php echo 0 !== strpos($check['action'], admin_url()) ? ' target="_blank" rel="noopener"' : ''; ?>><?php echo esc_html($check['action_label']); ?></a>
                                         <?php endif; ?>
                                     </li>
@@ -281,10 +284,14 @@ final class Simple_Google_Adsense_Dashboard
                         <header class="adflow-panel__head"><div><h2><?php esc_html_e('Shortcuts', 'simple-google-adsense'); ?></h2></div></header>
                         <div class="adflow-panel__body">
                             <ul class="adflow-links">
-                                <li><a href="<?php echo esc_url(admin_url('post-new.php?post_type=' . Simple_Google_Adsense_Ad_Units::POST_TYPE)); ?>"><span class="dashicons dashicons-plus-alt2" aria-hidden="true"></span><?php esc_html_e('Create an ad unit', 'simple-google-adsense'); ?></a></li>
-                                <li><a href="<?php echo esc_url(admin_url('admin.php?page=' . Simple_Google_Adsense_Placements::PAGE_SLUG)); ?>"><span class="dashicons dashicons-layout" aria-hidden="true"></span><?php esc_html_e('Place ads automatically', 'simple-google-adsense'); ?></a></li>
+                                <?php if (current_user_can(Simple_Google_Adsense_Caps::MANAGE_ADS)) : ?>
+                                    <li><a href="<?php echo esc_url(admin_url('post-new.php?post_type=' . Simple_Google_Adsense_Ad_Units::POST_TYPE)); ?>"><span class="dashicons dashicons-plus-alt2" aria-hidden="true"></span><?php esc_html_e('Create an ad unit', 'simple-google-adsense'); ?></a></li>
+                                    <li><a href="<?php echo esc_url(admin_url('admin.php?page=' . Simple_Google_Adsense_Placements::PAGE_SLUG)); ?>"><span class="dashicons dashicons-layout" aria-hidden="true"></span><?php esc_html_e('Place ads automatically', 'simple-google-adsense'); ?></a></li>
+                                <?php endif; ?>
                                 <li><a href="<?php echo esc_url(add_query_arg('adflow-inspect', '1', home_url('/'))); ?>" target="_blank" rel="noopener"><span class="dashicons dashicons-search" aria-hidden="true"></span><?php esc_html_e('Inspect ads on your site', 'simple-google-adsense'); ?></a></li>
-                                <li><a href="<?php echo esc_url(Simple_Google_Adsense_Admin::settings_url('ads-txt')); ?>"><span class="dashicons dashicons-media-text" aria-hidden="true"></span><?php esc_html_e('Manage ads.txt', 'simple-google-adsense'); ?></a></li>
+                                <?php if (current_user_can('manage_options')) : ?>
+                                    <li><a href="<?php echo esc_url(Simple_Google_Adsense_Admin::settings_url('ads-txt')); ?>"><span class="dashicons dashicons-media-text" aria-hidden="true"></span><?php esc_html_e('Manage ads.txt', 'simple-google-adsense'); ?></a></li>
+                                <?php endif; ?>
                             </ul>
                         </div>
                     </section>

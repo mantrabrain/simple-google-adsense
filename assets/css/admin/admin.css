@@ -170,7 +170,7 @@
 }
 
 .adflow-tabs a.is-active {
-    color: var(--af-blue);
+    color: #135e96;
     border-bottom-color: var(--af-blue);
 }
 
@@ -432,10 +432,11 @@
     color: var(--af-muted);
 }
 
-.adflow-pill--ok { background: var(--af-green-soft); color: var(--af-green); }
-.adflow-pill--warning { background: var(--af-amber-soft); color: var(--af-amber); }
-.adflow-pill--error { background: var(--af-red-soft); color: var(--af-red); }
-.adflow-pill--info { background: var(--af-blue-soft); color: var(--af-blue); }
+/* Text colours darkened from the status colours for 4.5:1 on the soft backgrounds. */
+.adflow-pill--ok { background: var(--af-green-soft); color: #006b18; }
+.adflow-pill--warning { background: var(--af-amber-soft); color: #7a5300; }
+.adflow-pill--error { background: var(--af-red-soft); color: #a81e20; }
+.adflow-pill--info { background: var(--af-blue-soft); color: #135e96; }
 
 .adflow-pro-tag {
     display: inline-block;
@@ -715,6 +716,15 @@
 }
 
 /* Upgrade card (free only) */
+.adflow-upgrade-card__close,
+.adflow-upgrade-card__close:hover,
+.adflow-upgrade-card__close:focus {
+    float: right;
+    margin-left: 12px;
+    color: #fff;
+    font-size: 12px;
+}
+
 .adflow-upgrade-card {
     padding: 20px 24px;
     border-radius: var(--af-radius);
@@ -827,7 +837,7 @@
     width: 72px;
 }
 
-.adflow-placement--locked .adflow-placement__row {
+.adflow-placement--locked .adflow-toggle {
     opacity: 0.75;
 }
 
@@ -1916,3 +1926,264 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* --------------------------------------------------------------------------
+   Extra in-content ads, conditions and the search picker (1.6.0)
+   -------------------------------------------------------------------------- */
+
+.adflow-slots {
+    border-top: 1px solid var(--af-divider);
+}
+
+.adflow-slots__intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    padding: 16px 24px;
+    background: #fbfbfc;
+}
+
+.adflow-slots__intro .description {
+    margin: 4px 0 0;
+}
+
+.adflow-slots__list:not(:empty) {
+    border-top: 1px solid var(--af-divider);
+}
+
+.adflow-slot [hidden] {
+    display: none !important;
+}
+
+.adflow-slot__selector input {
+    width: 320px;
+    max-width: 100%;
+}
+
+.adflow-slot__selector .description {
+    margin-top: 4px;
+    max-width: 320px;
+}
+
+.adflow-slot__remove {
+    margin: 12px 0 0;
+}
+
+.adflow-slot [data-adflow-slot-mode] {
+    min-width: 300px;
+    max-width: 100%;
+}
+
+.adflow-slot [name$="[position]"] {
+    min-width: 190px;
+}
+
+.adflow-conditions__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    align-items: start;
+    margin-top: 8px;
+}
+
+.adflow-conditions__grid .adflow-targeting__grid {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.adflow-conditions__languages {
+    margin-top: 16px;
+}
+
+.adflow-picker {
+    position: relative;
+    max-width: 440px;
+}
+
+.adflow-picker .adflow-picker__box[hidden],
+.adflow-picker .adflow-picker__list[hidden],
+.adflow-picker .adflow-picker__remove[hidden] {
+    display: none;
+}
+
+.adflow-picker__input.regular-text {
+    width: 100%;
+}
+
+.adflow-picker__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 6px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.adflow-picker__chips:empty {
+    display: none;
+}
+
+.adflow-picker__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    max-width: 100%;
+    margin: 0;
+    padding: 2px 2px 2px 10px;
+    border: 1px solid var(--af-divider);
+    border-radius: 14px;
+    background: #f6f7f7;
+    color: #1d2327;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.adflow-picker__chip > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.adflow-picker__chip.is-missing {
+    border-color: #b32d2e;
+    color: #8a2424;
+}
+
+.adflow-picker__remove {
+    flex: none;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #50575e;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.adflow-picker__remove:hover,
+.adflow-picker__remove:focus {
+    background: #dcdcde;
+    color: #1d2327;
+}
+
+.adflow-picker__list {
+    position: absolute;
+    z-index: 20;
+    left: 0;
+    right: 0;
+    max-height: 240px;
+    margin: 2px 0 0;
+    padding: 4px 0;
+    overflow-y: auto;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    list-style: none;
+}
+
+.adflow-picker__option {
+    margin: 0;
+    padding: 8px 12px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.adflow-picker__option:hover,
+.adflow-picker__option[aria-selected="true"] {
+    background: #2271b1;
+    color: #fff;
+}
+
+@media (max-width: 782px) {
+    .adflow-placement__details {
+        padding-left: 24px;
+    }
+
+    .adflow-picker,
+    .adflow-slot__selector input,
+    .adflow-slot__selector .description {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .adflow-picker__remove {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Privacy tab
+   -------------------------------------------------------------------------- */
+
+.adflow-consent-warning {
+    margin: 8px 0;
+    padding: 10px 12px;
+    border-left: 4px solid #dba617;
+    background: var(--af-amber-soft);
+    color: var(--af-text);
+}
+
+/* --------------------------------------------------------------------------
+   Phones: tables, the report chart and the sample ribbon stay inside the screen
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 782px) {
+    .adflow-page table.adflow-table:not(.adflow-table--stack) {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .adflow-table--stack thead {
+        display: none;
+    }
+
+    .adflow-table--stack,
+    .adflow-table--stack tbody,
+    .adflow-table--stack tr,
+    .adflow-table--stack td {
+        display: block;
+        width: auto;
+    }
+
+    .adflow-table--stack td {
+        padding: 4px 16px;
+    }
+
+    .adflow-table--stack tr {
+        padding: 10px 0;
+    }
+
+    .adflow-table--stack code {
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+
+    /* One date label in six: the labels need about 50 px each. */
+    .adflow-chart__col .adflow-chart__x {
+        display: none;
+    }
+
+    .adflow-chart__col:nth-of-type(6n+1) .adflow-chart__x {
+        display: block;
+    }
+
+    .adflow-preview-ribbon {
+        position: static;
+        display: inline-block;
+        margin-bottom: 12px;
+        padding: 3px 10px;
+        transform: none;
+    }
+}
+
+/* Upgrade page: already bought Pro. */
+.adflow-pro-bought h2 { margin: 0 0 10px; font-size: 16px; }
+.adflow-pro-bought ol { margin: 0 0 14px 20px; }
+.adflow-pro-bought li { margin-bottom: 4px; }
+.adflow-pro-bought__actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }

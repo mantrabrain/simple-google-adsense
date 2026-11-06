@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: AdFlow – Ad Inserter & Ad Manager: AdSense, Banner Ads & ads.txt 1.5.0\n"
+"Project-Id-Version: AdFlow – Ad Inserter & Ad Manager: AdSense, Banner Ads & ads.txt 1.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/simple-google-adsense\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-17T09:43:42+00:00\n"
+"POT-Creation-Date: 2026-11-06T02:00:44+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: simple-google-adsense\n"
@@ -61,1052 +61,1106 @@ msgstr ""
 msgid "Main Site"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:106
+#: includes/class-simple-google-adsense-ad-units.php:111
 msgid "Sorry, you are not allowed to view ad units."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:121
-#: includes/class-simple-google-adsense-ad-units.php:130
+#: includes/class-simple-google-adsense-ad-units.php:126
+#: includes/class-simple-google-adsense-ad-units.php:135
 msgid "Ad Units"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:122
+#: includes/class-simple-google-adsense-ad-units.php:127
 msgid "Ad Unit"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:123
-#: includes/class-simple-google-adsense-ad-units.php:124
+#: includes/class-simple-google-adsense-ad-units.php:128
+#: includes/class-simple-google-adsense-ad-units.php:129
+#: includes/class-simple-google-adsense-ad-units.php:176
 msgid "Add Ad Unit"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:125
+#: includes/class-simple-google-adsense-ad-units.php:130
 msgid "Edit Ad Unit"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:126
+#: includes/class-simple-google-adsense-ad-units.php:131
 msgid "New Ad Unit"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:127
+#: includes/class-simple-google-adsense-ad-units.php:132
 msgid "Search Ad Units"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:128
+#: includes/class-simple-google-adsense-ad-units.php:133
 msgid "No ad units yet. Create one with the slot ID from your AdSense account."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:129
+#: includes/class-simple-google-adsense-ad-units.php:134
 msgid "No ad units in the trash."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:179
+#: includes/class-simple-google-adsense-ad-units.php:228
 msgid "Display ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:180
+#: includes/class-simple-google-adsense-ad-units.php:229
 msgid "In-article ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:181
+#: includes/class-simple-google-adsense-ad-units.php:230
 msgid "In-feed ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:182
+#: includes/class-simple-google-adsense-ad-units.php:231
 msgid "Multiplex ad (formerly Matched Content)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:183
+#: includes/class-simple-google-adsense-ad-units.php:232
 msgid "Image banner (your own or a sponsor's)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:184
+#: includes/class-simple-google-adsense-ad-units.php:233
 msgid "Text ad (headline, text and link)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:185
+#: includes/class-simple-google-adsense-ad-units.php:234
 msgid "Custom code (other ad networks, HTML/JS)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:186
+#: includes/class-simple-google-adsense-ad-units.php:235
 msgid "Rotation group (several ads take turns)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:336
+#: includes/class-simple-google-adsense-ad-units.php:385
 msgid "Running"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:337
+#: includes/class-simple-google-adsense-ad-units.php:386
 msgid "Scheduled"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:338
+#: includes/class-simple-google-adsense-ad-units.php:387
 msgid "Expired"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:351
+#: includes/class-simple-google-adsense-ad-units.php:400
 msgid "Sponsored"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:352
+#: includes/class-simple-google-adsense-ad-units.php:401
 msgid "Advertisement"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:353
-#: includes/class-simple-google-adsense-admin.php:819
+#: includes/class-simple-google-adsense-ad-units.php:402
+#: includes/class-simple-google-adsense-admin.php:847
 msgid "No label"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:455
+#: includes/class-simple-google-adsense-ad-units.php:504
 msgid "Ad unit settings"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:464
+#: includes/class-simple-google-adsense-ad-units.php:513
 msgid "Delivery"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:473
+#: includes/class-simple-google-adsense-ad-units.php:522
 msgid "Use this ad unit"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:493
+#: includes/class-simple-google-adsense-ad-units.php:542
 msgid "Choose banner image"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:494
+#: includes/class-simple-google-adsense-ad-units.php:543
 msgid "Use this image"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:514
+#: includes/class-simple-google-adsense-ad-units.php:563
 msgid "Ad type"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:514
+#: includes/class-simple-google-adsense-ad-units.php:563
 msgid "For AdSense, match the type of the unit you created in AdSense. Your own ads: a banner, a text ad or any network's code."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:519
+#: includes/class-simple-google-adsense-ad-units.php:568
 msgid "Google AdSense"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:520
+#: includes/class-simple-google-adsense-ad-units.php:569
 msgid "Your own ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:521
-#: includes/class-simple-google-adsense-ad-units.php:617
+#: includes/class-simple-google-adsense-ad-units.php:570
+#: includes/class-simple-google-adsense-ad-units.php:666
 msgid "Rotation"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:527
-#: includes/class-simple-google-adsense-ad-units.php:537
+#: includes/class-simple-google-adsense-ad-units.php:576
+#: includes/class-simple-google-adsense-ad-units.php:586
 msgid "Other ad servers"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:538
+#: includes/class-simple-google-adsense-ad-units.php:587
 msgid "Google Ad Manager (GPT) - AdFlow Pro"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:547
+#: includes/class-simple-google-adsense-ad-units.php:596
 msgid "Banner image"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:547
+#: includes/class-simple-google-adsense-ad-units.php:596
 msgid "Tip: avoid words like \"ad\" or \"banner\" in the file name - ad blockers hide those."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:552
+#: includes/class-simple-google-adsense-ad-units.php:601
 msgid "Choose image"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:553
+#: includes/class-simple-google-adsense-ad-units.php:602
 msgid "Remove"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:557
+#: includes/class-simple-google-adsense-ad-units.php:606
 msgid "Alternative text"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:557
+#: includes/class-simple-google-adsense-ad-units.php:606
 msgid "Describes the image for screen readers."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:563
+#: includes/class-simple-google-adsense-ad-units.php:612
 msgid "Headline"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:566
+#: includes/class-simple-google-adsense-ad-units.php:615
 msgid "Text"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:569
+#: includes/class-simple-google-adsense-ad-units.php:618
 msgid "Button text"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:569
+#: includes/class-simple-google-adsense-ad-units.php:618
 msgid "Optional, e.g. \"Learn more\"."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:575
+#: includes/class-simple-google-adsense-ad-units.php:624
 msgid "Link"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:575
+#: includes/class-simple-google-adsense-ad-units.php:624
 msgid "Where a click goes. Paid links get rel=\"sponsored\", as Google asks."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:577
+#: includes/class-simple-google-adsense-ad-units.php:626
 msgid "Open in a new tab"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:578
+#: includes/class-simple-google-adsense-ad-units.php:627
 msgid "Also add rel=\"nofollow\""
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:584
+#: includes/class-simple-google-adsense-ad-units.php:633
 msgid "Ads in this group"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:584
+#: includes/class-simple-google-adsense-ad-units.php:633
 msgid "One of these is shown per page view. Weight 3 is shown three times as often as weight 1. Works with page caching."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:595
-#: includes/class-simple-google-adsense-ad-units.php:602
-#: includes/class-simple-google-adsense-reports.php:233
-#: includes/class-simple-google-adsense-reports.php:305
+#: includes/class-simple-google-adsense-ad-units.php:644
+#: includes/class-simple-google-adsense-ad-units.php:651
+#: includes/class-simple-google-adsense-reports.php:236
+#: includes/class-simple-google-adsense-reports.php:326
+#: includes/integrations/class-simple-google-adsense-elementor-widget.php:85
 msgid "Ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:595
-#: includes/class-simple-google-adsense-ad-units.php:609
+#: includes/class-simple-google-adsense-ad-units.php:644
+#: includes/class-simple-google-adsense-ad-units.php:658
 msgid "Weight"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:614
+#: includes/class-simple-google-adsense-ad-units.php:663
 msgid "Need more rows? Save and more empty rows appear."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:619
+#: includes/class-simple-google-adsense-ad-units.php:668
 msgid "Random, by weight"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:620
+#: includes/class-simple-google-adsense-ad-units.php:669
 msgid "In order - each visitor sees the next ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:626
+#: includes/class-simple-google-adsense-ad-units.php:675
 msgid "Ad slot ID"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:626
+#: includes/class-simple-google-adsense-ad-units.php:675
 msgid "The data-ad-slot number from the ad code in AdSense (Ads → By ad unit)."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:628
+#: includes/class-simple-google-adsense-ad-units.php:677
 msgid "How to create an ad unit in AdSense"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:633
+#: includes/class-simple-google-adsense-ad-units.php:682
 msgid "Size"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:633
+#: includes/class-simple-google-adsense-ad-units.php:682
 msgid "\"Responsive\" fits any screen and is recommended."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:637
+#: includes/class-simple-google-adsense-ad-units.php:686
 msgid "Responsive (recommended)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:638
-#: includes/class-simple-google-adsense-manual-ads.php:888
-#: blocks/adsense-ad/index.js:36
+#: includes/class-simple-google-adsense-ad-units.php:687
+#: includes/class-simple-google-adsense-manual-ads.php:1062
+#: blocks/adsense-ad/index.js:37
 msgid "Rectangle"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:639
-#: includes/class-simple-google-adsense-manual-ads.php:889
-#: blocks/adsense-ad/index.js:37
+#: includes/class-simple-google-adsense-ad-units.php:688
+#: includes/class-simple-google-adsense-manual-ads.php:1063
+#: blocks/adsense-ad/index.js:38
 msgid "Horizontal"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:640
-#: includes/class-simple-google-adsense-manual-ads.php:890
-#: blocks/adsense-ad/index.js:38
+#: includes/class-simple-google-adsense-ad-units.php:689
+#: includes/class-simple-google-adsense-manual-ads.php:1064
+#: blocks/adsense-ad/index.js:39
 msgid "Vertical"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:646
+#: includes/class-simple-google-adsense-ad-units.php:695
 msgid "Full width on mobile"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:651
-#: blocks/adsense-ad/index.js:98
+#: includes/class-simple-google-adsense-ad-units.php:700
+#: blocks/adsense-ad/index.js:109
 msgid "Layout key"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:651
+#: includes/class-simple-google-adsense-ad-units.php:700
 msgid "In-feed ads only. Copy data-ad-layout-key from the ad code - in-feed ads do not serve without it."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:657
+#: includes/class-simple-google-adsense-ad-units.php:706
 msgid "Ad code"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:657
+#: includes/class-simple-google-adsense-ad-units.php:706
 msgid "From Google Ad Manager, Media.net or any other network. Output exactly as entered."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:661
+#: includes/class-simple-google-adsense-ad-units.php:710
 msgid "Only users allowed to post unfiltered HTML can edit custom ad code."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:695
+#: includes/class-simple-google-adsense-ad-units.php:744
 msgid "Disclosure label"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:695
+#: includes/class-simple-google-adsense-ad-units.php:744
 msgid "Laws in many countries (FTC, ASA) require paid placements to be clearly marked."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:705
+#: includes/class-simple-google-adsense-ad-units.php:754
 msgid "Schedule"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:705
+#: includes/class-simple-google-adsense-ad-units.php:754
 msgid "Optional. Uses your site's time zone. Outside these dates the ad is not shown."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:708
+#: includes/class-simple-google-adsense-ad-units.php:757
 msgid "Start"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:710
+#: includes/class-simple-google-adsense-ad-units.php:759
 msgid "End"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:716
+#: includes/class-simple-google-adsense-ad-units.php:765
 msgid "When not running"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:716
+#: includes/class-simple-google-adsense-ad-units.php:765
 msgid "Keep earning after a campaign ends: show an AdSense unit in its place."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:719
+#: includes/class-simple-google-adsense-ad-units.php:768
 msgid "Show nothing"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:727
-#: includes/class-simple-google-adsense-stats.php:888
+#: includes/class-simple-google-adsense-ad-units.php:776
+#: includes/class-simple-google-adsense-stats.php:1806
 msgid "Statistics"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:727
+#: includes/class-simple-google-adsense-ad-units.php:776
 msgid "Cookieless impression and click counting."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:728
-#: includes/class-simple-google-adsense-stats.php:889
+#: includes/class-simple-google-adsense-ad-units.php:777
+#: includes/class-simple-google-adsense-stats.php:1807
 msgid "Count impressions and clicks"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:757
+#: includes/class-simple-google-adsense-ad-units.php:806
 msgid "Manual ads are switched off in Settings."
 msgstr ""
 
 #. translators: %d: number of ads
-#: includes/class-simple-google-adsense-ad-units.php:764
+#: includes/class-simple-google-adsense-ad-units.php:832
 #, php-format
 msgid "%d ad in the rotation."
 msgid_plural "%d ads in the rotation."
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-simple-google-adsense-ad-units.php:765
+#: includes/class-simple-google-adsense-ad-units.php:833
 msgid "The group has no ads yet."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:768
+#: includes/class-simple-google-adsense-ad-units.php:837
+msgid "No ad in this group can show yet: they have not started."
+msgstr ""
+
+#: includes/class-simple-google-adsense-ad-units.php:838
+msgid "No ad in this group can show: they have ended or are not published."
+msgstr ""
+
+#. translators: %s: name of the fallback ad
+#: includes/class-simple-google-adsense-ad-units.php:848
+#, php-format
+msgid "Not started yet. Showing its fallback for now: %s."
+msgstr ""
+
+#. translators: %s: name of the fallback ad
+#: includes/class-simple-google-adsense-ad-units.php:850
+#, php-format
+msgid "Ended. Showing its fallback: %s."
+msgstr ""
+
+#: includes/class-simple-google-adsense-ad-units.php:854
 msgid "Within its schedule."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:768
+#: includes/class-simple-google-adsense-ad-units.php:854
 msgid "Scheduled - not started yet."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:768
+#: includes/class-simple-google-adsense-ad-units.php:854
 msgid "Expired - the end date has passed."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:771
+#: includes/class-simple-google-adsense-ad-units.php:858
+msgid "This code contains an AdSense ad. Google allows only \"Advertisements\" or \"Sponsored Links\" as its label: set the disclosure label to \"No label\"."
+msgstr ""
+
+#: includes/class-simple-google-adsense-ad-units.php:862
 msgid "Banner image set."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:771
+#: includes/class-simple-google-adsense-ad-units.php:862
 msgid "No banner image."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:773
+#: includes/class-simple-google-adsense-ad-units.php:864
 msgid "Headline set."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:773
+#: includes/class-simple-google-adsense-ad-units.php:864
 msgid "No headline."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:775
+#: includes/class-simple-google-adsense-ad-units.php:866
 msgid "Ad code set."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:775
+#: includes/class-simple-google-adsense-ad-units.php:866
 msgid "No ad code."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:779
+#: includes/class-simple-google-adsense-ad-units.php:870
 msgid "No link - clicks cannot be counted."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:782
+#: includes/class-simple-google-adsense-ad-units.php:873
 msgid "Publisher ID set."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:782
+#: includes/class-simple-google-adsense-ad-units.php:873
 msgid "No valid Publisher ID in Settings."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:783
+#: includes/class-simple-google-adsense-ad-units.php:874
 msgid "Ad slot ID set."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:783
+#: includes/class-simple-google-adsense-ad-units.php:874
 msgid "No ad slot ID."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:786
+#: includes/class-simple-google-adsense-ad-units.php:877
 msgid "In-feed ads need a layout key."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:792
+#: includes/class-simple-google-adsense-ad-units.php:883
 msgid "ads.txt is not authorizing this site - AdSense may limit ads."
 msgstr ""
 
 #. translators: %s: placement names
-#: includes/class-simple-google-adsense-ad-units.php:799
+#: includes/class-simple-google-adsense-ad-units.php:890
 #, php-format
 msgid "Placed automatically: %s."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:800
+#: includes/class-simple-google-adsense-ad-units.php:891
 msgid "Not in any automatic placement - add it with the block, widget or shortcode, or choose a placement."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:803
+#: includes/class-simple-google-adsense-ad-units.php:894
 msgid "Ads are hidden while you are logged in (Settings)."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:825
+#: includes/class-simple-google-adsense-ad-units.php:898
+msgid "\"Load ads after consent\" is on and AdFlow cannot read your consent tool, so this ad does not load for anyone. See Settings → Privacy & consent."
+msgstr ""
+
+#: includes/class-simple-google-adsense-ad-units.php:900
+msgid "\"Load ads after consent\" is on: this ad waits for each visitor's answer."
+msgstr ""
+
+#: includes/class-simple-google-adsense-ad-units.php:922
 msgid "Publish this ad unit to use it."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:839
+#: includes/class-simple-google-adsense-ad-units.php:936
 msgid "Will this ad show?"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:840
-#: includes/class-simple-google-adsense-upsell.php:754
+#: includes/class-simple-google-adsense-ad-units.php:937
+#: includes/class-simple-google-adsense-upsell.php:794
 msgid "No"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:840
-#: includes/class-simple-google-adsense-upsell.php:754
-#: includes/class-simple-google-adsense-upsell.php:755
+#: includes/class-simple-google-adsense-ad-units.php:937
+#: includes/class-simple-google-adsense-upsell.php:794
+#: includes/class-simple-google-adsense-upsell.php:795
 msgid "Yes"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:859
-#: includes/class-simple-google-adsense-reports.php:261
-#: includes/class-simple-google-adsense-reports.php:307
+#: includes/class-simple-google-adsense-ad-units.php:956
+#: includes/class-simple-google-adsense-reports.php:264
+#: includes/class-simple-google-adsense-reports.php:328
 msgid "Impressions"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:860
-#: includes/class-simple-google-adsense-reports.php:266
+#: includes/class-simple-google-adsense-ad-units.php:957
+#: includes/class-simple-google-adsense-reports.php:269
 msgid "Viewable"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:861
-#: includes/class-simple-google-adsense-reports.php:276
-#: includes/class-simple-google-adsense-reports.php:309
+#: includes/class-simple-google-adsense-ad-units.php:958
+#: includes/class-simple-google-adsense-reports.php:279
+#: includes/class-simple-google-adsense-reports.php:330
 #: includes/class-simple-google-adsense-upsell.php:337
 msgid "Clicks"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:862
-#: includes/class-simple-google-adsense-reports.php:310
+#: includes/class-simple-google-adsense-ad-units.php:959
+#: includes/class-simple-google-adsense-reports.php:331
 msgid "CTR"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:864
+#: includes/class-simple-google-adsense-ad-units.php:961
 msgid "Last 30 days."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:864
+#: includes/class-simple-google-adsense-ad-units.php:961
 msgid "Full report"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:876
+#: includes/class-simple-google-adsense-ad-units.php:973
 msgid "Place it automatically"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:877
+#: includes/class-simple-google-adsense-ad-units.php:974
 msgid "Choose a placement"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:878
+#: includes/class-simple-google-adsense-ad-units.php:975
 msgid "Or add it by hand"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:879
+#: includes/class-simple-google-adsense-ad-units.php:976
 msgid "Use the \"AdFlow Ad\" block or widget, or this shortcode:"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:880
-#: includes/class-simple-google-adsense-ad-units.php:1267
+#: includes/class-simple-google-adsense-ad-units.php:977
+#: includes/class-simple-google-adsense-ad-units.php:1378
 msgid "Click to copy"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1132
+#: includes/class-simple-google-adsense-ad-units.php:1243
 msgid "Name"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1133
-#: includes/class-simple-google-adsense-migrate.php:1608
+#: includes/class-simple-google-adsense-ad-units.php:1244
+#: includes/class-simple-google-adsense-migrate.php:1711
 msgid "Type"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1134
+#: includes/class-simple-google-adsense-ad-units.php:1245
 msgid "Slot / link"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1135
-#: includes/class-simple-google-adsense-ads-txt.php:473
-#: includes/class-simple-google-adsense-migrate.php:1608
-#: includes/class-simple-google-adsense-reports.php:306
+#: includes/class-simple-google-adsense-ad-units.php:1246
+#: includes/class-simple-google-adsense-ads-txt.php:478
+#: includes/class-simple-google-adsense-migrate.php:1711
+#: includes/class-simple-google-adsense-reports.php:327
 msgid "Status"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1136
+#: includes/class-simple-google-adsense-ad-units.php:1247
 #: includes/class-simple-google-adsense-reports.php:85
 msgid "Last 30 days"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1137
+#: includes/class-simple-google-adsense-ad-units.php:1248
 msgid "Used in"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1138
+#: includes/class-simple-google-adsense-ad-units.php:1249
 msgid "Shortcode"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1151
+#: includes/class-simple-google-adsense-ad-units.php:1262
 msgid "Display"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1152
+#: includes/class-simple-google-adsense-ad-units.php:1263
 msgid "In-article"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1153
+#: includes/class-simple-google-adsense-ad-units.php:1264
 msgid "In-feed"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1154
+#: includes/class-simple-google-adsense-ad-units.php:1265
 msgid "Multiplex"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1155
+#: includes/class-simple-google-adsense-ad-units.php:1266
 msgid "Custom code"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1156
+#: includes/class-simple-google-adsense-ad-units.php:1267
 msgid "Image banner"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1157
+#: includes/class-simple-google-adsense-ad-units.php:1268
 msgid "Text ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1158
+#: includes/class-simple-google-adsense-ad-units.php:1269
 msgid "Rotation group"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1215
+#: includes/class-simple-google-adsense-ad-units.php:1326
 msgid "In order"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1215
+#: includes/class-simple-google-adsense-ad-units.php:1326
 msgid "By weight"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1221
+#: includes/class-simple-google-adsense-ad-units.php:1332
 msgid "AdSense"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1230
+#: includes/class-simple-google-adsense-ad-units.php:1341
 msgid "Counted per ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1232
+#: includes/class-simple-google-adsense-ad-units.php:1343
 msgid "See Earnings"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1238
+#: includes/class-simple-google-adsense-ad-units.php:1349
 msgid "views"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1240
+#: includes/class-simple-google-adsense-ad-units.php:1351
 msgid "clicks"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1244
+#: includes/class-simple-google-adsense-ad-units.php:1355
 msgid "No data yet"
 msgstr ""
 
 #. translators: %d: number of ads
-#: includes/class-simple-google-adsense-ad-units.php:1250
-#: includes/class-simple-google-adsense-migrate.php:1521
+#: includes/class-simple-google-adsense-ad-units.php:1361
+#: includes/class-simple-google-adsense-migrate.php:1624
 #, php-format
 msgid "%d ad"
 msgid_plural "%d ads"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1259
+#: includes/class-simple-google-adsense-ad-units.php:1370
 msgid "Missing"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1264
+#: includes/class-simple-google-adsense-ad-units.php:1375
 msgid "No automatic placement"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1281
+#: includes/class-simple-google-adsense-ad-units.php:1392
 msgid "Ad unit saved."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ad-units.php:1300
+#: includes/class-simple-google-adsense-ad-units.php:1411
 msgid "Name, e.g. \"Sidebar 300x250\""
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:169
-#: includes/class-simple-google-adsense-admin.php:293
-#: includes/class-simple-google-adsense-admin.php:689
-#: includes/class-simple-google-adsense-consent.php:364
-#: includes/class-simple-google-adsense-dashboard.php:114
-#: includes/class-simple-google-adsense-stats.php:654
+#: includes/class-simple-google-adsense-admin.php:198
+#: includes/class-simple-google-adsense-admin.php:322
+#: includes/class-simple-google-adsense-admin.php:718
+#: includes/class-simple-google-adsense-consent.php:536
+#: includes/class-simple-google-adsense-dashboard.php:117
+#: includes/class-simple-google-adsense-stats.php:1457
 msgid "Settings"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:173
-#: includes/class-simple-google-adsense-docs.php:565
+#: includes/class-simple-google-adsense-admin.php:202
+#: includes/class-simple-google-adsense-docs.php:645
 msgid "Get AdFlow Pro"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:193
-#: includes/class-simple-google-adsense-admin.php:416
+#: includes/class-simple-google-adsense-admin.php:222
+#: includes/class-simple-google-adsense-admin.php:445
 #: includes/class-simple-google-adsense-docs.php:68
-#: includes/class-simple-google-adsense-docs.php:518
+#: includes/class-simple-google-adsense-docs.php:598
 msgid "Docs"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:195
+#: includes/class-simple-google-adsense-admin.php:224
 msgid "Pro features"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:197
-#: includes/class-simple-google-adsense-admin.php:418
+#: includes/class-simple-google-adsense-admin.php:226
+#: includes/class-simple-google-adsense-admin.php:447
 msgid "Support"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:272
-#: includes/class-simple-google-adsense-admin.php:273
-#: includes/class-simple-google-adsense-inspector.php:92
+#: includes/class-simple-google-adsense-admin.php:301
+#: includes/class-simple-google-adsense-admin.php:302
+#: includes/class-simple-google-adsense-inspector.php:93
 msgid "AdFlow"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:283
+#: includes/class-simple-google-adsense-admin.php:312
 msgid "AdFlow Dashboard"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:284
-#: includes/class-simple-google-adsense-dashboard.php:164
-#: includes/class-simple-google-adsense-inspector.php:106
+#: includes/class-simple-google-adsense-admin.php:313
+#: includes/class-simple-google-adsense-dashboard.php:167
+#: includes/class-simple-google-adsense-inspector.php:107
 msgid "Dashboard"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:292
+#: includes/class-simple-google-adsense-admin.php:321
 msgid "AdFlow Settings"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:312
+#: includes/class-simple-google-adsense-admin.php:341
 msgid "AdFlow Pro"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:313
-#: includes/class-simple-google-adsense-admin.php:420
+#: includes/class-simple-google-adsense-admin.php:342
+#: includes/class-simple-google-adsense-admin.php:449
 msgid "Upgrade to Pro"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:415
+#: includes/class-simple-google-adsense-admin.php:444
 msgid "AdFlow help"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:417
+#: includes/class-simple-google-adsense-admin.php:446
 msgid "AdSense Help"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:668
+#: includes/class-simple-google-adsense-admin.php:697
 msgid "General"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:691
+#: includes/class-simple-google-adsense-admin.php:720
 msgid "Settings sections"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:716
+#: includes/class-simple-google-adsense-admin.php:745
 msgid "Find the ID in the address bar when you edit a post or page (post=123)."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:727
+#: includes/class-simple-google-adsense-admin.php:756
+#: includes/class-simple-google-adsense-picker.php:73
 msgid "(no title)"
 msgstr ""
 
 #. translators: 1: post title, 2: post ID
-#: includes/class-simple-google-adsense-admin.php:729
+#: includes/class-simple-google-adsense-admin.php:758
+#: includes/class-simple-google-adsense-picker.php:76
 #, php-format
 msgid "%1$s (%2$d)"
 msgstr ""
 
-#. translators: %s: comma-separated post titles
-#: includes/class-simple-google-adsense-admin.php:738
-#, php-format
-msgid "Applies to: %s"
-msgstr ""
-
 #. translators: %s: comma-separated IDs
-#: includes/class-simple-google-adsense-admin.php:743
+#: includes/class-simple-google-adsense-admin.php:768
 #, php-format
 msgid "No post or page found with ID %s."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:766
+#: includes/class-simple-google-adsense-admin.php:791
 msgid "AdSense account"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:766
+#: includes/class-simple-google-adsense-admin.php:791
 msgid "Connects this site to your Google AdSense account."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:767
-#: includes/class-simple-google-adsense-admin.php:864
-#: includes/class-simple-google-adsense-admin.php:866
-#: includes/class-simple-google-adsense-admin.php:868
+#: includes/class-simple-google-adsense-admin.php:792
+#: includes/class-simple-google-adsense-admin.php:892
+#: includes/class-simple-google-adsense-admin.php:894
+#: includes/class-simple-google-adsense-admin.php:896
 msgid "Publisher ID"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:767
+#: includes/class-simple-google-adsense-admin.php:792
 msgid "Found in AdSense under Account → Settings → Account information."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:770
+#: includes/class-simple-google-adsense-admin.php:795
 msgid "This does not look like an AdSense Publisher ID. It should be \"pub-\" followed by 16 digits."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:772
+#: includes/class-simple-google-adsense-admin.php:797
 msgid "Where do I find it?"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:776
-#: includes/class-simple-google-adsense-admin.php:777
-#: includes/class-simple-google-adsense-dashboard.php:109
+#: includes/class-simple-google-adsense-admin.php:801
+#: includes/class-simple-google-adsense-admin.php:802
+#: includes/class-simple-google-adsense-dashboard.php:112
 #: includes/class-simple-google-adsense-docs.php:156
 msgid "Auto Ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:776
+#: includes/class-simple-google-adsense-admin.php:801
 msgid "Google places ads automatically. Choose ad formats in your AdSense account under Ads → By site."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:777
+#: includes/class-simple-google-adsense-admin.php:802
 msgid "Adds Google's Auto Ads code to every page."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:778
+#: includes/class-simple-google-adsense-admin.php:803
 msgid "Enable Auto Ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:781
-#: includes/class-simple-google-adsense-admin.php:802
-msgid "Turn off on"
+#: includes/class-simple-google-adsense-admin.php:804
+msgid "Turning this off removes AdFlow's Auto Ads code. If Auto Ads are on for this site in your AdSense account, turn them off there too."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:781
+#: includes/class-simple-google-adsense-admin.php:807
+msgid "Pages without Auto Ads"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:807
 msgid "Keep Auto Ads away from pages where ads do not belong, such as contact or checkout pages."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:783
+#: includes/class-simple-google-adsense-admin.php:809
 msgid "Content types without Auto Ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:791
-#: includes/class-simple-google-adsense-admin.php:812
+#: includes/class-simple-google-adsense-admin.php:817
+#: includes/class-simple-google-adsense-admin.php:839
+msgid "Find a post or page"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:817
+#: includes/class-simple-google-adsense-admin.php:839
+msgid "Type a title or ID…"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:818
+#: includes/class-simple-google-adsense-admin.php:840
 msgid "Specific posts or pages (IDs, comma separated)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:797
-#: includes/class-simple-google-adsense-admin.php:798
+#: includes/class-simple-google-adsense-admin.php:824
+#: includes/class-simple-google-adsense-admin.php:825
 msgid "Manual ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:797
+#: includes/class-simple-google-adsense-admin.php:824
 msgid "Ad units you place with placements, the block, the widget or shortcodes."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:798
+#: includes/class-simple-google-adsense-admin.php:825
 msgid "Turn off to hide every manual ad at once without deleting anything."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:799
+#: includes/class-simple-google-adsense-admin.php:826
 msgid "Show manual ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:802
+#: includes/class-simple-google-adsense-admin.php:829
+msgid "Pages without manual ads"
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:829
 msgid "Hide manual ads on chosen content types or pages: placements, the block, widgets and shortcodes. Auto Ads have their own setting above."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:804
+#: includes/class-simple-google-adsense-admin.php:831
 msgid "Content types without manual ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:817
+#: includes/class-simple-google-adsense-admin.php:845
 msgid "Ad label"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:817
+#: includes/class-simple-google-adsense-admin.php:845
 msgid "Shown above each manual ad. AdSense allows only these two labels."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:820
-#: includes/class-simple-google-adsense-settings.php:308
+#: includes/class-simple-google-adsense-admin.php:848
+#: includes/class-simple-google-adsense-settings.php:317
 msgid "Advertisements"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:821
-#: includes/class-simple-google-adsense-settings.php:309
+#: includes/class-simple-google-adsense-admin.php:849
+#: includes/class-simple-google-adsense-settings.php:318
 msgid "Sponsored Links"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:826
+#: includes/class-simple-google-adsense-admin.php:854
 msgid "Your account safety"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:827
+#: includes/class-simple-google-adsense-admin.php:855
 msgid "Hide ads for administrators"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:827
+#: includes/class-simple-google-adsense-admin.php:855
 msgid "Avoids accidental clicks on your own ads and keeps your AdSense numbers clean."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:828
+#: includes/class-simple-google-adsense-admin.php:856
 msgid "Do not show ads while I am logged in"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:832
+#: includes/class-simple-google-adsense-admin.php:860
 msgid "Your data"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:833
+#: includes/class-simple-google-adsense-admin.php:861
 msgid "When the plugin is deleted"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:833
+#: includes/class-simple-google-adsense-admin.php:861
 msgid "Off by default, so reinstalling or switching plugins never loses your ads and statistics."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:834
+#: includes/class-simple-google-adsense-admin.php:862
 msgid "Also delete all AdFlow ads, settings and statistics"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:839
-#: includes/class-simple-google-adsense-ads-txt.php:520
-#: includes/class-simple-google-adsense-consent.php:324
-#: includes/class-simple-google-adsense-stats.php:932
+#: includes/class-simple-google-adsense-admin.php:867
+#: includes/class-simple-google-adsense-ads-txt.php:529
+#: includes/class-simple-google-adsense-consent.php:429
+#: includes/class-simple-google-adsense-stats.php:1852
 msgid "Save changes"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:864
+#: includes/class-simple-google-adsense-admin.php:892
 msgid "Not set - no ads can serve."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:864
+#: includes/class-simple-google-adsense-admin.php:892
 msgid "Add it"
 msgstr ""
 
 #. translators: %s: publisher ID
-#: includes/class-simple-google-adsense-admin.php:866
+#: includes/class-simple-google-adsense-admin.php:894
 #, php-format
 msgid "\"%s\" is not a valid AdSense Publisher ID."
 msgstr ""
 
 #. translators: %s: publisher ID
-#: includes/class-simple-google-adsense-admin.php:866
+#: includes/class-simple-google-adsense-admin.php:894
+#: includes/class-simple-google-adsense-admin.php:903
 msgid "Fix it"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:875
-#: includes/class-simple-google-adsense-admin.php:877
+#: includes/class-simple-google-adsense-admin.php:903
+#: includes/class-simple-google-adsense-admin.php:905
+#: includes/class-simple-google-adsense-admin.php:907
 msgid "Ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:875
+#: includes/class-simple-google-adsense-admin.php:903
+msgid "Auto Ads are waiting for a valid Publisher ID and no ad units exist yet."
+msgstr ""
+
+#: includes/class-simple-google-adsense-admin.php:905
 msgid "Auto Ads are off and no ad units exist yet."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:875
+#: includes/class-simple-google-adsense-admin.php:905
 msgid "Turn on Auto Ads"
 msgstr ""
 
 #. translators: 1: on/off, 2: number of ad units
-#: includes/class-simple-google-adsense-admin.php:879
+#: includes/class-simple-google-adsense-admin.php:909
 #, php-format
 msgid "Auto Ads %1$s · %2$d ad unit(s)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:880
+#: includes/class-simple-google-adsense-admin.php:910
 msgid "on"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:880
+#: includes/class-simple-google-adsense-admin.php:910
 msgid "off"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:888
-#: includes/class-simple-google-adsense-ads-txt.php:425
-#: includes/class-simple-google-adsense-dashboard.php:128
+#: includes/class-simple-google-adsense-admin.php:918
+#: includes/class-simple-google-adsense-ads-txt.php:430
+#: includes/class-simple-google-adsense-dashboard.php:131
 #: includes/class-simple-google-adsense-docs.php:165
 msgid "ads.txt"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:891
+#: includes/class-simple-google-adsense-admin.php:921
 msgid "Manage"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:902
+#: includes/class-simple-google-adsense-admin.php:932
 msgid "Database footprint"
 msgstr ""
 
 #. translators: 1: autoloaded size, 2: statistics rows, 3: statistics size
-#: includes/class-simple-google-adsense-admin.php:905
+#: includes/class-simple-google-adsense-admin.php:935
 #, php-format
 msgid "%1$s loaded on every page; statistics: %2$s daily rows (%3$s). No per-visit rows are ever stored."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:916
+#: includes/class-simple-google-adsense-admin.php:946
 msgid "An ad failed to render"
 msgstr ""
 
 #. translators: 1: ad ID, 2: date, 3: error
-#: includes/class-simple-google-adsense-admin.php:918
+#: includes/class-simple-google-adsense-admin.php:948
 #, php-format
 msgid "Ad #%1$d on %2$s: %3$s. The page kept working; the ad was skipped."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:936
+#: includes/class-simple-google-adsense-admin.php:966
 msgid "Campaigns ending soon"
 msgstr ""
 
 #. translators: %s: ad names
-#: includes/class-simple-google-adsense-admin.php:938
+#: includes/class-simple-google-adsense-admin.php:968
 #, php-format
 msgid "Ending within 7 days: %s. Renew the deal or set an AdSense fallback."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:940
-#: includes/class-simple-google-adsense-caps.php:140
+#: includes/class-simple-google-adsense-admin.php:970
+#: includes/class-simple-google-adsense-caps.php:142
 msgid "Review"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:945
+#: includes/class-simple-google-adsense-admin.php:975
 msgid "Admin visibility"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:945
+#: includes/class-simple-google-adsense-admin.php:975
 msgid "Ads are hidden while you are logged in. Log out or use a private window to see them."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:959
+#: includes/class-simple-google-adsense-admin.php:989
 msgid "Caching"
 msgstr ""
 
 #. translators: %s: plugin names
-#: includes/class-simple-google-adsense-admin.php:959
+#: includes/class-simple-google-adsense-admin.php:989
 #, php-format
 msgid "%s detected. Purge the cache after changing ads, and exclude adsbygoogle.js from JavaScript delay/combine features."
 msgstr ""
 
 #. translators: %s: plugin names
-#: includes/class-simple-google-adsense-admin.php:971
-#: includes/class-simple-google-adsense-admin.php:972
-#: includes/class-simple-google-adsense-consent.php:357
+#: includes/class-simple-google-adsense-admin.php:1001
+#: includes/class-simple-google-adsense-admin.php:1002
+#: includes/class-simple-google-adsense-consent.php:529
 msgid "Consent (EEA/UK)"
 msgstr ""
 
 #. translators: %s: plugin names
-#: includes/class-simple-google-adsense-admin.php:971
+#: includes/class-simple-google-adsense-admin.php:1001
 #, php-format
 msgid "%s detected. Make sure it is configured as a Google-certified CMP (IAB TCF)."
 msgstr ""
 
 #. translators: %s: plugin names
-#: includes/class-simple-google-adsense-admin.php:972
+#: includes/class-simple-google-adsense-admin.php:1002
 msgid "Google requires a certified consent message for visitors from the EEA, UK and Switzerland. Use AdSense's own \"Privacy & messaging\" or a certified CMP plugin."
 msgstr ""
 
 #. translators: %s: plugin names
-#: includes/class-simple-google-adsense-admin.php:972
+#: includes/class-simple-google-adsense-admin.php:1002
 #: includes/class-simple-google-adsense-upsell.php:295
-#: includes/class-simple-google-adsense-upsell.php:383
-#: includes/class-simple-google-adsense-upsell.php:403
-#: includes/class-simple-google-adsense-upsell.php:419
+#: includes/class-simple-google-adsense-upsell.php:384
+#: includes/class-simple-google-adsense-upsell.php:404
+#: includes/class-simple-google-adsense-upsell.php:420
 msgid "Learn more"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:1056
+#: includes/class-simple-google-adsense-admin.php:1086
 msgid "Is AdFlow helping you earn from AdSense?"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:1057
+#: includes/class-simple-google-adsense-admin.php:1087
 msgid "A quick review on WordPress.org helps other publishers find it - and keeps the free version growing."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:1059
+#: includes/class-simple-google-adsense-admin.php:1089
 msgid "Leave a review"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:1060
+#: includes/class-simple-google-adsense-admin.php:1090
 msgid "Already did / No thanks"
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:1074
-#: includes/class-simple-google-adsense-ads-txt.php:372
-#: includes/class-simple-google-adsense-caps.php:303
-#: includes/class-simple-google-adsense-migrate.php:254
-#: includes/class-simple-google-adsense-upsell.php:541
+#: includes/class-simple-google-adsense-admin.php:1104
+#: includes/class-simple-google-adsense-ads-txt.php:377
+#: includes/class-simple-google-adsense-caps.php:305
+#: includes/class-simple-google-adsense-migrate.php:259
+#: includes/class-simple-google-adsense-upsell.php:500
+#: includes/class-simple-google-adsense-upsell.php:562
 msgid "You do not have permission to do this."
 msgstr ""
 
-#: includes/class-simple-google-adsense-admin.php:1104
+#: includes/class-simple-google-adsense-admin.php:1134
 msgid "Copied"
 msgstr ""
 
@@ -1115,265 +1169,543 @@ msgid "Add your Publisher ID first."
 msgstr ""
 
 #: includes/class-simple-google-adsense-ads-txt.php:248
+msgid "Your Publisher ID is not valid, so ads.txt does not list it. Correct it under General first."
+msgstr ""
+
+#: includes/class-simple-google-adsense-ads-txt.php:253
 msgid "WordPress is installed in a subdirectory. ads.txt must be uploaded to your domain root manually."
 msgstr ""
 
 #. translators: %s: error message
-#: includes/class-simple-google-adsense-ads-txt.php:262
+#: includes/class-simple-google-adsense-ads-txt.php:267
 #, php-format
 msgid "Could not fetch ads.txt: %s"
 msgstr ""
 
 #. translators: %d: HTTP status code
-#: includes/class-simple-google-adsense-ads-txt.php:268
+#: includes/class-simple-google-adsense-ads-txt.php:273
 #, php-format
 msgid "ads.txt returned HTTP %d. AdSense will show \"Earnings at risk\"."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:273
+#: includes/class-simple-google-adsense-ads-txt.php:278
 msgid "ads.txt exists but does not contain your AdSense line."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:278
+#: includes/class-simple-google-adsense-ads-txt.php:283
 msgid "ads.txt is live and authorises your Publisher ID."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:445
-#: includes/class-simple-google-adsense-dashboard.php:129
+#: includes/class-simple-google-adsense-ads-txt.php:450
+#: includes/class-simple-google-adsense-dashboard.php:132
 msgid "Authorized"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:445
-#: includes/class-simple-google-adsense-dashboard.php:129
+#: includes/class-simple-google-adsense-ads-txt.php:450
+#: includes/class-simple-google-adsense-dashboard.php:132
 msgid "Needs attention"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:451
+#: includes/class-simple-google-adsense-ads-txt.php:456
 msgid "Check again"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:474
+#: includes/class-simple-google-adsense-ads-txt.php:479
 msgid "Google requires an ads.txt file that lists your Publisher ID. Without it AdSense shows \"Earnings at risk\" and may limit ads."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:480
+#: includes/class-simple-google-adsense-ads-txt.php:485
 msgid "This site lives in a subdirectory, so WordPress cannot answer requests for /ads.txt at the domain root. Upload the file shown below to the root of your domain instead."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:482
+#: includes/class-simple-google-adsense-ads-txt.php:487
 msgid "A physical ads.txt file exists on your server. It is served instead of AdFlow's, so the settings below have no effect until you delete or rename it."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:490
+#: includes/class-simple-google-adsense-ads-txt.php:495
 msgid "ads.txt file"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:491
+#: includes/class-simple-google-adsense-ads-txt.php:497
 msgid "Serve ads.txt"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:491
+#: includes/class-simple-google-adsense-ads-txt.php:497
 msgid "AdFlow answers requests for /ads.txt - no FTP needed."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:492
+#: includes/class-simple-google-adsense-ads-txt.php:498
 msgid "Let AdFlow manage ads.txt"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:496
+#: includes/class-simple-google-adsense-ads-txt.php:505
 msgid "AdSense line"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:496
+#: includes/class-simple-google-adsense-ads-txt.php:505
 msgid "Added automatically from your Publisher ID."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:500
-msgid "Add your Publisher ID first"
+#: includes/class-simple-google-adsense-ads-txt.php:509
+msgid "Add a valid Publisher ID first"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:504
+#: includes/class-simple-google-adsense-ads-txt.php:513
 msgid "Other ad networks"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:504
+#: includes/class-simple-google-adsense-ads-txt.php:513
 msgid "One line per network, exactly as the network gives it to you."
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:508
+#: includes/class-simple-google-adsense-ads-txt.php:517
 msgid "These lines do not follow the ads.txt format (domain, account ID, DIRECT or RESELLER) and will be ignored:"
 msgstr ""
 
-#: includes/class-simple-google-adsense-ads-txt.php:514
-#: includes/class-simple-google-adsense-upsell.php:440
+#: includes/class-simple-google-adsense-ads-txt.php:523
+#: includes/class-simple-google-adsense-upsell.php:445
 msgid "Preview"
 msgstr ""
 
 #. translators: 1: site, 2: ad name
-#: includes/class-simple-google-adsense-caps.php:111
+#: includes/class-simple-google-adsense-caps.php:113
 #, php-format
 msgid "[%1$s] Ad waiting for review: %2$s"
 msgstr ""
 
 #. translators: 1: author, 2: ad name, 3: link
-#: includes/class-simple-google-adsense-caps.php:114
+#: includes/class-simple-google-adsense-caps.php:116
 #, php-format
 msgid "%1$s submitted the ad \"%2$s\" for review. Review and publish it here: %3$s"
 msgstr ""
 
-#: includes/class-simple-google-adsense-caps.php:115
+#: includes/class-simple-google-adsense-caps.php:117
 msgid "Someone"
 msgstr ""
 
-#: includes/class-simple-google-adsense-caps.php:136
+#: includes/class-simple-google-adsense-caps.php:138
 msgid "Ads waiting for review"
 msgstr ""
 
 #. translators: %d: number
-#: includes/class-simple-google-adsense-caps.php:138
+#: includes/class-simple-google-adsense-caps.php:140
 #, php-format
 msgid "%d ad was submitted and is not live yet."
 msgid_plural "%d ads were submitted and are not live yet."
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-simple-google-adsense-caps.php:156
+#: includes/class-simple-google-adsense-caps.php:158
 msgid "Create & edit ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-caps.php:157
+#: includes/class-simple-google-adsense-caps.php:159
 msgid "Publish ads (no review)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-caps.php:158
+#: includes/class-simple-google-adsense-caps.php:160
 msgid "View reports"
 msgstr ""
 
-#: includes/class-simple-google-adsense-caps.php:227
+#: includes/class-simple-google-adsense-caps.php:229
 msgid "Access"
 msgstr ""
 
-#: includes/class-simple-google-adsense-caps.php:246
+#: includes/class-simple-google-adsense-caps.php:248
 msgid "Access saved."
 msgstr ""
 
-#: includes/class-simple-google-adsense-caps.php:254
+#: includes/class-simple-google-adsense-caps.php:256
 msgid "Who can use AdFlow"
 msgstr ""
 
-#: includes/class-simple-google-adsense-caps.php:255
+#: includes/class-simple-google-adsense-caps.php:257
 msgid "Give editors, an ad manager or your sales team access without making them administrators. Administrators always have full access; settings stay with administrators."
 msgstr ""
 
-#: includes/class-simple-google-adsense-caps.php:261
+#: includes/class-simple-google-adsense-caps.php:263
 msgid "Role"
 msgstr ""
 
-#: includes/class-simple-google-adsense-caps.php:269
+#: includes/class-simple-google-adsense-caps.php:271
 msgid "Administrator"
 msgstr ""
 
-#: includes/class-simple-google-adsense-caps.php:271
+#: includes/class-simple-google-adsense-caps.php:273
 msgid "Always"
 msgstr ""
 
-#: includes/class-simple-google-adsense-caps.php:288
+#: includes/class-simple-google-adsense-caps.php:290
 msgid "Save access"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:268
+#: includes/class-simple-google-adsense-conditions.php:343
+msgid "Conditions"
+msgstr ""
+
+#. translators: %d: number of active conditions
+#: includes/class-simple-google-adsense-conditions.php:348
+#, php-format
+msgid "%d condition"
+msgid_plural "%d conditions"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-simple-google-adsense-conditions.php:354
+msgid "Leave empty to show everywhere. An ad must match every condition you set."
+msgstr ""
+
+#: includes/class-simple-google-adsense-conditions.php:358
+msgid "Device"
+msgstr ""
+
+#: includes/class-simple-google-adsense-conditions.php:360
+msgid "All devices"
+msgstr ""
+
+#: includes/class-simple-google-adsense-conditions.php:361
+msgid "Mobile only"
+msgstr ""
+
+#: includes/class-simple-google-adsense-conditions.php:362
+msgid "Tablet & desktop only"
+msgstr ""
+
+#: includes/class-simple-google-adsense-conditions.php:370
+msgid "Only in these categories"
+msgstr ""
+
+#: includes/class-simple-google-adsense-conditions.php:372
+msgid "Only with these tags"
+msgstr ""
+
+#: includes/class-simple-google-adsense-conditions.php:373
+msgid "Only on these posts or pages"
+msgstr ""
+
+#: includes/class-simple-google-adsense-conditions.php:374
+msgid "Never on these posts or pages"
+msgstr ""
+
+#: includes/class-simple-google-adsense-conditions.php:380
+msgid "Only in these languages"
+msgstr ""
+
+#: includes/class-simple-google-adsense-conditions.php:412
+msgid "Type to search…"
+msgstr ""
+
+#: includes/class-simple-google-adsense-consent.php:108
+msgid "AdFlow: ads are not loading."
+msgstr ""
+
+#: includes/class-simple-google-adsense-consent.php:111
+msgid "Privacy & consent settings"
+msgstr ""
+
+#: includes/class-simple-google-adsense-consent.php:364
 msgid "Privacy & consent"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:291
+#: includes/class-simple-google-adsense-consent.php:389
 msgid "Consent for visitors from the EEA, UK and Switzerland"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:291
+#: includes/class-simple-google-adsense-consent.php:389
 msgid "Google requires consent before showing personalised ads in these countries. Show the consent message with AdSense's own \"Privacy & messaging\" or a consent plugin; AdFlow makes your ads respect the answer."
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:293
+#: includes/class-simple-google-adsense-consent.php:391
 msgid "Your consent tool"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:295
-#: includes/class-simple-google-adsense-migrate.php:1508
+#: includes/class-simple-google-adsense-consent.php:393
+#: includes/class-simple-google-adsense-migrate.php:1611
 msgid "Found"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:297
+#: includes/class-simple-google-adsense-consent.php:395
 msgid "None found"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:297
-msgid "No consent plugin was found. If you use AdSense's own European regulations message, that is fine - it works with both options below."
+#: includes/class-simple-google-adsense-consent.php:395
+msgid "No consent plugin was found. AdSense's own European regulations message can ask your visitors instead."
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:301
+#: includes/class-simple-google-adsense-consent.php:400
 msgid "Load ads after consent"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:301
-msgid "AdSense, custom code from other networks and Ad Manager slots load only once the consent tool has answered. Your own banners and text ads use no cookies and show straight away."
+#: includes/class-simple-google-adsense-consent.php:400
+msgid "Ads stay held until the visitor answers. No timer ever releases them. Your own banners and text ads use no cookies and show straight away."
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:302
+#: includes/class-simple-google-adsense-consent.php:401
 msgid "Wait for the consent tool before loading ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:303
-msgid "Google ads (AdSense, Ad Manager) load once the consent message has been answered - Google reads the visitor's choice itself. Other networks' code loads only after the visitor agrees to marketing / advertising (IAB TCF purpose 1, or \"marketing\" in the WP Consent API). With AdSense's own consent message, the AdSense library loads straight away so the message can appear. Visitors outside the EEA, UK and Switzerland are not delayed."
+#: includes/class-simple-google-adsense-consent.php:402
+msgid "AdFlow reads the answer from an IAB TCF message, the WP Consent API, CookieYes, Complianz or Cookiebot. Other networks' code and Ad Manager slots load only after the visitor agrees to advertising (TCF purpose 1, or \"marketing\"). The AdSense library loads once a TCF message is answered, because Google then reads the choice itself; with other tools it loads only after the visitor agrees."
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:306
+#: includes/class-simple-google-adsense-consent.php:403
+msgid "AdFlow cannot tell where a visitor is. Visitors outside the EEA, UK and Switzerland wait too, unless your consent tool says consent is not needed for them. On AMP pages AdSense ads are left out while this is on."
+msgstr ""
+
+#: includes/class-simple-google-adsense-consent.php:406
+msgid "AdSense's own consent message"
+msgstr ""
+
+#: includes/class-simple-google-adsense-consent.php:406
+msgid "Set up in AdSense under Privacy & messaging. It only reaches the page with the AdSense library."
+msgstr ""
+
+#: includes/class-simple-google-adsense-consent.php:407
+msgid "I use AdSense's own consent message"
+msgstr ""
+
+#: includes/class-simple-google-adsense-consent.php:408
+msgid "On: the AdSense library loads at once so the message can appear, and Google applies the answer to its ads. If the message is not set up in AdSense, nobody is asked and Google's library still loads. Off: nothing from Google loads until a consent tool above says yes. Other networks' code waits in both cases."
+msgstr ""
+
+#: includes/class-simple-google-adsense-consent.php:411
 msgid "Google Consent Mode v2"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:306
+#: includes/class-simple-google-adsense-consent.php:411
 msgid "Tells Google tags that consent is \"denied\" until the visitor agrees, then passes on their choice. Needed when your consent banner is not a Google-certified TCF message."
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:307
+#: includes/class-simple-google-adsense-consent.php:412
 msgid "Set Consent Mode defaults and updates"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:309
+#: includes/class-simple-google-adsense-consent.php:414
 msgid "Deny by default for"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:311
+#: includes/class-simple-google-adsense-consent.php:416
 msgid "Visitors from the EEA, UK and Switzerland"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:312
+#: includes/class-simple-google-adsense-consent.php:417
 msgid "All visitors"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:316
+#: includes/class-simple-google-adsense-consent.php:421
 msgid "Your consent plugin may set Consent Mode itself. Turn it on in only one place."
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:318
-msgid "Choices are read from the WP Consent API (\"marketing\" for ads, \"statistics\" for analytics)."
+#: includes/class-simple-google-adsense-consent.php:423
+msgid "Choices are read from the WP Consent API, CookieYes, Complianz or Cookiebot (\"marketing\" for ads, \"statistics\" for analytics)."
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:349
+#. translators: %s: plugin names
+#: includes/class-simple-google-adsense-consent.php:451
+#, php-format
+msgid "AdFlow reads the answer given in %s directly."
+msgstr ""
+
+#: includes/class-simple-google-adsense-consent.php:455
+msgid "For another tool, call <code>window.afxConsent.grant()</code> from its \"accepted\" callback."
+msgstr ""
+
+#. translators: %s: plugin names
+#: includes/class-simple-google-adsense-consent.php:475
+#, php-format
+msgid "AdFlow cannot read the answer given in %s. If you turn on \"Load ads after consent\", ads stay held unless that tool uses IAB TCF or the WP Consent API."
+msgstr ""
+
+#. translators: %s: plugin names
+#: includes/class-simple-google-adsense-consent.php:484
+#, php-format
+msgid "AdFlow cannot read the answer given in %s. Ads stay held for every visitor unless that tool uses IAB TCF or the WP Consent API. Turn on one of those in the tool, or switch to CookieYes, Complianz or Cookiebot."
+msgstr ""
+
+#: includes/class-simple-google-adsense-consent.php:490
+msgid "Nothing can ask your visitors, so no ads load. Add a consent plugin, or use AdSense's own consent message."
+msgstr ""
+
+#: includes/class-simple-google-adsense-consent.php:494
+msgid "No consent plugin: the AdSense library loads at once so that AdSense's own message can appear. Set that message up in AdSense, or nobody is asked. Other networks' code waits until the message is answered."
+msgstr ""
+
+#: includes/class-simple-google-adsense-consent.php:521
 msgid "ads load after consent"
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:352
+#: includes/class-simple-google-adsense-consent.php:524
 msgid "Consent Mode v2 is on"
 msgstr ""
 
 #. translators: %s: plugin names
-#: includes/class-simple-google-adsense-consent.php:361
+#: includes/class-simple-google-adsense-consent.php:533
 #, php-format
 msgid "Consent tool: %s."
 msgstr ""
 
-#: includes/class-simple-google-adsense-consent.php:362
+#: includes/class-simple-google-adsense-consent.php:534
 msgid "No consent plugin found - Consent Mode stays \"denied\" in the EEA unless AdSense's own message or another tool updates it."
+msgstr ""
+
+#. translators: %s: number of the extra ad, e.g. 2
+#: includes/class-simple-google-adsense-content-slots.php:172
+#: includes/class-simple-google-adsense-content-slots.php:570
+#, php-format
+msgid "Extra ad %s"
+msgstr ""
+
+#. translators: 1: extra ad name, 2: what was typed
+#: includes/class-simple-google-adsense-content-slots.php:470
+#, php-format
+msgid "%1$s: \"%2$s\" is not a CSS selector. The previous value was kept."
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:575
+#: includes/class-simple-google-adsense-placements.php:728
+#: includes/class-simple-google-adsense-stats.php:1963
+#: includes/class-simple-google-adsense-upsell.php:347
+#: includes/integrations/class-simple-google-adsense-bricks-element.php:71
+#: includes/integrations/class-simple-google-adsense-elementor-widget.php:89
+#: blocks/adsense-ad/index.js:159
+msgid "Ad unit"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:577
+#: includes/class-simple-google-adsense-placements.php:730
+#: includes/integrations/class-simple-google-adsense-bricks-element.php:74
+#: includes/integrations/class-simple-google-adsense-integrations.php:79
+msgid "Choose an ad unit…"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:588
+msgid "Where"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:590
+msgid "Every few paragraphs"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:591
+msgid "After one paragraph"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:592
+#: includes/class-simple-google-adsense-docs.php:222
+msgid "Before or after an HTML element"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:597
+#: includes/class-simple-google-adsense-placements.php:124
+#: includes/class-simple-google-adsense-placements.php:744
+msgid "After paragraph"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:602
+msgid "Every (paragraphs)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:607
+msgid "Most per post"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:612
+msgid "Skip posts shorter than (paragraphs)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:617
+msgid "CSS selector"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:619
+msgid "Nothing shows on a page where the element is not found."
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:623
+msgid "Which match"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:628
+msgid "Position"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:630
+msgid "After the element"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:631
+msgid "Before the element"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:636
+msgid "Reserve height (px)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:641
+#: includes/class-simple-google-adsense-placements.php:751
+msgid "Show on"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:651
+msgid "Home, archive and search pages"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:667
+msgid "Remove this ad"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:688
+#: includes/class-simple-google-adsense-docs.php:208
+msgid "More ads inside posts"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:689
+msgid "Add as many as you need. Two ads never sit next to each other: an ad is skipped when another one is closer than two paragraphs."
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:691
+msgid "Add an ad"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:721
+msgid "Searching…"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:722
+msgid "Nothing found."
+msgstr ""
+
+#. translators: %d: number of search results
+#: includes/class-simple-google-adsense-content-slots.php:724
+#, php-format
+msgid "Results: %d. Use the up and down arrows to choose."
+msgstr ""
+
+#. translators: %s: name of a selected post or term
+#: includes/class-simple-google-adsense-content-slots.php:726
+#: includes/class-simple-google-adsense-picker.php:204
+#, php-format
+msgid "Remove %s"
+msgstr ""
+
+#. translators: %s: name of a selected post or term
+#: includes/class-simple-google-adsense-content-slots.php:728
+#, php-format
+msgid "Added %s"
+msgstr ""
+
+#. translators: %s: post ID
+#: includes/class-simple-google-adsense-content-slots.php:730
+#, php-format
+msgid "No post with ID %s"
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:731
+msgid "This is not a valid CSS selector."
+msgstr ""
+
+#: includes/class-simple-google-adsense-content-slots.php:732
+msgid "Removed. Save to apply."
 msgstr ""
 
 #: includes/class-simple-google-adsense-dashboard.php:61
@@ -1388,150 +1720,159 @@ msgstr ""
 msgid "Add Publisher ID"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:69
+#: includes/class-simple-google-adsense-dashboard.php:70
 msgid "Authorize your site with ads.txt"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:70
+#: includes/class-simple-google-adsense-dashboard.php:71
 msgid "Prevents AdSense's \"Earnings at risk\" warning."
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:72
+#: includes/class-simple-google-adsense-dashboard.php:73
 msgid "Set up ads.txt"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:77
+#: includes/class-simple-google-adsense-dashboard.php:78
 msgid "Start showing ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:78
+#: includes/class-simple-google-adsense-dashboard.php:79
 msgid "Turn on Auto Ads, or place your own ad units automatically."
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:80
+#: includes/class-simple-google-adsense-dashboard.php:81
 msgid "Set up placements"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:110
+#: includes/class-simple-google-adsense-dashboard.php:113
 msgid "On"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:110
+#: includes/class-simple-google-adsense-dashboard.php:113
+msgid "Not running"
+msgstr ""
+
+#: includes/class-simple-google-adsense-dashboard.php:113
 msgid "Off"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:112
+#: includes/class-simple-google-adsense-dashboard.php:115
 msgid "Google places ads across your site."
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:112
+#: includes/class-simple-google-adsense-dashboard.php:115
+msgid "Switched on, but waiting for a valid Publisher ID."
+msgstr ""
+
+#: includes/class-simple-google-adsense-dashboard.php:115
 msgid "Google's automatic ads are not running."
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:117
+#: includes/class-simple-google-adsense-dashboard.php:120
 #: includes/class-simple-google-adsense-docs.php:176
+#: includes/class-simple-google-adsense-stats.php:1960
 msgid "Ad units"
 msgstr ""
 
 #. translators: %s: number of active placements
-#: includes/class-simple-google-adsense-dashboard.php:121
+#: includes/class-simple-google-adsense-dashboard.php:124
 #, php-format
 msgid "%s placement active"
 msgid_plural "%s placements active"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-simple-google-adsense-dashboard.php:125
+#: includes/class-simple-google-adsense-dashboard.php:128
 msgid "Manage placements"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:133
-#: includes/class-simple-google-adsense-dashboard.php:287
+#: includes/class-simple-google-adsense-dashboard.php:136
+#: includes/class-simple-google-adsense-dashboard.php:293
 msgid "Manage ads.txt"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:165
+#: includes/class-simple-google-adsense-dashboard.php:168
 msgid "Your AdSense setup at a glance."
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:167
-#: includes/class-simple-google-adsense-placements.php:583
-#: includes/class-simple-google-adsense-placements.php:593
+#: includes/class-simple-google-adsense-dashboard.php:170
+#: includes/class-simple-google-adsense-placements.php:675
+#: includes/class-simple-google-adsense-placements.php:685
 msgid "Add ad unit"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:202
+#: includes/class-simple-google-adsense-dashboard.php:205
 msgid "Welcome! Let's get your ads running"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:202
+#: includes/class-simple-google-adsense-dashboard.php:205
 msgid "Finish setting up"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:203
+#: includes/class-simple-google-adsense-dashboard.php:206
 msgid "A few quick steps and your site is ready to earn."
 msgstr ""
 
 #. translators: 1: completed steps, 2: total steps
-#: includes/class-simple-google-adsense-dashboard.php:208
+#: includes/class-simple-google-adsense-dashboard.php:211
 #, php-format
 msgid "%1$d of %2$d"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:225
+#: includes/class-simple-google-adsense-dashboard.php:228
 msgid "Done"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:239
+#: includes/class-simple-google-adsense-dashboard.php:242
 msgid "Site health"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:240
+#: includes/class-simple-google-adsense-dashboard.php:243
 msgid "The most common reasons ads do not show, checked for you."
 msgstr ""
 
 #. translators: %d: number of issues
-#: includes/class-simple-google-adsense-dashboard.php:246
+#: includes/class-simple-google-adsense-dashboard.php:249
 #, php-format
 msgid "%d issue"
 msgid_plural "%d issues"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-simple-google-adsense-dashboard.php:247
+#: includes/class-simple-google-adsense-dashboard.php:250
 msgid "All good"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:281
+#: includes/class-simple-google-adsense-dashboard.php:284
 msgid "Shortcuts"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:284
+#: includes/class-simple-google-adsense-dashboard.php:288
 msgid "Create an ad unit"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:285
+#: includes/class-simple-google-adsense-dashboard.php:289
 msgid "Place ads automatically"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:286
+#: includes/class-simple-google-adsense-dashboard.php:291
 msgid "Inspect ads on your site"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:293
-#: includes/class-simple-google-adsense-docs.php:387
+#: includes/class-simple-google-adsense-dashboard.php:300
+#: includes/class-simple-google-adsense-docs.php:461
 msgid "Help"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:296
+#: includes/class-simple-google-adsense-dashboard.php:303
 msgid "Find your Publisher ID"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:297
+#: includes/class-simple-google-adsense-dashboard.php:304
 msgid "Create an ad unit in AdSense"
 msgstr ""
 
-#: includes/class-simple-google-adsense-dashboard.php:298
+#: includes/class-simple-google-adsense-dashboard.php:305
 msgid "Get support"
 msgstr ""
 
@@ -1612,7 +1953,7 @@ msgid "You can combine Auto Ads with your own placements. Google fills the rest 
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:161
-msgid "<strong>Manual ads</strong> (placements, the block, widgets and shortcodes) have their own <em>Turn off on</em> setting under Settings → General → Manual ads. Pick content types, or list posts and pages by ID, and no manual ad shows there, including ads in sidebar widgets. The two settings are independent, so a page can keep Auto Ads and drop manual ads, or the other way round."
+msgid "<strong>Manual ads</strong> (placements, the block, widgets and shortcodes) have their own <em>Pages without manual ads</em> setting under Settings → General → Manual ads. Pick content types, or list posts and pages by ID, and no manual ad shows there, including ads in sidebar widgets. The two settings are independent, so a page can keep Auto Ads and drop manual ads, or the other way round."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:167
@@ -1636,7 +1977,7 @@ msgid "An ad unit is an ad you set up once and reuse everywhere: in placements, 
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:180
-msgid "<strong>Google AdSense:</strong> Display, In-article, In-feed and Multiplex, with Google's exact markup."
+msgid "<strong>Google AdSense:</strong> Display, In-article, In-feed and Multiplex, using the same ad code attributes Google gives you. A block with no saved unit gets the code for its type too."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:181
@@ -1652,7 +1993,7 @@ msgid "<strong>Google Ad Manager (GPT)</strong> - with AdFlow Pro."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:185
-msgid "The <strong>Will this ad show?</strong> box on each ad lists everything that could stop it: missing Publisher ID or slot, schedule, targeting, placement."
+msgid "The <strong>Will this ad show?</strong> box on each ad lists everything that could stop it: missing Publisher ID or slot, schedule, a group with nothing left to show, waiting for consent, targeting, placement."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:186
@@ -1688,537 +2029,690 @@ msgid "Put a rotation group in a placement to rotate several ads in the same spo
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:204
+#: includes/class-simple-google-adsense-docs.php:218
 msgid "Open Placements"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:208
-msgid "More placements: mid-article, between posts, sticky, popup, WooCommerce"
+#: includes/class-simple-google-adsense-docs.php:210
+msgid "Under <strong>AdFlow → Placements → More ads inside posts</strong>, choose <strong>Add an ad</strong> as often as you need. Each one has its own ad unit, post types and conditions, and starts working once you save."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:212
-msgid "<strong>Middle of the article (after X%)</strong> - scales with post length."
+msgid "<strong>Every few paragraphs</strong>: for example every 4 paragraphs, at most 3 per post. Never after the last paragraph."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:213
-msgid "<strong>Between posts</strong> - every N posts on home, category, tag and search pages (classic and block themes)."
+msgid "<strong>After one paragraph</strong>: a second, third or fourth fixed spot."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:214
-msgid "<strong>Before comments</strong>."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:215
-msgid "<strong>Sticky anchor</strong> - a closable bar at the bottom; page content is padded so the ad never covers it."
+msgid "<strong>Before or after an HTML element</strong>: see below."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:216
-msgid "<strong>Popup</strong> - for sponsor banners and other networks, after a delay or scroll depth, once per visitor per N days. Google does not allow AdSense in popups, so AdSense units are never shown there."
+msgid "Posts shorter than <em>Skip posts shorter than</em> are left alone. Two ads are never adjacent: an extra ad is skipped when any other ad, including one you added by hand, is closer than two paragraphs. Developers can change that distance with <code>adflow_content_slot_min_spacing</code>."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:217
-msgid "<strong>WooCommerce</strong> - above the product grid, below the product summary, after add-to-cart."
+msgid "Statistics for your own ads record each extra ad separately, and each ad counts towards the AdFlow Pro limit on ads per page."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:219
-msgid "<strong>Sticky sidebar:</strong> turn on \"Keep in view while scrolling\" on an ad unit and place it last in your sidebar. On desktop it stays visible while visitors read."
+#: includes/class-simple-google-adsense-docs.php:224
+msgid "Use this when the spot is not about paragraphs, for example after the second heading. Add an ad, choose <strong>Before or after an HTML element</strong>, then enter a CSS selector such as <code>.entry-content h2</code> and which match to use (2 = the second one)."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:223
-msgid "Targeting, scheduling & A/B tests"
+#: includes/class-simple-google-adsense-docs.php:225
+msgid "The page holds the ad in an inert template and the browser moves it into place, so it works on cached pages. If the element is not on a page, nothing shows and no ad is requested. AdSense units use Google's normal code. Your own custom code runs when it is inserted."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:226
-msgid "Each placement can be limited by <strong>device</strong> (mobile/desktop), <strong>visitor</strong> (logged in/out), <strong>traffic source</strong> (search engines or not), <strong>categories</strong>, <strong>post age</strong> and <strong>start/end dates</strong>. Device and traffic rules run in the browser, so they work with page caching - and an ad that should not show never requests an ad from Google."
+msgid "<strong>Reserve height</strong> keeps room for the ad so text does not jump when it loads (default 250 px; 0 for none). It goes away when AdSense reports no ad to show."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:227
-msgid "<strong>A/B rotation:</strong> add extra ad units to a placement; the Earnings screen shows which one earns more."
+msgid "Selectors depend on your theme and may need changing if you switch themes. An ad placed outside your content area must still follow your ad network's rules."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:228
-msgid "<strong>Per post:</strong> the \"AdFlow Ads\" box in the post editor turns off all ads, only Auto Ads or only manual ads on that post."
+#: includes/class-simple-google-adsense-docs.php:231
+msgid "Conditions: device, category, tag, posts, language"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:232
-msgid "Google Ad Manager (GPT) units"
+#: includes/class-simple-google-adsense-docs.php:233
+msgid "Every placement has a <strong>Conditions</strong> section. Leave it empty to show everywhere. An ad must match every condition you set."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:235
-msgid "Choose the type \"Google Ad Manager (GPT)\" and enter the <strong>ad unit path</strong> (<code>/1234567/sidebar</code>, from Ad Manager → Inventory → Ad units → Tags), the <strong>sizes</strong> (<code>300x250, 336x280, fluid</code>) and optional <strong>mobile sizes</strong> for screens under 768px."
+msgid "<strong>Device</strong>: mobile only, or tablet and desktop only. Mobile means a screen up to 767 px wide. It is decided in the browser, so it works behind page caches, and no ad is requested on the other device. With AdFlow Pro active, this field is in its Targeting section."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:236
-msgid "<strong>Key-values</strong> (one <code>key=value</code> per line) target line items. Macros: <code>{post_id}</code>, <code>{post_type}</code>, <code>{category}</code>, <code>{placement}</code>."
+msgid "<strong>Categories and tags</strong>: only posts with one of the chosen terms. With AdFlow Pro active, categories are in its Targeting section."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:237
+msgid "<strong>Only on / never on these posts or pages</strong>: search by title or ID."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:238
-msgid "GPT loads once, asynchronously, only on pages that show such a unit. Whether a slot fills depends on your line items."
+msgid "<strong>Languages</strong>: shown when Polylang or WPML is active."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:243
-msgid "Your own ads & selling"
+msgid "Turn ads off on one post or page"
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:245
-msgid "Banners, text ads and custom code"
+msgid "Users who can manage ads see an <strong>AdFlow Ads</strong> box in the editor sidebar of every public post type: <em>No ads</em>, <em>No Auto Ads</em> and <em>No manual ads</em> on that page."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:247
-msgid "Run sponsor, affiliate or house ads next to AdSense. Image banners come from the Media Library; text ads have a headline, text and button. Links get <code>rel=\"sponsored\"</code> (add nofollow if you like) and can open in a new tab."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:249
-msgid "<strong>Disclosure label:</strong> \"Sponsored\" or \"Advertisement\" above the ad - laws in many countries require it for paid ads."
+#: includes/class-simple-google-adsense-docs.php:246
+msgid "To do it from one place, use <em>Pages without Auto Ads</em> and <em>Pages without manual ads</em> under Settings → General. Search for a post or page by title, or type its ID as before."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:250
-msgid "<strong>Schedule:</strong> start and end date and time (your site's time zone). Outside it the ad hides itself, even on cached pages."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:251
-msgid "<strong>When not running:</strong> show an AdSense unit instead, so the space keeps earning."
+msgid "Elementor and Bricks"
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:252
-msgid "Own ads use neutral class names, so ad blockers are less likely to hide them."
+msgid "Search for <strong>AdFlow Ad</strong> in the Elementor or Bricks elements panel, add it and choose a saved ad unit. The editor shows a stand-in box, so ads do not load or count while you design. The ad unit follows all your rules on the live page."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:254
-msgid "Destination links may contain tracking macros: <code>{ad_id}</code>, <code>{placement}</code>, <code>{site}</code>, <code>{cachebuster}</code>."
+#: includes/class-simple-google-adsense-docs.php:256
+msgid "Multilingual sites: Polylang and WPML"
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:258
-msgid "Rotation groups"
+msgid "With Polylang or WPML active, each placement can be limited to chosen languages under <strong>Conditions</strong>. The simplest way to run per-language ads is one placement per language."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:260
-msgid "A rotation group shows one of its ads per page view: <strong>weighted</strong> (an ad with weight 3 shows three times as often as weight 1) or <strong>in order</strong>. The choice is made in the browser, so it works with page caching."
+#: includes/class-simple-google-adsense-docs.php:259
+msgid "AdFlow also ships a <code>wpml-config.xml</code>: if you turn on translation for Ad Units in your language plugin, a placement shows the translation of its ad unit in each language. A headline, text, button, image text and link can then differ per language. Ad units are not made translatable automatically, because ads that already run have no language set."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:261
-msgid "Only ads that may show right now take part: scheduled, capped, out-of-hours or other-country ads are skipped. Mix sponsor ads with an AdSense unit so the spot is never empty."
+#: includes/class-simple-google-adsense-docs.php:263
+msgid "More placements: mid-article, between posts, sticky, popup, WooCommerce"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:265
-msgid "Sell ads directly (self-serve)"
+#: includes/class-simple-google-adsense-docs.php:267
+msgid "<strong>Middle of the article (after X%)</strong> - scales with post length."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:268
+msgid "<strong>Between posts</strong> - every N posts on home, category, tag and search pages (classic and block themes)."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:269
-msgid "Create a rotation group (Ad Units → Add → Rotation group) and put it in a placement."
+msgid "<strong>Before comments</strong>."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:270
-msgid "Under <strong>Settings → Sell ads</strong>, add a package: name, banner or text, size, days, price and your payment link (a Stripe Payment Link, PayPal.me or any checkout)."
+msgid "<strong>Sticky anchor</strong> - a small bar at the bottom that visitors can close. AdSense display units are requested at a fixed size (320x50 on phones, 728x90 on larger screens); other AdSense unit types do not show in it. The page keeps room for it while it shows, and it collapses when Google has no ad."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:271
-msgid "Create an \"Advertise with us\" page with the shortcode <code>[adflow_advertise]</code>."
+msgid "<strong>Popup</strong> - for sponsor banners and other networks, after a delay or scroll depth, once per visitor per N days. Google does not allow AdSense in popups, so AdSense units are never shown there."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:272
-msgid "Advertisers choose a package, upload their banner or write a text ad, and pay with your link (the order number is passed as <code>?order=</code>)."
+msgid "<strong>WooCommerce</strong> - above the product grid, below the product summary, after add-to-cart."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:273
-msgid "Orders wait under <strong>Ad Units → Pending</strong>. Check the creative and payment (\"Mark as paid\"), then Publish: the ad joins the package's group for the paid days and stops by itself. The advertiser receives a live report link and weekly emails."
+#: includes/class-simple-google-adsense-docs.php:274
+msgid "<strong>Sticky sidebar:</strong> turn on \"Keep in view while scrolling\" on an ad unit and place it last in your sidebar. On desktop it stays visible while visitors read."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:275
-msgid "No card data ever reaches your site. The form works on cached pages and is protected against spam."
+#: includes/class-simple-google-adsense-docs.php:278
+msgid "Targeting, scheduling & A/B tests"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:279
-msgid "Advertiser reports, emails & pricing"
+#: includes/class-simple-google-adsense-docs.php:281
+msgid "Each placement can be limited by <strong>device</strong> (mobile/desktop), <strong>visitor</strong> (logged in/out), <strong>traffic source</strong> (search engines or not), <strong>categories</strong>, <strong>post age</strong> and <strong>start/end dates</strong>. Device and traffic rules run in the browser, so they work with page caching - and an ad that should not show never requests an ad from Google."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:283
-msgid "<strong>Advertiser details & campaign price</strong> on each own ad; the sponsor eCPM is shown next to your AdSense RPM."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:284
-msgid "<strong>Report link:</strong> a read-only page with the ad's statistics - no login. Create or turn it off in the ad's sidebar."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:285
-msgid "<strong>Performance emails:</strong> weekly (Mondays) or monthly (the 1st) to the advertiser. \"Email me a preview\" shows what they get."
+#: includes/class-simple-google-adsense-docs.php:282
+msgid "<strong>A/B rotation:</strong> add extra ad units to a placement. The browser picks one per page view, so it also works on cached pages. The Earnings screen compares only the units in the same test, shows the sample size and names a winner only when each unit has at least 1,000 impressions and 10 clicks and the gap is larger than chance."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:286
-msgid "<strong>Expiry reminders</strong> to you (and optionally the advertiser) 7 days before and when a campaign ends."
+msgid "Google Ad Manager (GPT) units"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:287
-msgid "<strong>Frequency cap</strong> (impressions per visitor per day) and <strong>dayparting</strong> (days and hours)."
+#: includes/class-simple-google-adsense-docs.php:289
+msgid "Choose the type \"Google Ad Manager (GPT)\" and enter the <strong>ad unit path</strong> (<code>/1234567/sidebar</code>, from Ad Manager → Inventory → Ad units → Tags), the <strong>sizes</strong> (<code>300x250, 336x280, fluid</code>) and optional <strong>mobile sizes</strong> for screens under 768px."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:288
-msgid "<strong>Country targeting:</strong> \"Only in\" or \"Everywhere except\" a list of country codes. The country comes from Cloudflare or your host, or from the optional free country database (Countries field → \"Use the free country database\")."
+#: includes/class-simple-google-adsense-docs.php:290
+msgid "<strong>Key-values</strong> (one <code>key=value</code> per line) target line items. Macros: <code>{post_id}</code>, <code>{post_type}</code>, <code>{category}</code>, <code>{placement}</code>."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:294
-msgid "Reports & earnings"
+#: includes/class-simple-google-adsense-docs.php:292
+msgid "GPT loads once, asynchronously, only on pages that show such a unit. Whether a slot fills depends on your line items."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:296
-msgid "How statistics are counted"
+#: includes/class-simple-google-adsense-docs.php:297
+msgid "Your own ads & selling"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:298
-msgid "AdFlow counts impressions, viewable impressions and clicks of your own ads using industry (IAB/MRC) definitions:"
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:300
-msgid "<strong>Impression</strong> - the ad was actually displayed (for banners: the image loaded). Hidden, prefetched and prerendered pages do not count."
+#: includes/class-simple-google-adsense-docs.php:299
+msgid "Banners, text ads and custom code"
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:301
-msgid "<strong>Viewable</strong> - at least half of the ad was on screen for one continuous second."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:302
-msgid "<strong>Click</strong> - a link in the ad was opened; a scroll that starts on the ad is not a click."
+msgid "Run sponsor, affiliate or house ads next to AdSense. Image banners come from the Media Library; text ads have a headline, text and button. Links get <code>rel=\"sponsored\"</code> (add nofollow if you like) and can open in a new tab."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:303
-msgid "<strong>Not counted</strong> - bots, headless browsers, link previews and logged-in administrators."
+msgid "<strong>Disclosure label:</strong> \"Sponsored\" or \"Advertisement\" above the ad - laws in many countries require it for paid ads."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:304
+msgid "<strong>Schedule:</strong> start and end date and time (your site's time zone). Cached pages follow it too: the ad appears at the start, and at the end it goes away and its AdSense fallback appears. This takes JavaScript and uses the visitor's clock."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:305
-msgid "It is cookieless: only daily totals are stored - no IP addresses or visitor IDs - and it works with page caching. Under Settings → Tracking you can wait for statistics consent, count clicks through a redirect link instead, and choose how long data is kept."
+msgid "<strong>When not running:</strong> show an AdSense unit instead, so the space keeps earning."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:306
-msgid "AdSense statistics come from Google; AdFlow does not count AdSense impressions itself."
+msgid "Own ads use neutral class names, so ad blockers are less likely to hide them."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:307
-msgid "Open Reports"
+#: includes/class-simple-google-adsense-docs.php:308
+msgid "Destination links may contain tracking macros: <code>{ad_id}</code>, <code>{placement}</code>, <code>{site}</code>, <code>{cachebuster}</code>."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:307
-msgid "Tracking settings"
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:311
-msgid "Full reports, CSV, REST API & WP-CLI"
+#: includes/class-simple-google-adsense-docs.php:312
+msgid "Rotation groups"
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:314
+msgid "A rotation group shows one of its ads per page view: <strong>weighted</strong> (an ad with weight 3 shows three times as often as weight 1) or <strong>in order</strong>. The choice is made in the browser, so it works with page caching."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:315
+msgid "Only ads that may show right now take part: scheduled, capped, out-of-hours or other-country ads are skipped. Mix sponsor ads with an AdSense unit so the spot is never empty."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:319
+msgid "Sell ads directly (self-serve)"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:323
+msgid "Create a rotation group (Ad Units → Add → Rotation group) and put it in a placement."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:324
+msgid "Under <strong>Settings → Sell ads</strong>, add a package: name, banner or text, size, days, price and your payment link (a Stripe Payment Link, PayPal.me or any checkout)."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:325
+msgid "Create an \"Advertise with us\" page with the shortcode <code>[adflow_advertise]</code>."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:326
+msgid "Advertisers choose a package, upload their banner or write a text ad, and pay with your link (the order number is passed as <code>?order=</code>)."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:327
+msgid "Orders wait under <strong>Ad Units → Pending</strong>. Check the creative and payment (\"Mark as paid\"), then Publish: the ad joins the package's group for the paid days and stops by itself. The advertiser receives a live report link and weekly emails."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:329
+msgid "No card data ever reaches your site. The form works on cached pages and is protected against spam."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:333
+msgid "Advertiser reports, emails & pricing"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:337
+msgid "<strong>Advertiser details & campaign price</strong> on each own ad; the sponsor eCPM is shown next to your AdSense RPM."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:338
+msgid "<strong>Report link:</strong> a read-only page with the ad's statistics - no login. Create or turn it off in the ad's sidebar."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:339
+msgid "<strong>Performance emails:</strong> weekly (Mondays) or monthly (the 1st) to the advertiser. \"Email me a preview\" shows what they get."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:340
+msgid "<strong>Expiry reminders</strong> to you (and optionally the advertiser) 7 days before and when a campaign ends."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:341
+msgid "<strong>Frequency cap</strong> (impressions per visitor per day) and <strong>dayparting</strong> (days and hours)."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:342
+msgid "<strong>Country targeting:</strong> \"Only in\" or \"Everywhere except\" a list of country codes. The country comes from Cloudflare or your host, or from the optional free country database (Countries field → \"Use the free country database\")."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:348
+msgid "Reports & earnings"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:350
+msgid "How statistics are counted"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:352
+msgid "AdFlow counts impressions, viewable impressions and clicks of your own ads using industry (IAB/MRC) definitions:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:354
+msgid "<strong>Impression</strong> - the ad was actually displayed (for banners: the image loaded). Hidden, prefetched and prerendered pages do not count."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:355
+msgid "<strong>Viewable</strong> - at least half of the ad was on screen for one continuous second."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:356
+msgid "<strong>Click</strong> - a link in the ad was opened; a scroll that starts on the ad is not a click."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:357
+msgid "<strong>Not counted</strong> - bots, headless browsers, link previews and logged-in administrators."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:359
+msgid "Reports store daily totals only - no IP addresses or visitor IDs - it sets no cookies and it works with page caching. To stop abuse of the counter, a one-way number that many visitors share is kept for up to a day; it cannot be turned back into an address."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:361
+msgid "These numbers are estimates, not audited figures. The counter has to be public, so someone determined can still add to it. AdFlow makes that harder: requests need a token from your pages and must not come from another site, each visitor address has a limit per minute, unknown placements are ignored, and a day's clicks on an ad cannot pass its impressions. Extra clicks are set aside and shown in Reports. If all your visitors reach WordPress through one proxy address, add its address with the adflow_trusted_proxies filter (Cloudflare and private addresses are already known) or raise adflow_stats_rate_limit."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:363
+msgid "Under Settings → Tracking you can wait for statistics consent, count clicks through a redirect link instead, and choose how long data is kept."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:364
+msgid "AdSense statistics come from Google; AdFlow does not count AdSense impressions itself."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:365
+msgid "Open Reports"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:365
+msgid "Tracking settings"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:369
+msgid "Full reports, CSV, REST API & WP-CLI"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:372
 msgid "Custom date ranges, breakdowns by placement, device and advertiser, and CSV export on the Reports screen."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:316
+#: includes/class-simple-google-adsense-docs.php:374
 msgid "Authenticate the REST API with an Application Password (Users → Profile) of a user who may view reports."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:320
+#: includes/class-simple-google-adsense-docs.php:378
 #: includes/class-simple-google-adsense-upsell.php:146
 msgid "AdSense earnings in WordPress"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:323
-msgid "Connect your Google account under <strong>AdFlow → Earnings</strong> to see today, yesterday, this month, page RPM, clicks, top pages and per-unit earnings - plus a dashboard widget. AdFlow only asks for read-only access to AdSense reports. Unless the Earnings screen offers one-click connect, you first add your own Google Cloud OAuth client once (about five minutes; the steps are on that screen)."
+#: includes/class-simple-google-adsense-docs.php:381
+msgid "Connect your Google account under <strong>AdFlow → Earnings</strong> to see today, yesterday, this month, page RPM, clicks, top pages and per-unit earnings - plus a dashboard widget. AdFlow only asks for read-only access to AdSense reports. Until one-click sign-in is available, you first set up your own free Google Cloud project once (about 10 to 15 minutes; the steps are on that screen). Your site needs HTTPS, and Google shows an \"unverified app\" warning for your own project: choose Advanced and continue."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:328
+#: includes/class-simple-google-adsense-docs.php:386
 msgid "Privacy, safety & team"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:330
+#: includes/class-simple-google-adsense-docs.php:388
 msgid "GDPR: Consent Mode v2 & loading ads after consent"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:332
-msgid "Google requires consent before personalised ads in the EEA, UK and Switzerland. Show the consent message with AdSense's own \"Privacy & messaging\" (a Google-certified TCF message) or a consent plugin such as Complianz, CookieYes or Cookiebot. Then, under <strong>Settings → Privacy & consent</strong>:"
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:334
-msgid "<strong>Load ads after consent</strong> - AdSense, other networks' code and Ad Manager slots wait until the consent tool has answered. Your own banners and text ads use no cookies and show straight away."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:335
-msgid "<strong>Google Consent Mode v2</strong> - tells Google tags consent is \"denied\" until the visitor agrees and passes on their choice (read from the WP Consent API). Use it when your banner is not a Google-certified TCF message, and turn it on in only one place."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:337
-msgid "Open Privacy & consent"
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:341
-msgid "Invalid-click protection & ad limits"
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:344
-msgid "Stops showing ads to a visitor who clicks ads too often (e.g. 3 clicks in 24 hours → no ads for 7 days). Flagged visitors never load the AdSense script, so no ad is ever hidden - hiding ads breaks AdSense policy. It reduces risk; no tool can guarantee Google's decisions."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:345
-msgid "Also on Settings → Click protection: <strong>Max manual ads per page</strong> and a polite <strong>ad-blocker message</strong>. Settings → Performance: <strong>lazy loading</strong>; each ad unit: <strong>reserved height</strong> against layout shift."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:349
-msgid "Roles, permissions & approvals"
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:351
-msgid "Under <strong>Settings → Access</strong>, give other roles \"Create & edit ads\", \"Publish ads (no review)\" and \"View reports\". Administrators always have full access; settings stay with administrators."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:352
-msgid "<strong>Approval workflow:</strong> someone who may create but not publish ads gets \"Submit for Review\". Everyone who may publish is emailed, and the Dashboard shows the ads waiting."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:353
-msgid "Open Access"
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:357
-msgid "Activity log"
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:360
-msgid "Who created, changed or deleted which ad, placement or setting, and when - under Settings → Activity log."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:365
-msgid "Switching & moving"
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:367
-msgid "Switch from Advanced Ads, Ad Inserter, AdRotate or WP QUADS"
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:370
-msgid "Open <strong>Settings → Switch to AdFlow</strong>. AdFlow shows what it found - the other plugin does not have to be active."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:371
-msgid "Click <strong>Import</strong>. Ads, rotation groups, placements and (AdRotate / WP QUADS) statistics are copied; nothing in the other plugin is changed. Importing again never creates duplicates."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:372
-msgid "Review the report: AdSense code for your Publisher ID becomes a native AdSense unit, linked banners become image ads, everything else is kept as custom code so it looks exactly as before."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:373
-msgid "Deactivate the old plugin. Its shortcodes - <code>[the_ad]</code>, <code>[adinserter]</code>, <code>[adrotate]</code>, <code>[quads]</code> - keep working through AdFlow."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:375
-msgid "Open Switch to AdFlow"
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:379
-#: includes/class-simple-google-adsense-upsell.php:732
-msgid "Export / import between sites"
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:382
-msgid "Settings → Import / Export downloads your whole setup (settings, placements, ads.txt, ad units) as one file and restores it on another site."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:389
-msgid "Ads are not showing"
+#: includes/class-simple-google-adsense-docs.php:390
+msgid "Google requires consent before personalised ads in the EEA, UK and Switzerland. Show the consent message with AdSense's own \"Privacy & messaging\" (a Google-certified TCF message) or a consent plugin such as Complianz, CookieYes or Cookiebot. A plugin cannot make a site compliant on its own: AdFlow makes your ads respect the answer."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:392
-msgid "Look at the <strong>Dashboard</strong> checks and the ad's <strong>Will this ad show?</strong> box."
+msgid "<strong>Load ads after consent</strong> - other networks' code and Ad Manager slots load only after the visitor agrees to advertising. The AdSense library loads once a TCF message is answered, because Google reads the choice itself; with other tools, only after the visitor agrees. No timer ever releases ads. Your own banners and text ads use no cookies and show straight away."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:393
-msgid "Open a page while logged in and choose <strong>AdFlow → Inspect ads on this page</strong> in the toolbar: every ad is outlined as filled, unfilled, requested (waiting for Google) or not requested."
+msgid "<strong>Where the answer comes from</strong> - an IAB TCF message, the WP Consent API with a plugin that supports it, CookieYes, Complianz or Cookiebot. The Privacy tab warns if your tool is none of these; ads then stay held. Your tool can release them by calling <code>window.afxConsent.grant()</code> from its \"accepted\" callback."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:394
-msgid "\"Hide ads for administrators\" (Settings → General) hides ads from you - check in a private window."
+msgid "<strong>AdSense's own consent message</strong> - it only reaches the page with the AdSense library, so turning this on loads the library at once. If the message is not set up in AdSense, nobody is asked. Other networks' code still waits. With no consent plugin it starts on; with one it starts off."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:395
-msgid "Purge your cache plugin, and exclude <code>adsbygoogle.js</code> from JavaScript \"delay\" or \"combine\" features."
+msgid "<strong>Google Consent Mode v2</strong> - tells Google tags consent is \"denied\" until the visitor agrees and passes on their choice (from the WP Consent API, CookieYes, Complianz or Cookiebot). Use it when your banner is not a Google-certified TCF message."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:396
-msgid "With \"Load ads after consent\" on, ads wait for the consent banner to be answered."
+msgid "<strong>Other countries</strong> - AdFlow cannot tell where a visitor is, so they wait too unless the consent tool says consent is not needed for them."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:397
-msgid "Unfilled AdSense spaces are Google's decision (new site, low traffic, policy). They are not an AdFlow error."
+#: includes/class-simple-google-adsense-docs.php:398
+msgid "Open Privacy & consent"
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:402
-msgid "Your data, updates & uninstalling"
+msgid "AMP pages"
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:404
-msgid "Updating never changes how existing ads look; new features start switched off. Deleting the plugin keeps your ads and settings unless you turn on \"Also delete all AdFlow ads, settings and statistics\" under Settings → General → Your data."
+msgid "With the official AMP plugin, AdSense units print Google's <code>amp-ad</code> code and Auto Ads print <code>amp-auto-ads</code>. The AMP plugin adds the scripts they need."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:406
+msgid "Your own banners and text ads show as plain markup, without statistics, because AMP allows no custom scripts."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:407
+msgid "Rotation groups show one ad, chosen on the server. A page cache keeps that choice until it is refreshed. The same goes for schedules."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:408
-msgid "Installing Pro & your license"
+msgid "Custom code shows only if it contains an AMP element such as <code>amp-ad</code>. Pro's Ad Manager units and popup and sticky formats do not show."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:412
-msgid "Keep the free AdFlow plugin active - Pro is an add-on."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:413
-msgid "Upload adflow-pro.zip under Plugins → Add New → Upload Plugin and activate it."
+#: includes/class-simple-google-adsense-docs.php:409
+msgid "With \"Load ads after consent\" on, AdSense ads and Auto Ads are left out of AMP pages, because AMP pages cannot wait for AdFlow's consent check."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:414
-msgid "Enter your key under Settings → License to receive updates and support. Pro features keep working if a license expires."
+msgid "Invalid-click protection & ad limits"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:417
+msgid "Stops showing ads to a visitor who clicks ads too often (e.g. 3 clicks in 24 hours → no ads for 7 days). Flagged visitors never load the AdSense script, so no ad is ever hidden - hiding ads breaks AdSense policy. It reduces risk; no tool can guarantee Google's decisions."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:418
+msgid "<strong>Check it works:</strong> never click your own live ads, because Google treats that as invalid activity. Open a page, choose AdFlow → Inspect ads on this page in the toolbar, and use <strong>Test with a dummy ad</strong>. The note shows the clicks seen on the dummy frame and the real clicks counted in this browser, and <strong>Reset this browser</strong> clears them. Flagged visitors stop getting Google ads; your sponsors' banner and text ads still show to them."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:419
-msgid "For developers"
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:421
-msgid "Useful filters and actions:"
+msgid "Also on Settings → Click protection: <strong>Max manual ads per page</strong> and a polite <strong>ad-blocker message</strong>. Settings → Performance: <strong>lazy loading</strong>; each ad unit: <strong>reserved height</strong> against layout shift."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:423
-msgid "<code>adflow_should_display_ad</code> ($display, $unit, $context) - hide a particular ad."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:424
-msgid "<code>adflow_ads_allowed</code> - turn all ads off on a request."
+msgid "Roles, permissions & approvals"
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:425
-msgid "<code>adflow_manual_ads_excluded</code> - turn manual ads off on a request (return true)."
+msgid "Under <strong>Settings → Access</strong>, give other roles \"Create & edit ads\", \"Publish ads (no review)\" and \"View reports\". Administrators always have full access; settings stay with administrators."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:426
-msgid "<code>adflow_ad_markup</code> ($html, $unit, $context) - change the output."
+msgid "<strong>Approval workflow:</strong> someone who may create but not publish ads gets \"Submit for Review\". Everyone who may publish is emailed, and the Dashboard shows the ads waiting."
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:427
-msgid "<code>adflow_ad_wrapper_attributes</code> - add attributes to the ad wrapper."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:428
-msgid "<code>adflow_placement_types</code> - register a placement."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:429
-msgid "<code>adflow_ad_types</code> + <code>adflow_render_ad_type</code> - register an ad unit type."
-msgstr ""
-
-#: includes/class-simple-google-adsense-docs.php:430
-msgid "<code>adflow_review_recipients</code> - who is emailed about ads waiting for review."
+msgid "Open Access"
 msgstr ""
 
 #: includes/class-simple-google-adsense-docs.php:431
+msgid "Activity log"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:434
+msgid "Who created, changed or deleted which ad, placement or setting, and when - under Settings → Activity log."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:439
+msgid "Switching & moving"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:441
+msgid "Switch from Advanced Ads, Ad Inserter, AdRotate or WP QUADS"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:444
+msgid "Open <strong>Settings → Switch to AdFlow</strong>. AdFlow shows what it found - the other plugin does not have to be active."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:445
+msgid "Click <strong>Import</strong>. Ads, rotation groups, placements and (AdRotate / WP QUADS) statistics are copied; nothing in the other plugin is changed. Importing again never creates duplicates."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:446
+msgid "Review the report: AdSense code for your Publisher ID becomes a native AdSense unit, linked banners become image ads, everything else is kept as custom code so it looks exactly as before."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:447
+msgid "Deactivate the old plugin. Its shortcodes - <code>[the_ad]</code>, <code>[adinserter]</code>, <code>[adrotate]</code>, <code>[quads]</code> - keep working through AdFlow."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:449
+msgid "Open Switch to AdFlow"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:453
+#: includes/class-simple-google-adsense-upsell.php:772
+msgid "Export / import between sites"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:456
+msgid "Settings → Import / Export downloads your whole setup (settings, placements, ads.txt, ad units) as one file and restores it on another site."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:463
+msgid "Ads are not showing"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:466
+msgid "Look at the <strong>Dashboard</strong> checks and the ad's <strong>Will this ad show?</strong> box."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:467
+msgid "Open a page while logged in and choose <strong>AdFlow → Inspect ads on this page</strong> in the toolbar: every ad is outlined as filled, unfilled, requested (waiting for Google) or not requested."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:468
+msgid "\"Hide ads for administrators\" (Settings → General) hides ads from you - check in a private window."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:469
+msgid "Purge your cache plugin, and exclude <code>adsbygoogle.js</code> from JavaScript \"delay\" or \"combine\" features."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:470
+msgid "With \"Load ads after consent\" on, ads wait for the consent banner to be answered."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:471
+msgid "Unfilled AdSense spaces are Google's decision (new site, low traffic, policy). They are not an AdFlow error."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:476
+msgid "Your data, updates & uninstalling"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:478
+msgid "Updating never changes how existing ads look; new features start switched off. Deleting the plugin keeps your ads and settings unless you turn on \"Also delete all AdFlow ads, settings and statistics\" under Settings → General → Your data."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:482
+msgid "Installing Pro & your license"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:486
+msgid "Keep the free AdFlow plugin active - Pro is an add-on."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:487
+msgid "Upload adflow-pro.zip under Plugins → Add New → Upload Plugin and activate it."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:488
+msgid "Enter your key under Settings → License to receive updates and support. Pro features keep working if a license expires."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:493
+msgid "For developers"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:495
+msgid "Useful filters and actions:"
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:497
+msgid "<code>adflow_should_display_ad</code> ($display, $unit, $context) - hide a particular ad."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:498
+msgid "<code>adflow_ads_allowed</code> - turn all ads off on a request."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:499
+msgid "<code>adflow_manual_ads_excluded</code> - turn manual ads off on a request (return true)."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:500
+msgid "<code>adflow_ad_markup</code> ($html, $unit, $context) - change the output."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:501
+msgid "<code>adflow_ad_wrapper_attributes</code> - add attributes to the ad wrapper."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:502
+msgid "<code>adflow_placement_types</code> - register a placement."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:503
+msgid "<code>adflow_content_slot_min_spacing</code> - fewest paragraphs between an extra in-content ad and any other ad (default 2)."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:504
+msgid "<code>adflow_languages</code> + <code>adflow_current_language</code> - language rules for other multilingual plugins."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:505
+msgid "<code>adflow_ad_types</code> + <code>adflow_render_ad_type</code> - register an ad unit type."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:506
+msgid "<code>adflow_review_recipients</code> - who is emailed about ads waiting for review."
+msgstr ""
+
+#: includes/class-simple-google-adsense-docs.php:507
 msgid "<code>adflow_imported</code> - runs after an import from another plugin."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:432
+#: includes/class-simple-google-adsense-docs.php:508
 msgid "<code>adflow_geo_country</code> (Pro) - supply the visitor country from your own lookup."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:519
+#: includes/class-simple-google-adsense-docs.php:599
 msgid "Everything AdFlow and AdFlow Pro can do, and how to set it up."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:522
+#: includes/class-simple-google-adsense-docs.php:602
 msgid "Full documentation online"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:530
+#: includes/class-simple-google-adsense-docs.php:610
 msgid "Documentation"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:531
+#: includes/class-simple-google-adsense-docs.php:611
 msgid "Search the docs"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:532
+#: includes/class-simple-google-adsense-docs.php:612
 msgid "Search the docs…"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:538
-#: includes/class-simple-google-adsense-docs.php:556
-#: includes/class-simple-google-adsense-placements.php:622
+#: includes/class-simple-google-adsense-docs.php:618
+#: includes/class-simple-google-adsense-docs.php:636
+#: includes/class-simple-google-adsense-placements.php:714
 #: includes/class-simple-google-adsense-upsell.php:292
 #: includes/class-simple-google-adsense-upsell.php:310
-#: includes/class-simple-google-adsense-upsell.php:381
-#: includes/class-simple-google-adsense-upsell.php:401
-#: includes/class-simple-google-adsense-upsell.php:417
-#: includes/class-simple-google-adsense-upsell.php:437
-#: includes/class-simple-google-adsense-upsell.php:747
+#: includes/class-simple-google-adsense-upsell.php:382
+#: includes/class-simple-google-adsense-upsell.php:402
+#: includes/class-simple-google-adsense-upsell.php:418
+#: includes/class-simple-google-adsense-upsell.php:442
+#: includes/class-simple-google-adsense-upsell.php:787
 msgid "Pro"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:546
+#: includes/class-simple-google-adsense-docs.php:626
 msgid "Nothing found. Try another word."
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:564
-#: includes/class-simple-google-adsense-placements.php:634
+#: includes/class-simple-google-adsense-docs.php:644
+#: includes/class-simple-google-adsense-placements.php:726
 msgid "Available in AdFlow Pro"
 msgstr ""
 
-#: includes/class-simple-google-adsense-docs.php:564
+#: includes/class-simple-google-adsense-docs.php:644
 msgid "Everything in the free plugin stays free."
 msgstr ""
 
-#: includes/class-simple-google-adsense-inspector.php:99
+#: includes/class-simple-google-adsense-inspector.php:100
 msgid "Inspect ads on this page"
 msgstr ""
 
-#: includes/class-simple-google-adsense-inspector.php:128
+#: includes/class-simple-google-adsense-inspector.php:129
 msgid "Filled"
 msgstr ""
 
-#: includes/class-simple-google-adsense-inspector.php:129
+#: includes/class-simple-google-adsense-inspector.php:130
 msgid "Unfilled - Google had no ad for this slot right now (common on new or low-traffic sites)."
 msgstr ""
 
-#: includes/class-simple-google-adsense-inspector.php:130
+#: includes/class-simple-google-adsense-inspector.php:131
 msgid "Requested - waiting for Google."
 msgstr ""
 
-#: includes/class-simple-google-adsense-inspector.php:131
+#: includes/class-simple-google-adsense-inspector.php:132
 msgid "Not requested - AdSense script blocked (ad blocker?), lazy loading, or hidden by a targeting rule."
 msgstr ""
 
-#: includes/class-simple-google-adsense-inspector.php:132
+#: includes/class-simple-google-adsense-inspector.php:133
 msgid "Your own ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-inspector.php:133
+#: includes/class-simple-google-adsense-inspector.php:134
 msgid "Auto ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-inspector.php:134
+#: includes/class-simple-google-adsense-inspector.php:135
 msgid "Unit"
 msgstr ""
 
-#: includes/class-simple-google-adsense-inspector.php:135
+#: includes/class-simple-google-adsense-inspector.php:136
 msgid "Slot"
 msgstr ""
 
-#: includes/class-simple-google-adsense-inspector.php:136
+#: includes/class-simple-google-adsense-inspector.php:137
 msgid "Placement"
 msgstr ""
 
 #. translators: 1: number of ads, 2: unfilled ads, 3: ads not requested
-#: includes/class-simple-google-adsense-inspector.php:138
+#: includes/class-simple-google-adsense-inspector.php:139
 #, php-format
 msgid "AdFlow: %1$d ad(s) on this page, %2$d unfilled, %3$d not requested."
 msgstr ""
 
-#: includes/class-simple-google-adsense-inspector.php:139
+#: includes/class-simple-google-adsense-inspector.php:140
 msgid "AdFlow: no ads on this page."
 msgstr ""
 
-#: includes/class-simple-google-adsense-inspector.php:140
+#: includes/class-simple-google-adsense-inspector.php:141
 msgid "Ads are hidden for administrators (AdFlow → Settings). Log out or use a private window to see them."
 msgstr ""
 
-#: includes/class-simple-google-adsense-inspector.php:141
+#: includes/class-simple-google-adsense-inspector.php:143
 msgid "Manual ads are turned off on this page (AdFlow → Settings → General, or the AdFlow Ads box in the editor)."
+msgstr ""
+
+#: includes/class-simple-google-adsense-inspector.php:144
+msgid "Manual ads are turned off on this page (AdFlow → Settings → General)."
 msgstr ""
 
 #: includes/class-simple-google-adsense-manual-ads.php:203
@@ -2237,207 +2731,225 @@ msgstr ""
 msgid "Turn on \"Show manual ads\" under AdFlow → Settings → General to render this ad."
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:329
+#: includes/class-simple-google-adsense-manual-ads.php:334
 msgid "AdSense Publisher ID not configured."
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:329
+#: includes/class-simple-google-adsense-manual-ads.php:334
 msgid "AdSense Publisher ID is not valid."
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:330
+#: includes/class-simple-google-adsense-manual-ads.php:335
 msgid "Please go to AdFlow → Settings and enter your Publisher ID."
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:330
+#: includes/class-simple-google-adsense-manual-ads.php:335
 msgid "It should be \"pub-\" followed by 16 digits. Please correct it under AdFlow → Settings."
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:336
+#: includes/class-simple-google-adsense-manual-ads.php:341
 msgid "Ad Slot ID is required."
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:337
+#: includes/class-simple-google-adsense-manual-ads.php:342
 msgid "Please configure the Ad Slot ID in the block settings or shortcode parameters."
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:552
+#: includes/class-simple-google-adsense-manual-ads.php:644
 msgid "This image ad has no image."
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:554
+#: includes/class-simple-google-adsense-manual-ads.php:646
 msgid "This text ad has no headline."
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:556
+#: includes/class-simple-google-adsense-manual-ads.php:648
 msgid "This custom ad unit has no code."
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:560
+#: includes/class-simple-google-adsense-manual-ads.php:652
 msgid "Edit it under AdFlow → Ad Units."
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:870
-#: blocks/adsense-ad/index.js:26
+#: includes/class-simple-google-adsense-manual-ads.php:1044
+#: blocks/adsense-ad/index.js:27
 msgid "Banner Ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:871
-#: blocks/adsense-ad/index.js:27
+#: includes/class-simple-google-adsense-manual-ads.php:1045
+#: blocks/adsense-ad/index.js:28
 msgid "In-Article Ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:872
-#: blocks/adsense-ad/index.js:28
+#: includes/class-simple-google-adsense-manual-ads.php:1046
+#: blocks/adsense-ad/index.js:29
 msgid "In-Feed Ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:873
-#: blocks/adsense-ad/index.js:29
+#: includes/class-simple-google-adsense-manual-ads.php:1047
+#: blocks/adsense-ad/index.js:30
 msgid "Multiplex (Matched Content)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:885
-#: blocks/adsense-ad/index.js:33
+#: includes/class-simple-google-adsense-manual-ads.php:1059
+#: blocks/adsense-ad/index.js:34
 msgid "Auto"
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:886
-#: blocks/adsense-ad/index.js:34
+#: includes/class-simple-google-adsense-manual-ads.php:1060
+#: blocks/adsense-ad/index.js:35
 msgid "Fluid"
 msgstr ""
 
-#: includes/class-simple-google-adsense-manual-ads.php:887
-#: blocks/adsense-ad/index.js:35
+#: includes/class-simple-google-adsense-manual-ads.php:1061
+#: blocks/adsense-ad/index.js:36
 msgid "Auto Relaxed"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:313
+#: includes/class-simple-google-adsense-migrate.php:318
 msgid "Imported banners and code show without a \"Sponsored\" label, as before. You can add one per ad under Delivery."
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:373
+#: includes/class-simple-google-adsense-migrate.php:378
 msgid "AdSense link units were retired by Google."
 msgstr ""
 
 #. translators: %s: ad name
-#: includes/class-simple-google-adsense-migrate.php:403
+#: includes/class-simple-google-adsense-migrate.php:408
 #, php-format
 msgid "\"%s\" contained PHP, which AdFlow never runs. Review the imported code."
 msgstr ""
 
 #. translators: %s: ad type
-#: includes/class-simple-google-adsense-migrate.php:411
+#: includes/class-simple-google-adsense-migrate.php:416
 #, php-format
 msgid "The ad type \"%s\" has no AdFlow equivalent."
 msgstr ""
 
 #. translators: %s: group name
-#: includes/class-simple-google-adsense-migrate.php:453
+#: includes/class-simple-google-adsense-migrate.php:458
 #, php-format
 msgid "\"%s\" was a slider/grid group in Advanced Ads; AdFlow shows one of its ads at a time."
 msgstr ""
 
 #. translators: %s: placement name
-#: includes/class-simple-google-adsense-migrate.php:504
+#: includes/class-simple-google-adsense-migrate.php:509
 #, php-format
 msgid "\"%s\" counted headings or other elements; AdFlow counts paragraphs."
 msgstr ""
 
 #. translators: %d: block number
-#: includes/class-simple-google-adsense-migrate.php:533
+#: includes/class-simple-google-adsense-migrate.php:542
 #, php-format
 msgid "Ad Inserter block %d"
 msgstr ""
 
 #. translators: %s: block name
-#: includes/class-simple-google-adsense-migrate.php:578
+#: includes/class-simple-google-adsense-migrate.php:575
+#, php-format
+msgid "\"%s\" sat outside the post content (before or after the post). AdFlow placed it at the nearest spot inside the content."
+msgstr ""
+
+#. translators: %s: block name
+#: includes/class-simple-google-adsense-migrate.php:595
 #, php-format
 msgid "\"%s\" used a paragraph list, percentage or random position; AdFlow placed it after one paragraph - adjust it in Placements."
 msgstr ""
 
+#. translators: 1: block name, 2: option name
+#: includes/class-simple-google-adsense-migrate.php:652
+#, php-format
+msgid "%1$s - %2$s"
+msgstr ""
+
 #. translators: 1: block name, 2: option number
-#: includes/class-simple-google-adsense-migrate.php:623
+#: includes/class-simple-google-adsense-migrate.php:654
 #, php-format
 msgid "%1$s - option %2$d"
 msgstr ""
 
+#. translators: %s: block name
+#: includes/class-simple-google-adsense-migrate.php:716
+#, php-format
+msgid "\"%s\" used Ad Inserter features AdFlow does not have (such as [ADINSERTER COUNT] or [ADINSERTER AMP]). Only its main ad code was imported."
+msgstr ""
+
 #. translators: %s: group name
-#: includes/class-simple-google-adsense-migrate.php:745
+#: includes/class-simple-google-adsense-migrate.php:836
 #, php-format
 msgid "\"%s\" was shown before and after the content; AdFlow placed it before the content - add it to \"After content\" too if you want both."
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:823
+#: includes/class-simple-google-adsense-migrate.php:914
 msgid "Turn on Auto ads in AdFlow → Settings instead."
 msgstr ""
 
 #. translators: %s: ad type
-#: includes/class-simple-google-adsense-migrate.php:865
+#: includes/class-simple-google-adsense-migrate.php:956
 #, php-format
 msgid "The WP QUADS type \"%s\" has no AdFlow equivalent yet."
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:958
+#: includes/class-simple-google-adsense-migrate.php:1049
 msgid "The ad has no code."
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1006
+#: includes/class-simple-google-adsense-migrate.php:1097
 msgid "Custom code can only be imported by a user allowed to post unfiltered HTML."
 msgstr ""
 
 #. translators: %s: publisher ID
-#: includes/class-simple-google-adsense-migrate.php:1042
+#: includes/class-simple-google-adsense-migrate.php:1136
 #, php-format
-msgid "Your AdSense publisher ID %s was imported into Settings."
+msgid "Your AdSense publisher ID %s was imported into Settings. Auto Ads stay off; turn them on under Settings → General if you want them."
 msgstr ""
 
 #. translators: %s: group name
-#: includes/class-simple-google-adsense-migrate.php:1144
+#: includes/class-simple-google-adsense-migrate.php:1238
 #, php-format
 msgid "The group \"%s\" has no importable ads and was skipped."
 msgstr ""
 
 #. translators: %s: plugin name
-#: includes/class-simple-google-adsense-migrate.php:1449
+#: includes/class-simple-google-adsense-migrate.php:1552
 #, php-format
 msgid "%s is still active"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1450
+#: includes/class-simple-google-adsense-migrate.php:1553
 msgid "Its ads were imported into AdFlow. Deactivate it so ads are not shown twice; its shortcodes keep working through AdFlow."
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1452
+#: includes/class-simple-google-adsense-migrate.php:1555
 msgid "Plugins"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1476
+#: includes/class-simple-google-adsense-migrate.php:1579
 msgid "Switch to AdFlow"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1500
+#: includes/class-simple-google-adsense-migrate.php:1603
 msgid "Switch from another ad plugin"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1501
+#: includes/class-simple-google-adsense-migrate.php:1604
 msgid "Bring your ads, rotation groups, placements and statistics over in one click. The other plugin does not need to be active, nothing in it is changed, and importing again never creates duplicates."
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1507
+#: includes/class-simple-google-adsense-migrate.php:1610
 msgid "Plugin"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1509
+#: includes/class-simple-google-adsense-migrate.php:1612
 msgid "Old shortcodes"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1510
+#: includes/class-simple-google-adsense-migrate.php:1613
 msgid "Action"
 msgstr ""
 
 #. translators: %d: number
-#: includes/class-simple-google-adsense-migrate.php:1524
+#: includes/class-simple-google-adsense-migrate.php:1627
 #, php-format
 msgid "%d group"
 msgid_plural "%d groups"
@@ -2445,220 +2957,223 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: number
-#: includes/class-simple-google-adsense-migrate.php:1528
+#: includes/class-simple-google-adsense-migrate.php:1631
 #, php-format
 msgid "%d placement"
 msgid_plural "%d placements"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-simple-google-adsense-migrate.php:1531
+#: includes/class-simple-google-adsense-migrate.php:1634
 msgid "statistics"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1538
+#: includes/class-simple-google-adsense-migrate.php:1641
 msgid "Imported"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1541
+#: includes/class-simple-google-adsense-migrate.php:1644
 msgid "Nothing found"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1554
+#: includes/class-simple-google-adsense-migrate.php:1657
 msgid "Import"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1554
+#: includes/class-simple-google-adsense-migrate.php:1657
 msgid "Import new items"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1564
+#: includes/class-simple-google-adsense-migrate.php:1667
 msgid "No ads from Advanced Ads, Ad Inserter, AdRotate or WP QUADS were found on this site."
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1567
+#: includes/class-simple-google-adsense-migrate.php:1670
 msgid "How it maps: AdSense code for your publisher ID becomes a native AdSense unit, linked banners from your Media Library become image ads with tracking, and anything else is kept as custom code so it shows exactly as before. Placements only fill AdFlow placements that are still empty."
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1586
+#: includes/class-simple-google-adsense-migrate.php:1689
 msgid "Set up"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1587
+#: includes/class-simple-google-adsense-migrate.php:1690
 msgid "Set up - check conditions"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1588
+#: includes/class-simple-google-adsense-migrate.php:1691
 msgid "Already used - not changed"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1589
+#: includes/class-simple-google-adsense-migrate.php:1692
 msgid "Needs AdFlow Pro"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1590
+#: includes/class-simple-google-adsense-migrate.php:1693
 msgid "Use the shortcode, block or widget"
 msgstr ""
 
 #. translators: %s: plugin name
-#: includes/class-simple-google-adsense-migrate.php:1595
+#: includes/class-simple-google-adsense-migrate.php:1698
 #, php-format
 msgid "Imported from %s"
 msgstr ""
 
 #. translators: 1: created, 2: already imported, 3: skipped, 4: statistics records
-#: includes/class-simple-google-adsense-migrate.php:1598
+#: includes/class-simple-google-adsense-migrate.php:1701
 #, php-format
 msgid "%1$d created, %2$d already imported, %3$d skipped, %4$d statistics records carried over."
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1608
+#: includes/class-simple-google-adsense-migrate.php:1711
 msgid "New ad unit"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1614
+#: includes/class-simple-google-adsense-migrate.php:1717
 msgid "Published"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1614
+#: includes/class-simple-google-adsense-migrate.php:1717
 msgid "Draft (was paused)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1622
-#: includes/class-simple-google-adsense-placements.php:529
-#: includes/class-simple-google-adsense-placements.php:530
-#: includes/class-simple-google-adsense-placements.php:581
+#: includes/class-simple-google-adsense-migrate.php:1725
+#: includes/class-simple-google-adsense-placements.php:616
+#: includes/class-simple-google-adsense-placements.php:617
+#: includes/class-simple-google-adsense-placements.php:673
 msgid "Placements"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1638
+#: includes/class-simple-google-adsense-migrate.php:1741
 msgid "Worth a look"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1650
+#: includes/class-simple-google-adsense-migrate.php:1753
 msgid "Review ad units"
 msgstr ""
 
-#: includes/class-simple-google-adsense-migrate.php:1651
+#: includes/class-simple-google-adsense-migrate.php:1754
 msgid "Review placements"
 msgstr ""
 
 #. translators: %s: plugin name
-#: includes/class-simple-google-adsense-migrate.php:1656
+#: includes/class-simple-google-adsense-migrate.php:1759
 #, php-format
 msgid "Next: deactivate %s so ads are not shown twice. Its shortcodes will keep working through AdFlow."
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:99
-msgid "Before content"
-msgstr ""
-
-#: includes/class-simple-google-adsense-placements.php:100
-msgid "Above the first paragraph of the post."
-msgstr ""
-
-#: includes/class-simple-google-adsense-placements.php:107
-#: includes/class-simple-google-adsense-placements.php:652
-msgid "After paragraph"
-msgstr ""
-
-#: includes/class-simple-google-adsense-placements.php:108
-msgid "Inside the post, after the chosen paragraph. Skipped when the post is shorter."
-msgstr ""
-
-#: includes/class-simple-google-adsense-placements.php:115
-msgid "After content"
+#. translators: %d: post or term ID
+#: includes/class-simple-google-adsense-picker.php:198
+#, php-format
+msgid "No item with ID %d"
 msgstr ""
 
 #: includes/class-simple-google-adsense-placements.php:116
+msgid "Before content"
+msgstr ""
+
+#: includes/class-simple-google-adsense-placements.php:117
+msgid "Above the first paragraph of the post."
+msgstr ""
+
+#: includes/class-simple-google-adsense-placements.php:125
+msgid "Inside the post, after the chosen paragraph. Skipped when the post is shorter."
+msgstr ""
+
+#: includes/class-simple-google-adsense-placements.php:132
+msgid "After content"
+msgstr ""
+
+#: includes/class-simple-google-adsense-placements.php:133
 msgid "Below the last paragraph of the post."
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:125
+#: includes/class-simple-google-adsense-placements.php:142
 msgid "Middle of the article (after X%)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:125
+#: includes/class-simple-google-adsense-placements.php:142
 msgid "Scales with post length - the highest-earning in-content spot for most blogs."
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:126
+#: includes/class-simple-google-adsense-placements.php:143
 msgid "Between posts"
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:126
+#: includes/class-simple-google-adsense-placements.php:143
 msgid "In the post list on your home, category, tag and search pages."
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:127
+#: includes/class-simple-google-adsense-placements.php:144
 msgid "Sticky anchor"
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:127
-msgid "A small closable bar at the bottom of the screen that never covers content."
+#: includes/class-simple-google-adsense-placements.php:144
+msgid "A small closable bar at the bottom of the screen, in a fixed size, with room kept for it at the end of the page."
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:128
+#: includes/class-simple-google-adsense-placements.php:145
 msgid "WooCommerce shop & product pages"
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:128
+#: includes/class-simple-google-adsense-placements.php:145
 msgid "Above the product grid, below the summary and after add-to-cart."
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:546
+#: includes/class-simple-google-adsense-placements.php:633
 msgid "Inside posts & pages"
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:547
+#: includes/class-simple-google-adsense-placements.php:634
 msgid "Post lists & archives"
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:548
+#: includes/class-simple-google-adsense-placements.php:635
 msgid "Site-wide"
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:549
+#: includes/class-simple-google-adsense-placements.php:636
 msgid "WooCommerce"
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:550
+#: includes/class-simple-google-adsense-placements.php:637
 msgid "More placements with AdFlow Pro"
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:582
+#: includes/class-simple-google-adsense-placements.php:674
 msgid "Insert your ad units automatically - no shortcodes needed. Works alongside Auto Ads, blocks and shortcodes."
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:591
+#: includes/class-simple-google-adsense-placements.php:683
 msgid "Create an ad unit first"
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:592
+#: includes/class-simple-google-adsense-placements.php:684
 msgid "Placements show one of your ad units. Add the slot ID from your AdSense account, then come back here."
 msgstr ""
 
-#: includes/class-simple-google-adsense-placements.php:636
-#: includes/class-simple-google-adsense-upsell.php:347
-#: blocks/adsense-ad/index.js:147
-msgid "Ad unit"
-msgstr ""
-
-#: includes/class-simple-google-adsense-placements.php:638
-msgid "Choose an ad unit…"
-msgstr ""
-
-#: includes/class-simple-google-adsense-placements.php:659
-msgid "Show on"
-msgstr ""
-
-#: includes/class-simple-google-adsense-placements.php:703
+#: includes/class-simple-google-adsense-placements.php:798
 msgid "Save placements"
+msgstr ""
+
+#: includes/class-simple-google-adsense-post-controls.php:88
+msgid "AdFlow Ads"
+msgstr ""
+
+#: includes/class-simple-google-adsense-post-controls.php:114
+msgid "No ads on this page"
+msgstr ""
+
+#: includes/class-simple-google-adsense-post-controls.php:118
+msgid "No Auto Ads on this page"
+msgstr ""
+
+#: includes/class-simple-google-adsense-post-controls.php:122
+msgid "No manual ads on this page"
 msgstr ""
 
 #: includes/class-simple-google-adsense-reports.php:67
 #: includes/class-simple-google-adsense-reports.php:68
-#: includes/class-simple-google-adsense-reports.php:196
+#: includes/class-simple-google-adsense-reports.php:197
 msgid "Reports"
 msgstr ""
 
@@ -2666,203 +3181,232 @@ msgstr ""
 msgid "Last 7 days"
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:197
+#: includes/class-simple-google-adsense-reports.php:198
 msgid "Impressions and clicks of your own ads - banners, text ads and custom code. AdSense earnings come from Google, under Earnings."
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:205
+#: includes/class-simple-google-adsense-reports.php:206
 msgid "Run your own ads next to AdSense"
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:206
+#: includes/class-simple-google-adsense-reports.php:207
 msgid "Add an image banner, text ad or custom code for a sponsor or your own offer. Impressions and clicks show up here - cookieless and cache-proof."
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:207
+#: includes/class-simple-google-adsense-reports.php:209
 msgid "Create your first ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:218
+#: includes/class-simple-google-adsense-reports.php:221
 msgid "Date range"
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:235
+#: includes/class-simple-google-adsense-reports.php:238
 msgid "All your ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:240
+#: includes/class-simple-google-adsense-reports.php:243
 msgid "Apply"
 msgstr ""
 
 #. translators: %s: time zone
-#: includes/class-simple-google-adsense-reports.php:245
+#: includes/class-simple-google-adsense-reports.php:248
 #, php-format
 msgid "Days in %s"
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:263
+#: includes/class-simple-google-adsense-reports.php:266
 msgid "Ad displayed on a page"
 msgstr ""
 
 #. translators: %s: viewability percentage
-#: includes/class-simple-google-adsense-reports.php:271
+#: includes/class-simple-google-adsense-reports.php:274
 #, php-format
 msgid "%s viewability · 50%% on screen for 1s"
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:278
+#: includes/class-simple-google-adsense-reports.php:281
 msgid "Bots and administrators are not counted"
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:281
+#: includes/class-simple-google-adsense-reports.php:284
 msgid "Click-through rate"
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:283
+#: includes/class-simple-google-adsense-reports.php:286
 msgid "Clicks per impression"
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:288
+#. translators: %s: number of clicks
+#: includes/class-simple-google-adsense-reports.php:296
+#, php-format
+msgid "%s click was set aside and is not in these totals: a day's clicks on an ad cannot pass its impressions. It is added back if the impressions arrive."
+msgid_plural "%s clicks were set aside and are not in these totals: a day's clicks on an ad cannot pass its impressions. They are added back if the impressions arrive."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-simple-google-adsense-reports.php:309
 msgid "Impressions per day"
 msgstr ""
 
 #. translators: %s: number of impressions
-#: includes/class-simple-google-adsense-reports.php:294
+#: includes/class-simple-google-adsense-reports.php:315
 #, php-format
 msgid "Impressions per day, %s in total."
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:301
+#: includes/class-simple-google-adsense-reports.php:322
 msgid "By ad"
 msgstr ""
 
-#: includes/class-simple-google-adsense-reports.php:308
+#: includes/class-simple-google-adsense-reports.php:329
 msgid "Viewability"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:641
-#: includes/class-simple-google-adsense-stats.php:651
-#: includes/class-simple-google-adsense-stats.php:659
+#: includes/class-simple-google-adsense-stats.php:1274
+msgid "These figures are estimates counted in visitors' browsers. They are not audited, and bad actors can add to them."
+msgstr ""
+
+#: includes/class-simple-google-adsense-stats.php:1444
+#: includes/class-simple-google-adsense-stats.php:1454
+#: includes/class-simple-google-adsense-stats.php:1462
 msgid "Ad statistics"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:642
+#: includes/class-simple-google-adsense-stats.php:1445
 msgid "Checking that this server accepts statistics requests - reload in a minute."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:652
+#: includes/class-simple-google-adsense-stats.php:1455
 msgid "Your server refuses statistics requests (REST API and admin-ajax both blocked, usually by a security plugin). Impressions and clicks cannot be counted until it allows them."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:661
+#: includes/class-simple-google-adsense-stats.php:1464
 msgid "Counting works (the REST API is blocked, so admin-ajax is used instead)."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:662
+#: includes/class-simple-google-adsense-stats.php:1465
 msgid "Counting works and is compatible with page caching."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:865
+#: includes/class-simple-google-adsense-stats.php:1783
 msgid "Tracking"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:887
+#: includes/class-simple-google-adsense-stats.php:1805
 msgid "Statistics for your own ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:887
+#: includes/class-simple-google-adsense-stats.php:1805
 msgid "Impressions, viewable impressions and clicks of your image, text and custom code ads. AdSense statistics come from Google."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:888
-msgid "Cookieless: only daily totals are stored - no IP addresses, cookies or visitor IDs. Works with page caching."
+#: includes/class-simple-google-adsense-stats.php:1806
+msgid "Cookieless. Reports store daily totals only - no IP addresses or visitor IDs. Works with page caching. To stop abuse of the counter, a one-way number shared by many visitors is kept for up to a day."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:892
+#: includes/class-simple-google-adsense-stats.php:1810
 msgid "Your own visits"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:892
+#: includes/class-simple-google-adsense-stats.php:1810
 msgid "Checked on the server, so it also works on cached pages."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:893
+#: includes/class-simple-google-adsense-stats.php:1811
 msgid "Do not count logged-in administrators"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:896
+#: includes/class-simple-google-adsense-stats.php:1814
 msgid "Consent"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:896
+#: includes/class-simple-google-adsense-stats.php:1814
 msgid "Only count visitors who accepted statistics cookies in a consent plugin that supports the WP Consent API."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:897
+#: includes/class-simple-google-adsense-stats.php:1815
 msgid "Wait for statistics consent"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:899
+#: includes/class-simple-google-adsense-stats.php:1817
 msgid "No WP Consent API plugin detected - with this on, nothing is counted."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:903
+#: includes/class-simple-google-adsense-stats.php:1821
 msgid "Counting clicks"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:903
+#: includes/class-simple-google-adsense-stats.php:1821
 msgid "The redirect link counts on the server (IAB-preferred, works without JavaScript); the in-page method keeps the advertiser's link visible."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:905
+#: includes/class-simple-google-adsense-stats.php:1823
 msgid "In the page - links go straight to the advertiser"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:906
+#: includes/class-simple-google-adsense-stats.php:1824
 msgid "Through a redirect link on your site (/?afx-go=…)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:908
+#: includes/class-simple-google-adsense-stats.php:1826
 msgid "Links can carry tracking tags: {ad_id}, {placement}, {cachebuster} - e.g. https://example.com/?utm_source=mysite&utm_content={placement}"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:911
+#: includes/class-simple-google-adsense-stats.php:1829
 msgid "Keep data for"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:914
+#: includes/class-simple-google-adsense-stats.php:1832
 msgid "months"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:919
+#: includes/class-simple-google-adsense-stats.php:1837
 msgid "How AdFlow measures"
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:922
+#: includes/class-simple-google-adsense-stats.php:1840
 msgid "Impression: the ad was displayed on a page a real browser showed - not hidden, prefetched or prerendered."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:923
+#: includes/class-simple-google-adsense-stats.php:1841
 msgid "Viewable impression: at least 50% of the ad was on screen for at least one continuous second (IAB/MRC standard)."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:924
+#: includes/class-simple-google-adsense-stats.php:1842
 msgid "Click: a link in the ad was opened - a scroll that starts on the ad is not a click."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:925
+#: includes/class-simple-google-adsense-stats.php:1843
 msgid "Not counted: known bots and crawlers, headless browsers, link previews, prefetches and logged-in administrators."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:926
+#: includes/class-simple-google-adsense-stats.php:1844
+msgid "Limits: requests from other sites and very fast repeats are ignored, and a day's clicks on an ad cannot pass its impressions. The rest are set aside and shown in Reports."
+msgstr ""
+
+#: includes/class-simple-google-adsense-stats.php:1845
 msgid "Days follow your site's time zone (Settings → General)."
 msgstr ""
 
-#: includes/class-simple-google-adsense-stats.php:951
+#: includes/class-simple-google-adsense-stats.php:1869
 msgid ""
 "This site shows advertisements, including Google AdSense. Google may use cookies to serve ads - see https://policies.google.com/technologies/ads.\n"
 "\n"
-"For its own advertisements, this site counts how often each ad is shown, seen and clicked. Only daily totals are stored; no cookies are set and no IP addresses or other personal data are recorded for this."
+"For its own advertisements, this site counts how often each ad is shown, seen and clicked. The reports keep only daily totals per ad, with no IP addresses or visitor IDs, and the counting sets no cookies.\n"
+"\n"
+"To limit abuse of this counter, a salted one-way number worked out from the visitor's IP address (and, for redirect links, the browser name) is kept in this site's database for up to one day. Many visitors share each number, and it cannot be turned back into an address.\n"
+"\n"
+"If an ad rotation shows ads in a fixed order, the browser's local storage remembers the position in that order. Nothing is sent to this site."
+msgstr ""
+
+#: includes/class-simple-google-adsense-stats.php:1890
+#: includes/class-simple-google-adsense-stats.php:1907
+msgid "AdFlow ad units"
+msgstr ""
+
+#: includes/class-simple-google-adsense-stats.php:1964
+msgid "Created"
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:99
@@ -2908,36 +3452,35 @@ msgid "For freelancers and networks of sites"
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:147
-msgid "Today, yesterday, this month, page RPM and top-earning pages - without logging in to AdSense."
+msgid "Today, yesterday, this month, page RPM and top-earning pages - without logging in to AdSense. Connecting needs your own free Google Cloud project, set up once."
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:152
-#: includes/class-simple-google-adsense-upsell.php:461
+#: includes/class-simple-google-adsense-upsell.php:472
 msgid "A/B tests judged by real earnings"
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:153
-msgid "Rotate ad units and see which one earns more, using AdSense's own numbers."
+msgid "Rotate ad units, also on cached pages, and compare them on AdSense's own numbers. A winner is only named when the gap is larger than chance."
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:158
-#: includes/class-simple-google-adsense-upsell.php:459
-#: includes/class-simple-google-adsense-upsell.php:480
-#: includes/class-simple-google-adsense-upsell.php:598
-#: includes/class-simple-google-adsense-upsell.php:721
+#: includes/class-simple-google-adsense-upsell.php:470
+#: includes/class-simple-google-adsense-upsell.php:634
+#: includes/class-simple-google-adsense-upsell.php:761
 msgid "Invalid-click protection"
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:159
-msgid "Visitors who click too often stop seeing ads - the most common cause of AdSense limits and bans."
+msgid "Visitors who click too often stop seeing ads, which lowers the risk of invalid-click limits on your account."
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:164
-msgid "Ad limits & per-post control"
+msgid "Ad limits"
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:165
-msgid "Cap ads per page and switch ads off on any post with one tick."
+msgid "Cap the number of manual ads on any page."
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:170
@@ -2953,7 +3496,7 @@ msgid "Targeting & scheduling"
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:177
-msgid "Show ads by device, category, search traffic, visitor type, post age or date range. Cache-friendly."
+msgid "Show ads by search traffic, visitor type, post age or date range, on top of the free device and category rules. Cache-friendly."
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:182
@@ -2981,8 +3524,8 @@ msgid "Lazy-load ads and reserve their space for better Core Web Vitals and view
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:200
-#: includes/class-simple-google-adsense-upsell.php:563
-#: includes/class-simple-google-adsense-upsell.php:599
+#: includes/class-simple-google-adsense-upsell.php:584
+#: includes/class-simple-google-adsense-upsell.php:635
 msgid "Sell ads directly"
 msgstr ""
 
@@ -3007,7 +3550,7 @@ msgid "Show a sponsor only in the markets they pay for. Works on cached pages; n
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:218
-#: includes/class-simple-google-adsense-upsell.php:731
+#: includes/class-simple-google-adsense-upsell.php:771
 msgid "Ad-blocker message"
 msgstr ""
 
@@ -3022,7 +3565,7 @@ msgstr ""
 #: includes/class-simple-google-adsense-upsell.php:310
 #: includes/class-simple-google-adsense-upsell.php:328
 #: includes/class-simple-google-adsense-upsell.php:347
-#: includes/class-simple-google-adsense-upsell.php:434
+#: includes/class-simple-google-adsense-upsell.php:439
 msgid "Earnings"
 msgstr ""
 
@@ -3075,7 +3618,7 @@ msgid "Which ad unit and which page earn the most"
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:360
-msgid "Your best-performing ad unit, from AdSense's own numbers"
+msgid "A/B tests compared on AdSense's own numbers"
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:361
@@ -3090,441 +3633,483 @@ msgstr ""
 msgid "Read-only access to your AdSense reports. The numbers above are an example, not your data."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:378
+#: includes/class-simple-google-adsense-upsell.php:365
+msgid "Good to know: until one-click sign-in is available, connecting needs your own free Google Cloud project. You set it up once, in about 10 to 15 minutes, with the steps on this screen. Your site needs HTTPS, and Google shows an \"unverified app\" warning for your own project, which you can continue past."
+msgstr ""
+
+#: includes/class-simple-google-adsense-upsell.php:379
 msgid "Reserved height"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:378
+#: includes/class-simple-google-adsense-upsell.php:379
 msgid "Keeps space for the ad so the page does not jump while it loads."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:382
+#: includes/class-simple-google-adsense-upsell.php:383
 msgid "Reserve space and lazy-load this ad for better Core Web Vitals."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:402
-msgid "Target by device, category or search traffic, schedule dates and A/B test ad units."
+#: includes/class-simple-google-adsense-upsell.php:403
+msgid "Target by search traffic or visitor type, schedule dates and A/B test ad units."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:418
+#: includes/class-simple-google-adsense-upsell.php:419
 msgid "Custom date ranges, breakdowns by placement, advertiser and device, CSV export, shareable advertiser reports, expiry emails and sponsor eCPM next to your AdSense RPM."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:435
+#: includes/class-simple-google-adsense-upsell.php:440
 msgid "See it here"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:436
+#: includes/class-simple-google-adsense-upsell.php:441
 msgid "Your AdSense earnings, per ad unit and page, inside WordPress."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:455
+#: includes/class-simple-google-adsense-upsell.php:465
+msgid "Hide"
+msgstr ""
+
+#: includes/class-simple-google-adsense-upsell.php:466
 msgid "Get more from AdSense with Pro"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:456
+#: includes/class-simple-google-adsense-upsell.php:467
 msgid "Know what earns, protect your account, and earn more per visit."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:458
+#: includes/class-simple-google-adsense-upsell.php:469
 msgid "Earnings dashboard in WordPress"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:460
+#: includes/class-simple-google-adsense-upsell.php:471
 msgid "Mid-article, sticky & WooCommerce ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:463
+#: includes/class-simple-google-adsense-upsell.php:474
 msgid "From $49 a year, or $129 once. 14-day money-back guarantee."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:464
+#: includes/class-simple-google-adsense-upsell.php:475
 msgid "See what's in Pro"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:481
-msgid "Not active. Repeated clicks from one visitor are the most common reason AdSense limits accounts."
-msgstr ""
-
-#: includes/class-simple-google-adsense-upsell.php:483
-msgid "Protect with Pro"
-msgstr ""
-
-#: includes/class-simple-google-adsense-upsell.php:523
+#: includes/class-simple-google-adsense-upsell.php:544
 msgid "You have been running AdSense with AdFlow for a few weeks."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:524
+#: includes/class-simple-google-adsense-upsell.php:545
 msgid "AdFlow Pro shows which ads and pages actually earn, protects your account from click abuse and adds higher-earning placements."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:526
+#: includes/class-simple-google-adsense-upsell.php:547
 msgid "See AdFlow Pro"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:527
+#: includes/class-simple-google-adsense-upsell.php:548
 msgid "No thanks"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:560
+#: includes/class-simple-google-adsense-upsell.php:581
 msgid "See your money"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:560
+#: includes/class-simple-google-adsense-upsell.php:581
 msgid "Know which ads, units and pages earn - inside WordPress."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:561
+#: includes/class-simple-google-adsense-upsell.php:582
 msgid "Protect your account"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:561
+#: includes/class-simple-google-adsense-upsell.php:582
 msgid "Reduce the risk of invalid-click limits and policy trouble."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:562
+#: includes/class-simple-google-adsense-upsell.php:583
 msgid "Earn more per visit"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:562
+#: includes/class-simple-google-adsense-upsell.php:583
 msgid "Better placements, smarter targeting, faster pages."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:563
+#: includes/class-simple-google-adsense-upsell.php:584
 msgid "Keep 100% of what sponsors pay, with reports they trust."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:566
+#: includes/class-simple-google-adsense-upsell.php:587
 msgid "Will my free setup keep working?"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:566
+#: includes/class-simple-google-adsense-upsell.php:587
 msgid "Yes. Pro is an add-on: your ad units, placements and settings stay exactly as they are, and everything in the free plugin stays free."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:567
+#: includes/class-simple-google-adsense-upsell.php:588
 msgid "Is it safe for my AdSense account?"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:567
+#: includes/class-simple-google-adsense-upsell.php:588
 msgid "Pro only uses Google's official ad code and read-only reporting access. Click protection stops ads from loading for abusive visitors instead of hiding ads, which AdSense does not allow. No tool can guarantee Google's decisions, but Pro removes the most common risks."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:568
+#: includes/class-simple-google-adsense-upsell.php:589
 msgid "Does it work with page caching and Auto Ads?"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:568
+#: includes/class-simple-google-adsense-upsell.php:589
 msgid "Yes. Device and traffic-source targeting runs in the browser, so it works behind page caches, and Auto Ads keep running alongside your placements."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:569
+#: includes/class-simple-google-adsense-upsell.php:590
 msgid "What if my license expires?"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:569
+#: includes/class-simple-google-adsense-upsell.php:590
 msgid "Pro keeps working. A license gives you updates and priority support."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:570
+#: includes/class-simple-google-adsense-upsell.php:591
 msgid "Yearly or lifetime?"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:570
+#: includes/class-simple-google-adsense-upsell.php:591
 msgid "Yearly plans renew each year and can be cancelled any time. Lifetime plans are paid once and include updates and support for life. Every plan includes every Pro feature."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:571
+#: includes/class-simple-google-adsense-upsell.php:592
 msgid "How do I install it?"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:571
+#: includes/class-simple-google-adsense-upsell.php:592
 msgid "After checkout, download AdFlow Pro from your account, upload it under Plugins → Add New → Upload Plugin and activate your licence key under AdFlow → Settings → License."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:572
+#: includes/class-simple-google-adsense-upsell.php:593
 msgid "Can I get a refund?"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:572
+#: includes/class-simple-google-adsense-upsell.php:593
 msgid "Yes - 14 days, no questions asked."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:576
+#: includes/class-simple-google-adsense-upsell.php:597
 msgid "Upgrade to AdFlow Pro"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:579
+#: includes/class-simple-google-adsense-upsell.php:600
 msgid "AdFlow Pro · for publishers who want more from every page"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:580
-msgid "Earn more from your ads - and keep your AdSense account safe."
+#: includes/class-simple-google-adsense-upsell.php:601
+msgid "Earn more from your ads - and protect your AdSense account."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:581
-msgid "See what every ad and page earns, stop click abuse before it costs you, put ads where they pay the most and sell space to sponsors directly. Everything the leading ad plugins sell as separate add-ons, in one plugin."
+#: includes/class-simple-google-adsense-upsell.php:602
+msgid "See what every ad and page earns, reduce the risk from click abuse, put ads where they pay the most and sell space to sponsors directly. All in one plugin, with no add-ons to buy."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:583
+#: includes/class-simple-google-adsense-upsell.php:604
 msgid "See plans and pricing"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:584
+#: includes/class-simple-google-adsense-upsell.php:605
 msgid "Product tour"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:586
+#: includes/class-simple-google-adsense-upsell.php:607
 msgid "Why it is a safe choice"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:587
+#: includes/class-simple-google-adsense-upsell.php:608
 msgid "Used on 3,000+ sites (free plugin)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:588
-#: includes/class-simple-google-adsense-upsell.php:668
+#: includes/class-simple-google-adsense-upsell.php:609
+#: includes/class-simple-google-adsense-upsell.php:704
 msgid "14-day money-back guarantee"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:589
+#: includes/class-simple-google-adsense-upsell.php:610
 msgid "Your current setup keeps working"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:590
+#: includes/class-simple-google-adsense-upsell.php:611
 msgid "Pro keeps working if a licence expires"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:594
-msgid "AdFlow Pro screens"
+#: includes/class-simple-google-adsense-upsell.php:616
+msgid "Already bought AdFlow Pro?"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:597
-msgid "Your AdSense earnings in WordPress"
+#: includes/class-simple-google-adsense-upsell.php:618
+msgid "Download the AdFlow Pro zip file from your account."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:597
-msgid "Earnings, page RPM, top pages and the winning ad unit - without opening AdSense."
+#: includes/class-simple-google-adsense-upsell.php:619
+msgid "Upload it under Plugins → Add New → Upload Plugin, then activate it. Your ads and settings stay as they are."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:598
-msgid "Visitors who click too often stop receiving ads, before Google limits your account."
+#: includes/class-simple-google-adsense-upsell.php:620
+msgid "Enter your licence key under AdFlow → Settings → License to get updates and support."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:599
-msgid "Sponsors order, upload and pay on your \"Advertise with us\" page. You approve."
+#: includes/class-simple-google-adsense-upsell.php:623
+msgid "Open my account"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:628
-msgid "Every plan includes every Pro feature"
-msgstr ""
-
-#: includes/class-simple-google-adsense-upsell.php:629
-msgid "Plans differ only in the number of sites. Pay yearly, or once for life."
+#: includes/class-simple-google-adsense-upsell.php:625
+msgid "Upload the plugin"
 msgstr ""
 
 #: includes/class-simple-google-adsense-upsell.php:630
+msgid "AdFlow Pro screens"
+msgstr ""
+
+#: includes/class-simple-google-adsense-upsell.php:633
+msgid "Your AdSense earnings in WordPress"
+msgstr ""
+
+#: includes/class-simple-google-adsense-upsell.php:633
+msgid "Earnings, page RPM, top pages and A/B results - without opening AdSense."
+msgstr ""
+
+#: includes/class-simple-google-adsense-upsell.php:634
+msgid "Visitors who click too often stop receiving Google ads. It lowers the risk; no tool can guarantee Google's decisions."
+msgstr ""
+
+#: includes/class-simple-google-adsense-upsell.php:635
+msgid "Sponsors order, upload and pay on your \"Advertise with us\" page. You approve."
+msgstr ""
+
+#: includes/class-simple-google-adsense-upsell.php:664
+msgid "Every plan includes every Pro feature"
+msgstr ""
+
+#: includes/class-simple-google-adsense-upsell.php:665
+msgid "Plans differ only in the number of sites. Pay yearly, or once for life."
+msgstr ""
+
+#: includes/class-simple-google-adsense-upsell.php:666
 msgid "Billing period"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:631
+#: includes/class-simple-google-adsense-upsell.php:667
 msgid "Yearly"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:632
+#: includes/class-simple-google-adsense-upsell.php:668
 msgid "Lifetime · pay once"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:639
+#: includes/class-simple-google-adsense-upsell.php:675
 msgid "Most popular"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:644
+#: includes/class-simple-google-adsense-upsell.php:680
 msgid "once"
 msgstr ""
 
 #. translators: %s: plan name
-#: includes/class-simple-google-adsense-upsell.php:651
+#: includes/class-simple-google-adsense-upsell.php:687
 #, php-format
 msgid "Buy %s"
 msgstr ""
 
 #. translators: %s: plan name
-#: includes/class-simple-google-adsense-upsell.php:658
+#: includes/class-simple-google-adsense-upsell.php:694
 #, php-format
 msgid "Buy %s lifetime"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:665
+#: includes/class-simple-google-adsense-upsell.php:701
 msgid "Yearly plans include updates and priority support for a year and renew automatically; cancel any time."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:666
+#: includes/class-simple-google-adsense-upsell.php:702
 msgid "Lifetime plans are paid once and include updates and priority support for life."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:669
+#: includes/class-simple-google-adsense-upsell.php:705
 msgid "Secure checkout by MantraBrain"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:670
+#: includes/class-simple-google-adsense-upsell.php:706
 msgid "Upgrade any time - pay only the difference"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:675
+#: includes/class-simple-google-adsense-upsell.php:711
 msgid "Compare every Free and Pro feature"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:680
+#: includes/class-simple-google-adsense-upsell.php:716
 msgid "Questions"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:690
+#: includes/class-simple-google-adsense-upsell.php:726
 msgid "Ready to see what your ads really earn?"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:691
+#: includes/class-simple-google-adsense-upsell.php:727
 msgid "From $49 a year, or $129 once. Install Pro next to the free plugin - your ads keep running while you set it up."
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:692
+#: includes/class-simple-google-adsense-upsell.php:728
 msgid "Choose your plan"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:706
+#: includes/class-simple-google-adsense-upsell.php:742
 msgid "Auto Ads with page & post type exclusions"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:707
+#: includes/class-simple-google-adsense-upsell.php:743
 msgid "Turn manual ads off on chosen pages & post types"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:708
+#: includes/class-simple-google-adsense-upsell.php:744
 msgid "Shortcodes, block, widget & reusable ad units"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:709
+#: includes/class-simple-google-adsense-upsell.php:745
 msgid "Automatic placements: before/after content, after paragraph"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:710
+#: includes/class-simple-google-adsense-upsell.php:746
+msgid "Repeatable in-content ads: after paragraph N, every N paragraphs, before or after an HTML element"
+msgstr ""
+
+#: includes/class-simple-google-adsense-upsell.php:747
+msgid "Placement conditions: device, category, tag, specific posts, language"
+msgstr ""
+
+#: includes/class-simple-google-adsense-upsell.php:748
+msgid "Per-post box: no ads, no Auto Ads or no manual ads"
+msgstr ""
+
+#: includes/class-simple-google-adsense-upsell.php:749
+msgid "Elementor and Bricks elements, WPML and Polylang support"
+msgstr ""
+
+#: includes/class-simple-google-adsense-upsell.php:750
 msgid "ads.txt manager & live checker"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:711
+#: includes/class-simple-google-adsense-upsell.php:751
 msgid "Health Check & on-page Ad Inspector"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:712
+#: includes/class-simple-google-adsense-upsell.php:752
 msgid "Ad label & custom code units for other networks"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:713
+#: includes/class-simple-google-adsense-upsell.php:753
 msgid "Your own ads: image banners & text ads with sponsored links, schedule & AdSense fallback"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:714
+#: includes/class-simple-google-adsense-upsell.php:754
 msgid "Cookieless impression, viewable (IAB/MRC) & click stats for your own ads, cache-proof"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:715
+#: includes/class-simple-google-adsense-upsell.php:755
 msgid "Rotation groups (weighted or in order), cache-proof"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:716
+#: includes/class-simple-google-adsense-upsell.php:756
 msgid "Roles & permissions, approval workflow, \"Will this ad show?\" checks, failsafe rendering"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:717
+#: includes/class-simple-google-adsense-upsell.php:757
 msgid "One-click import from Advanced Ads, Ad Inserter, AdRotate & WP QUADS (old shortcodes keep working)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:718
+#: includes/class-simple-google-adsense-upsell.php:758
 msgid "Google Consent Mode v2 & load ads after consent (TCF v2.2, WP Consent API)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:719
+#: includes/class-simple-google-adsense-upsell.php:759
 msgid "AdSense earnings dashboard & dashboard widget"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:720
-msgid "Per-unit and per-page earnings, A/B winner"
+#: includes/class-simple-google-adsense-upsell.php:760
+msgid "Per-unit and per-page earnings, A/B comparison"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:722
+#: includes/class-simple-google-adsense-upsell.php:762
 msgid "Mid-article (X%), between posts, before comments, sticky anchor, WooCommerce"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:723
-msgid "Targeting: device, category, search traffic, visitor type, post age"
+#: includes/class-simple-google-adsense-upsell.php:763
+msgid "Targeting: search traffic, visitor type, post age"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:724
+#: includes/class-simple-google-adsense-upsell.php:764
 msgid "Scheduling (start / end dates)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:725
+#: includes/class-simple-google-adsense-upsell.php:765
 msgid "Country targeting for sponsors, cache-proof, on any host"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:726
+#: includes/class-simple-google-adsense-upsell.php:766
 msgid "Self-serve ad sales: packages, advertiser upload, your payment link, approval"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:727
+#: includes/class-simple-google-adsense-upsell.php:767
 msgid "Popup (sponsor ads) & sticky sidebar formats"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:728
+#: includes/class-simple-google-adsense-upsell.php:768
 msgid "Google Ad Manager (GPT) units with sizes & key-values"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:729
+#: includes/class-simple-google-adsense-upsell.php:769
 msgid "Lazy loading & reserved height (Core Web Vitals)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:730
-msgid "Max manual ads per page & per-post ad controls"
+#: includes/class-simple-google-adsense-upsell.php:770
+msgid "Max manual ads per page"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:733
+#: includes/class-simple-google-adsense-upsell.php:773
 msgid "Sponsor reports: custom dates, placements, devices, advertisers, CSV"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:734
+#: includes/class-simple-google-adsense-upsell.php:774
 msgid "Shareable advertiser report links, weekly/monthly advertiser emails & expiry reminders"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:735
+#: includes/class-simple-google-adsense-upsell.php:775
 msgid "Sponsor eCPM next to your AdSense RPM"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:736
+#: includes/class-simple-google-adsense-upsell.php:776
 msgid "Frequency capping & dayparting for your own ads"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:737
+#: includes/class-simple-google-adsense-upsell.php:777
 msgid "Activity log (who changed what, when)"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:738
+#: includes/class-simple-google-adsense-upsell.php:778
 msgid "REST API & WP-CLI for reports and automation"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:739
+#: includes/class-simple-google-adsense-upsell.php:779
 msgid "Priority support"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:745
+#: includes/class-simple-google-adsense-upsell.php:785
 msgid "Feature"
 msgstr ""
 
-#: includes/class-simple-google-adsense-upsell.php:746
+#: includes/class-simple-google-adsense-upsell.php:786
 msgid "Free"
 msgstr ""
 
 #: includes/class-simple-google-adsense-widget.php:29
-#: blocks/adsense-ad/index.js:174
+#: includes/integrations/class-simple-google-adsense-bricks-element.php:51
+#: includes/integrations/class-simple-google-adsense-elementor-widget.php:36
+#: blocks/adsense-ad/index.js:186
 msgid "AdFlow Ad"
 msgstr ""
 
@@ -3556,75 +4141,93 @@ msgstr ""
 msgid "Unserializing instances of this class is forbidden."
 msgstr ""
 
-#: blocks/adsense-ad/index.js:63
+#: includes/integrations/class-simple-google-adsense-elementor-widget.php:93
+msgid "Create ad units under AdFlow → Ad Units."
+msgstr ""
+
+#. translators: %s: ad unit name
+#: includes/integrations/class-simple-google-adsense-integrations.php:63
+#, php-format
+msgid "AdFlow ad: %s"
+msgstr ""
+
+#: includes/integrations/class-simple-google-adsense-integrations.php:65
+msgid "AdFlow ad: choose an ad unit."
+msgstr ""
+
+#: blocks/adsense-ad/index.js:72
 msgid "- Enter the ad manually -"
 msgstr ""
 
-#: blocks/adsense-ad/index.js:79
+#: blocks/adsense-ad/index.js:88
 msgid "Ad Slot ID"
 msgstr ""
 
-#: blocks/adsense-ad/index.js:82
+#: blocks/adsense-ad/index.js:91
 msgid "Enter your Google AdSense ad slot ID (e.g., 1234567890). Get this from your AdSense account under \"Ads\" → \"By ad unit\". Replace the example with your actual Ad Slot ID."
 msgstr ""
 
-#: blocks/adsense-ad/index.js:87
+#: blocks/adsense-ad/index.js:96
 msgid "Ad Type"
 msgstr ""
 
-#: blocks/adsense-ad/index.js:91
-msgid "For Google's exact in-article or multiplex code, save the ad under AdFlow → Ad Units and pick it above."
+#: blocks/adsense-ad/index.js:101
+msgid "Match the type of the unit you created in AdSense."
 msgstr ""
 
-#: blocks/adsense-ad/index.js:101
+#: blocks/adsense-ad/index.js:102
+msgid "This block was saved with an older version and prints a display ad. Choose the type again to use Google's code for it."
+msgstr ""
+
+#: blocks/adsense-ad/index.js:112
 msgid "Copy data-ad-layout-key from your in-feed ad code. Required for in-feed ads."
 msgstr ""
 
-#: blocks/adsense-ad/index.js:110
+#: blocks/adsense-ad/index.js:122
 msgid "Ad Format"
 msgstr ""
 
-#: blocks/adsense-ad/index.js:117
+#: blocks/adsense-ad/index.js:129
 msgid "Full Width Responsive"
 msgstr ""
 
-#: blocks/adsense-ad/index.js:120
+#: blocks/adsense-ad/index.js:132
 msgid "Enable responsive ad sizing."
 msgstr ""
 
-#: blocks/adsense-ad/index.js:130
+#: blocks/adsense-ad/index.js:142
 msgid "Ad unit: "
 msgstr ""
 
-#: blocks/adsense-ad/index.js:131
+#: blocks/adsense-ad/index.js:143
 msgid "Ad unit #"
 msgstr ""
 
-#: blocks/adsense-ad/index.js:133
+#: blocks/adsense-ad/index.js:145
 msgid "Ad Slot: "
 msgstr ""
 
-#: blocks/adsense-ad/index.js:134
+#: blocks/adsense-ad/index.js:146
 msgid "Type: "
 msgstr ""
 
-#: blocks/adsense-ad/index.js:134
+#: blocks/adsense-ad/index.js:146
 msgid "Format: "
 msgstr ""
 
-#: blocks/adsense-ad/index.js:136
+#: blocks/adsense-ad/index.js:148
 msgid "⚠️ Choose an ad unit or enter an Ad Slot ID in the block settings"
 msgstr ""
 
-#: blocks/adsense-ad/index.js:142
+#: blocks/adsense-ad/index.js:154
 msgid "Ad settings"
 msgstr ""
 
-#: blocks/adsense-ad/index.js:151
+#: blocks/adsense-ad/index.js:163
 msgid "Pick a saved unit from AdFlow → Ad Units, or enter the ad manually below."
 msgstr ""
 
-#: blocks/adsense-ad/index.js:174
+#: blocks/adsense-ad/index.js:186
 msgid "AdSense Ad"
 msgstr ""
 

@@ -62,6 +62,7 @@ final class Simple_Google_Adsense_Inspector
     private function is_available()
     {
         return !is_admin() && is_admin_bar_showing() && current_user_can(Simple_Google_Adsense_Caps::ACCESS)
+            && !Simple_Google_Adsense_Settings::is_amp()
             && apply_filters('adflow_inspector_enabled', true);
     }
 
@@ -138,7 +139,9 @@ final class Simple_Google_Adsense_Inspector
                 'summary' => __('AdFlow: %1$d ad(s) on this page, %2$d unfilled, %3$d not requested.', 'simple-google-adsense'),
                 'none' => __('AdFlow: no ads on this page.', 'simple-google-adsense'),
                 'hidden' => __('Ads are hidden for administrators (AdFlow → Settings). Log out or use a private window to see them.', 'simple-google-adsense'),
-                'excluded' => __('Manual ads are turned off on this page (AdFlow → Settings → General, or the AdFlow Ads box in the editor).', 'simple-google-adsense'),
+                'excluded' => Simple_Google_Adsense_Settings::is_pro_active()
+                    ? __('Manual ads are turned off on this page (AdFlow → Settings → General, or the AdFlow Ads box in the editor).', 'simple-google-adsense')
+                    : __('Manual ads are turned off on this page (AdFlow → Settings → General).', 'simple-google-adsense'),
             ),
         ));
     }

@@ -282,7 +282,7 @@ final class Simple_Google_Adsense_Manual_Ads
             );
         }
 
-        // Switched off on this page (Settings → General → Manual ads → Turn off on,
+        // Switched off on this page (Settings → General → Manual ads → Pages without manual ads,
         // or Pro's per-page checkbox). Nothing is output, not even a notice:
         // the owner chose this page to be ad-free.
         if (Simple_Google_Adsense_Settings::is_manual_ads_excluded()) {
@@ -301,6 +301,11 @@ final class Simple_Google_Adsense_Manual_Ads
         // Types added by an add-on (e.g. Pro's Google Ad Manager units).
         if (!in_array($unit['type'], Simple_Google_Adsense_Ad_Units::adsense_types(), true)) {
             if (!Simple_Google_Adsense_Settings::ads_allowed() || !apply_filters('adflow_should_display_ad', true, $unit, $context)) {
+                return '';
+            }
+
+            // Add-on types print scripts AMP does not allow.
+            if (Simple_Google_Adsense_Settings::is_amp()) {
                 return '';
             }
 
@@ -354,10 +359,22 @@ final class Simple_Google_Adsense_Manual_Ads
             return '';
         }
 
+        // AMP has no way to hold an ad until consent: leave it out.
+        if (Simple_Google_Adsense_Settings::is_amp() && Simple_Google_Adsense_Consent::waits()) {
+            return '';
+        }
+
         $ad_client = !empty($unit['ad_client']) ? $unit['ad_client'] : $publisher_ad_client;
 
-        // Load the AdSense library and styles for this page.
-        Simple_Google_Adsense_Frontend::enqueue_ad_assets($ad_client);
+        // Load the AdSense library and styles for this page. A fallback that may
+        // never show (see render_scheduled()) loads the library itself, if shown.
+        if (empty($context['lazy_library'])) {
+            Simple_Google_Adsense_Frontend::enqueue_ad_assets($ad_client);
+        } else {
+            Simple_Google_Adsense_Frontend::register_assets_once();
+            Simple_Google_Adsense_Frontend::register_library($ad_client);
+            wp_enqueue_style(Simple_Google_Adsense_Frontend::STYLE_HANDLE);
+        }
 
         $ins = array(
             'class' => 'adsbygoogle',
@@ -439,19 +456,23 @@ final class Simple_Google_Adsense_Manual_Ads
             $output .= '<span class="adflow-ad-label">' . esc_html($label) . '</span>';
         }
 
-        $output .= '<ins' . self::build_attributes($ins) . '></ins>';
+        if (Simple_Google_Adsense_Settings::is_amp()) {
+            $output .= Simple_Google_Adsense_Amp::ad_element($ins);
+        } else {
+            $output .= '<ins' . self::build_attributes($ins) . '></ins>';
 
-        /**
-         * Filters whether the inline `adsbygoogle.push()` is printed. Pro's lazy
-         * loading turns it off and pushes when the ad scrolls into view.
-         *
-         * @param bool $inline_push
-         * @param array $unit
-         * @param array $context
-         * @since 1.4.0
-         */
-        if (apply_filters('adflow_ad_inline_push', true, $unit, $context)) {
-            $output .= '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
+            /**
+             * Filters whether the inline `adsbygoogle.push()` is printed. Pro's lazy
+             * loading turns it off and pushes when the ad scrolls into view.
+             *
+             * @param bool $inline_push
+             * @param array $unit
+             * @param array $context
+             * @since 1.4.0
+             */
+            if (apply_filters('adflow_ad_inline_push', true, $unit, $context)) {
+                $output .= '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
+            }
         }
 
         $output .= '</div>';
@@ -493,6 +514,10 @@ final class Simple_Google_Adsense_Manual_Ads
      */
     private static function render_group($unit, $context)
     {
+        if (Simple_Google_Adsense_Settings::is_amp()) {
+            return self::render_group_amp($unit, $context);
+        }
+
         $templates = '';
         $member_context = array_merge($context, array('group' => (int) $unit['id'], 'template' => true));
 
@@ -526,6 +551,49 @@ final class Simple_Google_Adsense_Manual_Ads
     }
 
     /**
+     * AMP allows no rotation script: the server picks one member by weight.
+     *
+     * @param array $unit Group unit.
+     * @param array $context Context.
+     * @return string
+     * @since 1.6.0
+     */
+    private static function render_group_amp($unit, $context)
+    {
+        $members = array_values((array) $unit['members']);
+
+        while ($members) {
+            $total = 0;
+            foreach ($members as $member) {
+                $total += max(1, isset($member['weight']) ? (int) $member['weight'] : 1);
+            }
+
+            $roll = wp_rand(1, $total);
+            $chosen = 0;
+            foreach ($members as $i => $member) {
+                $roll -= max(1, isset($member['weight']) ? (int) $member['weight'] : 1);
+                if ($roll <= 0) {
+                    $chosen = $i;
+                    break;
+                }
+            }
+
+            $child = Simple_Google_Adsense_Ad_Units::get(isset($members[$chosen]['id']) ? $members[$chosen]['id'] : 0);
+            array_splice($members, $chosen, 1);
+
+            if ($child && 'group' !== $child['type']) {
+                $html = self::render_unit($child, $context);
+
+                if ('' !== $html) {
+                    return $html;
+                }
+            }
+        }
+
+        return '';
+    }
+
+    /**
      * Render one of your own ads (image banner, text ad, custom code).
      *
      * Markup uses neutral class names (afx-*) so ad blockers' generic rules
@@ -540,11 +608,35 @@ final class Simple_Google_Adsense_Manual_Ads
     {
         $Units = 'Simple_Google_Adsense_Ad_Units';
 
-        // Outside its schedule: show the fallback AdSense unit, or nothing.
-        if ('running' !== $Units::status($unit)) {
-            $fallback = !empty($unit['fallback_id']) ? $Units::get($unit['fallback_id']) : null;
+        $status = $Units::status($unit);
+        $amp = Simple_Google_Adsense_Settings::is_amp();
+        $fallback = !empty($unit['fallback_id']) ? $Units::get($unit['fallback_id']) : null;
+        $fallback = $fallback && !$Units::is_own_ad($fallback['type']) ? $fallback : null;
+        $schedule = $Units::schedule($unit);
+        // Nothing runs a script on an AMP page or in a feed reader: the server decides.
+        $server_decides = $amp || is_feed();
 
-            return $fallback && !$Units::is_own_ad($fallback['type']) ? self::render_unit($fallback, $context) : '';
+        if (empty($context['scheduled_pass']) && !$server_decides) {
+            // Starts later: a cached copy of this page may still be served by then,
+            // so the browser decides between the ad and its fallback.
+            if ('scheduled' === $status && ($fallback || empty($context['template']))) {
+                return self::render_scheduled($unit, $context, $schedule, $fallback);
+            }
+
+            // Inside a rotation group: the fallback has to travel with the ad.
+            if ('running' === $status && $schedule['end'] && $fallback && !empty($context['template'])) {
+                return self::render_scheduled($unit, $context, $schedule, $fallback);
+            }
+        }
+
+        // Has ended (nothing can bring it back without a save, which purges
+        // caches), or an AMP page, where the server has to decide: show the
+        // fallback AdSense unit, or nothing. A member of a rotation group that
+        // starts later stays in the group, which skips it until then.
+        $waiting_member = 'scheduled' === $status && !empty($context['template']) && !$server_decides;
+
+        if ('running' !== $status && !$waiting_member && empty($context['scheduled_pass'])) {
+            return $fallback ? self::render_unit($fallback, $context) : '';
         }
 
         $missing = '';
@@ -642,9 +734,14 @@ final class Simple_Google_Adsense_Manual_Ads
         // Other networks' code is held back while anything in the browser may
         // still decide against showing it (consent, schedule, days/hours, cap,
         // country): it must never load and then be hidden.
-        if ('custom' === $unit['type'] && '' !== trim($inner)) {
+        if ('custom' === $unit['type'] && $amp && (Simple_Google_Adsense_Consent::waits() || false === stripos($inner, '<amp-'))) {
+            // Only code written for AMP survives on an AMP page.
+            return '';
+        }
+
+        if ('custom' === $unit['type'] && '' !== trim($inner) && !$amp) {
             $consent = Simple_Google_Adsense_Consent::waits();
-            $rules = array_intersect_key($wrapper, array_flip(array('data-afx-s', 'data-afx-e', 'data-afx-days', 'data-afx-hours', 'data-afx-cap', 'data-afx-geo')));
+            $rules = array_intersect_key($wrapper, array_flip(array('data-afx-s', 'data-afx-e', 'data-afx-days', 'data-afx-hours', 'data-afx-cap', 'data-afx-geo', 'data-adflow-device')));
 
             if ($consent || $rules) {
                 $inner = '<template class="afx-wait">' . $inner . '</template>';
@@ -672,7 +769,77 @@ final class Simple_Google_Adsense_Manual_Ads
         }
 
         /** This filter is documented in render_unit(). */
-        return apply_filters('adflow_ad_markup', $output, $unit, $context);
+        $output = apply_filters('adflow_ad_markup', $output, $unit, $context);
+
+        // A cached copy may outlive the campaign: keep its fallback ready, inert.
+        if (!$server_decides && $fallback && $schedule['end'] && 'running' === $status && '' !== $output && empty($context['scheduled_pass'])) {
+            $output .= '<template class="afx-sch-fb">' . self::render_fallback_template($fallback, $context) . '</template>';
+        }
+
+        return $output;
+    }
+
+    /**
+     * An ad that starts later, for pages a cache may keep: the ad and its
+     * fallback sit inert in <template> and fx.js shows the right one for the
+     * visitor's moment. Nothing is loaded for the one not shown.
+     *
+     * @param array $unit Unit.
+     * @param array $context Context.
+     * @param array $schedule start, end.
+     * @param array|null $fallback Fallback unit.
+     * @return string
+     * @since 1.6.0
+     */
+    private static function render_scheduled($unit, $context, $schedule, $fallback)
+    {
+        $ad = self::render_own_unit($unit, array_merge($context, array('template' => true, 'scheduled_pass' => true)));
+        $alt = $fallback ? self::render_fallback_template($fallback, $context) : '';
+
+        if ('' === $ad && '' === $alt) {
+            return '';
+        }
+
+        Simple_Google_Adsense_Frontend::enqueue_own_ad_assets();
+
+        $wrapper = array('class' => 'afx-sched');
+        if ($schedule['start']) {
+            $wrapper['data-afx-from'] = $schedule['start'];
+        }
+        if ($schedule['end']) {
+            $wrapper['data-afx-to'] = $schedule['end'];
+        }
+
+        return '<div' . self::build_attributes($wrapper) . '>'
+            . ('' !== $ad ? '<template class="afx-sch-ad">' . $ad . '</template>' : '')
+            . ('' !== $alt ? '<template class="afx-sch-fb">' . $alt . '</template>' : '')
+            . '</div>';
+    }
+
+    /**
+     * Fallback markup for a template, with its own loader for the AdSense
+     * library so that pages where it never shows do not load Google's script.
+     *
+     * @param array $fallback Fallback unit.
+     * @param array $context Context.
+     * @return string
+     * @since 1.6.0
+     */
+    private static function render_fallback_template($fallback, $context)
+    {
+        unset($context['scheduled_pass']);
+
+        $html = self::render_unit($fallback, array_merge($context, array('template' => true, 'lazy_library' => true)));
+
+        if (false === strpos($html, 'adsbygoogle') || !wp_script_is(Simple_Google_Adsense_Frontend::LIBRARY_HANDLE, 'registered')) {
+            return $html;
+        }
+
+        $handle = Simple_Google_Adsense_Frontend::LIBRARY_HANDLE;
+        $src = wp_scripts()->registered[$handle]->src;
+
+        // Through the usual filter, so Pro's click protection can still withhold it.
+        return apply_filters('script_loader_tag', Simple_Google_Adsense_Consent::deferred_script($src, $handle . '-js'), $handle, $src) . $html;
     }
 
     /**
@@ -849,10 +1016,17 @@ final class Simple_Google_Adsense_Manual_Ads
         $layout_key = isset($attributes['layoutKey']) ? $attributes['layoutKey'] : '';
 
         // Before 1.4.0 the block's type setting did not change the markup; keep
-        // that, unless the new in-feed layout key is filled in.
+        // that, unless the new in-feed layout key is filled in or the block was
+        // set up since 1.6.0 (typedMarkup), which gets Google's code for its type.
+        $type = ('infeed' === $ad_type && '' !== trim((string) $layout_key)) ? 'infeed' : 'display';
+
+        if (!empty($attributes['typedMarkup']) && in_array(Simple_Google_Adsense_Ad_Units::normalize_type($ad_type), array('inarticle', 'multiplex'), true)) {
+            $type = Simple_Google_Adsense_Ad_Units::normalize_type($ad_type);
+        }
+
         return self::render_unit(array(
             'slot' => $ad_slot,
-            'type' => ('infeed' === $ad_type && '' !== trim((string) $layout_key)) ? 'infeed' : 'display',
+            'type' => $type,
             'format' => $ad_format,
             'layout_key' => $layout_key,
             'full_width_responsive' => (bool) $full_width_responsive,

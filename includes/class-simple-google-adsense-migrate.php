@@ -39,6 +39,11 @@ final class Simple_Google_Adsense_Migrate
     const REPORT_OPTION = 'adflow_import_report';
 
     /**
+     * Ad Inserter's rotation separators, current and legacy.
+     */
+    const ADINSERTER_ROTATE = '/\[adinserter\s+rotate\b[^\]]*\]|\|rotate\d*\|/i';
+
+    /**
      * Post meta marking where an imported unit came from ("advads:ad:45").
      */
     const ORIGIN_META = '_adflow_imported_from';
@@ -520,6 +525,10 @@ final class Simple_Google_Adsense_Migrate
     {
         // Insertion types => AdFlow placement.
         $insertion = array(
+            // "Before post" and "After post" sit around the post title and footer;
+            // the nearest AdFlow places are just inside the content.
+            1 => 'before_content',
+            2 => 'after_content',
             3 => 'before_content',
             4 => 'after_content',
             5 => 'after_paragraph',
@@ -533,10 +542,10 @@ final class Simple_Google_Adsense_Migrate
             $name = !empty($block['name']) ? $block['name'] : sprintf(__('Ad Inserter block %d', 'simple-google-adsense'), $number);
             $code = (string) $block['code'];
 
-            if (false !== strpos($code, '|rotate|')) {
+            if (preg_match(self::ADINSERTER_ROTATE, $code)) {
                 $this->import_adinserter_rotation($number, $name, $code, $block);
             } else {
-                $data = $this->from_code($code, $name, 'adinserter');
+                $data = $this->from_code($this->adinserter_clean_code($code, $name), $name, 'adinserter');
 
                 if (!$data) {
                     continue;
@@ -559,6 +568,14 @@ final class Simple_Google_Adsense_Migrate
             $key = isset($insertion[$display]) ? $insertion[$display] : '';
             $extra = array();
             $post_types = array();
+
+            if (in_array($display, array(1, 2), true)) {
+                $this->note(sprintf(
+                    /* translators: %s: block name */
+                    __('"%s" sat outside the post content (before or after the post). AdFlow placed it at the nearest spot inside the content.', 'simple-google-adsense'),
+                    $name
+                ));
+            }
 
             if (!isset($block['display_on_posts']) || !empty($block['display_on_posts'])) {
                 $post_types[] = 'post';
@@ -597,7 +614,10 @@ final class Simple_Google_Adsense_Migrate
     }
 
     /**
-     * An Ad Inserter block with |rotate| becomes one ad per option plus a group.
+     * An Ad Inserter block with rotation becomes one ad per option plus a group.
+     *
+     * Ad Inserter writes `[ADINSERTER ROTATE name="" share=""]` between options,
+     * or the older `|rotate|`.
      *
      * @param int $number Block number.
      * @param string $name Name.
@@ -608,9 +628,17 @@ final class Simple_Google_Adsense_Migrate
     private function import_adinserter_rotation($number, $name, $code, $block)
     {
         $members = array();
+        $options = self::adinserter_rotation_options($code);
 
-        foreach (preg_split('/\|rotate\|/', $code) as $i => $part) {
-            $part = trim(preg_replace('/^\{[^}]*\}/', '', trim($part)));
+        // Options without a share divide what is left of 100%, as in Ad Inserter.
+        $shared = array_sum(array_column($options, 'share'));
+        $open = count(array_filter($options, function ($option) {
+            return 0 === $option['share'];
+        }));
+        $rest = $open ? (int) floor(max(0, 100 - $shared) / $open) : 0;
+
+        foreach ($options as $i => $option) {
+            $part = $this->adinserter_clean_code(trim(preg_replace('/^\{[^}]*\}/', '', trim($option['code']))), $name);
 
             if ('' === $part) {
                 continue;
@@ -619,13 +647,76 @@ final class Simple_Google_Adsense_Migrate
             $data = $this->from_code($part, $name, 'adinserter');
 
             if ($data) {
-                /* translators: 1: block name, 2: option number */
-                $this->create('adinserter', 'block:' . $number . ':' . $i, sprintf(__('%1$s - option %2$d', 'simple-google-adsense'), $name, $i + 1), $data, 'publish');
-                $members[] = array('src' => 'block:' . $number . ':' . $i, 'weight' => 1);
+                $title = '' !== $option['name']
+                    /* translators: 1: block name, 2: option name */
+                    ? sprintf(__('%1$s - %2$s', 'simple-google-adsense'), $name, $option['name'])
+                    /* translators: 1: block name, 2: option number */
+                    : sprintf(__('%1$s - option %2$d', 'simple-google-adsense'), $name, $i + 1);
+                $this->create('adinserter', 'block:' . $number . ':' . $i, $title, $data, 'publish');
+                $members[] = array('src' => 'block:' . $number . ':' . $i, 'weight' => $option['share'] ? $option['share'] : max(1, $rest));
             }
         }
 
         $this->create_group('adinserter', 'block:' . $number, $name, $members, 'weighted', empty($block['disable_insertion']) ? 'publish' : 'draft');
+    }
+
+    /**
+     * Split Ad Inserter rotation code into its options.
+     *
+     * @param string $code Block code.
+     * @return array[] Each: code, name, share (0 = not set).
+     * @since 1.6.0
+     */
+    public static function adinserter_rotation_options($code)
+    {
+        $options = array();
+        $offset = 0;
+        $current = array('name' => '', 'share' => 0);
+        $code = (string) $code;
+
+        preg_match_all(self::ADINSERTER_ROTATE, $code, $matches, PREG_OFFSET_CAPTURE);
+
+        foreach ($matches[0] as $match) {
+            $options[] = $current + array('code' => substr($code, $offset, $match[1] - $offset));
+            $offset = $match[1] + strlen($match[0]);
+            $atts = shortcode_parse_atts(trim($match[0], '[]|'));
+            $share = is_array($atts) && isset($atts['share']) && is_numeric($atts['share']) ? (int) $atts['share'] : 0;
+            $current = array(
+                'name' => is_array($atts) && isset($atts['name']) ? sanitize_text_field($atts['name']) : '',
+                'share' => max(0, min(100, $share)),
+            );
+        }
+
+        $options[] = $current + array('code' => substr($code, $offset));
+
+        // Text before the first separator is an option only when there is some.
+        if ('' === trim($options[0]['code'])) {
+            array_shift($options);
+        }
+
+        return array_values($options);
+    }
+
+    /**
+     * Remove Ad Inserter's own tokens, which would print as text on the page.
+     *
+     * @param string $code Code.
+     * @param string $name Block name, for the import report.
+     * @return string
+     * @since 1.6.0
+     */
+    private function adinserter_clean_code($code, $name)
+    {
+        // Code after a count or AMP separator is for another situation: the first part is the ad.
+        $parts = preg_split('/\[ADINSERTER\s+(?:COUNT|AMP)\b[^\]]*\]|\|(?:count|amp)\|/i', (string) $code);
+        $clean = trim(preg_replace('/\[ADINSERTER\b[^\]]*\]/', '', $parts[0]));
+
+        if ($clean !== trim((string) $code)) {
+            /* translators: %s: block name */
+            $this->note(sprintf(__('"%s" used Ad Inserter features AdFlow does not have (such as [ADINSERTER COUNT] or [ADINSERTER AMP]). Only its main ad code was imported.', 'simple-google-adsense'), $name));
+        }
+
+        return $clean;
     }
 
     /**
@@ -1036,10 +1127,13 @@ final class Simple_Google_Adsense_Migrate
             // settings-form sanitizer, which would read missing checkboxes as "off".
             $settings = Simple_Google_Adsense_Settings::get_all();
             $settings['publisher_id'] = $pub;
+            // An import brings over what the old plugin showed. It must not start
+            // Google's Auto Ads across the site.
+            $settings['enable_auto_ads'] = false;
             remove_all_filters('sanitize_option_' . Simple_Google_Adsense_Settings::OPTION_NAME);
             update_option(Simple_Google_Adsense_Settings::OPTION_NAME, $settings);
             /* translators: %s: publisher ID */
-            $this->note(sprintf(__('Your AdSense publisher ID %s was imported into Settings.', 'simple-google-adsense'), $pub));
+            $this->note(sprintf(__('Your AdSense publisher ID %s was imported into Settings. Auto Ads stay off; turn them on under Settings → General if you want them.', 'simple-google-adsense'), $pub));
             $current = $pub;
         }
 
@@ -1185,6 +1279,12 @@ final class Simple_Google_Adsense_Migrate
 
             if (!empty($current['enabled']) && !empty($current['ad_id'])) {
                 $row['result'] = (int) $current['ad_id'] === (int) $unit_id ? 'done' : 'taken';
+
+                // After-paragraph is repeatable now: a second one becomes an extra in-content ad.
+                if ('taken' === $row['result'] && 'after_paragraph' === $key) {
+                    $added = Simple_Google_Adsense_Content_Slots::add(array_merge(array('enabled' => true, 'ad_id' => (int) $unit_id, 'mode' => 'after', 'min_paragraphs' => 0), $extra));
+                    $row['result'] = '' !== $added ? 'done' : 'taken';
+                }
             } else {
                 $stored[$key] = array_merge(Simple_Google_Adsense_Placements::placement_defaults(), $current, array('enabled' => true, 'ad_id' => (int) $unit_id), $extra);
                 $stored[$key]['post_types'] = isset($stored[$key]['post_types']) ? array_values((array) $stored[$key]['post_types']) : array('post');
@@ -1232,6 +1332,9 @@ final class Simple_Google_Adsense_Migrate
             max(0, $impressions),
             max(0, $clicks)
         ));
+
+        // Imported rows change past days.
+        Simple_Google_Adsense_Stats::flush_report_cache();
 
         $this->log['stats']++;
     }
@@ -1501,7 +1604,7 @@ final class Simple_Google_Adsense_Migrate
             __('Bring your ads, rotation groups, placements and statistics over in one click. The other plugin does not need to be active, nothing in it is changed, and importing again never creates duplicates.', 'simple-google-adsense')
         );
         ?>
-        <table class="widefat striped adflow-table">
+        <table class="widefat striped adflow-table adflow-table--stack">
             <thead>
                 <tr>
                     <th scope="col"><?php esc_html_e('Plugin', 'simple-google-adsense'); ?></th>

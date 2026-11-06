@@ -76,12 +76,12 @@ final class Simple_Google_Adsense_Upsell
         add_action('admin_menu', array($this, 'add_earnings_preview'), 20);
         add_action('adflow_ad_unit_fields', array($this, 'ad_unit_teaser'));
         add_action('adflow_placement_settings_fields', array($this, 'placement_teaser'), 20, 3);
-        add_filter('adflow_health_checks', array($this, 'health_checks'), 20);
         add_action('admin_notices', array($this, 'milestone_notice'));
         add_filter('adflow_dashboard_cards', array($this, 'dashboard_card'));
         add_action('adflow_reports_after', array($this, 'reports_teaser'));
         add_action('adflow_dashboard_sidebar', array($this, 'dashboard_upgrade_card'));
         add_action('admin_post_adflow_dismiss_pro_notice', array($this, 'dismiss_notice'));
+        add_action('admin_post_adflow_dismiss_pro_card', array($this, 'dismiss_card'));
     }
 
     /**
@@ -144,25 +144,25 @@ final class Simple_Google_Adsense_Upsell
                 'pillar' => 'see',
                 'icon' => 'chart-bar',
                 'title' => __('AdSense earnings in WordPress', 'simple-google-adsense'),
-                'benefit' => __('Today, yesterday, this month, page RPM and top-earning pages - without logging in to AdSense.', 'simple-google-adsense'),
+                'benefit' => __('Today, yesterday, this month, page RPM and top-earning pages - without logging in to AdSense. Connecting needs your own free Google Cloud project, set up once.', 'simple-google-adsense'),
             ),
             'ab' => array(
                 'pillar' => 'see',
                 'icon' => 'randomize',
                 'title' => __('A/B tests judged by real earnings', 'simple-google-adsense'),
-                'benefit' => __('Rotate ad units and see which one earns more, using AdSense\'s own numbers.', 'simple-google-adsense'),
+                'benefit' => __('Rotate ad units, also on cached pages, and compare them on AdSense\'s own numbers. A winner is only named when the gap is larger than chance.', 'simple-google-adsense'),
             ),
             'click_protection' => array(
                 'pillar' => 'protect',
                 'icon' => 'shield',
                 'title' => __('Invalid-click protection', 'simple-google-adsense'),
-                'benefit' => __('Visitors who click too often stop seeing ads - the most common cause of AdSense limits and bans.', 'simple-google-adsense'),
+                'benefit' => __('Visitors who click too often stop seeing ads, which lowers the risk of invalid-click limits on your account.', 'simple-google-adsense'),
             ),
             'limits' => array(
                 'pillar' => 'protect',
                 'icon' => 'editor-ol',
-                'title' => __('Ad limits & per-post control', 'simple-google-adsense'),
-                'benefit' => __('Cap ads per page and switch ads off on any post with one tick.', 'simple-google-adsense'),
+                'title' => __('Ad limits', 'simple-google-adsense'),
+                'benefit' => __('Cap the number of manual ads on any page.', 'simple-google-adsense'),
             ),
             'placements' => array(
                 'pillar' => 'earn',
@@ -174,7 +174,7 @@ final class Simple_Google_Adsense_Upsell
                 'pillar' => 'earn',
                 'icon' => 'filter',
                 'title' => __('Targeting & scheduling', 'simple-google-adsense'),
-                'benefit' => __('Show ads by device, category, search traffic, visitor type, post age or date range. Cache-friendly.', 'simple-google-adsense'),
+                'benefit' => __('Show ads by search traffic, visitor type, post age or date range, on top of the free device and category rules. Cache-friendly.', 'simple-google-adsense'),
             ),
             'formats' => array(
                 'pillar' => 'earn',
@@ -357,11 +357,12 @@ final class Simple_Google_Adsense_Upsell
                     <ul class="adflow-ticks">
                         <li><?php esc_html_e('Earnings today, this month and by day', 'simple-google-adsense'); ?></li>
                         <li><?php esc_html_e('Which ad unit and which page earn the most', 'simple-google-adsense'); ?></li>
-                        <li><?php esc_html_e('Your best-performing ad unit, from AdSense\'s own numbers', 'simple-google-adsense'); ?></li>
+                        <li><?php esc_html_e('A/B tests compared on AdSense\'s own numbers', 'simple-google-adsense'); ?></li>
                         <li><?php esc_html_e('An earnings widget on your WordPress dashboard', 'simple-google-adsense'); ?></li>
                     </ul>
                     <a class="button button-primary button-hero" href="<?php echo esc_url(self::url('earnings-preview')); ?>" target="_blank" rel="noopener"><?php esc_html_e('Unlock earnings with AdFlow Pro', 'simple-google-adsense'); ?></a>
                     <p class="description"><?php esc_html_e('Read-only access to your AdSense reports. The numbers above are an example, not your data.', 'simple-google-adsense'); ?></p>
+                    <p class="description"><?php esc_html_e('Good to know: until one-click sign-in is available, connecting needs your own free Google Cloud project. You set it up once, in about 10 to 15 minutes, with the steps on this screen. Your site needs HTTPS, and Google shows an "unverified app" warning for your own project, which you can continue past.', 'simple-google-adsense'); ?></p>
                 </div>
             </div>
         </div>
@@ -399,7 +400,7 @@ final class Simple_Google_Adsense_Upsell
         ?>
         <p class="adflow-upsell-line">
             <span class="adflow-pro-tag"><?php esc_html_e('Pro', 'simple-google-adsense'); ?></span>
-            <?php esc_html_e('Target by device, category or search traffic, schedule dates and A/B test ad units.', 'simple-google-adsense'); ?>
+            <?php esc_html_e('Target by search traffic or visitor type, schedule dates and A/B test ad units.', 'simple-google-adsense'); ?>
             <a href="<?php echo esc_url(self::url('placement-card')); ?>" target="_blank" rel="noopener"><?php esc_html_e('Learn more', 'simple-google-adsense'); ?></a>
         </p>
         <?php
@@ -430,6 +431,10 @@ final class Simple_Google_Adsense_Upsell
      */
     public function dashboard_card($cards)
     {
+        if (get_user_meta(get_current_user_id(), 'adflow_pro_card_dismissed', true)) {
+            return $cards;
+        }
+
         $cards['earnings'] = array(
             'label' => __('Earnings', 'simple-google-adsense'),
             'value' => __('See it here', 'simple-google-adsense'),
@@ -450,8 +455,14 @@ final class Simple_Google_Adsense_Upsell
      */
     public function dashboard_upgrade_card()
     {
+        if (!current_user_can('manage_options') || get_user_meta(get_current_user_id(), 'adflow_pro_card_dismissed', true)) {
+            return;
+        }
+
+        $dismiss = wp_nonce_url(admin_url('admin-post.php?action=adflow_dismiss_pro_card'), 'adflow_dismiss_pro_card');
         ?>
         <div class="adflow-upgrade-card">
+            <a class="adflow-upgrade-card__close" href="<?php echo esc_url($dismiss); ?>"><?php esc_html_e('Hide', 'simple-google-adsense'); ?></a>
             <h2><?php esc_html_e('Get more from AdSense with Pro', 'simple-google-adsense'); ?></h2>
             <p><?php esc_html_e('Know what earns, protect your account, and earn more per visit.', 'simple-google-adsense'); ?></p>
             <ul>
@@ -467,7 +478,7 @@ final class Simple_Google_Adsense_Upsell
     }
 
     /**
-     * Pro-related checks on the Health Check screen.
+     * Pro no longer adds a row to Site health. Kept for code that calls it.
      *
      * @param array $checks Checks.
      * @return array
@@ -475,15 +486,25 @@ final class Simple_Google_Adsense_Upsell
      */
     public function health_checks($checks)
     {
-        $checks['pro_click_protection'] = array(
-            'status' => 'info',
-            'label' => __('Invalid-click protection', 'simple-google-adsense'),
-            'message' => __('Not active. Repeated clicks from one visitor are the most common reason AdSense limits accounts.', 'simple-google-adsense'),
-            'action' => self::url('health-click-protection'),
-            'action_label' => __('Protect with Pro', 'simple-google-adsense'),
-        );
-
         return $checks;
+    }
+
+    /**
+     * Hide the Pro cards on the Dashboard for this user, for good.
+     *
+     * @since 1.6.0
+     */
+    public function dismiss_card()
+    {
+        if (!current_user_can(Simple_Google_Adsense_Caps::ACCESS)) {
+            wp_die(esc_html__('You do not have permission to do this.', 'simple-google-adsense'));
+        }
+
+        check_admin_referer('adflow_dismiss_pro_card');
+        update_user_meta(get_current_user_id(), 'adflow_pro_card_dismissed', 1);
+
+        wp_safe_redirect(wp_get_referer() ? wp_get_referer() : Simple_Google_Adsense_Admin::dashboard_url());
+        exit;
     }
 
     /**
@@ -577,8 +598,8 @@ final class Simple_Google_Adsense_Upsell
 
             <section class="adflow-pro-hero adflow-card">
                 <p class="adflow-eyebrow"><?php esc_html_e('AdFlow Pro · for publishers who want more from every page', 'simple-google-adsense'); ?></p>
-                <h2><?php esc_html_e('Earn more from your ads - and keep your AdSense account safe.', 'simple-google-adsense'); ?></h2>
-                <p><?php esc_html_e('See what every ad and page earns, stop click abuse before it costs you, put ads where they pay the most and sell space to sponsors directly. Everything the leading ad plugins sell as separate add-ons, in one plugin.', 'simple-google-adsense'); ?></p>
+                <h2><?php esc_html_e('Earn more from your ads - and protect your AdSense account.', 'simple-google-adsense'); ?></h2>
+                <p><?php esc_html_e('See what every ad and page earns, reduce the risk from click abuse, put ads where they pay the most and sell space to sponsors directly. All in one plugin, with no add-ons to buy.', 'simple-google-adsense'); ?></p>
                 <p class="adflow-pro-cta-row">
                     <a class="button button-primary button-hero" href="#adflow-pricing"><?php esc_html_e('See plans and pricing', 'simple-google-adsense'); ?></a>
                     <a class="button button-hero" href="<?php echo esc_url(self::url('pro-page-hero')); ?>" target="_blank" rel="noopener"><?php esc_html_e('Product tour', 'simple-google-adsense'); ?></a>
@@ -591,11 +612,26 @@ final class Simple_Google_Adsense_Upsell
                 </ul>
             </section>
 
+            <section class="adflow-card adflow-pro-bought" aria-labelledby="adflow-pro-bought-title">
+                <h2 id="adflow-pro-bought-title"><?php esc_html_e('Already bought AdFlow Pro?', 'simple-google-adsense'); ?></h2>
+                <ol>
+                    <li><?php esc_html_e('Download the AdFlow Pro zip file from your account.', 'simple-google-adsense'); ?></li>
+                    <li><?php esc_html_e('Upload it under Plugins → Add New → Upload Plugin, then activate it. Your ads and settings stay as they are.', 'simple-google-adsense'); ?></li>
+                    <li><?php esc_html_e('Enter your licence key under AdFlow → Settings → License to get updates and support.', 'simple-google-adsense'); ?></li>
+                </ol>
+                <p class="adflow-pro-bought__actions">
+                    <a class="button" href="https://store.mantrabrain.com/account/" target="_blank" rel="noopener"><?php esc_html_e('Open my account', 'simple-google-adsense'); ?></a>
+                    <?php if (current_user_can('install_plugins')) : ?>
+                        <a class="button" href="<?php echo esc_url(admin_url('plugin-install.php?tab=upload')); ?>"><?php esc_html_e('Upload the plugin', 'simple-google-adsense'); ?></a>
+                    <?php endif; ?>
+                </p>
+            </section>
+
             <section class="adflow-pro-shots" aria-label="<?php esc_attr_e('AdFlow Pro screens', 'simple-google-adsense'); ?>">
                 <?php
                 $shots = array(
-                    'm01-earnings' => array(__('Your AdSense earnings in WordPress', 'simple-google-adsense'), __('Earnings, page RPM, top pages and the winning ad unit - without opening AdSense.', 'simple-google-adsense')),
-                    'm06-protection' => array(__('Invalid-click protection', 'simple-google-adsense'), __('Visitors who click too often stop receiving ads, before Google limits your account.', 'simple-google-adsense')),
+                    'm01-earnings' => array(__('Your AdSense earnings in WordPress', 'simple-google-adsense'), __('Earnings, page RPM, top pages and A/B results - without opening AdSense.', 'simple-google-adsense')),
+                    'm06-protection' => array(__('Invalid-click protection', 'simple-google-adsense'), __('Visitors who click too often stop receiving Google ads. It lowers the risk; no tool can guarantee Google\'s decisions.', 'simple-google-adsense')),
                     'm03-sell-ads' => array(__('Sell ads directly', 'simple-google-adsense'), __('Sponsors order, upload and pay on your "Advertise with us" page. You approve.', 'simple-google-adsense')),
                 );
                 foreach ($shots as $file => $shot) : ?>
@@ -707,6 +743,10 @@ final class Simple_Google_Adsense_Upsell
             array(__('Turn manual ads off on chosen pages & post types', 'simple-google-adsense'), true),
             array(__('Shortcodes, block, widget & reusable ad units', 'simple-google-adsense'), true),
             array(__('Automatic placements: before/after content, after paragraph', 'simple-google-adsense'), true),
+            array(__('Repeatable in-content ads: after paragraph N, every N paragraphs, before or after an HTML element', 'simple-google-adsense'), true),
+            array(__('Placement conditions: device, category, tag, specific posts, language', 'simple-google-adsense'), true),
+            array(__('Per-post box: no ads, no Auto Ads or no manual ads', 'simple-google-adsense'), true),
+            array(__('Elementor and Bricks elements, WPML and Polylang support', 'simple-google-adsense'), true),
             array(__('ads.txt manager & live checker', 'simple-google-adsense'), true),
             array(__('Health Check & on-page Ad Inspector', 'simple-google-adsense'), true),
             array(__('Ad label & custom code units for other networks', 'simple-google-adsense'), true),
@@ -717,17 +757,17 @@ final class Simple_Google_Adsense_Upsell
             array(__('One-click import from Advanced Ads, Ad Inserter, AdRotate & WP QUADS (old shortcodes keep working)', 'simple-google-adsense'), true),
             array(__('Google Consent Mode v2 & load ads after consent (TCF v2.2, WP Consent API)', 'simple-google-adsense'), true),
             array(__('AdSense earnings dashboard & dashboard widget', 'simple-google-adsense'), false),
-            array(__('Per-unit and per-page earnings, A/B winner', 'simple-google-adsense'), false),
+            array(__('Per-unit and per-page earnings, A/B comparison', 'simple-google-adsense'), false),
             array(__('Invalid-click protection', 'simple-google-adsense'), false),
             array(__('Mid-article (X%), between posts, before comments, sticky anchor, WooCommerce', 'simple-google-adsense'), false),
-            array(__('Targeting: device, category, search traffic, visitor type, post age', 'simple-google-adsense'), false),
+            array(__('Targeting: search traffic, visitor type, post age', 'simple-google-adsense'), false),
             array(__('Scheduling (start / end dates)', 'simple-google-adsense'), false),
             array(__('Country targeting for sponsors, cache-proof, on any host', 'simple-google-adsense'), false),
             array(__('Self-serve ad sales: packages, advertiser upload, your payment link, approval', 'simple-google-adsense'), false),
             array(__('Popup (sponsor ads) & sticky sidebar formats', 'simple-google-adsense'), false),
             array(__('Google Ad Manager (GPT) units with sizes & key-values', 'simple-google-adsense'), false),
             array(__('Lazy loading & reserved height (Core Web Vitals)', 'simple-google-adsense'), false),
-            array(__('Max manual ads per page & per-post ad controls', 'simple-google-adsense'), false),
+            array(__('Max manual ads per page', 'simple-google-adsense'), false),
             array(__('Ad-blocker message', 'simple-google-adsense'), false),
             array(__('Export / import between sites', 'simple-google-adsense'), false),
             array(__('Sponsor reports: custom dates, placements, devices, advertisers, CSV', 'simple-google-adsense'), false),
@@ -751,8 +791,8 @@ final class Simple_Google_Adsense_Upsell
                 <?php foreach ($rows as $row) : ?>
                     <tr>
                         <td><?php echo esc_html($row[0]); ?></td>
-                        <td><?php echo $row[1] ? '<span class="dashicons dashicons-yes" aria-label="' . esc_attr__('Yes', 'simple-google-adsense') . '"></span>' : '<span aria-label="' . esc_attr__('No', 'simple-google-adsense') . '">-</span>'; ?></td>
-                        <td><span class="dashicons dashicons-yes" aria-label="<?php esc_attr_e('Yes', 'simple-google-adsense'); ?>"></span></td>
+                        <td><?php echo $row[1] ? '<span class="dashicons dashicons-yes" role="img" aria-label="' . esc_attr__('Yes', 'simple-google-adsense') . '"></span>' : '<span role="img" aria-label="' . esc_attr__('No', 'simple-google-adsense') . '">-</span>'; ?></td>
+                        <td><span class="dashicons dashicons-yes" role="img" aria-label="<?php esc_attr_e('Yes', 'simple-google-adsense'); ?>"></span></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

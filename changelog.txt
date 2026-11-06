@@ -1,3 +1,10 @@
+= 1.6.0 | 2026/11/06
+ - Added: any number of in-content ads, CSS selector placement, placement conditions, per-post box, post picker
+ - Added: AMP, Elementor widget, Bricks element, WPML and Polylang support, privacy exporter and eraser
+ - Security: statistics endpoint token, size and rate limits; clicks capped by impressions; REST route guard
+ - Fixed: consent no longer released on a timer; scheduled ads on cached pages; paragraph counting; roles; importer
+ - Improved: report caching, fewer queries, uninstall, phone layouts, accessibility, wording
+
 = 1.5.0 | 2026/10/17
  - Added: Manual ads "Turn off on" setting - exclude content types or posts/pages by ID from placements, the block, widgets and shortcodes
  - Added: titles shown under the excluded-ID fields, missing IDs flagged

@@ -98,14 +98,10 @@ final class Simple_Google_Adsense_Settings
             return '';
         }
 
-        // Accept `ca-pub-XXXX`, `pub-XXXX` and a bare numeric ID.
-        $publisher_id = preg_replace('/^ca-/i', '', $publisher_id);
+        // Accept `ca-pub-XXXX`, `pub-XXXX` (in any case) and a bare numeric ID.
+        $publisher_id = preg_replace('/^(ca-)?(pub-)?/i', '', $publisher_id);
 
-        if (!preg_match('/^pub-/i', $publisher_id)) {
-            $publisher_id = 'pub-' . $publisher_id;
-        }
-
-        return $publisher_id;
+        return 'pub-' . $publisher_id;
     }
 
     /**
@@ -123,12 +119,25 @@ final class Simple_Google_Adsense_Settings
     /**
      * Whether Auto Ads should be printed on the frontend.
      *
+     * A malformed Publisher ID counts as none: no ad code is ever sent with it.
+     *
      * @return bool
      * @since 1.3.0
      */
     public static function is_auto_ads_enabled()
     {
-        return (bool) self::get('enable_auto_ads') && '' !== self::get_publisher_id();
+        return (bool) self::get('enable_auto_ads') && self::is_publisher_id_valid();
+    }
+
+    /**
+     * Whether the current request is an AMP page (the official AMP plugin).
+     *
+     * @return bool
+     * @since 1.6.0
+     */
+    public static function is_amp()
+    {
+        return did_action('wp') && function_exists('amp_is_request') && amp_is_request();
     }
 
     /**

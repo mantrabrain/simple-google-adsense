@@ -57,7 +57,8 @@
 
 		Array.prototype.forEach.call( document.querySelectorAll( '.adflow-ad, .afx-unit' ), function ( wrapper ) {
 			var ins = wrapper.querySelector( 'ins' );
-			var state = status( ins );
+			// AdFlow Pro keeps a waiting ad's code in a template until its rules pass.
+			var state = ! ins && wrapper.querySelector( 'template.adflow-held' ) ? 'notLoaded' : status( ins );
 			var parts = [ 'AdFlow' ];
 
 			if ( wrapper.getAttribute( 'data-adflow-unit' ) ) {
@@ -102,7 +103,7 @@
 			? ( t.summary || '' ).replace( '%1$d', counts.total ).replace( '%2$d', counts.unfilled ).replace( '%3$d', counts.notLoaded )
 			: ( cfg.hideForAdmins ? t.hidden : t.none );
 
-		// Say why manual ads are missing (Settings → Manual ads → Turn off on, or Pro's per-page box).
+		// Say why manual ads are missing (Settings → Manual ads → Pages without manual ads, or Pro's per-page box).
 		if ( cfg.manualExcluded && ! cfg.hideForAdmins && t.excluded ) {
 			summary += ' ' + t.excluded;
 		}
@@ -116,6 +117,9 @@
 		bar.setAttribute( 'role', 'status' );
 		bar.textContent = summary;
 		document.body.appendChild( bar );
+
+		// Lets AdFlow Pro add its own notes.
+		document.dispatchEvent( new CustomEvent( 'adflow:inspected' ) );
 	}
 
 	function setActive( on ) {

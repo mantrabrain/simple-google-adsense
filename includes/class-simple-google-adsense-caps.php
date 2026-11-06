@@ -86,6 +86,8 @@ final class Simple_Google_Adsense_Caps
 
         $author = get_userdata((int) $post->post_author);
         $site = wp_specialchars_decode(get_bloginfo('name'), ENT_QUOTES);
+        // Plain-text email; stored titles can hold HTML entities (&amp;).
+        $title = wp_specialchars_decode($post->post_title, ENT_QUOTES);
         $emails = array();
 
         foreach (get_users(array('capability' => self::PUBLISH_ADS, 'fields' => array('user_email'), 'number' => 20)) as $user) {
@@ -108,12 +110,12 @@ final class Simple_Google_Adsense_Caps
         wp_mail(
             $emails,
             /* translators: 1: site, 2: ad name */
-            sprintf(__('[%1$s] Ad waiting for review: %2$s', 'simple-google-adsense'), $site, $post->post_title),
+            sprintf(__('[%1$s] Ad waiting for review: %2$s', 'simple-google-adsense'), $site, $title),
             sprintf(
                 /* translators: 1: author, 2: ad name, 3: link */
                 __('%1$s submitted the ad "%2$s" for review. Review and publish it here: %3$s', 'simple-google-adsense'),
                 $author ? $author->display_name : __('Someone', 'simple-google-adsense'),
-                $post->post_title,
+                $title,
                 admin_url('post.php?post=' . $post->ID . '&action=edit')
             )
         );
@@ -268,7 +270,7 @@ final class Simple_Google_Adsense_Caps
                         <tr>
                             <td><strong><?php esc_html_e('Administrator', 'simple-google-adsense'); ?></strong></td>
                             <?php foreach (self::labels() as $label) : ?>
-                                <td><span class="dashicons dashicons-yes" aria-label="<?php esc_attr_e('Always', 'simple-google-adsense'); ?>"></span></td>
+                                <td><span class="dashicons dashicons-yes" role="img" aria-label="<?php esc_attr_e('Always', 'simple-google-adsense'); ?>"></span></td>
                             <?php endforeach; ?>
                         </tr>
                         <?php foreach ($roles as $slug => $role) : ?>

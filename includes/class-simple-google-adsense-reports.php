@@ -184,6 +184,7 @@ final class Simple_Google_Adsense_Reports
     {
         $args = self::current_args();
         $units = self::own_units();
+        $held = Simple_Google_Adsense_Stats::held_clicks($args);
         $totals = Simple_Google_Adsense_Stats::totals($args);
         $by_ad = Simple_Google_Adsense_Stats::grouped('ad_id', $args);
         $daily = Simple_Google_Adsense_Stats::grouped('day', $args);
@@ -204,7 +205,9 @@ final class Simple_Google_Adsense_Reports
                         <span class="dashicons dashicons-chart-bar" aria-hidden="true"></span>
                         <h3><?php esc_html_e('Run your own ads next to AdSense', 'simple-google-adsense'); ?></h3>
                         <p><?php esc_html_e('Add an image banner, text ad or custom code for a sponsor or your own offer. Impressions and clicks show up here - cookieless and cache-proof.', 'simple-google-adsense'); ?></p>
-                        <a class="button button-primary" href="<?php echo esc_url(admin_url('post-new.php?post_type=' . Simple_Google_Adsense_Ad_Units::POST_TYPE)); ?>"><?php esc_html_e('Create your first ad', 'simple-google-adsense'); ?></a>
+                        <?php if (current_user_can(Simple_Google_Adsense_Caps::MANAGE_ADS)) : ?>
+                            <a class="button button-primary" href="<?php echo esc_url(admin_url('post-new.php?post_type=' . Simple_Google_Adsense_Ad_Units::POST_TYPE)); ?>"><?php esc_html_e('Create your first ad', 'simple-google-adsense'); ?></a>
+                        <?php endif; ?>
                     </div>
                 </section>
             </div>
@@ -283,6 +286,24 @@ final class Simple_Google_Adsense_Reports
                     <p class="adflow-stat__meta"><?php esc_html_e('Clicks per impression', 'simple-google-adsense'); ?></p>
                 </div>
             </div>
+
+            <p class="description adflow-reports-note" style="margin:0 0 16px">
+                <?php echo esc_html(Simple_Google_Adsense_Stats::estimate_note()); ?>
+                <?php
+                if ($held > 0) {
+                    echo ' ' . esc_html(sprintf(
+                        /* translators: %s: number of clicks */
+                        _n(
+                            '%s click was set aside and is not in these totals: a day\'s clicks on an ad cannot pass its impressions. It is added back if the impressions arrive.',
+                            '%s clicks were set aside and are not in these totals: a day\'s clicks on an ad cannot pass its impressions. They are added back if the impressions arrive.',
+                            $held,
+                            'simple-google-adsense'
+                        ),
+                        number_format_i18n($held)
+                    ));
+                }
+                ?>
+            </p>
 
             <section class="adflow-panel">
                 <header class="adflow-panel__head"><div><h2><?php esc_html_e('Impressions per day', 'simple-google-adsense'); ?></h2></div></header>

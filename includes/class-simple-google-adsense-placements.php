@@ -46,6 +46,13 @@ final class Simple_Google_Adsense_Placements
     protected static $_instance = null;
 
     /**
+     * Placement types of this request.
+     *
+     * @var array|null
+     */
+    private static $types_cache = null;
+
+    /**
      * Main Simple_Google_Adsense_Placements Instance.
      *
      * @return Simple_Google_Adsense_Placements
@@ -67,11 +74,23 @@ final class Simple_Google_Adsense_Placements
     {
         add_action('admin_init', array($this, 'register_setting'));
         add_action('admin_menu', array($this, 'add_menu'), 12);
+        add_action('update_option_' . self::OPTION_NAME, array(__CLASS__, 'flush_types'));
+        add_action('add_option_' . self::OPTION_NAME, array(__CLASS__, 'flush_types'));
 
         if (!is_admin() || wp_doing_ajax()) {
             // After shortcodes (11) and wpautop (10) so paragraphs exist.
             add_filter('the_content', array($this, 'insert_into_content'), 20);
         }
+    }
+
+    /**
+     * Forget the placement types of this request (slots were added or removed).
+     *
+     * @since 1.6.0
+     */
+    public static function flush_types()
+    {
+        self::$types_cache = null;
     }
 
     /**
@@ -87,10 +106,8 @@ final class Simple_Google_Adsense_Placements
     public static function get_types()
     {
         // Built once per request after init (it runs several times per page).
-        static $cache = null;
-
-        if (null !== $cache && did_action('init')) {
-            return $cache;
+        if (null !== self::$types_cache && did_action('init')) {
+            return self::$types_cache;
         }
 
         $types = array(
@@ -124,7 +141,7 @@ final class Simple_Google_Adsense_Placements
             $teasers = array(
                 'content_percent' => array(__('Middle of the article (after X%)', 'simple-google-adsense'), __('Scales with post length - the highest-earning in-content spot for most blogs.', 'simple-google-adsense')),
                 'between_posts' => array(__('Between posts', 'simple-google-adsense'), __('In the post list on your home, category, tag and search pages.', 'simple-google-adsense')),
-                'sticky_anchor' => array(__('Sticky anchor', 'simple-google-adsense'), __('A small closable bar at the bottom of the screen that never covers content.', 'simple-google-adsense')),
+                'sticky_anchor' => array(__('Sticky anchor', 'simple-google-adsense'), __('A small closable bar at the bottom of the screen, in a fixed size, with room kept for it at the end of the page.', 'simple-google-adsense')),
                 'woo_shop' => array(__('WooCommerce shop & product pages', 'simple-google-adsense'), __('Above the product grid, below the summary and after add-to-cart.', 'simple-google-adsense')),
             );
 
@@ -148,10 +165,43 @@ final class Simple_Google_Adsense_Placements
         $types = apply_filters('adflow_placement_types', $types);
 
         if (did_action('init')) {
-            $cache = $types;
+            self::$types_cache = $types;
         }
 
         return $types;
+    }
+
+    /**
+     * Whether a placement key may be stored in the statistics table.
+     *
+     * The empty key means "not from a placement" (shortcode, block, widget).
+     * Anything else must be a registered placement or be allowed through the
+     * adflow_stats_placement_keys filter, so visitors cannot invent rows.
+     *
+     * @param string $key Placement key.
+     * @return bool
+     * @since 1.6.0
+     */
+    public static function is_valid_stats_key($key)
+    {
+        if (!is_string($key)) {
+            return false;
+        }
+
+        if ('' === $key) {
+            return true;
+        }
+
+        /**
+         * Filters the extra placement keys statistics may be stored under.
+         *
+         * @param string[] $keys Extra keys. Default empty.
+         * @param string $key The key being checked, for add-ons with dynamic keys.
+         * @since 1.6.0
+         */
+        $extra = apply_filters('adflow_stats_placement_keys', array(), $key);
+
+        return array_key_exists($key, self::get_types()) || in_array($key, (array) $extra, true);
     }
 
     /**
@@ -333,6 +383,13 @@ final class Simple_Google_Adsense_Placements
             }
         }
 
+        // Extra in-content ads go last, so they can keep clear of all the others.
+        try {
+            $content = Simple_Google_Adsense_Content_Slots::insert($content);
+        } catch (\Throwable $e) {
+            Simple_Google_Adsense_Manual_Ads::log_failure($e, array('id' => 0));
+        }
+
         return str_replace(array(self::AD_START, self::AD_END), '', $content);
     }
 
@@ -402,8 +459,10 @@ final class Simple_Google_Adsense_Placements
     /**
      * Byte offsets just after each paragraph that is safe to follow with an ad.
      *
-     * Paragraphs inside quotes, tables, lists, figures, code, details or
-     * asides are skipped, so an ad never lands inside them.
+     * Paragraphs inside quotes, tables, lists, figures, code, details, asides
+     * or templates are skipped, and so are those inside column, cover and
+     * media-and-text blocks and inside other ads: an ad never lands in them.
+     * Content with unbalanced <div>s falls back to ignoring those blocks.
      *
      * @param string $content Content.
      * @return int[]
@@ -411,10 +470,21 @@ final class Simple_Google_Adsense_Placements
      */
     public static function paragraph_end_offsets($content)
     {
-        $containers = apply_filters('adflow_paragraph_container_tags', array('blockquote', 'table', 'ul', 'ol', 'figure', 'pre', 'aside', 'details', 'nav', 'form'));
-        $pattern = '#<(/?)(p|' . implode('|', array_map('preg_quote', $containers)) . ')(?=[\s>/])[^>]*>#i';
+        $containers = apply_filters('adflow_paragraph_container_tags', array('blockquote', 'table', 'ul', 'ol', 'figure', 'pre', 'aside', 'details', 'nav', 'form', 'template', 'script', 'style'));
+
+        /**
+         * Filters the classes of <div>s whose paragraphs are not counted.
+         *
+         * @param string[] $classes
+         * @since 1.6.0
+         */
+        $skip_classes = (array) apply_filters('adflow_paragraph_skip_classes', array('wp-block-columns', 'wp-block-cover', 'wp-block-media-text', 'afx-unit', 'afx-group', 'afx-sched', 'adflow-ad', 'adsense-ad'));
+        $pattern = '#<(/?)(p|div|' . implode('|', array_map('preg_quote', $containers)) . ')(?=[\s>/])[^>]*>#i';
         $depth = 0;
         $ends = array();
+        $all_ends = array();
+        $divs = array();
+        $skipping = 0;
         $content = (string) $content;
 
         // Paragraphs inside ads AdFlow already inserted are not article paragraphs.
@@ -434,7 +504,23 @@ final class Simple_Google_Adsense_Placements
 
             if ('p' === $tag) {
                 if ($closing && 0 === $depth) {
-                    $ends[] = $match[0][1] + strlen($match[0][0]);
+                    $all_ends[] = $match[0][1] + strlen($match[0][0]);
+
+                    if (0 === $skipping) {
+                        $ends[] = $match[0][1] + strlen($match[0][0]);
+                    }
+                }
+                continue;
+            }
+
+            if ('div' === $tag) {
+                if ($closing) {
+                    $skipping -= array_pop($divs) ? 1 : 0;
+                } elseif ('/' !== substr($match[0][0], -2, 1)) {
+                    $classes = preg_match('/\bclass\s*=\s*["\']([^"\']*)/i', $match[0][0], $class) ? preg_split('/\s+/', $class[1]) : array();
+                    $skip = (bool) array_intersect($classes, $skip_classes);
+                    $divs[] = $skip;
+                    $skipping += $skip ? 1 : 0;
                 }
                 continue;
             }
@@ -442,7 +528,7 @@ final class Simple_Google_Adsense_Placements
             $depth = $closing ? max(0, $depth - 1) : $depth + 1;
         }
 
-        return $ends;
+        return 0 === $skipping ? $ends : $all_ends;
     }
 
     /**
@@ -487,7 +573,8 @@ final class Simple_Google_Adsense_Placements
         $clean = is_array($stored) ? $stored : array();
 
         foreach (self::get_types() as $key => $type) {
-            if (!empty($type['pro'])) {
+            // Extra in-content ads are handled together below.
+            if (!empty($type['pro']) || !empty($type['slot'])) {
                 continue;
             }
 
@@ -514,7 +601,7 @@ final class Simple_Google_Adsense_Placements
             $clean[$key] = apply_filters('adflow_sanitize_placement', $clean[$key], $raw, $key);
         }
 
-        return $clean;
+        return Simple_Google_Adsense_Content_Slots::sanitize($clean, $input);
     }
 
     /**
@@ -571,6 +658,11 @@ final class Simple_Google_Adsense_Placements
 
         $grouped = array();
         foreach ($types as $key => $type) {
+            // Extra in-content ads have their own section.
+            if (!empty($type['slot'])) {
+                continue;
+            }
+
             $group = isset($type['group']) ? $type['group'] : 'content';
             $grouped[$group][$key] = $type;
         }
@@ -617,7 +709,7 @@ final class Simple_Google_Adsense_Placements
                                     <div>
                                         <div class="adflow-placement__title">
                                             <?php if ($locked) : ?>
-                                                <label class="adflow-toggle"><input type="checkbox" disabled><span class="adflow-toggle__track" aria-hidden="true"></span></label>
+                                                <label class="adflow-toggle"><input type="checkbox" disabled aria-label="<?php echo esc_attr($type['label']); ?>"><span class="adflow-toggle__track" aria-hidden="true"></span></label>
                                                 <strong><?php echo esc_html($type['label']); ?></strong>
                                                 <span class="adflow-pro-tag"><?php esc_html_e('Pro', 'simple-google-adsense'); ?></span>
                                             <?php else : ?>
@@ -696,6 +788,9 @@ final class Simple_Google_Adsense_Placements
                                 <?php endif; ?>
                             </div>
                         <?php endforeach; ?>
+                        <?php if ('content' === $group_key) {
+                            Simple_Google_Adsense_Content_Slots::render_section($units, $post_types);
+                        } ?>
                     </section>
                 <?php endforeach; ?>
 

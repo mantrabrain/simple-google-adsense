@@ -85,7 +85,8 @@ final class Simple_Google_Adsense_Frontend
     {
         self::register_assets_once();
 
-        if (Simple_Google_Adsense_Settings::auto_ads_allowed()) {
+        // AMP pages use <amp-auto-ads> instead (Simple_Google_Adsense_Amp).
+        if (Simple_Google_Adsense_Settings::auto_ads_allowed() && !Simple_Google_Adsense_Settings::is_amp()) {
             wp_enqueue_script(self::LIBRARY_HANDLE);
         }
     }
@@ -133,9 +134,20 @@ final class Simple_Google_Adsense_Frontend
 
         $src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' . rawurlencode($ad_client);
 
-        // The ?client= tag also runs Auto Ads. On pages excluded from Auto Ads,
-        // load the library without it so only the manual ads show.
-        if (Simple_Google_Adsense_Settings::is_auto_ads_enabled() && did_action('wp') && !Simple_Google_Adsense_Settings::auto_ads_allowed()) {
+        // The ?client= tag also runs Auto Ads. Where Auto Ads are excluded or
+        // switched off, load the library without it so only the manual ads show:
+        // each <ins> names its own data-ad-client.
+        $excluded = Simple_Google_Adsense_Settings::is_auto_ads_enabled() && did_action('wp') && !Simple_Google_Adsense_Settings::auto_ads_allowed();
+        $switched_off = !Simple_Google_Adsense_Settings::get('enable_auto_ads') && Simple_Google_Adsense_Settings::is_publisher_id_valid();
+
+        /**
+         * Filters whether the AdSense library is loaded without ?client=.
+         * Return false to always use the tag Google shows in AdSense.
+         *
+         * @param bool $without_client
+         * @since 1.6.0
+         */
+        if (apply_filters('adflow_library_without_client', $excluded || $switched_off)) {
             $src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
         }
 
@@ -168,7 +180,7 @@ final class Simple_Google_Adsense_Frontend
 
         wp_enqueue_style(self::STYLE_HANDLE);
 
-        if (wp_script_is(self::LIBRARY_HANDLE, 'registered')) {
+        if (wp_script_is(self::LIBRARY_HANDLE, 'registered') && !Simple_Google_Adsense_Settings::is_amp()) {
             wp_enqueue_script(self::LIBRARY_HANDLE);
         }
     }
@@ -187,6 +199,12 @@ final class Simple_Google_Adsense_Frontend
         }
 
         wp_enqueue_style('sga-fx', SIMPLE_GOOGLE_ADSENSE_PLUGIN_URI . '/assets/css/fx.css', array(), SIMPLE_GOOGLE_ADSENSE_VERSION);
+
+        // No custom scripts on AMP pages: the ad is already decided on the server.
+        if (Simple_Google_Adsense_Settings::is_amp()) {
+            return;
+        }
+
         wp_enqueue_script('sga-fx', SIMPLE_GOOGLE_ADSENSE_PLUGIN_URI . '/assets/js/fx.js', array(), SIMPLE_GOOGLE_ADSENSE_VERSION, true);
         wp_add_inline_script('sga-fx', 'window.afxCfg = ' . wp_json_encode(Simple_Google_Adsense_Stats::script_config()) . ';', 'before');
     }

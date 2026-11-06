@@ -63,6 +63,9 @@ final class Simple_Google_Adsense_Ad_Units
         add_filter('pre_trash_post', array($this, 'protect_live_ads'), 10, 2);
         add_filter('pre_delete_post', array($this, 'protect_live_ads'), 10, 2);
         add_action('init', array($this, 'register_post_type'));
+        add_action('admin_menu', array($this, 'register_add_new_route'), 11);
+        add_action('admin_head', array($this, 'hide_add_new_route'));
+        add_filter('submenu_file', array($this, 'add_new_submenu_file'));
         add_action('add_meta_boxes_' . self::POST_TYPE, array($this, 'add_meta_boxes'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_edit_script'));
         add_action('save_post_' . self::POST_TYPE, array($this, 'save'), 10, 2);
@@ -102,7 +105,9 @@ final class Simple_Google_Adsense_Ad_Units
      */
     public function restrict_rest($result, $server, $request)
     {
-        if (0 === strpos($request->get_route(), '/wp/v2/adflow-ads') && !current_user_can('edit_posts')) {
+        // The REST server matches routes case-insensitively, and the route can
+        // arrive through ?rest_route= with encoded or doubled slashes.
+        if (preg_match('#^/*wp/+v2/+adflow-ads(?:/|$)#i', rawurldecode((string) $request->get_route())) && !current_user_can('edit_posts')) {
             return new WP_Error('rest_forbidden', __('Sorry, you are not allowed to view ad units.', 'simple-google-adsense'), array('status' => rest_authorization_required_code()));
         }
 
@@ -155,6 +160,50 @@ final class Simple_Google_Adsense_Ad_Units
             'rewrite' => false,
             'query_var' => false,
         ));
+    }
+
+    /**
+     * Give post-new.php a menu entry under AdFlow.
+     *
+     * Without one, WordPress decides access to post-new.php by the core "Add New
+     * Post" item, and refuses a role that has "Create & edit ads" but not the
+     * core edit_posts capability.
+     *
+     * @since 1.6.0
+     */
+    public function register_add_new_route()
+    {
+        $label = __('Add Ad Unit', 'simple-google-adsense');
+
+        add_submenu_page(Simple_Google_Adsense_Admin::MENU_SLUG, $label, $label, Simple_Google_Adsense_Caps::MANAGE_ADS, 'post-new.php?post_type=' . self::POST_TYPE);
+    }
+
+    /**
+     * Keep that entry out of the visible menu (access was checked by now).
+     *
+     * @since 1.6.0
+     */
+    public function hide_add_new_route()
+    {
+        global $submenu;
+
+        foreach ((array) (isset($submenu[Simple_Google_Adsense_Admin::MENU_SLUG]) ? $submenu[Simple_Google_Adsense_Admin::MENU_SLUG] : array()) as $key => $item) {
+            if ('post-new.php?post_type=' . self::POST_TYPE === $item[2]) {
+                unset($submenu[Simple_Google_Adsense_Admin::MENU_SLUG][$key]);
+            }
+        }
+    }
+
+    /**
+     * While adding an ad unit, highlight "Ad Units" in the menu.
+     *
+     * @param string|null $submenu_file Current item.
+     * @return string|null
+     * @since 1.6.0
+     */
+    public function add_new_submenu_file($submenu_file)
+    {
+        return 'post-new.php?post_type=' . self::POST_TYPE === $submenu_file ? 'edit.php?post_type=' . self::POST_TYPE : $submenu_file;
     }
 
     /**
@@ -759,13 +808,55 @@ final class Simple_Google_Adsense_Ad_Units
 
         if ('group' === $type) {
             $count = count((array) $unit['members']);
+            $showing = 0;
+            $later = 0;
+
+            foreach ((array) $unit['members'] as $member) {
+                $child = self::get(isset($member['id']) ? $member['id'] : 0);
+
+                if (!$child) {
+                    continue;
+                }
+
+                $state = self::is_own_ad($child['type']) ? self::status($child) : 'running';
+
+                if ('running' === $state || !empty($child['fallback_id'])) {
+                    $showing++;
+                } elseif ('scheduled' === $state) {
+                    $later++;
+                }
+            }
+
             $add($count ? 'ok' : 'error', $count
                 /* translators: %d: number of ads */
                 ? sprintf(_n('%d ad in the rotation.', '%d ads in the rotation.', $count, 'simple-google-adsense'), $count)
                 : __('The group has no ads yet.', 'simple-google-adsense'));
+
+            if ($count && !$showing) {
+                $add('error', $later
+                    ? __('No ad in this group can show yet: they have not started.', 'simple-google-adsense')
+                    : __('No ad in this group can show: they have ended or are not published.', 'simple-google-adsense'));
+            }
         } elseif (self::is_own_ad($type)) {
             $status = self::status($unit);
-            $add('running' === $status ? 'ok' : 'error', 'running' === $status ? __('Within its schedule.', 'simple-google-adsense') : ('scheduled' === $status ? __('Scheduled - not started yet.', 'simple-google-adsense') : __('Expired - the end date has passed.', 'simple-google-adsense')));
+            $fallback = !empty($unit['fallback_id']) ? self::get($unit['fallback_id']) : null;
+
+            if ('running' !== $status && $fallback) {
+                $add('warning', sprintf(
+                    'scheduled' === $status
+                        /* translators: %s: name of the fallback ad */
+                        ? __('Not started yet. Showing its fallback for now: %s.', 'simple-google-adsense')
+                        /* translators: %s: name of the fallback ad */
+                        : __('Ended. Showing its fallback: %s.', 'simple-google-adsense'),
+                    $fallback['title']
+                ));
+            } else {
+                $add('running' === $status ? 'ok' : 'error', 'running' === $status ? __('Within its schedule.', 'simple-google-adsense') : ('scheduled' === $status ? __('Scheduled - not started yet.', 'simple-google-adsense') : __('Expired - the end date has passed.', 'simple-google-adsense')));
+            }
+
+            if ('custom' === $type && false !== stripos((string) $unit['code'], 'adsbygoogle') && 'none' !== $unit['disclosure']) {
+                $add('warning', __('This code contains an AdSense ad. Google allows only "Advertisements" or "Sponsored Links" as its label: set the disclosure label to "No label".', 'simple-google-adsense'));
+            }
 
             if ('image' === $type) {
                 $add(wp_get_attachment_image_url((int) $unit['image_id']) ? 'ok' : 'error', wp_get_attachment_image_url((int) $unit['image_id']) ? __('Banner image set.', 'simple-google-adsense') : __('No banner image.', 'simple-google-adsense'));
@@ -801,6 +892,12 @@ final class Simple_Google_Adsense_Ad_Units
 
         if (Simple_Google_Adsense_Settings::get('hide_for_admins')) {
             $add('warning', __('Ads are hidden while you are logged in (Settings).', 'simple-google-adsense'));
+        }
+
+        if (Simple_Google_Adsense_Consent::holds_everyone() && !in_array($type, array('image', 'text'), true)) {
+            $add('error', __('"Load ads after consent" is on and AdFlow cannot read your consent tool, so this ad does not load for anyone. See Settings → Privacy & consent.', 'simple-google-adsense'));
+        } elseif (Simple_Google_Adsense_Consent::waits() && !in_array($type, array('image', 'text'), true)) {
+            $add('warning', __('"Load ads after consent" is on: this ad waits for each visitor\'s answer.', 'simple-google-adsense'));
         }
 
         /**
@@ -904,6 +1001,12 @@ final class Simple_Google_Adsense_Ad_Units
 
         $data = self::sanitize_data($input, $post_id, $previous_code);
 
+        // A first save of pasted AdSense code gets no extra label: Google allows
+        // only "Advertisements" or "Sponsored Links". Later saves respect the choice.
+        if (!is_array($previous) && 'custom' === $data['type'] && false !== stripos((string) $data['code'], 'adsbygoogle')) {
+            $data['disclosure'] = 'none';
+        }
+
         update_post_meta($post_id, self::META_KEY, $data);
 
         self::purge_page_cache();
@@ -936,6 +1039,14 @@ final class Simple_Google_Adsense_Ad_Units
     public static function sanitize_data($input, $post_id, $previous_code = '')
     {
         $input = is_array($input) ? $input : array();
+
+        // Imports can carry any JSON type: these keys must be plain values.
+        foreach (array('code', 'slot', 'type', 'format', 'layout_key', 'url', 'alt', 'headline', 'body', 'cta', 'disclosure', 'start', 'end', 'fallback_id', 'rotation', 'image_id') as $key) {
+            if (isset($input[$key]) && !is_scalar($input[$key])) {
+                unset($input[$key]);
+            }
+        }
+
         $format = isset($input['format']) ? sanitize_key($input['format']) : 'auto';
 
         $data = array(
@@ -989,7 +1100,7 @@ final class Simple_Google_Adsense_Ad_Units
         $clean = array();
 
         foreach ((array) $members as $member) {
-            $id = isset($member['id']) ? absint($member['id']) : 0;
+            $id = is_array($member) && isset($member['id']) && is_scalar($member['id']) ? absint($member['id']) : 0;
 
             $meta = get_post_meta($id, self::META_KEY, true);
             $member_type = is_array($meta) && isset($meta['type']) ? self::normalize_type($meta['type']) : '';
@@ -998,7 +1109,7 @@ final class Simple_Google_Adsense_Ad_Units
                 continue;
             }
 
-            $clean[$id] = array('id' => $id, 'weight' => isset($member['weight']) ? max(1, min(100, absint($member['weight']))) : 1);
+            $clean[$id] = array('id' => $id, 'weight' => isset($member['weight']) && is_scalar($member['weight']) ? max(1, min(100, absint($member['weight']))) : 1);
         }
 
         return array_values($clean);

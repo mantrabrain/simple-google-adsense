@@ -20,6 +20,7 @@
 	const { InspectorControls, useBlockProps } = wp.blockEditor;
 	const { PanelBody, TextControl, SelectControl, ToggleControl } = wp.components;
 	const { useSelect } = wp.data;
+	const { useEffect } = wp.element;
 	const { __ } = wp.i18n;
 
 	const AD_TYPES = [
@@ -47,8 +48,16 @@
 		icon: icon,
 		edit: function ( props ) {
 			const { attributes, setAttributes } = props;
-			const { adId, adSlot, adType, adFormat, fullWidthResponsive, layoutKey } = attributes;
+			const { adId, adSlot, adType, adFormat, fullWidthResponsive, layoutKey, typedMarkup } = attributes;
 			const blockProps = useBlockProps();
+
+			// Blocks with no slot yet are new: they get Google's code for their type.
+			// Blocks saved earlier keep their markup until the type is chosen again.
+			useEffect( function () {
+				if ( ! adSlot && ! adId && ! typedMarkup ) {
+					setAttributes( { typedMarkup: true } );
+				}
+			}, [] );
 
 			// Saved Ad Units (titles only). Readable by anyone who can write posts.
 			const units = useSelect( function ( select ) {
@@ -87,8 +96,10 @@
 					label: __( 'Ad Type', 'simple-google-adsense' ),
 					value: adType,
 					options: AD_TYPES,
-					onChange: ( value ) => setAttributes( { adType: value } ),
-					help: __( 'For Google\'s exact in-article or multiplex code, save the ad under AdFlow → Ad Units and pick it above.', 'simple-google-adsense' ),
+					onChange: ( value ) => setAttributes( { adType: value, typedMarkup: true } ),
+					help: typedMarkup || ( 'inarticle' !== adType && 'matched_content' !== adType )
+						? __( 'Match the type of the unit you created in AdSense.', 'simple-google-adsense' )
+						: __( 'This block was saved with an older version and prints a display ad. Choose the type again to use Google\'s code for it.', 'simple-google-adsense' ),
 				} ),
 			];
 
@@ -103,7 +114,8 @@
 			}
 
 			// Same controls as before 1.4.0, so existing blocks keep their settings.
-			{
+			// In-article and multiplex code has its own fixed format.
+			if ( ! typedMarkup || ( 'inarticle' !== adType && 'matched_content' !== adType ) ) {
 				manualControls.push(
 					createElement( SelectControl, {
 						key: 'ad-format',

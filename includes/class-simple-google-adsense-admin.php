@@ -164,6 +164,35 @@ final class Simple_Google_Adsense_Admin
         return apply_filters('adflow_pro_url', $url, $campaign);
     }
 
+    /**
+     * Whether the current user may open an AdFlow admin URL, so that no screen
+     * shows a link that ends in "you are not allowed to access this page".
+     *
+     * @param string $url Admin URL.
+     * @return bool
+     * @since 1.6.0
+     */
+    public static function can_open($url)
+    {
+        $url = (string) $url;
+        $rules = array(
+            'page=' . self::SETTINGS_SLUG => 'manage_options',
+            'page=' . self::PRO_SLUG => 'manage_options',
+            'page=' . Simple_Google_Adsense_Placements::PAGE_SLUG => Simple_Google_Adsense_Caps::MANAGE_ADS,
+            'post_type=' . Simple_Google_Adsense_Ad_Units::POST_TYPE => Simple_Google_Adsense_Caps::MANAGE_ADS,
+            'page=' . Simple_Google_Adsense_Reports::PAGE_SLUG => Simple_Google_Adsense_Caps::VIEW_REPORTS,
+            'page=adflow-earnings' => Simple_Google_Adsense_Caps::VIEW_REPORTS,
+        );
+
+        foreach ($rules as $needle => $cap) {
+            if (false !== strpos($url, $needle)) {
+                return current_user_can($cap);
+            }
+        }
+
+        return true;
+    }
+
     public function action_links($links)
     {
         array_unshift($links, '<a href="' . esc_url(self::settings_url()) . '">' . esc_html__('Settings', 'simple-google-adsense') . '</a>');
@@ -416,7 +445,7 @@ final class Simple_Google_Adsense_Admin
                 <a href="<?php echo esc_url(Simple_Google_Adsense_Docs::url()); ?>"><?php esc_html_e('Docs', 'simple-google-adsense'); ?></a>
                 <a href="https://support.google.com/adsense" target="_blank" rel="noopener"><?php esc_html_e('AdSense Help', 'simple-google-adsense'); ?></a>
                 <a href="https://wordpress.org/support/plugin/simple-google-adsense/" target="_blank" rel="noopener"><?php esc_html_e('Support', 'simple-google-adsense'); ?></a>
-                <?php if (!$pro) : ?>
+                <?php if (!$pro && current_user_can('manage_options')) : ?>
                     <a class="button button-primary" href="<?php echo esc_url(admin_url('admin.php?page=' . self::PRO_SLUG)); ?>"><?php esc_html_e('Upgrade to Pro', 'simple-google-adsense'); ?></a>
                 <?php endif; ?>
             </nav>
@@ -732,13 +761,9 @@ final class Simple_Google_Adsense_Admin
             }
         }
 
+        // The titles of what was found are in the picker above the field.
         echo '<p class="description" id="' . esc_attr($id) . '">';
-        if ($found) {
-            /* translators: %s: comma-separated post titles */
-            echo esc_html(sprintf(__('Applies to: %s', 'simple-google-adsense'), implode(', ', $found)));
-        }
         if ($missing) {
-            echo $found ? '<br>' : '';
             /* translators: %s: comma-separated IDs */
             echo '<span class="adflow-field__error">' . esc_html(sprintf(__('No post or page found with ID %s.', 'simple-google-adsense'), implode(', ', $missing))) . '</span>';
         }
@@ -776,9 +801,10 @@ final class Simple_Google_Adsense_Admin
             <?php self::panel_start(__('Auto Ads', 'simple-google-adsense'), __('Google places ads automatically. Choose ad formats in your AdSense account under Ads → By site.', 'simple-google-adsense')); ?>
                 <?php self::field_start(__('Auto Ads', 'simple-google-adsense'), __('Adds Google\'s Auto Ads code to every page.', 'simple-google-adsense')); ?>
                     <?php self::toggle($opt . '[enable_auto_ads]', (bool) Simple_Google_Adsense_Settings::get('enable_auto_ads'), __('Enable Auto Ads', 'simple-google-adsense')); ?>
+                    <p class="description"><?php esc_html_e('Turning this off removes AdFlow\'s Auto Ads code. If Auto Ads are on for this site in your AdSense account, turn them off there too.', 'simple-google-adsense'); ?></p>
                 <?php self::field_end(); ?>
 
-                <?php self::field_start(__('Turn off on', 'simple-google-adsense'), __('Keep Auto Ads away from pages where ads do not belong, such as contact or checkout pages.', 'simple-google-adsense')); ?>
+                <?php self::field_start(__('Pages without Auto Ads', 'simple-google-adsense'), __('Keep Auto Ads away from pages where ads do not belong, such as contact or checkout pages.', 'simple-google-adsense')); ?>
                     <fieldset class="adflow-checks">
                         <legend class="screen-reader-text"><?php esc_html_e('Content types without Auto Ads', 'simple-google-adsense'); ?></legend>
                         <?php foreach ($post_types as $post_type) : ?>
@@ -788,6 +814,7 @@ final class Simple_Google_Adsense_Admin
                             </label>
                         <?php endforeach; ?>
                     </fieldset>
+                    <?php Simple_Google_Adsense_Picker::render(array('label' => __('Find a post or page', 'simple-google-adsense'), 'placeholder' => __('Type a title or ID…', 'simple-google-adsense'), 'ids' => Simple_Google_Adsense_Settings::get_excluded_ids(), 'target' => 'adflow-exclude-ids')); ?>
                     <label class="adflow-sublabel" for="adflow-exclude-ids"><?php esc_html_e('Specific posts or pages (IDs, comma separated)', 'simple-google-adsense'); ?></label>
                     <input type="text" id="adflow-exclude-ids" class="regular-text" name="<?php echo esc_attr($opt); ?>[auto_ads_exclude_ids]" value="<?php echo esc_attr(Simple_Google_Adsense_Settings::get('auto_ads_exclude_ids')); ?>" placeholder="12, 34" aria-describedby="adflow-exclude-ids-hint">
                     <?php self::render_excluded_ids_hint(Simple_Google_Adsense_Settings::get_excluded_ids(), 'adflow-exclude-ids-hint'); ?>
@@ -799,7 +826,7 @@ final class Simple_Google_Adsense_Admin
                     <?php self::toggle($opt . '[enable_manual_ads]', (bool) Simple_Google_Adsense_Settings::get('enable_manual_ads'), __('Show manual ads', 'simple-google-adsense')); ?>
                 <?php self::field_end(); ?>
 
-                <?php self::field_start(__('Turn off on', 'simple-google-adsense'), __('Hide manual ads on chosen content types or pages: placements, the block, widgets and shortcodes. Auto Ads have their own setting above.', 'simple-google-adsense')); ?>
+                <?php self::field_start(__('Pages without manual ads', 'simple-google-adsense'), __('Hide manual ads on chosen content types or pages: placements, the block, widgets and shortcodes. Auto Ads have their own setting above.', 'simple-google-adsense')); ?>
                     <fieldset class="adflow-checks">
                         <legend class="screen-reader-text"><?php esc_html_e('Content types without manual ads', 'simple-google-adsense'); ?></legend>
                         <?php foreach ($post_types as $post_type) : ?>
@@ -809,6 +836,7 @@ final class Simple_Google_Adsense_Admin
                             </label>
                         <?php endforeach; ?>
                     </fieldset>
+                    <?php Simple_Google_Adsense_Picker::render(array('label' => __('Find a post or page', 'simple-google-adsense'), 'placeholder' => __('Type a title or ID…', 'simple-google-adsense'), 'ids' => Simple_Google_Adsense_Settings::get_manual_excluded_ids(), 'target' => 'adflow-manual-exclude-ids')); ?>
                     <label class="adflow-sublabel" for="adflow-manual-exclude-ids"><?php esc_html_e('Specific posts or pages (IDs, comma separated)', 'simple-google-adsense'); ?></label>
                     <input type="text" id="adflow-manual-exclude-ids" class="regular-text" name="<?php echo esc_attr($opt); ?>[manual_ads_exclude_ids]" value="<?php echo esc_attr(Simple_Google_Adsense_Settings::get('manual_ads_exclude_ids')); ?>" placeholder="12, 34" aria-describedby="adflow-manual-exclude-ids-hint">
                     <?php self::render_excluded_ids_hint(Simple_Google_Adsense_Settings::get_manual_excluded_ids(), 'adflow-manual-exclude-ids-hint'); ?>
@@ -871,7 +899,9 @@ final class Simple_Google_Adsense_Admin
         $unit_count = count(Simple_Google_Adsense_Ad_Units::get_all());
         $auto = Simple_Google_Adsense_Settings::is_auto_ads_enabled();
 
-        if (!$auto && !$unit_count) {
+        if (!$auto && !$unit_count && Simple_Google_Adsense_Settings::get('enable_auto_ads')) {
+            $checks['ads'] = array('status' => 'warning', 'label' => __('Ads', 'simple-google-adsense'), 'message' => __('Auto Ads are waiting for a valid Publisher ID and no ad units exist yet.', 'simple-google-adsense'), 'action' => $settings_url, 'action_label' => __('Fix it', 'simple-google-adsense'));
+        } elseif (!$auto && !$unit_count) {
             $checks['ads'] = array('status' => 'warning', 'label' => __('Ads', 'simple-google-adsense'), 'message' => __('Auto Ads are off and no ad units exist yet.', 'simple-google-adsense'), 'action' => $settings_url, 'action_label' => __('Turn on Auto Ads', 'simple-google-adsense'));
         } else {
             $checks['ads'] = array('status' => 'ok', 'label' => __('Ads', 'simple-google-adsense'), 'message' => sprintf(
