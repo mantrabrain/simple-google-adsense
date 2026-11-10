@@ -42,7 +42,21 @@
 		show( '.adflow-field-image', 'image' === type.value );
 		show( '.adflow-field-text', 'text' === type.value );
 		show( '.adflow-field-link', 'image' === type.value || 'text' === type.value );
-		show( '#adflow-ad-unit-delivery', own );
+		// Never hide the Delivery box itself: Screen Options controls it, and an
+		// inline style here made it look ticked there while staying hidden.
+		var deliveryBox = document.getElementById( 'adflow-ad-unit-delivery' );
+		if ( deliveryBox && 'none' === deliveryBox.style.display && ! deliveryBox.classList.contains( 'hide-if-js' ) ) {
+			var tog = document.getElementById( 'adflow-ad-unit-delivery-hide' );
+			if ( ! tog || tog.checked ) {
+				deliveryBox.style.display = '';
+			}
+		}
+		Array.prototype.forEach.call( document.querySelectorAll( '.adflow-delivery-own' ), function ( el ) {
+			el.hidden = ! own;
+		} );
+		Array.prototype.forEach.call( document.querySelectorAll( '.adflow-delivery-note' ), function ( el ) {
+			el.hidden = own;
+		} );
 		if ( slot ) {
 			slot.style.display = [ 'display', 'inarticle', 'infeed', 'multiplex' ].indexOf( type.value ) !== -1 ? '' : 'none';
 		}
@@ -54,7 +68,14 @@
 	}
 
 	type.addEventListener( 'change', toggle );
+	// Select enhancers (select2, selectWoo) change the value through jQuery,
+	// which does not fire native listeners.
+	if ( window.jQuery ) {
+		window.jQuery( type ).on( 'change', toggle );
+	}
 	toggle();
+	// Other plugins may change the type after this script runs.
+	window.addEventListener( 'load', toggle );
 
 	// Banner image picker (media library).
 	var choose = document.getElementById( 'adflow-image-choose' );

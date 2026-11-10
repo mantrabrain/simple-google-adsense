@@ -2187,3 +2187,9 @@
 .adflow-pro-bought ol { margin: 0 0 14px 20px; }
 .adflow-pro-bought li { margin-bottom: 4px; }
 .adflow-pro-bought__actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+
+/* Delivery box: content follows the ad type; the box itself stays (Screen Options). */
+.adflow-delivery-own[hidden],
+.adflow-delivery-note[hidden] {
+	display: none !important;
+}

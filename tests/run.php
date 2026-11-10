@@ -1037,6 +1037,29 @@ function adflow_test_upgrade_page()
 }
 $adflow_test_sections[] = 'adflow_test_upgrade_page';
 
+/**
+ * The Delivery box itself is never hidden by AdFlow (Screen Options owns it);
+ * only its content follows the ad type.
+ */
+function adflow_test_delivery_box_screen_options()
+{
+    $units = Simple_Google_Adsense_Ad_Units::instance();
+    foreach (array('image' => true, 'display' => false) as $type => $own) {
+        $id = wp_insert_post(array('post_type' => Simple_Google_Adsense_Ad_Units::POST_TYPE, 'post_status' => 'draft', 'post_title' => 'Delivery test ' . $type));
+        update_post_meta($id, Simple_Google_Adsense_Ad_Units::META_KEY, array('type' => $type));
+        ob_start();
+        $units->render_delivery_box(get_post($id));
+        $html = (string) ob_get_clean();
+        wp_delete_post($id, true);
+        adflow_check("delivery box ($type): schedule fields are rendered", false !== strpos($html, 'id="adflow-start"'));
+        adflow_check("delivery box ($type): content " . ($own ? 'shown' : 'hidden') . ' for this type', (bool) preg_match('/class="adflow-delivery-own"\s*' . ($own ? '>' : 'hidden>') . '/', $html));
+    }
+    $js = (string) file_get_contents(dirname(__DIR__) . '/assets/js/admin-ad-unit.js');
+    adflow_check('admin-ad-unit.js never hides the Delivery postbox itself', false === strpos($js, "show( '#adflow-ad-unit-delivery'"));
+    adflow_check('admin-ad-unit.js also reacts to jQuery-triggered type changes', false !== strpos($js, "jQuery( type ).on( 'change'"));
+}
+$adflow_test_sections[] = 'adflow_test_delivery_box_screen_options';
+
 // ---- Run (keep this block last) ----
 foreach ($adflow_test_sections as $adflow_test_section) {
     echo '== ' . $adflow_test_section . "\n";

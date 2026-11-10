@@ -4,7 +4,7 @@ Tags: adsense, ads, ad manager, ads.txt, ad inserter
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.6.0
+Stable tag: 1.6.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -273,6 +273,11 @@ Read **AdFlow → Docs** in your dashboard, or ask in the [support forum](https:
 
 == Changelog ==
 
+= 1.6.1 | 2026/11/10 =
+
+* Fixed: on some sites the Delivery box (label, start and end dates, statistics) stayed hidden on the ad unit screen even though it was ticked under Screen Options. The box now always shows, and its fields follow the ad type; AdSense units show a short note instead.
+* Fixed: the ad unit screen now also follows type changes made by select-menu plugins.
+
 = 1.6.0 | 2026/11/06 =
 
 **New**
@@ -409,6 +414,9 @@ Read **AdFlow → Docs** in your dashboard, or ask in the [support forum](https:
 * Basic Auto Ads functionality
 
 == Upgrade Notice ==
+
+= 1.6.1 =
+Fixes the Delivery box (start and end dates) staying hidden on some sites.
 
 = 1.6.0 =
 Any number of in-content ads, free conditions, AMP, Elementor and Bricks, plus security fixes. If you use "Load ads after consent", check the Privacy tab: ads no longer load on a timer. Update AdFlow Pro to 1.2.0 with it.

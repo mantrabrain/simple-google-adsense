@@ -741,6 +741,13 @@ final class Simple_Google_Adsense_Ad_Units
             }
         }
 
+        // The box always stays (so Screen Options and the page agree); only its
+        // content follows the ad type. Delivery settings apply to your own ads.
+        $own = self::is_own_ad($data['type']);
+        ?>
+        <p class="adflow-delivery-note description" <?php echo $own ? 'hidden' : ''; ?>><?php esc_html_e('Label, schedule and statistics apply to your own ads: image banners, text ads and custom code. Google decides when AdSense ads show.', 'simple-google-adsense'); ?></p>
+        <div class="adflow-delivery-own" <?php echo $own ? '' : 'hidden'; ?>>
+        <?php
         $A::field_start(__('Disclosure label', 'simple-google-adsense'), __('Laws in many countries (FTC, ASA) require paid placements to be clearly marked.', 'simple-google-adsense'), 'adflow-disclosure');
         ?>
         <select id="adflow-disclosure" name="adflow_ad[disclosure]">
@@ -785,6 +792,7 @@ final class Simple_Google_Adsense_Ad_Units
          * @since 1.4.0
          */
         do_action('adflow_ad_unit_delivery_fields', $data, $post);
+        echo '</div>';
     }
 
     /**

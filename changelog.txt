@@ -1,3 +1,6 @@
+= 1.6.1 | 2026/11/10
+ - Fixed: Delivery box (schedule) hidden while ticked under Screen Options; type changes from select-menu plugins
+
 = 1.6.0 | 2026/11/06
  - Added: any number of in-content ads, CSS selector placement, placement conditions, per-post box, post picker
  - Added: AMP, Elementor widget, Bricks element, WPML and Polylang support, privacy exporter and eraser
