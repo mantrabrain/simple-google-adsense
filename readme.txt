@@ -2,9 +2,9 @@
 Contributors: MantraBrain, MatrixAddons
 Tags: adsense, ads, ad manager, ads.txt, ad inserter
 Requires at least: 6.4
-Tested up to: 7.1
+Tested up to: 7.2
 Requires PHP: 7.4
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -273,6 +273,11 @@ Read **AdFlow → Docs** in your dashboard, or ask in the [support forum](https:
 
 == Changelog ==
 
+= 1.6.2 | 2026/11/26 =
+
+* Improved: tested with WordPress 7.2, including its new default theme, Ipsum, on PHP 7.4 to 8.5.
+* Improved: "Tested up to" is now kept only in readme.txt, as WordPress.org's Plugin Check asks.
+
 = 1.6.1 | 2026/11/10 =
 
 * Fixed: on some sites the Delivery box (label, start and end dates, statistics) stayed hidden on the ad unit screen even though it was ticked under Screen Options. The box now always shows, and its fields follow the ad type; AdSense units show a short note instead.
@@ -414,6 +419,9 @@ Read **AdFlow → Docs** in your dashboard, or ask in the [support forum](https:
 * Basic Auto Ads functionality
 
 == Upgrade Notice ==
+
+= 1.6.2 =
+Ready for WordPress 7.2. No changes to your settings or ads.
 
 = 1.6.1 =
 Fixes the Delivery box (start and end dates) staying hidden on some sites.

@@ -3,7 +3,7 @@
  * Plugin Name:       AdFlow – Ad Inserter & Ad Manager: AdSense, Banner Ads & ads.txt
  * Plugin URI:        https://wordpress.org/plugins/simple-google-adsense/
  * Description:       Ad inserter and ad manager for Google AdSense, any ad network and your own banner ads: Auto Ads, reusable ad units, automatic placements, ads.txt, Consent Mode v2, sponsor ads with statistics, block, widget and shortcodes.
- * Version:           1.6.1
+ * Version:           1.6.2
  * Author:            MantraBrain
  * Author URI:        https://mantrabrain.com/
  * License:           GPL-2.0+
@@ -11,7 +11,6 @@
  * Text Domain:       simple-google-adsense
  * Domain Path:       /languages
  * Requires at least: 6.4
- * Tested up to:      7.1
  * Requires PHP:      7.4
  */
 
@@ -26,7 +25,7 @@ if (!defined('SIMPLE_GOOGLE_ADSENSE_FILE')) {
 
 // Define SIMPLE_GOOGLE_ADSENSE_VERSION.
 if (!defined('SIMPLE_GOOGLE_ADSENSE_VERSION')) {
-    define('SIMPLE_GOOGLE_ADSENSE_VERSION', '1.6.1');
+    define('SIMPLE_GOOGLE_ADSENSE_VERSION', '1.6.2');
 }
 
 // Define SIMPLE_GOOGLE_ADSENSE_PLUGIN_URI.

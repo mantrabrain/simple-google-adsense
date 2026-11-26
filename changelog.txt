@@ -1,3 +1,7 @@
+= 1.6.2 | 2026/11/26
+ - Improved: tested with WordPress 7.2 (and its new Ipsum theme) on PHP 7.4 to 8.5
+ - Improved: "Tested up to" kept only in readme.txt, as Plugin Check asks
+
 = 1.6.1 | 2026/11/10
  - Fixed: Delivery box (schedule) hidden while ticked under Screen Options; type changes from select-menu plugins
 
